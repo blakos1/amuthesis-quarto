@@ -1,25 +1,31 @@
 # Przegląd literatury {#sec-lit}
 
-Ten rozdział zawiera wyjaśnienie kontekstu pracy.
+<!-- Ten rozdział zawiera wyjaśnienie kontekstu pracy. -->
 
-Pisząc ten rozdział proszę pomyśleć o osobach, które zupełnie nie znają opisywanej tematyki.
-Należy tutaj krok po kroku wyjaśnić podstawowe koncepcje, istotność problemu, wyniki poprzednich podobnych badań, itd.
-Ten rozdział obejmuje tylko kwestie, które już zostały wykonane przez inne osoby - nowe wyniki mają swoje miejsce w rozdziale [-@sec-wyniki].
+<!-- Pisząc ten rozdział proszę pomyśleć o osobach, które zupełnie nie znają opisywanej tematyki. -->
+<!-- Należy tutaj krok po kroku wyjaśnić podstawowe koncepcje, istotność problemu, wyniki poprzednich podobnych badań, itd. -->
+<!-- Ten rozdział obejmuje tylko kwestie, które już zostały wykonane przez inne osoby - nowe wyniki mają swoje miejsce w rozdziale [-@sec-wyniki]. -->
 
-Każda kwestia opisana w tym rozdziale powinna być cytowana.
-Dodatnie cytowania odbywa się poprzez uzupełnienie pliku `thesis.bib` zapisem w formacie BibTeX, a następnie dodanie nazwy referencji poprzedzonej znakiem `@`.
-Przykładowo, zacytowanie książki Geocomputation with R odbywa się poprzez [@lovelace_geocomputation_2019].
+<!-- Każda kwestia opisana w tym rozdziale powinna być cytowana. -->
+<!-- Dodatnie cytowania odbywa się poprzez uzupełnienie pliku `thesis.bib` zapisem w formacie BibTeX, a następnie dodanie nazwy referencji poprzedzonej znakiem `@`. -->
+<!-- Przykładowo, zacytowanie książki Geocomputation with R odbywa się poprzez [@lovelace_geocomputation_2019]. -->
 <!-- https://tex.stackexchange.com/questions/143/what-are-good-sites-to-find-citations-in-bibtex-format -->
 
-W przypadku, gdy cytowanie zostało poprawnie wpisane oraz istnieje w pliku `thesis.bib` to bibliografia powinna się automatycznie wygenerować na końcu pracy.
+<!-- W przypadku, gdy cytowanie zostało poprawnie wpisane oraz istnieje w pliku `thesis.bib` to bibliografia powinna się automatycznie wygenerować na końcu pracy. -->
 
-W przypadku, gdy praca dyplomowa opisuje konkretny obszar to można po tym rozdziale stworzyć kolejny rozdział opisujący "obszar badań".
+<!-- W przypadku, gdy praca dyplomowa opisuje konkretny obszar to można po tym rozdziale stworzyć kolejny rozdział opisujący "obszar badań". -->
 
-Ten i kolejne rozdziału moją mieć także podrozdziały.
-Tworzenie podrozdziałów polega na stworzeniu nowej linii rozpoczynającej się od znaków `##` a następnie tytułu podrozdziału.
-Dodatkowo w postaci `{#sec-}` można dodać skrót nazwy rozdziału/podrozdziału umożliwiający odnoszenie się do niego używając operatora `[-@sec]`.
+<!-- Ten i kolejne rozdziału moją mieć także podrozdziały. -->
+<!-- Tworzenie podrozdziałów polega na stworzeniu nowej linii rozpoczynającej się od znaków `##` a następnie tytułu podrozdziału. -->
+<!-- Dodatkowo w postaci `{#sec-}` można dodać skrót nazwy rozdziału/podrozdziału umożliwiający odnoszenie się do niego używając operatora `[-@sec]`. -->
 
-## Podrozdział {#sec-podr}
+<!-- ## Podrozdział {#sec-podr} -->
 
-Przykładowo, "te kwestie zostały opisane w podrozdziale [-@sec-podr]".
-Zwróć uwagę, że w ten sposób automatycznie tworzony jest odnośnik w pliku PDF.
+<!-- Przykładowo, "te kwestie zostały opisane w podrozdziale [-@sec-podr]". -->
+<!-- Zwróć uwagę, że w ten sposób automatycznie tworzony jest odnośnik w pliku PDF. -->
+
+
+\textcolor{red}{
+cały rozdział o tym jakie są rodziny miar odległości, skąd się wywodzą, kto je stworzył i jak są liczone
+* dodać rozdział 2 przegląd literatury - rozdział teoretyczny, opisujący czym są kompozycja, konfiguracja, macierze współwystępowania, wektor współwystępowania, metryki entropia, informacja wzajemna, na czym polega porównywanie dwóch obrazów i miary niepodobieństwa i przykłady.
+}

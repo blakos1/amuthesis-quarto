@@ -1,22 +1,66 @@
 # Metody {#sec-metody}
 
-Rozdział **Metody** zawiera opis użytych metod (np. statystycznych czy geostatystycznych) oraz technologii (np. pakiety R). 
-Opis każdej z metod czy technologi powinien być zwarty i zawierać tylko najważniejsze informacje z punktu widzenia pracy dyplomowej.
+<!-- Rozdział **Metody** zawiera opis użytych metod (np. statystycznych czy geostatystycznych) oraz technologii (np. pakiety R).  -->
+<!-- Opis każdej z metod czy technologi powinien być zwarty i zawierać tylko najważniejsze informacje z punktu widzenia pracy dyplomowej. -->
 
-Każda użyta metoda i technologia powinna być zacytowana.
-W przypadku pakietów R, wystarczy wypełnić poniższy blok kodu (zwróć uwagę, że ten blok kodu ma parametr `echo: false`; oznacza to, że będzie on niewidoczny w wynikowym pliku PDF)...
+<!-- Każda użyta metoda i technologia powinna być zacytowana. -->
+<!-- W przypadku pakietów R, wystarczy wypełnić poniższy blok kodu (zwróć uwagę, że ten blok kodu ma parametr `echo: false`; oznacza to, że będzie on niewidoczny w wynikowym pliku PDF)... -->
 
-```{r}
-#| label: pakietbib
-#| echo: false
-#| warning: false
-pakiety = c("base", "kableExtra")
-knitr::write_bib(pakiety, "packages.bib", width = 60)
-```
+<!-- ```{r} -->
+<!-- #| label: pakietbib -->
+<!-- #| echo: false -->
+<!-- #| warning: false -->
+<!-- pakiety = c("base", "kableExtra") -->
+<!-- knitr::write_bib(pakiety, "packages.bib", width = 60) -->
+<!-- ``` -->
 
-... a następnie zacytować pakiet używając znaku `@`, po którym podać nazwę pakietu rozpoczynającą się od prefiksu `R-`.
-Przykładowe cytowanie języka R bez nawiasu to @R-base, a pakietu **kableExtra** w nawiasie to [@R-kableExtra].
-Więcej przykładów cytowania można znaleźć na stronie https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html#citations.
+<!-- ... a następnie zacytować pakiet używając znaku `@`, po którym podać nazwę pakietu rozpoczynającą się od prefiksu `R-`. -->
+<!-- Przykładowe cytowanie języka R bez nawiasu to @R-base, a pakietu **kableExtra** w nawiasie to [@R-kableExtra]. -->
+<!-- Więcej przykładów cytowania można znaleźć na stronie https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html#citations. -->
 
-W przypadkach, gdy cytowanie istnieje, ale nie jest pakietem R to należy dodać je do pliku `thesis.bib` i użyć powyższej składni ze znakiem `@`.
-W ostateczności, gdy dana technologia nie posiada cytowania, należy podać jej adres internetowy.
+<!-- W przypadkach, gdy cytowanie istnieje, ale nie jest pakietem R to należy dodać je do pliku `thesis.bib` i użyć powyższej składni ze znakiem `@`. -->
+<!-- W ostateczności, gdy dana technologia nie posiada cytowania, należy podać jej adres internetowy. -->
+
+## Przygotowanie danych {#sec-przyg-danych}
+
+Zbiór rastrów został przygotowany w oparciu o wykorzystanie funkcji nlm_fbm z pakietu NLMR.
+Funkcja ta bazuje na symulowaniu ułamkowych ruchów Browna.
+<tu opisać jak to działa?>
+Najważniejszym założeniem przy tworzeniu zbioru obrazów było przygotowanie ich w sposób umożliwiający uzyskanie pełnej reprezentacji wszystkich możliwych wartości przestrzennej kompozycji jak i konfiguracji.
+
+W kolejnym etapie obliczone zostały wybrane metryki: entropia (ent), informacja wzajemna (mutinf) oraz względna informacja wzajemna (relmutinf), które pozwoliły na potwierdzenie uzyskania oczekiwanego rozkładu kompozycji i konfiguracji wewnątrz zbioru rastrów.
+W celu stwierdzenia zależności między liczbą kategorii na rastrach a postrzeganiem, przez ankietowanych, podobieństw w strukturach przestrzennych, wygenerowane zostały zarówno zbiory rastrów składających się z dwóch kategorii, jak i trzech kategorii.
+Przykład jednego ze zbiorów wygenerowanych rastrów przedstawia rycina 1.
+
+Ryc. 1. Przykład zbioru wygenerowanych rastrów (2 kategorie pokrycia terenu).
+
+W kolejnym etapie, rastry z każdego zbioru zostały połączone w pary.
+W ten sposób, dla każdego ze zbiorów, otrzymany został zbiór wszystkich możliwych par rastrów.
+Pozwoliło to na wybranie podzbioru par rastrów, które umieszczone zostały w ankiecie.
+
+## Cel badania
+Celem pierwszej ankiety była wstępna analiza zależności wśród metod określania zmian struktury przestrzennej kategorii pokrycia terenu. Przeprowadzenie ankiety pozwoliło także na wyznaczenie dalszego kierunku badań, jak i celów, które miałyby zostać osiągnięte w wyniku kolejnej ankiety.
+
+## Próba badawcza
+Pierwsza ankieta przeprowadzona została w listopadzie 2022 roku. W badaniach łącznie udział wzięło 50 studentów Wydziału Nauk Geograficznych i Geologicznych im. Adama Mickiewicza w Poznaniu. Pytania o odnoszące się do przynależności demograficzno-społecznych ankietowanych zostały celowo pominięte zarówno w celu pełnej anonimizacji udzielonych odpowiedzi oraz aby ankietowani czuli się swobodniej podczas wypełniania formularza.
+
+## Forma ankiety
+Ze względu na charakterystykę tematu badań ankieta przeprowadzona została w sposób cyfrowy. Ankieta stworzona została w formie aplikacji internetowej za pomocą języka programowania R, na podstawie pakietów shiny oraz shinysurveys. Sama aplikacja umieszczona została na platformie shinyapps.io (https://www.shinyapps.io/), w celu jak największego ułatwienia ankietowanym możliwości wypełnienia formularza.
+
+### Struktura pytań
+Przy każdym pytaniu zadaniem ankietowanych było określenie podobieństwa między dwoma obrazami.
+Sposób przygotowania zbioru par wygenerowanych obrazów opisany został w podrozdziale #sec-przyg-danych.
+Do określenia podobieństwa ankietowani mieli do dyspozycji pięciostopniową skalę Likerta.
+Odpowiedzi uwzględniały pełen teoretyczny zakres podobieństwa podzielony na pięć przedziałów: brak podobieństwa, bardzo małe podobieństwo, umiarkowane podobieństwo, bardzo duże podobieństwo oraz pełne podobieństwo.
+Zastosowanie skali Likerta o nieparzystej liczbie przedziałów pozwoliło na zastosowanie przedziału środkowego, którego celem było reprezentowanie odpowiedzi neutralnych lub trudnych do określenia.
+Początkowo, zamiast skali Likerta planowano wykorzystać skalę liczbową, w zakresie mieszczącym się od 1 do 100, jednakże zrezygnowano z tego pomysłu, jako że znaczenie wartości na skali liczbowej może być interpretowane inaczej przez każdego respondenta oraz skala ta nie pozwala na uwzględnienie wspomnianej wcześniej odpowiedzi neutralnej.
+Należy także wspomnieć, że przed przystąpieniem do wypełnienia ankiety respondenci nie zostali poinformowani o możliwych interpretacjach skali podobieństwa między obrazami, a jedynie o tym, w jaki sposób pary obrazów mogą się od siebie różnić (przestrzenna kompozycja i konfiguracja).
+Przykład pytania uwzględnionego w pierwszej wersji ankiety przedstawia Rycina 1.
+
+Ryc. 1. Przykład pytania uwzględnionego w pierwszej wersji ankiety (2 kategorie).
+
+Pytania przedstawione ankietowanym zostały ułożone w uprzednio określonej kolejności.
+Każdy formularz składał się z 48 pytań, przy czym zostały one podzielone na dwie grupy po 24 pytania. 
+Pierwsza połowa pytań składała się z par obrazów uwzględniających wyłącznie dwie kategorie pokrycia terenu, natomiast druga połowa pytań z par obrazów uwzględniających trzy kategorie pokrycia terenu.
+Dla obu grup pytań losowo wybrane zostało 6 par obrazów różniących się wyłącznie konfiguracją, kolejne 6 par wyłącznie kompozycją, a następnie pozostałe 12 różniących się zarówno konfiguracją jak i kompozycją.
+Taki sposób losowania pytań pozwolił na zredukowanie liczby odpowiedzi wymaganych od respondentów, jak i ograniczenie wpływu błędu selekcji, który powstałby w wyniku niewłaściwej próby danych do badania.

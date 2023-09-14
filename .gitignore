@@ -6,3 +6,4 @@ _book/*
 _bookdown_files/*
 /.quarto/
 imienazwisko.tex
+/data/citations/*

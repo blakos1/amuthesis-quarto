@@ -1,0 +1,347 @@
+% This is a LaTeX thesis template for Adam Mickiewicz University.
+% to be used with Rmarkdown
+% This template was produced by Jakub Nowosad
+% Version: 16 February 2020
+
+% Inspired by:
+% This is a LaTeX thesis template for Monash University.
+% to be used with Rmarkdown
+% This template was produced by Rob Hyndman
+% Version: 6 September 2016
+
+\documentclass{amuthesis}
+% \usepackage[polish]{babel}
+\usepackage{polski}
+\renewcommand{\figurename}{Rycina} % Redefine default figure caption %
+\renewcommand{\tablename}{Tabela} % Redefine default table caption %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Add any LaTeX packages and other preamble here if required
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{booktabs,tabularx} % Allows kableExtra to work %
+\usepackage{indentfirst} % Adds indent in the first paragraph %
+\usepackage{bookmark} % Adds indent in the first paragraph %
+
+\author{Błażej Kościański}
+\title{Porównanie metod określania zmian struktury przestrzennej
+kategorii pokrycia terenu}
+\def\titleeng{TODO}
+\def\degreetitle{Praca magisterska}
+\def\major{Geoinformacja}
+\def\albumid{444861}
+\def\thesisyear{2023}
+
+% Add subject and keywords below
+\hypersetup{
+     %pdfsubject={The Subject},
+     %pdfkeywords={Some Keywords},
+     pdfauthor={Błażej Kościański},
+     pdftitle={Porównanie metod określania zmian struktury przestrzennej
+kategorii pokrycia terenu},
+     pdfproducer={quarto with LaTeX}
+}
+
+\bibliography{thesis.bibpackages.bib}
+
+\begin{document}
+
+\pagenumbering{arabic}
+
+\titlepage
+
+\bookmarksetup{startatroot}
+
+\hypertarget{streszczenie}{%
+\chapter*{Streszczenie}\label{streszczenie}}
+\addcontentsline{toc}{chapter}{Streszczenie}
+
+\markboth{Streszczenie}{Streszczenie}
+
+\textbf{Abstrakt}
+
+Streszczenie powinno przedstawiać skrótowo główny problem pracy i jego
+rozwiązanie. Możliwa struktura streszczenia to: (1) 1-3 zdania wstępu do
+problemu (czym się zajmujemy, dlaczego jest to ważne, jakie są
+problemy/luki do wypełnienia), (2) 1 zdanie opisujące cel pracy, (3) 1-3
+zdania przedstawiające użyte materiały (dane) i metody (techniki,
+narzędzia), (4) 1-3 zdania obrazujące główne wyniki pracy, (5) 1-2
+zdania podsumowujące; możliwe jest też określenie dalszych
+kroków/planów.
+
+Słowa kluczowe: (4-6 słów/zwrotów opisujących treść pracy, które nie
+wystąpiły w tytule)
+
+\textbf{Abstract}
+
+The abstract must be consistent with the above text.
+
+Keywords: (as stated before)
+
+\newpage
+
+\setstretch{1.2}\sf\tighttoc\doublespacing
+
+\bookmarksetup{startatroot}
+
+\hypertarget{sec-wprowadzenie}{%
+\chapter{Wprowadzenie}\label{sec-wprowadzenie}}
+
+Informacje geograficzne stanowią wyniki selekcji i przetwarzania danych
+dotyczących aspektów otaczającej nas przestrzeni geograficznej.
+Pozwalają na bardziej zrozumiałe i efektywne analizowanie,
+interpretowanie oraz modelowanie złożonych zjawisk i procesów
+zachodzących w naszym otoczeniu. Informacje geograficzne i ich aspekty
+nie stanowią niepodważalnych faktów, lecz często powstają w wyniku
+działań jednostek, jak i wspólnych wysiłków grup ekspertów, którzy
+zajmują się wyborem, analizą i klasyfikacją danych geograficznych
+\autocite{WhatIsLandCover}. W procesie tworzenia informacji
+geograficznych istnieje zatem pewien stopień subiektywności, który może
+wpłynąć na ostateczny kształt (ostateczną postać?) tych informacji, ich
+interpretację, jak i na ich użyteczność w kontekście innych zastosowań.
+Przykładem informacji geograficznej, której ostateczna postać zależna
+jest od założeń przyjętych w trakcie tworzenia danych przestrzennych na
+ich podstawie, jest pokrycie terenu.
+
+Przyjmuje się, że termin pokrycie terenu obejmuje zbiór wszelkich
+elementów obecnych na powierzchni Ziemi. W elementy pokrycia terenu
+włączają się obiekty związane z działalnością człowieka, skutkami sił
+przyrody oraz wszelkie inne istniejące obiekty, które mogą znaleźć się w
+przestrzeni geograficznej. Tworzenie dokładnych i wiarygodnych danych
+dotyczących pokrycia terenu jest niezbędne w kontekście wielu
+zastosowań, takich jak planowanie przestrzenne, ochrona środowiska, czy
+analiza zmian klimatycznych. Ostateczna forma tych danych jest jednak w
+dużej mierze determinowana przez wybory i założenia dokonywane w
+procesie ich tworzenia. W tym kontekście, analiza pokrycia terenu staje
+się istotnym polem badań, które skupia się na zarówno na technicznych
+aspektach zbierania danych, jak i na ich semantycznej interpretacji.
+
+Dane oraz wynikowe mapy pokrycia terenu są rezultatem skomplikowanego
+procesu przetwarzania i analizy danych przestrzennych najczęściej w
+postaci obrazów satelitarnych. Na początku tego procesu, satelity
+wyposażone w sensory rejestrują obrazy Ziemi z różnych zakresów
+widmowych. Uzyskane obrazy mogą być interpretowane manualnie przez grupy
+specjalistów. Pozwala to na uzyskanie map pokrycia terenu o wysokiej
+dokładności, kosztem długiego procesu ich tworzenia. Dużo mniej
+czasochłonną metodą jest przetwarzanie przy użyciu algorytmów.
+Umożliwiają one szybką, automatyczną identyfikację i klasyfikację
+różnych typów powierzchni kosztem mniejszej dokładności mapy wynikowej.
+Ostatecznie, dane przekształcone w mapy pokrycia terenu mogą posłużyć do
+analiz zmian pokrycia terenu.
+
+Celem analiz zmian pokrycia terenu jest przede wszystkim monitorowanie i
+pogłębienie aktualnej wiedzy na temat ewolucji otaczającego nas
+krajobrazu. Jest to istotne w kontekście ochrony przyrody, planowania
+przestrzennego, oceny wpływu inwestycji i infrastruktury na środowisko,
+a także w badaniach naukowych dotyczących zmian klimatycznych,
+bioróżnorodności oraz innych procesów ekologicznych
+\autocite{ChangeDetectionTechniques}. Dzięki analizie zmian pokrycia
+terenu można identyfikować obszary zagrożone degradacją, monitorować
+skutki urbanizacji, deforestacji czy erozji, co umożliwia podejmowanie
+odpowiednich działań w celu zrównoważonego zarządzania środowiskiem i
+zachowaniem jego integralności.
+
+W badaniach nad zmianami pokrycia terenu wykorzystuje się różnorodne
+metody analityczne \autocite{ChangeDetectionTechniques}. Niemniej
+jednak, wiele z tych technik koncentruje się na analizie zmian na
+poziomie indywidualnych komórek w siatce rastra. Choć podejście to może
+dostarczać użytecznych informacji dotyczących trendów zmian pokrycia
+terenu na niewielkich obszarach, charakteryzuje się istotnymi
+ograniczeniami w kontekście interpretacji wyników. Szczególnie w
+przypadku badań obejmujących rozległe terytoria, takie jak kraje czy
+nawet kontynenty, bardziej efektywne staje się zastosowanie metod
+opartych na analizie struktur przestrzennych \textcite{Netzel2015}.
+Głównym założeniem tych metod jest przekształcenie danych z postaci
+pojedynczych wartości komórek rastra w sygnatury przestrzenne.
+
+Sygnatury przestrzenne stanowią statystyczny opis układów przestrzennych
+kategorii pokrycia terenu na mniejszych, wydzielonych obszarach w
+obrębie całego zbioru danych. W celu porównania ze sobą dwóch sygnatur
+przestrzennych, wykorzystywane są miary niepodobieństwa. Umożliwiają one
+określenie w jakim stopniu dwa analizowane obszary się od siebie różnią.
+Opracowane zostało wiele różnych miar niepodobieństwa, takich jak
+odległość euklidesowa, odległość Canberra, metryka Wave Hedges,
+współczynnik podobieństwa Jaccarda, odległość Jensena-Shannona czy
+dywergencja Pearsona \autocite{Cha2007}. Współcześnie jednak nie
+określono, która z tych miar jest najbardziej zgodna zarówno z
+postrzeganiem przez człowieka, jak i wpływem zmian na procesy
+środowiskowe.
+
+Celem tej pracy było porównanie metod określania zmian struktury
+przestrzennej kategorii pokrycia terenu w kontekście ich korelacji z
+postrzeganiem zmian przestrzennych przez człowieka. W celu realizacji
+tego zadania przeprowadzona została ankieta, w której zadaniem
+respondentów było określenie stopnia podobieństwa między parami rastrów.
+Badania przeprowadzone zostały na rastrach składających się wyłącznie z
+dwóch lub trzech kategorii. Wyniki ankiety zestawione zostały z
+wartościami 46 miar niepodobieństwa. Na tej podstawie, do dalszej
+analizy wybrane zostało 8 miar niepodobieństwa charakteryzujących się
+największą zgodnością z ludzką percepcją zmian przestrzennych.
+
+\bookmarksetup{startatroot}
+
+\hypertarget{sec-lit}{%
+\chapter{Przegląd literatury}\label{sec-lit}}
+
+\textcolor{red}{
+cały rozdział o tym jakie są rodziny miar odległości, skąd się wywodzą, kto je stworzył i jak są liczone
+* dodać rozdział 2 przegląd literatury - rozdział teoretyczny, opisujący czym są kompozycja, konfiguracja, macierze współwystępowania, wektor współwystępowania, metryki entropia, informacja wzajemna, na czym polega porównywanie dwóch obrazów i miary niepodobieństwa i przykłady.
+}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{sec-materialy}{%
+\chapter{Materiały}\label{sec-materialy}}
+
+\textcolor{red}{
+* każdy rozdział zacząć opisując co w ogóle będzie w tym rozdziale
+* tabele z parametrami fract dim i proporcjami udziału kategorii
+* wykres z entropią i mutinf, relmutinf udowadniający że obliczenia zostały jakoś zwalidowane
+* jakoś zaznaczyć albo ponumerować rastry wykorzystane w ankiecie
+* dodać podrozdział dotyczący obliczonych metryk
+* przeliczyć wszystkie metryki z philentropy dla wszystkich par rastrów, policzyć między miarami korelacje, sprawdzić które miary się grupują grupowanie hierarchiczne, hierarchical cluster/ hclust
+}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{sec-metody}{%
+\chapter{Metody}\label{sec-metody}}
+
+\hypertarget{sec-przyg-danych}{%
+\section{Przygotowanie danych}\label{sec-przyg-danych}}
+
+Zbiór rastrów został przygotowany w oparciu o wykorzystanie funkcji
+nlm\_fbm z pakietu NLMR. Funkcja ta bazuje na symulowaniu ułamkowych
+ruchów Browna. \textless tu opisać jak to działa?\textgreater{}
+Najważniejszym założeniem przy tworzeniu zbioru obrazów było
+przygotowanie ich w sposób umożliwiający uzyskanie pełnej reprezentacji
+wszystkich możliwych wartości przestrzennej kompozycji jak i
+konfiguracji.
+
+W kolejnym etapie obliczone zostały wybrane metryki: entropia (ent),
+informacja wzajemna (mutinf) oraz względna informacja wzajemna
+(relmutinf), które pozwoliły na potwierdzenie uzyskania oczekiwanego
+rozkładu kompozycji i konfiguracji wewnątrz zbioru rastrów. W celu
+stwierdzenia zależności między liczbą kategorii na rastrach a
+postrzeganiem, przez ankietowanych, podobieństw w strukturach
+przestrzennych, wygenerowane zostały zarówno zbiory rastrów składających
+się z dwóch kategorii, jak i trzech kategorii. Przykład jednego ze
+zbiorów wygenerowanych rastrów przedstawia rycina 1.
+
+Ryc. 1. Przykład zbioru wygenerowanych rastrów (2 kategorie pokrycia
+terenu).
+
+W kolejnym etapie, rastry z każdego zbioru zostały połączone w pary. W
+ten sposób, dla każdego ze zbiorów, otrzymany został zbiór wszystkich
+możliwych par rastrów. Pozwoliło to na wybranie podzbioru par rastrów,
+które umieszczone zostały w ankiecie.
+
+\hypertarget{cel-badania}{%
+\section{Cel badania}\label{cel-badania}}
+
+Celem pierwszej ankiety była wstępna analiza zależności wśród metod
+określania zmian struktury przestrzennej kategorii pokrycia terenu.
+Przeprowadzenie ankiety pozwoliło także na wyznaczenie dalszego kierunku
+badań, jak i celów, które miałyby zostać osiągnięte w wyniku kolejnej
+ankiety.
+
+\hypertarget{pruxf3ba-badawcza}{%
+\section{Próba badawcza}\label{pruxf3ba-badawcza}}
+
+Pierwsza ankieta przeprowadzona została w listopadzie 2022 roku. W
+badaniach łącznie udział wzięło 50 studentów Wydziału Nauk
+Geograficznych i Geologicznych im. Adama Mickiewicza w Poznaniu. Pytania
+o odnoszące się do przynależności demograficzno-społecznych
+ankietowanych zostały celowo pominięte zarówno w celu pełnej
+anonimizacji udzielonych odpowiedzi oraz aby ankietowani czuli się
+swobodniej podczas wypełniania formularza.
+
+\hypertarget{forma-ankiety}{%
+\section{Forma ankiety}\label{forma-ankiety}}
+
+Ze względu na charakterystykę tematu badań ankieta przeprowadzona
+została w sposób cyfrowy. Ankieta stworzona została w formie aplikacji
+internetowej za pomocą języka programowania R, na podstawie pakietów
+shiny oraz shinysurveys. Sama aplikacja umieszczona została na
+platformie shinyapps.io (https://www.shinyapps.io/), w celu jak
+największego ułatwienia ankietowanym możliwości wypełnienia formularza.
+
+\hypertarget{struktura-pytaux144}{%
+\subsection{Struktura pytań}\label{struktura-pytaux144}}
+
+Przy każdym pytaniu zadaniem ankietowanych było określenie podobieństwa
+między dwoma obrazami. Sposób przygotowania zbioru par wygenerowanych
+obrazów opisany został w podrozdziale \#sec-przyg-danych. Do określenia
+podobieństwa ankietowani mieli do dyspozycji pięciostopniową skalę
+Likerta. Odpowiedzi uwzględniały pełen teoretyczny zakres podobieństwa
+podzielony na pięć przedziałów: brak podobieństwa, bardzo małe
+podobieństwo, umiarkowane podobieństwo, bardzo duże podobieństwo oraz
+pełne podobieństwo. Zastosowanie skali Likerta o nieparzystej liczbie
+przedziałów pozwoliło na zastosowanie przedziału środkowego, którego
+celem było reprezentowanie odpowiedzi neutralnych lub trudnych do
+określenia. Początkowo, zamiast skali Likerta planowano wykorzystać
+skalę liczbową, w zakresie mieszczącym się od 1 do 100, jednakże
+zrezygnowano z tego pomysłu, jako że znaczenie wartości na skali
+liczbowej może być interpretowane inaczej przez każdego respondenta oraz
+skala ta nie pozwala na uwzględnienie wspomnianej wcześniej odpowiedzi
+neutralnej. Należy także wspomnieć, że przed przystąpieniem do
+wypełnienia ankiety respondenci nie zostali poinformowani o możliwych
+interpretacjach skali podobieństwa między obrazami, a jedynie o tym, w
+jaki sposób pary obrazów mogą się od siebie różnić (przestrzenna
+kompozycja i konfiguracja). Przykład pytania uwzględnionego w pierwszej
+wersji ankiety przedstawia Rycina 1.
+
+Ryc. 1. Przykład pytania uwzględnionego w pierwszej wersji ankiety (2
+kategorie).
+
+Pytania przedstawione ankietowanym zostały ułożone w uprzednio
+określonej kolejności. Każdy formularz składał się z 48 pytań, przy czym
+zostały one podzielone na dwie grupy po 24 pytania. Pierwsza połowa
+pytań składała się z par obrazów uwzględniających wyłącznie dwie
+kategorie pokrycia terenu, natomiast druga połowa pytań z par obrazów
+uwzględniających trzy kategorie pokrycia terenu. Dla obu grup pytań
+losowo wybrane zostało 6 par obrazów różniących się wyłącznie
+konfiguracją, kolejne 6 par wyłącznie kompozycją, a następnie pozostałe
+12 różniących się zarówno konfiguracją jak i kompozycją. Taki sposób
+losowania pytań pozwolił na zredukowanie liczby odpowiedzi wymaganych od
+respondentów, jak i ograniczenie wpływu błędu selekcji, który powstałby
+w wyniku niewłaściwej próby danych do badania.
+
+\bookmarksetup{startatroot}
+
+\hypertarget{sec-wyniki}{%
+\chapter{Wyniki}\label{sec-wyniki}}
+
+Każdy respondent odpowiedział na 48 pytań, co oznacza, że uzyskano
+łącznie 2400 odpowiedzi na wszystkie pytania.
+
+\begin{itemize}
+\tightlist
+\item
+  spośród miar niepodobieństwa uwzględnionych w analizie, miara
+  Wave-Hedges charakteryzuje się największą korelacją z odpowiedziami
+  ankietowanych.
+\item
+  zarówno obrazy podzielone na dwa, jak i trzy kategorie pokrycia terenu
+  charakteryzują się podobnym rozkładem odpowiedzi
+\item
+  korelacja między miarami niepodobieństwa a odpowiedziami respondentów
+  jest silniejsza dla par rastrów z dwoma kategoriami.
+\end{itemize}
+
+Przeanalizowane wyniki ankiety wraz z opisem przyjętej metodyki projektu
+przedstawione zostały na posterze konferencyjnym pt.~„Porównanie metod
+określania zmian struktury przestrzennej kategorii pokrycia terenu'',
+autorstwa Błażeja Kościańskiego oraz dra hab. Jakuba Nowosada. Poster
+został przedstawiony w trakcie sesji posterowej na konferencji
+Geoinformacja: Nauka - Praktyka - Edukacja
+(https://geoinformacja20uam.pl/), odbywającej się w dniach 1-3 grudnia
+2022 roku na Wydziale Nauk Geograficznych i Geologicznych im. Adama
+Mickiewicza w Poznaniu.
+
+\bookmarksetup{startatroot}
+
+\hypertarget{podsumowanie}{%
+\chapter{Podsumowanie}\label{podsumowanie}}
+
+\printbibliography[heading=bibintoc, title=Bibliografia]
+
+\end{document}

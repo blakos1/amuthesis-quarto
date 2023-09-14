@@ -1,18 +1,26 @@
 # Wyniki {#sec-wyniki}
 
-Część **Wyniki** może składać się z jednego lub więcej rozdziałów. 
-Każdy z tych rozdziałów powinien mieć tytuł adekwatny do swojej treści.
+<!-- Część **Wyniki** może składać się z jednego lub więcej rozdziałów.  -->
+<!-- Każdy z tych rozdziałów powinien mieć tytuł adekwatny do swojej treści. -->
 
-Rozdziały wynikowe powinny korzystać z wiedzy opisanej w poprzednich rozdziałach (Rozdziały [-@sec-lit], [-@sec-materialy], [-@sec-metody]).
-W przypadku prac analitycznych, ich treść powinna przedstawiać kolejne etapy eksploracji i analizy danych.
-W przypadku prac technicznych, treść tych rozdziałów powinna opisywać stworzone narzędzia, a następnie pokazywać ich zastosowanie/a.
+<!-- Rozdziały wynikowe powinny korzystać z wiedzy opisanej w poprzednich rozdziałach (Rozdziały [-@sec-lit], [-@sec-materialy], [-@sec-metody]). -->
+<!-- W przypadku prac analitycznych, ich treść powinna przedstawiać kolejne etapy eksploracji i analizy danych. -->
+<!-- W przypadku prac technicznych, treść tych rozdziałów powinna opisywać stworzone narzędzia, a następnie pokazywać ich zastosowanie/a. -->
 
-W przypadku prac technicznych warto pokazywać fragmenty napisanego rozwiązania lub jego wywołania używając bloków kodu.
+<!-- W przypadku prac technicznych warto pokazywać fragmenty napisanego rozwiązania lub jego wywołania używając bloków kodu. -->
 
-```{r}
-moja_funkcja = function(x){
-  cat(x, "rządzi!")
-}
-moja_funkcja("Autor tej pracy")
-```
+<!-- ```{r} -->
+<!-- moja_funkcja = function(x){ -->
+<!--   cat(x, "rządzi!") -->
+<!-- } -->
+<!-- moja_funkcja("Autor tej pracy") -->
+<!-- ``` -->
 
+Każdy respondent odpowiedział na 48 pytań, co oznacza, że uzyskano łącznie 2400 odpowiedzi na wszystkie pytania. 
+
+- spośród miar niepodobieństwa uwzględnionych w analizie, miara Wave-Hedges charakteryzuje się największą korelacją z odpowiedziami ankietowanych.
+- zarówno obrazy podzielone na dwa, jak i trzy kategorie pokrycia terenu charakteryzują się podobnym rozkładem odpowiedzi
+- korelacja między miarami niepodobieństwa a odpowiedziami respondentów jest silniejsza dla par rastrów z dwoma kategoriami. 
+
+Przeanalizowane wyniki ankiety wraz z opisem przyjętej metodyki projektu przedstawione zostały na posterze konferencyjnym pt. „Porównanie metod określania zmian struktury przestrzennej kategorii pokrycia terenu”, autorstwa Błażeja Kościańskiego oraz dra hab. Jakuba Nowosada.
+Poster został przedstawiony w trakcie sesji posterowej na konferencji Geoinformacja: Nauka - Praktyka - Edukacja (https://geoinformacja20uam.pl/), odbywającej się w dniach 1-3 grudnia 2022 roku na Wydziale Nauk Geograficznych i Geologicznych im. Adama Mickiewicza w Poznaniu.

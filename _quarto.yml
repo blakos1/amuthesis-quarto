@@ -2,16 +2,16 @@ project:
   type: book
   output-dir: docs
 
-title: "Mój tytuł"
-titleeng: "My title"
-degreetype: "Praca inżynierska" #"Engineer's thesis"
-author: "Imię Nazwisko"
+title: "Porównanie metod określania zmian struktury przestrzennej kategorii pokrycia terenu"
+titleeng: "TODO"
+degreetype: "Praca magisterska" #"Engineer's thesis"
+author: "Błażej Kościański"
 major: "Geoinformacja" #"Geoinformation"
-albumid: "000000"
-year: "2022"
+albumid: "444861"
+year: "2023"
 
 book:
-  output-file: "imienazwisko"
+  output-file: "koscianski_mgr"
   chapters:
     - index.qmd
     #- 00-oswiadczenie.qmd

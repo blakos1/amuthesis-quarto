@@ -1,9 +1,49 @@
 # Wprowadzenie {#sec-wprowadzenie}
 
-Wprowadzenie powinno mieć charakter opisu od ogółu do szczegółu (np. trzy-pięć paragrafów).
-Pierwszy paragraf powinien być najbardziej ogólny, a kolejne powinny przybliżać czytelnika do problemu.
-Przedostatni paragraf powinien określić jaki jest problem (są problemy), który praca ma rozwiązać i dlaczego jest to (są one) ważne.
+<!-- akapit o subiektywności danych geograficznych -->
+Informacje geograficzne stanowią wyniki selekcji i przetwarzania danych dotyczących aspektów otaczającej nas przestrzeni geograficznej.
+Pozwalają na bardziej zrozumiałe i efektywne analizowanie, interpretowanie oraz modelowanie złożonych zjawisk i procesów zachodzących w naszym otoczeniu.
+Informacje geograficzne i ich aspekty nie stanowią niepodważalnych faktów, lecz często powstają w wyniku działań jednostek, jak i wspólnych wysiłków grup ekspertów, którzy zajmują się wyborem, analizą i klasyfikacją danych geograficznych [@WhatIsLandCover].
+W procesie tworzenia informacji geograficznych istnieje zatem pewien stopień subiektywności, który może wpłynąć na ostateczny kształt (ostateczną postać?) tych informacji, ich interpretację, jak i na ich użyteczność w kontekście innych zastosowań.
+Przykładem informacji geograficznej, której ostateczna postać zależna jest od założeń przyjętych w trakcie tworzenia danych przestrzennych na ich podstawie, jest pokrycie terenu.
 
-Wprowadzenie powinno być zakończone stwierdzeniem celu pracy.
-Dodatkowo tutaj może znaleźć się również krótki opis co zostało zrealizowane w pracy.
+<!-- akapit o tym czym jest pokrycie terenu -->
+Przyjmuje się, że termin pokrycie terenu obejmuje zbiór wszelkich elementów obecnych na powierzchni Ziemi.
+W elementy pokrycia terenu włączają się obiekty związane z działalnością człowieka, skutkami sił przyrody oraz wszelkie inne istniejące obiekty, które mogą znaleźć się w przestrzeni geograficznej.
+Tworzenie dokładnych i wiarygodnych danych dotyczących pokrycia terenu jest niezbędne w kontekście wielu zastosowań, takich jak planowanie przestrzenne, ochrona środowiska, czy analiza zmian klimatycznych.
+Ostateczna forma tych danych jest jednak w dużej mierze determinowana przez wybory i założenia dokonywane w procesie ich tworzenia.
+W tym kontekście, analiza pokrycia terenu staje się istotnym polem badań, które skupia się na zarówno na technicznych aspektach zbierania danych, jak i na ich semantycznej interpretacji.
 
+<!-- akapit o tym jak robione są mapy pokrycia terenu -->
+Dane oraz wynikowe mapy pokrycia terenu są rezultatem skomplikowanego procesu przetwarzania i analizy danych przestrzennych najczęściej w postaci obrazów satelitarnych.
+Na początku tego procesu, satelity wyposażone w sensory rejestrują obrazy Ziemi z różnych zakresów widmowych. Uzyskane obrazy mogą być interpretowane manualnie przez grupy specjalistów.
+Pozwala to na uzyskanie map pokrycia terenu o wysokiej dokładności, kosztem długiego procesu ich tworzenia.
+Dużo mniej czasochłonną metodą jest przetwarzanie przy użyciu algorytmów.
+Umożliwiają one szybką, automatyczną identyfikację i klasyfikację różnych typów powierzchni kosztem mniejszej dokładności mapy wynikowej.
+Ostatecznie, dane przekształcone w mapy pokrycia terenu mogą posłużyć do analiz zmian pokrycia terenu.
+
+<!-- akapit o tym że mapy pokrycia terenu można ze sobą porównywać a wyniki tego porównania mogą być wykorzystane w celu analizy zmian pokrycia terenu w czasie i przestrzeni -->
+Celem analiz zmian pokrycia terenu jest przede wszystkim monitorowanie i pogłębienie aktualnej wiedzy na temat ewolucji otaczającego nas krajobrazu.
+Jest to istotne w kontekście ochrony przyrody, planowania przestrzennego, oceny wpływu inwestycji i infrastruktury na środowisko, a także w badaniach naukowych dotyczących zmian klimatycznych, bioróżnorodności oraz innych procesów ekologicznych [@ChangeDetectionTechniques].
+Dzięki analizie zmian pokrycia terenu można identyfikować obszary zagrożone degradacją, monitorować skutki urbanizacji, deforestacji czy erozji, co umożliwia podejmowanie odpowiednich działań w celu zrównoważonego zarządzania środowiskiem i zachowaniem jego integralności.
+
+<!-- akapit o tym jakie istnieją sposoby porównywania zmian pokrycia terenu -->
+W badaniach nad zmianami pokrycia terenu wykorzystuje się różnorodne metody analityczne [@ChangeDetectionTechniques].
+Niemniej jednak, wiele z tych technik koncentruje się na analizie zmian na poziomie indywidualnych komórek w siatce rastra.
+Choć podejście to może dostarczać użytecznych informacji dotyczących trendów zmian pokrycia terenu na niewielkich obszarach, charakteryzuje się istotnymi ograniczeniami w kontekście interpretacji wyników.
+Szczególnie w przypadku badań obejmujących rozległe terytoria, takie jak kraje czy nawet kontynenty, bardziej efektywne staje się zastosowanie metod opartych na analizie struktur przestrzennych @Netzel2015.
+Głównym założeniem tych metod jest przekształcenie danych z postaci pojedynczych wartości komórek rastra w sygnatury przestrzenne.
+
+<!-- akapit o tym że są też miary odległości i czym one są -->
+Sygnatury przestrzenne stanowią statystyczny opis układów przestrzennych kategorii pokrycia terenu na mniejszych, wydzielonych obszarach w obrębie całego zbioru danych.
+W celu porównania ze sobą dwóch sygnatur przestrzennych, wykorzystywane są miary niepodobieństwa.
+Umożliwiają one określenie w jakim stopniu dwa analizowane obszary się od siebie różnią.
+Opracowane zostało wiele różnych miar niepodobieństwa, takich jak odległość euklidesowa, odległość Canberra, metryka Wave Hedges, współczynnik podobieństwa Jaccarda, odległość Jensena-Shannona czy dywergencja Pearsona  [@Cha2007].
+Współcześnie jednak nie określono, która z tych miar jest najbardziej zgodna zarówno z postrzeganiem przez człowieka, jak i wpływem zmian na procesy środowiskowe.
+
+<!-- cel pracy -->
+Celem tej pracy było porównanie metod określania zmian struktury przestrzennej kategorii pokrycia terenu w kontekście ich korelacji z postrzeganiem zmian przestrzennych przez człowieka.
+W celu realizacji tego zadania przeprowadzona została ankieta, w której zadaniem respondentów było określenie stopnia podobieństwa między parami rastrów.
+Badania przeprowadzone zostały na rastrach składających się wyłącznie z dwóch lub trzech kategorii.
+Wyniki ankiety zestawione zostały z wartościami 46 miar niepodobieństwa.
+Na tej podstawie, do dalszej analizy wybrane zostało 8 miar niepodobieństwa charakteryzujących się największą zgodnością z ludzką percepcją zmian przestrzennych.

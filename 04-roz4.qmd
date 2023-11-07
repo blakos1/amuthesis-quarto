@@ -1,4 +1,4 @@
-# Metody {#sec-metody}
+# Pierwsza ankieta {#sec-wyniki1}
 
 <!-- Rozdział **Metody** zawiera opis użytych metod (np. statystycznych czy geostatystycznych) oraz technologii (np. pakiety R).  -->
 <!-- Opis każdej z metod czy technologi powinien być zwarty i zawierać tylko najważniejsze informacje z punktu widzenia pracy dyplomowej. -->
@@ -21,46 +21,82 @@
 <!-- W przypadkach, gdy cytowanie istnieje, ale nie jest pakietem R to należy dodać je do pliku `thesis.bib` i użyć powyższej składni ze znakiem `@`. -->
 <!-- W ostateczności, gdy dana technologia nie posiada cytowania, należy podać jej adres internetowy. -->
 
-## Przygotowanie danych {#sec-przyg-danych}
 
-Zbiór rastrów został przygotowany w oparciu o wykorzystanie funkcji nlm_fbm z pakietu NLMR.
-Funkcja ta bazuje na symulowaniu ułamkowych ruchów Browna.
-<tu opisać jak to działa?>
-Najważniejszym założeniem przy tworzeniu zbioru obrazów było przygotowanie ich w sposób umożliwiający uzyskanie pełnej reprezentacji wszystkich możliwych wartości przestrzennej kompozycji jak i konfiguracji.
+W tym rozdziale zostanie omówiony cel przeprowadzenia pierwszej ankiety oraz istotne aspekty związane z jej formą. Następnie opisany zostanie sposób przygotowania danych wraz z przyjętą metodą doboru pytań do ankiety. W końcowej części rozdziału przeprowadzona zostanie analiza i podsumowanie wyników uzyskanych z ankiety. Wyniki zostaną zestawione z miarami niepodobieństwa uwzględnionymi w analizie oraz zostaną przedstawione pierwsze wnioski wynikające z przeprowadzonych analiz.
 
-W kolejnym etapie obliczone zostały wybrane metryki: entropia (ent), informacja wzajemna (mutinf) oraz względna informacja wzajemna (relmutinf), które pozwoliły na potwierdzenie uzyskania oczekiwanego rozkładu kompozycji i konfiguracji wewnątrz zbioru rastrów.
-W celu stwierdzenia zależności między liczbą kategorii na rastrach a postrzeganiem, przez ankietowanych, podobieństw w strukturach przestrzennych, wygenerowane zostały zarówno zbiory rastrów składających się z dwóch kategorii, jak i trzech kategorii.
-Przykład jednego ze zbiorów wygenerowanych rastrów przedstawia rycina 1.
+Pierwsza ankieta została przeprowadzona w celu uzyskania wstępnych informacji, mających na celu zrozumienie wpływu różnic w entropii oraz względnej informacji wzajemnej między parami analizowanych rastrów na postrzeganie zmian pokrycia terenu przez ludzi. Głównym celem badania było wykazanie potencjalnych związków między percepcją zmian w pokryciu terenu przez ludzi a miarami niepodobieństwa, które te zmiany kwantyfikują. Przeprowadzenie ankiety pozwoliło także na wyznaczenie dalszego kierunku badań, jak i celów, które miałyby zostać osiągnięte jako wynik kolejnej ankiety.
 
-Ryc. 1. Przykład zbioru wygenerowanych rastrów (2 kategorie pokrycia terenu).
+Badanie zostało realizowane w terminie od 21 do 24 listopada 2022 roku. Proces zbierania odpowiedzi respondentów przyjął formę ankiety online, co pozwoliło respondentom na wygodny udział w badaniu przy użyciu komputera lub urządzenia mobilnego. Ankieta stworzona została w formie aplikacji internetowej za pomocą języka programowania R, na podstawie pakietów shiny oraz shinysurveys. Sama aplikacja umieszczona została na platformie shinyapps.io (https://www.shinyapps.io/). Przeprowadzenie ankiety w formie online umożliwiło systematyczne gromadzenie oraz przechowywanie odpowiedzi w formie tabelarycznej, ułatwiając tym samym dalszą analizę i interpretację danych. Respondenci stanowili grupę 50 studentów Wydziału Nauk Geograficznych i Geologicznych Uniwersytetu im. Adama Mickiewicza. Wybór tej grupy respondentów oznacza, że byli oni już zaznajomieni z tematyką tworzenia i analiz map w formie rastrowej oraz pojęciem zmian pokrycia terenu.
 
-W kolejnym etapie, rastry z każdego zbioru zostały połączone w pary.
-W ten sposób, dla każdego ze zbiorów, otrzymany został zbiór wszystkich możliwych par rastrów.
-Pozwoliło to na wybranie podzbioru par rastrów, które umieszczone zostały w ankiecie.
+Każdy z ankietowanych otrzymał do wypełnienia jeden z dwóch wcześniej przygotowanych zbiorów pytań. Każdy ze zbiorów składał się z 48 pytań, przy czym część pytań między zbiorami się pokrywała. Oznacza to, że łącznie uzyskano odpowiedzi na 93 unikatowe pytania. W każdym z pytań zadaniem respondentów było określenie podobieństwa na podstawie dwóch załączonych rastrów. W ramach badania respondenci mieli możliwość wyrażania swoich odpowiedzi za pomocą pięciostopniowej skali Likerta, która obejmowała poziomy od "Brak" przez "Bardzo małe", "Umiarkowane", "Bardzo duże" aż po "Pełne". Wykorzystanie skali Likerta o nieparzystej liczbie przedziałów, pozwoliło na zastosowanie przedziału środkowego, którego celem było reprezentowanie odpowiedzi neutralnych lub trudnych do określenia. Początkowo, zamiast skali Likerta planowano wykorzystać skalę liczbową, w zakresie mieszczącym się od 1 do 100, jednakże zrezygnowano z tego pomysłu, jako że znaczenie wartości na skali liczbowej może być interpretowane inaczej przez każdego respondenta oraz skala ta nie pozwala na uwzględnienie wspomnianej wcześniej odpowiedzi neutralnej. Przykład pytania przedstawionego respondentom ilustruje rycina [-@fig-przyklad_pytania].
 
-## Cel badania
-Celem pierwszej ankiety była wstępna analiza zależności wśród metod określania zmian struktury przestrzennej kategorii pokrycia terenu. Przeprowadzenie ankiety pozwoliło także na wyznaczenie dalszego kierunku badań, jak i celów, które miałyby zostać osiągnięte w wyniku kolejnej ankiety.
+```{r}
+#| label: fig-przyklad_pytania
+#| echo: false
+#| fig-cap: "Przykładowe pytanie z pierwszej ankiety"
+#| out-width: "100%"
+#| out-height: 450px
+knitr::include_graphics("figures/przyklad_pytania.png")
+```
 
-## Próba badawcza
-Pierwsza ankieta przeprowadzona została w listopadzie 2022 roku. W badaniach łącznie udział wzięło 50 studentów Wydziału Nauk Geograficznych i Geologicznych im. Adama Mickiewicza w Poznaniu. Pytania o odnoszące się do przynależności demograficzno-społecznych ankietowanych zostały celowo pominięte zarówno w celu pełnej anonimizacji udzielonych odpowiedzi oraz aby ankietowani czuli się swobodniej podczas wypełniania formularza.
 
-## Forma ankiety
-Ze względu na charakterystykę tematu badań ankieta przeprowadzona została w sposób cyfrowy. Ankieta stworzona została w formie aplikacji internetowej za pomocą języka programowania R, na podstawie pakietów shiny oraz shinysurveys. Sama aplikacja umieszczona została na platformie shinyapps.io (https://www.shinyapps.io/), w celu jak największego ułatwienia ankietowanym możliwości wypełnienia formularza.
+## Dane i format pytań
 
-### Struktura pytań
-Przy każdym pytaniu zadaniem ankietowanych było określenie podobieństwa między dwoma obrazami.
-Sposób przygotowania zbioru par wygenerowanych obrazów opisany został w podrozdziale #sec-przyg-danych.
-Do określenia podobieństwa ankietowani mieli do dyspozycji pięciostopniową skalę Likerta.
-Odpowiedzi uwzględniały pełen teoretyczny zakres podobieństwa podzielony na pięć przedziałów: brak podobieństwa, bardzo małe podobieństwo, umiarkowane podobieństwo, bardzo duże podobieństwo oraz pełne podobieństwo.
-Zastosowanie skali Likerta o nieparzystej liczbie przedziałów pozwoliło na zastosowanie przedziału środkowego, którego celem było reprezentowanie odpowiedzi neutralnych lub trudnych do określenia.
-Początkowo, zamiast skali Likerta planowano wykorzystać skalę liczbową, w zakresie mieszczącym się od 1 do 100, jednakże zrezygnowano z tego pomysłu, jako że znaczenie wartości na skali liczbowej może być interpretowane inaczej przez każdego respondenta oraz skala ta nie pozwala na uwzględnienie wspomnianej wcześniej odpowiedzi neutralnej.
-Należy także wspomnieć, że przed przystąpieniem do wypełnienia ankiety respondenci nie zostali poinformowani o możliwych interpretacjach skali podobieństwa między obrazami, a jedynie o tym, w jaki sposób pary obrazów mogą się od siebie różnić (przestrzenna kompozycja i konfiguracja).
-Przykład pytania uwzględnionego w pierwszej wersji ankiety przedstawia Rycina 1.
+Najważniejszym założeniem przy tworzeniu zbioru rastrów do pierwszej ankiety było przygotowanie ich w sposób umożliwiający uzyskanie pełnej reprezentacji wszystkich możliwych wartości przestrzennej kompozycji, jak i konfiguracji. Zbiór rastrów został przygotowany w oparciu o wykorzystanie funkcji *nlm_fbm* z pakietu NLMR [@NLMR2018]. Funkcja ta pozwala na symulację rastrów przy użyciu ułamkowych ruchów Browna, będących uproszczeniem ruchów Browna. W tej funkcji poziom korelacji między kolejnymi krokami jest kontrolowany za pomocą parametru "frac_dim". W kontekście tego badania, parametr ten reguluje konfigurację przestrzenną. Oznacza to, że w przypadku, gdy "frac_dim" przyjmuje niską wartość, wartości w generowanym rastrze rozmieszczone są w sposób losowy, zbliżony do szumu. Natomiast w przypadku wysokiej wartości "frac_dim", na wynikowym rastrze tworzą się skupiska najwyższych i najniższych wartości, a przejścia pomiędzy nimi mają płynny, wygładzony charakter. ***tutaj dodać kawałek kodu pokazujący jak działa funkcja?*** Kolejnym krokiem w procesie tworzenia danych było dodanie zróżnicowania rastrów na podstawie ich przestrzennej kompozycji. Zostało to osiągnięte poprzez podział każdego z wynikowych rastrów na kategorie w oparciu o stałe przedziały wartości dla wszystkich rastrów. Proces 
 
-Ryc. 1. Przykład pytania uwzględnionego w pierwszej wersji ankiety (2 kategorie).
+<!--
+```{r}
+library(NLMR)
+library(raster)
 
-Pytania przedstawione ankietowanym zostały ułożone w uprzednio określonej kolejności.
-Każdy formularz składał się z 48 pytań, przy czym zostały one podzielone na dwie grupy po 24 pytania. 
-Pierwsza połowa pytań składała się z par obrazów uwzględniających wyłącznie dwie kategorie pokrycia terenu, natomiast druga połowa pytań z par obrazów uwzględniających trzy kategorie pokrycia terenu.
-Dla obu grup pytań losowo wybrane zostało 6 par obrazów różniących się wyłącznie konfiguracją, kolejne 6 par wyłącznie kompozycją, a następnie pozostałe 12 różniących się zarówno konfiguracją jak i kompozycją.
-Taki sposób losowania pytań pozwolił na zredukowanie liczby odpowiedzi wymaganych od respondentów, jak i ograniczenie wpływu błędu selekcji, który powstałby w wyniku niewłaściwej próby danych do badania.
+sim1 = nlm_fbm(ncol = 100, nrow = 100, fract_dim = 0.1)
+sim2 = nlm_fbm(ncol = 100, nrow = 100, fract_dim = 1.6)
+
+plot(sim1)
+plot(sim2)
+
+```
+-->
+
+```{r}
+#| label: fig-wykres2_gen
+#| echo: false
+#| fig-cap: "Wizualizacja procesu symulacji rastrów do pierwszej ankiety albo placeholder zamiast pokazania jak działa funkcja"
+#| out-width: 400px
+#| out-height: 400px
+knitr::include_graphics("figures/wykres2_gen.png")
+```
+
+W następnym etapie przygotowania danych obliczone zostały wybrane miary opisujące struktury przestrzenne: entropia (ent), informacja wzajemna (mutinf) oraz względna informacja wzajemna (relmutinf). Miary te umożliwiły potwierdzenie uzyskania oczekiwanego rozkładu kompozycji i konfiguracji wewnątrz zbioru rastrów. Ostatecznie wygenerowane zostały zbiory rastrów składających się wyłącznie z dwóch lub trzech kategorii pokrycia terenu. Przykład jednego ze zbiorów rastrów przedstawia rycina [-@fig-wykres1_2classes]. Celem uwzględnienia w badaniu rastrów z większą liczbą kategorii było stwierdzenie potencjalnych zależności między liczbą kategorii na rastrach a postrzeganiem przez ankietowanych podobieństw w strukturach przestrzennych.
+
+Ostatnim krokiem przygotowania danych było wybranie najbardziej reprezentatywnych par rastrów tworzących poszczególne pytania.
+W tym celu, pytania w ankietach podzielone zostały na na dwie grupy, wewnątrz których znalazły się po trzy podgrupy pytań.
+W pierwszej kolejności respondenci zetknęli się z 24 pytaniami dotyczącymi rastrów uwzględniających wyłącznie dwie kategorie pokrycia terenu, a następnie z 24 pytaniami uwzględniającymi trzy kategorie pokrycia terenu.
+Pierwsza podgrupa pytań (6 par rastrów) składała się z par rastrów różniących się między sobą wyłącznie entropią.
+Podgrupa druga (6 par rastrów) zawierała wyłącznie rastry różniące się względną informacją wzajemną.
+Ostatnia podgrupa (12 par rastrów) składała się z pytań zróżnicowanych zarówno pod względem entropii, jak i względnej informacji wzajemnej. Taki sposób doboru pytań pozwolił na zredukowanie liczby odpowiedzi wymaganych od respondentów, jak i ograniczenie wpływu błędu selekcji, który powstałby w wyniku niewłaściwego doboru pytań.
+Respondenci celowo nie zostali poinformowani o występujących różnicach pomiędzy kolejnymi pytaniami, ponieważ mogłoby mieć to wpływ na udzielane przez nich odpowiedzi, co z kolei mogłoby wpłynąć na ostateczne wyniki badania.
+
+```{r}
+#| label: fig-wykres1_2classes
+#| echo: false
+#| fig-cap: "Przykład zbioru wygenerowanych rastrów (2 kategorie pokrycia terenu)"
+#| out-width: "100%"
+#| out-height: 500px
+knitr::include_graphics("figures/wykres1_2classes.png")
+```
+
+
+## Wyniki
+
+Łącznie uzyskane zostało 2400 odpowiedzi na pytania z ankiety. Podsumowanie uzyskanych odpowiedzi przedstawione zostało w tabeli 1. Według ankietowanych prawie 36% par rastrów charakteryzowała się brakiem podobieństwa, 32.6% uzyskanych odpowiedzi wskazywało na bardzo małe podobieństwo, 18.1% na umiarkowane, 11.6% bardzo duże, natomiast mniej niż 2% wskazywało na pełne podobieństwo. Warto tutaj także zwrócić uwagę, że zestawienia wszystkich odpowiedzi w zależności od liczby kategorii widocznych na rastrach nie wskazują na znaczące różnice w liczbie odpowiedzi dla danej kategorii. Największą różnicę stanowi w tym przypadku kategoria "Bardzo duże", dla której liczba odpowiedzi dla rastrów z dwoma i trzema kategoriami pokrycia terenu różni się zaledwie o 2.7%. Najmniejszą różnicą charakteryzuje się kategoria "Pełne", gdzie liczba odpowiedzi pomiędzy zestawami różni się o jedyne 0.9%.
+
+Poziom zgodności każdego pytania został obliczony jako stosunek najczęściej udzielonej odpowiedzi względem całkowitej liczby odpowiedzi. Całkowity poziom zgodności ankietowanych został oszacowany na 55%. Oznacza to, że 1321 z 2400 udzielonych odpowiedzi znajdowało się w grupie najczęstszej odpowiedzi dla danego pytania. Pytania różniące się zarówno entropią, jak i względną informacją wzajemną cechowały się najwyższym poziomem zgodności odpowiedzi wynoszącym 61%, podczas gdy pytania różniące się wyłącznie entropią uzyskały wynik 53%, a pytania różniące się wyłącznie względną informacją wzajemną uzyskały wynik 52%. Najwyższy poziom zgodności odpowiedzi osób ankietowanych wyniósł 92% i dotyczył pytania różniącego się zarówno entropią, jak i względną informacją wzajemną (dopisać jak bardzo różniły się ent i rmi). Najniższy poziom zgodności, czyli zaledwie 38%, osiągnęło aż 8 pytań. Wyłącznie dwa z nich dotyczyły pytań zawierających trzy kategorie pokrycia terenu, podczas gdy pozostałe - dwóch. 75% z tych pytań uwzględniało rastry różniące się pod względem względnej informacji przestrzennej (inna konfiguracja) przy zachowaniu tej samej entropii (identyczna kompozycja).
+
+W końcowym etapie analizy wyniki uzyskane z przeprowadzonej ankiety zostały zestawione z wynikami 45 różnych miar niepodobieństwa dla par rastrów uwzględnionych w ankiecie. Aby ocenić relacje między najczęstszymi odpowiedziami uczestników ankiety a miarami niepodobieństwa, przeprowadzono analizę korelacji Pearsona. W ten sposób uzyskano ostateczny ranking miar, który został przedstawiony w Tabeli 1. Na podstawie analizy korelacji można wywnioskować, że spośród 45 uwzględnionych w badaniu metod obliczania podobieństwa między parami rastrów, jedynie 6 z nich wykazuje dodatnią korelację z wynikami uzyskanymi z ankiety. Spośród wszystkich metod, najwyższą wartość korelacji osiągnęła metoda Fidelity ze współczynnikiem korelacji równym 0,34. Ponadto, miary "harmonic mean" i "intersection" również wykazały dość wysoki współczynnik korelacji. Jak wspomniano wyżej, nie wszystkie miary odległości charakteryzowały się dodatnim współczynnikiem korelacji. Miary "canberra", "divergence" i "clark" wykazały współczynniki korelacji poniżej -0,4, co wskazuje na ich umiarkowaną, ujemną zależność z wynikami ankiety. Oznacza to, że miary te wskazują na wysokie podobieństwo par rastrów, które ludzie określiliby jako zupełnie niepodobne i vice versa. Pytania dotyczące rastrów uwzględniających wyłącznie dwie kategorie pokrycia terenu z reguły charakteryzują się wyższym współczynnikiem korelacji z najczęstszymi odpowiedziami ankietowanych niż pytania z podziałem na trzy kategorie pokrycia terenu. Może to być wynikiem tego, że ludziom może łatwiej przychodzić określenie różnicy w rastrach, które zawierają mniejszą ilość informacji. Jedyny wyjątek stanowią w tej sytuacji wyłącznie miary, które osiągnęły najniższe wartości współczynnika korelacji. Dla rastrów z trzema kategoriami osiągnęły one jeszcze niższy współczynnik na poziomie nawet -0,77. Ich wyniki wskazują na silne, ujemne związki między analizowanymi zmiennymi.
+
+Otrzymane wartości współczynników korelacji nie pozwalają na definitywne stwierdzenie na istnienie liniowych relacji pomiędzy metodami określania niepodobieństwa a opinią człowieka, przynajmniej na podstawie analizy symulowanych danych rastrowych. Dotychczasowe wyniki dają ogólny zarys relacji miar niepodobieństwa do ludzkiej percepcji, w związku z czym w kolejnym etapie sporządzona została ankieta w pełni opierająca się o rzeczywiste dane rastrowe.
+
+Przeanalizowane wyniki pierwszej ankiety wraz z opisem przyjętej metodyki projektu przedstawione zostały na posterze konferencyjnym pt. „Porównanie metod określania zmian struktury przestrzennej kategorii pokrycia terenu”, autorstwa Błażeja Kościańskiego oraz dra hab. Jakuba Nowosada.
+Poster został przedstawiony w trakcie sesji posterowej na konferencji Geoinformacja: Nauka - Praktyka - Edukacja (https://geoinformacja20uam.pl/), odbywającej się w dniach 1-3 grudnia 2022 roku na Wydziale Nauk Geograficznych i Geologicznych im. Adama Mickiewicza w Poznaniu.
+

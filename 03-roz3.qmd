@@ -1,4 +1,4 @@
-# Materiały {#sec-materialy}
+# ??? {#sec-materialy}
 
 <!-- Celem tego rozdziału jest przedstawienie użytych w pracy danych. -->
 <!-- Należy wyjaśnić jakie dane zostały użyte, jakiego są one rodzaju, dla jakiego okresu zostały pobrane/stworzone, co one zawierają, etc. -->
@@ -45,11 +45,3 @@
 <!--   kableExtra::column_spec(2, width = "4cm") -->
 <!-- ``` -->
 
-\textcolor{red}{
-* każdy rozdział zacząć opisując co w ogóle będzie w tym rozdziale
-* tabele z parametrami fract dim i proporcjami udziału kategorii
-* wykres z entropią i mutinf, relmutinf udowadniający że obliczenia zostały jakoś zwalidowane
-* jakoś zaznaczyć albo ponumerować rastry wykorzystane w ankiecie
-* dodać podrozdział dotyczący obliczonych metryk
-* przeliczyć wszystkie metryki z philentropy dla wszystkich par rastrów, policzyć między miarami korelacje, sprawdzić które miary się grupują grupowanie hierarchiczne, hierarchical cluster/ hclust
-}

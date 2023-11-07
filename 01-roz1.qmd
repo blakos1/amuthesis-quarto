@@ -1,49 +1,50 @@
 # Wprowadzenie {#sec-wprowadzenie}
 
 <!-- akapit o subiektywności danych geograficznych -->
-Informacje geograficzne stanowią wyniki selekcji i przetwarzania danych dotyczących aspektów otaczającej nas przestrzeni geograficznej.
-Pozwalają na bardziej zrozumiałe i efektywne analizowanie, interpretowanie oraz modelowanie złożonych zjawisk i procesów zachodzących w naszym otoczeniu.
+Informacje geograficzne stanowią wyniki selekcji i przetwarzania danych **dotyczących aspektów** otaczającej nas przestrzeni geograficznej.
+Pozwalają na bardziej zrozumiałe i efektywne analizowanie, modelowanie oraz interpretowanie złożonych zjawisk i procesów zachodzących w naszym otoczeniu.
 Informacje geograficzne i ich aspekty nie stanowią niepodważalnych faktów, lecz często powstają w wyniku działań jednostek, jak i wspólnych wysiłków grup ekspertów, którzy zajmują się wyborem, analizą i klasyfikacją danych geograficznych [@WhatIsLandCover].
 W procesie tworzenia informacji geograficznych istnieje zatem pewien stopień subiektywności, który może wpłynąć na ostateczny kształt (ostateczną postać?) tych informacji, ich interpretację, jak i na ich użyteczność w kontekście innych zastosowań.
-Przykładem informacji geograficznej, której ostateczna postać zależna jest od założeń przyjętych w trakcie tworzenia danych przestrzennych na ich podstawie, jest pokrycie terenu.
+Przykładem informacji geograficznej, której ostateczna postać zależna jest od założeń przyjętych w trakcie tworzenia danych przestrzennych, jest pokrycie terenu.
 
 <!-- akapit o tym czym jest pokrycie terenu -->
-Przyjmuje się, że termin pokrycie terenu obejmuje zbiór wszelkich elementów obecnych na powierzchni Ziemi.
-W elementy pokrycia terenu włączają się obiekty związane z działalnością człowieka, skutkami sił przyrody oraz wszelkie inne istniejące obiekty, które mogą znaleźć się w przestrzeni geograficznej.
-Tworzenie dokładnych i wiarygodnych danych dotyczących pokrycia terenu jest niezbędne w kontekście wielu zastosowań, takich jak planowanie przestrzenne, ochrona środowiska, czy analiza zmian klimatycznych.
-Ostateczna forma tych danych jest jednak w dużej mierze determinowana przez wybory i założenia dokonywane w procesie ich tworzenia.
-W tym kontekście, analiza pokrycia terenu staje się istotnym polem badań, które skupia się na zarówno na technicznych aspektach zbierania danych, jak i na ich semantycznej interpretacji.
+Przyjmuje się, że termin pokrycie terenu obejmuje zbiór wszelkich elementów obecnych na powierzchni Ziemi (**dodać ref**).
+W elementy pokrycia terenu włączają się obiekty związane z działalnością człowieka, skutkami sił przyrody oraz wszelkie inne istniejące obiekty, które mogą znaleźć się w przestrzeni geograficznej (**dodać ref**).
+Tworzenie dokładnych i wiarygodnych danych dotyczących pokrycia terenu jest niezbędne w kontekście wielu zastosowań, takich jak planowanie przestrzenne (**dodać ref**), ochrona środowiska (**dodać ref**), czy analiza zmian klimatycznych (**dodać ref**).
+Ostateczna forma tych danych jest jednak w dużej mierze determinowana przez wybory i założenia dokonywane w procesie ich tworzenia (**ewentualnie dodać rycinę z przykładem mapy pokrycia terenu**).
+W tym kontekście, analiza pokrycia terenu staje się istotnym polem badań, które skupia się na zarówno na technicznych aspektach zbierania danych, jak i na ich semantycznej interpretacji (**dodać ref**).
 
 <!-- akapit o tym jak robione są mapy pokrycia terenu -->
-Dane oraz wynikowe mapy pokrycia terenu są rezultatem skomplikowanego procesu przetwarzania i analizy danych przestrzennych najczęściej w postaci obrazów satelitarnych.
+**w tym akapicie gdzieś wspomnieć o rastrach**
+Dane oraz wynikowe mapy pokrycia terenu są rezultatem złożonego procesu przetwarzania i analizy danych przestrzennych najczęściej w postaci obrazów satelitarnych (**dodać ref**).
 Na początku tego procesu, satelity wyposażone w sensory rejestrują obrazy Ziemi z różnych zakresów widmowych. Uzyskane obrazy mogą być interpretowane manualnie przez grupy specjalistów.
-Pozwala to na uzyskanie map pokrycia terenu o wysokiej dokładności, kosztem długiego procesu ich tworzenia.
+Pozwala to na uzyskanie map pokrycia terenu o wysokiej dokładności, kosztem długiego procesu ich tworzenia (**dodać ref**).
 Dużo mniej czasochłonną metodą jest przetwarzanie przy użyciu algorytmów.
-Umożliwiają one szybką, automatyczną identyfikację i klasyfikację różnych typów powierzchni kosztem mniejszej dokładności mapy wynikowej.
-Ostatecznie, dane przekształcone w mapy pokrycia terenu mogą posłużyć do analiz zmian pokrycia terenu.
+Umożliwiają one względnie szybką, półautomatyczną identyfikację i klasyfikację różnych typów powierzchni kosztem mniejszej dokładności mapy wynikowej (**dodać ref**).
+Ostatecznie, dane przekształcone w mapy pokrycia terenu mogą posłużyć do analiz zmian pokrycia terenu (**dodać ref**).
 
 <!-- akapit o tym że mapy pokrycia terenu można ze sobą porównywać a wyniki tego porównania mogą być wykorzystane w celu analizy zmian pokrycia terenu w czasie i przestrzeni -->
-Celem analiz zmian pokrycia terenu jest przede wszystkim monitorowanie i pogłębienie aktualnej wiedzy na temat ewolucji otaczającego nas krajobrazu.
-Jest to istotne w kontekście ochrony przyrody, planowania przestrzennego, oceny wpływu inwestycji i infrastruktury na środowisko, a także w badaniach naukowych dotyczących zmian klimatycznych, bioróżnorodności oraz innych procesów ekologicznych [@ChangeDetectionTechniques].
+Celem analiz zmian pokrycia terenu jest przede wszystkim monitorowanie i pogłębienie aktualnej wiedzy na temat ewolucji otaczającego nas krajobrazu (**dodać ref**).
+Jest to istotne w kontekście ochrony przyrody (**dodać ref**), planowania przestrzennego (**dodać ref**), oceny wpływu inwestycji (**dodać ref**) i infrastruktury na środowisko (**dodać ref**), a także w badaniach naukowych dotyczących zmian klimatycznych (**dodać ref**), bioróżnorodności (**dodać ref**) oraz innych procesów ekologicznych [@ChangeDetectionTechniques].
 Dzięki analizie zmian pokrycia terenu można identyfikować obszary zagrożone degradacją, monitorować skutki urbanizacji, deforestacji czy erozji, co umożliwia podejmowanie odpowiednich działań w celu zrównoważonego zarządzania środowiskiem i zachowaniem jego integralności.
 
 <!-- akapit o tym jakie istnieją sposoby porównywania zmian pokrycia terenu -->
 W badaniach nad zmianami pokrycia terenu wykorzystuje się różnorodne metody analityczne [@ChangeDetectionTechniques].
-Niemniej jednak, wiele z tych technik koncentruje się na analizie zmian na poziomie indywidualnych komórek w siatce rastra.
-Choć podejście to może dostarczać użytecznych informacji dotyczących trendów zmian pokrycia terenu na niewielkich obszarach, charakteryzuje się istotnymi ograniczeniami w kontekście interpretacji wyników.
-Szczególnie w przypadku badań obejmujących rozległe terytoria, takie jak kraje czy nawet kontynenty, bardziej efektywne staje się zastosowanie metod opartych na analizie struktur przestrzennych @Netzel2015.
-Głównym założeniem tych metod jest przekształcenie danych z postaci pojedynczych wartości komórek rastra w sygnatury przestrzenne.
+Niemniej jednak, wiele z tych technik koncentruje się na analizie zmian na poziomie indywidualnych komórek w siatce rastra (**dodać ref**).
+Choć podejście to może dostarczać użytecznych informacji dotyczących trendów zmian pokrycia terenu na niewielkich obszarach, charakteryzuje się ono istotnymi ograniczeniami w kontekście interpretacji wyników.
+Szczególnie w przypadku badań obejmujących rozległe terytoria, takie jak kraje czy nawet kontynenty, bardziej efektywne staje się zastosowanie metod opartych na analizie struktur przestrzennych [@Netzel2015].
+Głównym założeniem tych metod jest przekształcenie danych z postaci pojedynczych wartości komórek rastra w sygnatury przestrzenne, a następnie **DOPISAĆ**
 
 <!-- akapit o tym że są też miary odległości i czym one są -->
-Sygnatury przestrzenne stanowią statystyczny opis układów przestrzennych kategorii pokrycia terenu na mniejszych, wydzielonych obszarach w obrębie całego zbioru danych.
+Sygnatury przestrzenne stanowią statystyczny opis struktur przestrzennych kategorii pokrycia terenu na mniejszych, wydzielonych obszarach w obrębie całego zbioru danych.
 W celu porównania ze sobą dwóch sygnatur przestrzennych, wykorzystywane są miary niepodobieństwa.
-Umożliwiają one określenie w jakim stopniu dwa analizowane obszary się od siebie różnią.
+Umożliwiają one określenie w jakim stopniu dwa analizowane obszary się od siebie różnią pod względem **DOPISAĆ**
 Opracowane zostało wiele różnych miar niepodobieństwa, takich jak odległość euklidesowa, odległość Canberra, metryka Wave Hedges, współczynnik podobieństwa Jaccarda, odległość Jensena-Shannona czy dywergencja Pearsona  [@Cha2007].
 Współcześnie jednak nie określono, która z tych miar jest najbardziej zgodna zarówno z postrzeganiem przez człowieka, jak i wpływem zmian na procesy środowiskowe.
 
 <!-- cel pracy -->
-Celem tej pracy było porównanie metod określania zmian struktury przestrzennej kategorii pokrycia terenu w kontekście ich korelacji z postrzeganiem zmian przestrzennych przez człowieka.
-W celu realizacji tego zadania przeprowadzona została ankieta, w której zadaniem respondentów było określenie stopnia podobieństwa między parami rastrów.
+Celem tej pracy było porównanie metod określania zmian struktury przestrzennej kategorii pokrycia terenu w kontekście ich korelacji z postrzeganiem zmian przestrzennych przez ludzi.
+W celu realizacji tego zadania przeprowadzone zostały ankiety, w których zadaniem respondentów było określenie stopnia podobieństwa między parami rastrów.
 Badania przeprowadzone zostały na rastrach składających się wyłącznie z dwóch lub trzech kategorii.
 Wyniki ankiety zestawione zostały z wartościami 46 miar niepodobieństwa.
 Na tej podstawie, do dalszej analizy wybrane zostało 8 miar niepodobieństwa charakteryzujących się największą zgodnością z ludzką percepcją zmian przestrzennych.

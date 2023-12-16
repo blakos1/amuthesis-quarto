@@ -1,4 +1,4 @@
-# Druga ankieta {#sec-wyniki2}
+# Porównanie wyników {#sec-porownanie}
 
 <!-- Część **Wyniki** może składać się z jednego lub więcej rozdziałów.  -->
 <!-- Każdy z tych rozdziałów powinien mieć tytuł adekwatny do swojej treści. -->

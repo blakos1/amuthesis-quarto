@@ -29,18 +29,21 @@ Jest to istotne w kontekście ochrony przyrody (**dodać ref**), planowania prze
 Dzięki analizie zmian pokrycia terenu można identyfikować obszary zagrożone degradacją, monitorować skutki urbanizacji, deforestacji czy erozji, co umożliwia podejmowanie odpowiednich działań w celu zrównoważonego zarządzania środowiskiem i zachowaniem jego integralności.
 
 <!-- akapit o tym jakie istnieją sposoby porównywania zmian pokrycia terenu -->
-W badaniach nad zmianami pokrycia terenu wykorzystuje się różnorodne metody analityczne [@ChangeDetectionTechniques].
-Niemniej jednak, wiele z tych technik koncentruje się na analizie zmian na poziomie indywidualnych komórek w siatce rastra (**dodać ref**).
+W badaniach nad zmianami pokrycia terenu wykorzystuje się różnorodne metody analityczne.
+Niemniej jednak, wiele z tych technik koncentruje się na analizie zmian na poziomie indywidualnych komórek w siatce rastra [@ChangeDetectionTechniques].
 Choć podejście to może dostarczać użytecznych informacji dotyczących trendów zmian pokrycia terenu na niewielkich obszarach, charakteryzuje się ono istotnymi ograniczeniami w kontekście interpretacji wyników.
 Szczególnie w przypadku badań obejmujących rozległe terytoria, takie jak kraje czy nawet kontynenty, bardziej efektywne staje się zastosowanie metod opartych na analizie struktur przestrzennych [@Netzel2015].
-Głównym założeniem tych metod jest przekształcenie danych z postaci pojedynczych wartości komórek rastra w sygnatury przestrzenne, a następnie **DOPISAĆ**
+Głównym założeniem tych metod jest przekształcenie danych z postaci pojedynczych wartości komórek rastra w sygnatury przestrzenne, a następnie porównanie ich ze sobą za pomocą miar odległości i niepodobieństwa.
 
 <!-- akapit o tym że są też miary odległości i czym one są -->
 Sygnatury przestrzenne stanowią statystyczny opis struktur przestrzennych kategorii pokrycia terenu na mniejszych, wydzielonych obszarach w obrębie całego zbioru danych.
 W celu porównania ze sobą dwóch sygnatur przestrzennych, wykorzystywane są miary niepodobieństwa.
-Umożliwiają one określenie w jakim stopniu dwa analizowane obszary się od siebie różnią pod względem **DOPISAĆ**
-Opracowane zostało wiele różnych miar niepodobieństwa, takich jak odległość euklidesowa, odległość Canberra, metryka Wave Hedges, współczynnik podobieństwa Jaccarda, odległość Jensena-Shannona czy dywergencja Pearsona  [@Cha2007].
+Umożliwiają one określenie w jakim stopniu dwa analizowane obszary się od siebie różnią pod względem kompozycji oraz konfiguracji przestrzennej.
+Opracowane zostało wiele różnych miar niepodobieństwa, takich jak odległość euklidesowa, odległość Canberra, metryka Wave Hedges, współczynnik podobieństwa Jaccarda, odległość Jensena-Shannona czy dywergencja Pearsona [@Cha2007].
 Współcześnie jednak nie określono, która z tych miar jest najbardziej zgodna zarówno z postrzeganiem przez człowieka, jak i wpływem zmian na procesy środowiskowe.
+
+<!-- wady i zalety obu podejść -->
+wady i zalety obu podejść, np. że percepcja jest subiektywna i nie skaluje się
 
 <!-- cel pracy -->
 Celem tej pracy było porównanie metod określania zmian struktury przestrzennej kategorii pokrycia terenu w kontekście ich korelacji z postrzeganiem zmian przestrzennych przez ludzi.

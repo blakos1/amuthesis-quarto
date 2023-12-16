@@ -1,52 +1,182 @@
-# Metody określania zmian struktur przestrzennych {#sec-lit}
+# Metody {#sec-metody}
 
-<!-- Ten rozdział zawiera wyjaśnienie kontekstu pracy. -->
+<!-- 0. o czym będzie ten rozdział -->
+<!-- 1. rastry da się porównywać na dwa sposoby -->
+<!--   a. pierwszy sposób - na podstawie zmian pojedynczych komórek rastra -->
+<!--   b. drugi sposób - analiza struktur przestrzennych -->
+<!-- 4. czym są metryki krajobrazowe, przykłady i jak są liczone? -->
+<!-- 5. czym są struktury i sygnatury przestrzenne, jak są liczone? -->
+<!-- 6. miary niepodobieństwa i ich wykorzystanie do porównywania sygnatur przestrzennych, przykłady cove/coma/wecoma itp -->
 
-<!-- Pisząc ten rozdział proszę pomyśleć o osobach, które zupełnie nie znają opisywanej tematyki. -->
-<!-- Należy tutaj krok po kroku wyjaśnić podstawowe koncepcje, istotność problemu, wyniki poprzednich podobnych badań, itd. -->
-<!-- Ten rozdział obejmuje tylko kwestie, które już zostały wykonane przez inne osoby - nowe wyniki mają swoje miejsce w rozdziale [-@sec-wyniki]. -->
-
-<!-- Każda kwestia opisana w tym rozdziale powinna być cytowana. -->
-<!-- Dodatnie cytowania odbywa się poprzez uzupełnienie pliku `thesis.bib` zapisem w formacie BibTeX, a następnie dodanie nazwy referencji poprzedzonej znakiem `@`. -->
-<!-- Przykładowo, zacytowanie książki Geocomputation with R odbywa się poprzez [@lovelace_geocomputation_2019]. -->
-<!-- https://tex.stackexchange.com/questions/143/what-are-good-sites-to-find-citations-in-bibtex-format -->
-
-<!-- W przypadku, gdy cytowanie zostało poprawnie wpisane oraz istnieje w pliku `thesis.bib` to bibliografia powinna się automatycznie wygenerować na końcu pracy. -->
-
-<!-- W przypadku, gdy praca dyplomowa opisuje konkretny obszar to można po tym rozdziale stworzyć kolejny rozdział opisujący "obszar badań". -->
-
-<!-- Ten i kolejne rozdziału moją mieć także podrozdziały. -->
-<!-- Tworzenie podrozdziałów polega na stworzeniu nowej linii rozpoczynającej się od znaków `##` a następnie tytułu podrozdziału. -->
-<!-- Dodatkowo w postaci `{#sec-}` można dodać skrót nazwy rozdziału/podrozdziału umożliwiający odnoszenie się do niego używając operatora `[-@sec]`. -->
-
-<!-- ## Podrozdział {#sec-podr} -->
-
-<!-- Przykładowo, "te kwestie zostały opisane w podrozdziale [-@sec-podr]". -->
-<!-- Zwróć uwagę, że w ten sposób automatycznie tworzony jest odnośnik w pliku PDF. -->
+W tym rozdziale zostaną kolejno opisane wszystkie zagadnienia kluczowe do zrozumienia tematyki określania zróżnicowania struktur przestrzennych w kontekście zmian pokrycia terenu. W pierwszej kolejności wyjaśnione zostanie zagadnienie struktur przestrzennych. 
+Następnie omówione zostaną wskaźniki umożliwiające określanie charakterystyk struktur przestrzennych, czyli metryki krajobrazowe oraz sygnatury przestrzenne. Omówione zostaną koncepcje kompozycji oraz konfiguracji przestrzennej, a także miary umożliwiające ich obliczenie. Opisana zostanie także idea reprezentacji rastrów w postaci macierzy i wektorów współwystępowania. W następnej kolejności zostaną przedstawione dwie metody analiz zmian pokrycia terenu. Pierwsza, opierająca się na analizie różnic na poziomie indywidualnych komórek w siatce rastra, oraz druga, oparta na analizie struktur przestrzennych występujących wewnątrz rastra. Wyjaśnione zostaną zagadnienia miar odległości i niepodobieństwa oraz ich wykorzystania w analizach przestrzennych. Przedstawiony zostanie także proces obliczenia niepodobieństwa między parą rastrów. W końcowej części rozdziału opisany zostanie sposób symulacji danych rastrowych o określonej kompozycji i konfiguracji przestrzennej.
 
 
-<!-- cały rozdział o tym jakie są rodziny miar odległości, skąd się wywodzą, kto je stworzył i jak są liczone -->
-<!-- * dodać rozdział 2 przegląd literatury - rozdział teoretyczny, opisujący czym są kompozycja, konfiguracja, macierze współwystępowania, wektor współwystępowania, metryki entropia, informacja wzajemna, na czym polega porównywanie dwóch obrazów i miary niepodobieństwa i przykłady. -->
+
+## Struktury przestrzenne
+
+Znaczna część dziedziny ekologii krajobrazu opiera się na paradygmacie płatów [@mcgarigal2009]. Według tej idei krajobrazy składają się z jednostek (płatów), które charakteryzuje się jako wyodrębnione obszary o jednakowej kategorii pokrycia terenu [@forman1995land; @solon2002]. Każdy krajobraz natomiast cechuje się pewną strukturą przestrzenną, której różne cechy mogą następnie być opisywane na przykład za pomocą metryk krajobrazowych lub sygnatur przestrzennych.
 
 
-W tym rozdziale zostaną kolejno opisane wszystkie zagadnienia kluczowe do pełnego zrozumienia tematyki określania zmian struktur przestrzennych w kontekście tematu zmian pokrycia terenu. W pierwszej kolejności zostanie opisana tematyka wykorzystania teorii informacji w analizie zmian pokrycia terenu. Omówione zostaną koncepcje przestrzennej kompozycji oraz konfiguracji, a także miary umożliwiające ich obliczenie. Następnie opisana zostanie idea reprezentacji rastrów w postaci macierzy i wektorów współwystępowania. W końcowej części rozdziału wyjaśnione zostaną zagadnienia miar odległości i podobieństwa oraz ich wykorzystania w celach analiz przestrzennych.
+
+## Metryki krajobrazowe
+
+Metryki krajobrazowe umożliwiają analizę struktury przestrzennej krajobrazu na podstawie danych o pokryciu terenu [@Pukowiec_Kurda_Sobala_2016]. Można je podzielić na dwie grupy: wskaźniki kompozycji i konfiguracji [@solon2002; @Pukowiec_Kurda_Sobala_2016]. Celem pierwszej grupy metryk jest opis kompozycji (udziału) rastrów, czyli zróżnicowania i liczby płatów poszczególnych kategorii pokrycia terenu bez uwzględniania informacji o ich lokalizacji w przestrzeni [@Gustafson1998; @solon2002; @kozak2014]. Konfiguracja (ułożenie) natomiast w sposób liczbowy opisuje sąsiadowanie ze sobą poszczególnych płatów [@Gustafson1998; @solon2002; @kozak2014]. Szczególną zaletą takiego podejścia jest to, że metryki krajobrazowe mogą być obliczone dla różnorodnych jednostek przestrzennych, które mogą być zdefiniowane na podstawie wszelkich aspektów administracyjnych, geograficznych, biogeograficznych lub umownych [@Pukowiec_Kurda_Sobala_2016]. Jednostki te mogą obejmować zarówno granice gmin, zlewni, ekoregionów czy nawet abstrakcyjne obszary na mapie, co z kolei umożliwia wszechstronne stosowanie tych metryk w badaniach związanych z analizą krajobrazu.
 
 
-## Analiza zmian struktur przestrzennych
 
-Zmiany i różnice w pokryciu terenu można analizować przy użyciu różnych metod. Najbardziej podstawowym sposobem jest prosta analiza ilościowa różnic w pokryciu terenu na analizowanym obszarze lub obszarach. Inny sposób, oparty o metody wywodzące się z dziedziny ekologii krajobrazów, polega na sprowadzeniu rastrów do postaci sygnatur przestrzennych. Sygnatury te stanowią statystyczny opis pewnych struktur przestrzennych występujących wewnątrz rastra [@nowosad_motif; @Jasiewicz_GeoPAT]. Takie podejście do analizy przestrzennej umożliwia między innymi ocenę różnic w przestrzennej kompozycji i konfiguracji analizowanych jednostek przestrzennych.
+## Sygnatury przestrzenne
 
-Najbardziej fundamentalną sygnaturą przestrzenną rastra jest kompozycja. Opisuje ona liczbę komórek każdej kategorii wewnątrz analizowanego rastra. Kolejną ważną sygnaturą przestrzenną jest konfiguracja, która w sposób liczbowy opisuje sąsiadowanie ze sobą poszczególnych kategorii rastra [@Gustafson1998]. Często w celu lepszej reprezentacji analizowanych rastrów możemy wykorzystywać także bardziej skomplikowane sygnatury. Przykładem sygnatury łączącej zarówno kompozycję, jak i konfigurację przestrzenną jest macierz współwystępowania. Jest to macierz o wymiarach k na k, gdzie k reprezentuje liczbę kategorii obecnych w analizowanym rastrze [@Haralick_1973; @Jasiewicz_GeoPAT]. Macierz tą możemy skonstruować poprzez zliczanie kolejno wszystkich par sąsiadujących ze sobą komórek w rastrze. Wewnątrz tej macierzy, wartości ułożone na przekątnych odnoszą się do kompozycji rastra, natomiast pozostałe do jego konfiguracji.
+Często w celu lepszej reprezentacji analizowanych rastrów możemy wykorzystywać także bardziej skomplikowane sygnatury przestrzenne. Przykładem sygnatury łączącej zarówno kompozycję, jak i konfigurację przestrzenną jest macierz współwystępowania. Jest to macierz o wymiarach k na k, gdzie k reprezentuje liczbę kategorii pokrycia terenu obecnych w analizowanym rastrze [@Haralick_1973; @Jasiewicz_GeoPAT]. Macierz tą możemy skonstruować poprzez zliczanie kolejno wszystkich par sąsiadujących ze sobą komórek w rastrze. Wewnątrz tej macierzy, wartości ułożone na przekątnej odnoszą się do kompozycji rastra, natomiast pozostałe do jego konfiguracji. Przykład dwóch macierzy współwystępowania dla rastrów o zbliżonej kompozycji i różnej konfiguracji przestrzennej przedstawia Rycina [-@fig-metody-coma].
 
-Na podstawie macierzy współwystępowania mogą zostać obliczone różne miary wywodzące się z dziedziny teorii informacji. Przykładem takiej miary jest entropia, która opisuje zróżnicowanie kompozycji rastra, czyli udziałów każdej z kategorii w rastrze. Kolejną miarą jest względna informacja wzajemna. Reprezentuje ona stopień sąsiadowania ze sobą kategorii w rastrze, czyli jego konfigurację przestrzenną. W celu porównywania ze sobą sygnatur w postaci dwuwymiarowej macierzy należy je sprowadzić do postaci jednowymiarowego wektora, a następnie przeprowadzić jego normalizację, tak aby wszystkie wartości sumowały się do 1. Taka postać pozwala na obliczanie miar odległości lub podobieństwa, pozwalających na porównywanie histogramów wartości [@Cha2007]. Miary te następnie pozwalają określić stopień zróżnicowania dwóch rastrów. Podejście to może być także wykorzystane w innych analizach przestrzennych, jak wyszukiwanie obszarów o podobnej strukturze przestrzennej, wykrywanie ich zmian oraz grupowanie obszarów o podobnej strukturze przestrzennej [@nowosad_motif].
+```{r}
+#| label: fig-metody-coma
+#| echo: false
+#| fig-cap: "Przykład dwóch macierzy współwystępowania dla rastrów o zbliżonej kompozycji i różnej konfiguracji przestrzennej."
+#| out-width: 350px
+#| out-height: 350px
+knitr::include_graphics("figures/diagram_coma.png")
+```
 
 
-## Miary odległości, podobieństwa i niepodobieństwa
+Na podstawie macierzy współwystępowania mogą zostać obliczone różne miary wywodzące się z dziedziny teorii informacji. Przykładem takiej miary jest entropia brzegowa ***PRZYKŁADY, JAK JEST LICZONA, WZÓR*** która opisuje zróżnicowanie kompozycji rastra, czyli udziałów każdej z kategorii w rastrze. 
 
-Odległość i rozbieżność (inaczej podobieństwo) stanowią pewien policzalny stopień zróżnicowania pary obiektów. Największą różnicą między nimi jest to, że odległości są symetryczne, podczas gdy rozbieżności są niesymetryczne. Oznacza to, że wyłącznie dla miar odległości otrzymujemy identyczny wynik przy porównywaniu par obiektów A i B, jak i par B i A. Wybór odpowiedniej miary odległości lub podobieństwa zależy między innymi od rodzaju pomiaru lub sposobu reprezentacji obiektów [@Cha2007]. W związku z tym rodzi się pytanie, która z miar pozwala na uzyskanie najlepszych wyników dla danego zastosowania. Celem tej pracy, jak wspomniano we Wprowadzeniu, jest zatem wskazanie takich miar odległości lub podobieństwa, których zmiany wartości są najbardziej powiązane z postrzeganiem tych samych zmian przez człowieka.
+<!-- entropia brzegowa -->
+$$
+H(y) = -\sum_{j=1}^{K}p(y=c_{j})log_2p(y=c_j)
+$$
+<!-- conditional entropy -->
+$$
+H(y|x) = \sum_{i=1}^{K}\sum_{j=1}^{K} p(x=c_i, y=c_j) log_2 p(y=c_i | x=c_j)
+$$
 
-Zagłębiając się w tematykę miar odległości i podobieństwa należy przede wszystkim wyjaśnić nieścisłości wynikających z samego ich nazewnictwa. Wykorzystanie w tej pracy samej nazwy "miary odległości" mogłoby być zinterpretowane jako grupa miar pozwalających na określenie rzeczywistego, mierzalnego dystansu pomiędzy dwoma obiektami, co nie jest zgodne z tym w jaki sposób miary te wykorzystane zostały w tej pracy. Nazwa "miary podobieństwa" jest natomiast sprzeczna w interpretacji z ludzką intuicją. Logiczne byłoby, że niskie wartości tej miary oznaczają małe podobieństwo, podczas gdy wysokie wartości oznaczają wysokie podobieństwo między porównywanymi obszarami. W rzeczywistości miary podobieństwa funkcjonują zupełnie przeciwnie. W związku z powyższymi problemami, wszystkie 45 miar odległości, podobieństwa oraz tych wywodzących się z dziedziny teorii informacji, które zostały wykorzystane w tej pracy będą dalej nazywane miarami niepodobieństwa. Nazwa ta, o ile pozornie trudniejsza do zrozumienia ma jednak istotną przewagę w kontekście wszelkich analiz. W tym kontekście, wraz ze wzrostem wartości miar niepodobieństwa rośnie różnica pomiędzy porównywanymi obszarami. Oznacza to, że niskie wartości miar niepodobieństwa wskazują na niskie niepodobieństwo, czyli niewielkie różnice między porównywanymi obszarami. Analogicznie, wysokie wartości miar niepodobieństwa wskazują na duże różnice między porównywanymi obszarami.
 
-Na podstawie podobieństw syntaktycznych, wyróżnia się kilka grup rodzin miar niepodobieństwa: rodzina Minkowski (odległość euklidesowa, odległość Minkowskiego, odległość Manhattan), rodzina L1 (Canberra, Sorensen, Kulczynski), rodzina Intersection (Intersection, Wave Hedges, Ruzicka), rodzina Inner Product (Jaccard, Harmonic mean), rodzina Squared-chord (Fidelity, Matusita), rodzina Squared L2 (Clark, Pearson X2, Neyman X2), rodzina Shannon’s Entropy (Jensen-Shannon, Kullback-Leibler), a także miary będące połączeniem innych miar oraz miary wywodzące się z teorii informacji.
 
-***tu mi się skończyły pomysły***
+
+<!-- informacja wzajemna -->
+$$
+I(y,x) = H(y) - H(y|x)
+$$
+<!-- względna informacja wzajemna -->
+$$
+U = I(y,x)/H(y)
+$$
+
+<!-- informacja wzajemna = entropia brzegowa - conditional entropy -->
+<!-- względna informacja wzajemna = informacja wzajemna / entropia brzegowa -->
+<!-- więc -->
+<!-- względna informacja wzajemna = entropia brzegowa - conditional entropy / entropia brzegowa ??????????????? -->
+
+<!-- ?lsm_l_ent -->
+<!-- ?lsm_l_relmutinf -->
+
+<!-- https://github.com/r-spatialecology/landscapemetrics/blob/main/R/lsm_l_ent.R -->
+
+
+
+
+Kolejną miarą jest względna informacja wzajemna ***PRZYKŁADY, JAK JEST LICZONA, WZÓR***. Reprezentuje ona stopień sąsiadowania ze sobą kategorii w rastrze, czyli jego konfigurację przestrzenną. W celu porównywania ze sobą sygnatur dwóch rastrów w postaci dwuwymiarowej macierzy należy je sprowadzić do postaci jednowymiarowego wektora, a następnie przeprowadzić jego normalizację, tak aby wszystkie wartości sumowały się do 1. Taka postać pozwala na obliczanie miar odległości lub podobieństwa, pozwalających na porównywanie histogramów wartości [@Cha2007]. Miary te następnie pozwalają określić stopień odmienności dwóch rastrów. Podejście to może być także wykorzystane w innych analizach przestrzennych, jak wyszukiwanie obszarów o podobnej strukturze przestrzennej, wykrywanie ich zmian oraz grupowanie obszarów o podobnej strukturze przestrzennej [@Jasiewicz_GeoPAT; @nowosad_motif].
+
+
+
+## Metody analiz różnic pokrycia terenu
+
+Różnice w pokryciu terenu można analizować przy użyciu różnych metod. Wiele z nich koncentruje się na analizie różnic na poziomie indywidualnych komórek w siatce rastra. Najbardziej podstawowym przykładem takiego podejścia jest analiza ilościowa różnic w pokryciu terenu. Zaletą tego podejścia jest przede wszystkim łatwość w wykonaniu analizy. Wystarczy zliczyć wszystkie komórki należące do poszczególnych kategorii dla wybranych rastrów, a następnie porównać ze sobą te wartości, aby otrzymać wynik informujący nas o ilościowych różnicach między analizowanymi rastrami. Analiza ilościowa najczęściej wykorzystywana jest w celu wskazania ogólnych trendów zmian pokrycia terenu dla określonego obszaru badań jak na przykład zmniejszanie się obszarów leśnych lub wzrost terenów zurbanizowanych.
+
+Wszelkie metody analiz zmian pokrycia terenu opierające się na analizie poszczególnych komórek w siatce rastra są użyteczne na obszarach, gdzie zmiany między indywidualnymi komórkami dostarczają istotnych informacji. Ich przydatność jednak maleje, gdy informacja na poziomie pojedynczej komórki przestaje być tak istotna, na przykład dla rastrów o wysokiej rozdzielczości lub znacznym zasięgu przestrzennym [@Jasiewicz_GeoPAT]. W takiej sytuacji bardziej efektywne staje się zastosowanie metod opartych na analizie struktur przestrzennych [@Netzel2015].
+
+Metody oparte na analizie struktur przestrzennych wywodzą się z dziedziny ekologii krajobrazu. Pozwalają one przede wszystkim na opis oraz obliczenie podobieństwa struktur przestrzennych. Głównym zamysłem tych metod jest przekształcenie danych z postaci dużych rastrów zbudowanych z wielu indywidualnych komórek zawierających pojedyncze informacje w sygnatury przestrzenne, a następnie porównanie ich za pomocą miar odległości lub niepodobieństwa. Sygnatura przestrzenna stanowi statystyczny opis pewnych struktur przestrzennych występujących wewnątrz rastra [@Jasiewicz_GeoPAT; @nowosad_motif]. Dokładnie w tym samym celu wykorzystywane są także metryki krajobrazowe. Mają one jednak istotną wadę w kontekście kompleksowych analiz przestrzennych. Jako że pojedyncza metryka krajobrazowa reprezentuje wyłącznie jedną, konkretną charakterystykę analizowanego obszaru, to nie jest w stanie zdefiniować całej charakterystyki przestrzennej danego rastra. W tym celu bardziej efektywne może być zastosowanie sygnatur przestrzennych. Są one dwuwymiarową reprezentacją kompozycji i konfiguracji przestrzennej rastra, czyli jego najbardziej podstawowych charakterystyk. Oznacza to też, że można je ze sobą porównywać przy użyciu szerokiej gamy istniejących miar odległości i niepodobieństwa. Umożliwia to także wykonywanie bardziej skomplikowanych analiz przestrzennych, jak wyszukiwanie, wykrywanie zmian, grupowanie i segmentacja [@nowosad_motif].
+
+
+
+## Miary odległości i niepodobieństwa
+
+Odległość i rozbieżność (inaczej niepodobieństwo) stanowią pewien policzalny stopień zróżnicowania pary obiektów. Największą różnicą między nimi jest to, że odległości są symetryczne, podczas gdy rozbieżności są niesymetryczne. Oznacza to, że wyłącznie dla miar odległości otrzymujemy identyczny wynik przy porównywaniu par obiektów A i B, jak i par B i A.
+
+Niepodobieństwo jest przeciwieństwem podobieństwa. Ponadto, miary podobieństwa można łatwo przekształcić w miary niepodobieństwa [@niesterowicz2016]. W związku z tym, w celu uproszczenia terminologii, wszystkie miary odległości, podobieństwa oraz te wywodzące się z dziedziny teorii informacji, które zostały wykorzystane w tej pracy, będą dalej zbiorowo nazywane miarami niepodobieństwa.
+
+Wybór odpowiedniej miary niepodobieństwa zależy między innymi od rodzaju pomiaru lub sposobu reprezentacji obiektów [@Cha2007]. Na podstawie podobieństw syntaktycznych, wyróżnia się kilka grup rodzin miar niepodobieństwa [@Cha2007]: rodzina Minkowski (odległość euklidesowa, odległość Minkowskiego, odległość Manhattan), rodzina L1 (Canberra, Sorensen, Kulczynski), rodzina Intersection (Intersection, Wave Hedges, Ruzicka), rodzina Inner Product (Jaccard, Harmonic mean), rodzina Squared-chord (Fidelity, Matusita), rodzina Squared L2 (Clark, Pearson X2, Neyman X2), rodzina Shannon’s Entropy (Jensen-Shannon, Kullback-Leibler), a także miary będące połączeniem innych miar (Taneja, Kumar-Johnson) oraz miary wywodzące się z teorii informacji (informacja wzajemna, entropia Shannona).
+
+
+<!-- W związku z tym rodzi się pytanie, która z miar pozwala na uzyskanie najlepszych wyników dla danego zastosowania. Celem tej pracy, jak wspomniano we Wprowadzeniu, jest zatem wskazanie takich miar odległości lub podobieństwa, których zmiany wartości są najbardziej powiązane z postrzeganiem tych samych zmian przez człowieka. -->
+
+<!-- Zagłębiając się w tematykę miar odległości i podobieństwa należy przede wszystkim wyjaśnić nieścisłości wynikających z samego ich nazewnictwa. Wykorzystanie w tej pracy samej nazwy "miary odległości" mogłoby być zinterpretowane jako grupa miar pozwalających na określenie rzeczywistego, mierzalnego dystansu pomiędzy dwoma obiektami, co nie jest zgodne z tym w jaki sposób miary te wykorzystane zostały w tej pracy. Nazwa "miary podobieństwa" jest natomiast sprzeczna w interpretacji z ludzką intuicją. Logiczne byłoby, że niskie wartości tej miary oznaczają małe podobieństwo, podczas gdy wysokie wartości oznaczają wysokie podobieństwo między porównywanymi obszarami. W rzeczywistości miary podobieństwa funkcjonują zupełnie przeciwnie. W związku z powyższymi problemami, wszystkie 45 miar odległości, podobieństwa oraz tych wywodzących się z dziedziny teorii informacji, które zostały wykorzystane w tej pracy będą dalej nazywane miarami niepodobieństwa. Nazwa ta, o ile pozornie trudniejsza do zrozumienia ma jednak istotną przewagę w kontekście wszelkich analiz. W tym kontekście, wraz ze wzrostem wartości miar niepodobieństwa rośnie różnica pomiędzy porównywanymi obszarami. Oznacza to, że niskie wartości miar niepodobieństwa wskazują na niskie niepodobieństwo, czyli niewielkie różnice między porównywanymi obszarami. Analogicznie, wysokie wartości miar niepodobieństwa wskazują na duże różnice między porównywanymi obszarami, a dokładnie ich sygnaturami. -->
+
+
+
+## Przykład obliczenia niepodobieństwa rastrów
+<!-- Przykład porównania dwóch rastrów z tabelą, wykresem albo schematem -->
+
+Pierwszym krokiem, jaki należy podjąć w celu obliczenia podobieństwa struktur przestrzennych danych rastrowych z wykorzystaniem metod opartych o sygnatury przestrzenne jest sprowadzenie rastrów wejściowych do postaci macierzy współwystępowania. Proces utworzenia macierzy współwystępowania polega na zliczeniu wartości każdej indywidualnej komórki rastra, a także przylegających do niej komórek (najczęściej czterech lub ośmiu). Przykładowe macierze współwystępowania widoczne są na Rycinie [-@fig-metody-coma]. Następnie, dwuwymiarową macierz należy sprowadzić do postaci jednowymiarowej, czyli wektora współwystępowania. Kolejnym etapem analizy jest normalizacja wektora współwystępowania. Po dodaniu do siebie wszystkich wartości tego wektora powinniśmy otrzymać wynik równy 1. Po wykonaniu powyższych czynności otrzymujemy reprezentację rastrów wejściowych, która umożliwia porównanie ich ze sobą przy użyciu miar niepodobieństwa między rozkładami prawdopodobieństwa, takich jak rozbieżnosć Jensena-Shannona. Proces obliczenia niepodobieństwa dwóch rastrów w postaci schematu przedstawia Rycina [-@fig-schemat-porownanie].
+
+```{r}
+#| label: fig-schemat-porownanie
+#| echo: false
+#| fig-cap: "Schemat procesu obliczenia niepodobieństwa dwóch rastrów."
+#| out-width: 300px
+#| out-height: 600px
+knitr::include_graphics("figures/diagram_raster_comparison.pdf")
+```
+
+
+
+## Symulowanie rastrów o określonej kompozycji i konfiguracji przestrzennej
+
+Najważniejszym założeniem przy tworzeniu zbioru rastrów do pierwszej ankiety było przygotowanie ich w sposób umożliwiający uzyskanie pełnej reprezentacji wszystkich możliwych wartości kompozycji, jak i konfiguracji przestrzennej. Zbiór rastrów został przygotowany w języku programowania R [@R2023], w oparciu o wykorzystanie funkcji *nlm_fbm* z pakietu NLMR [@NLMR2018]. Funkcja ta pozwala na symulację rastrów przy użyciu ułamkowych ruchów Browna, będących uproszczeniem ruchów Browna [@nlm_fbm]. W tej funkcji poziom korelacji między kolejnymi krokami jest kontrolowany za pomocą parametru "fract_dim". W kontekście tego badania, parametr ten reguluje konfigurację przestrzenną. Oznacza to, że w przypadku, gdy "fract_dim" przyjmuje niską wartość, wartości w generowanym rastrze rozmieszczone są w sposób losowy, zbliżony do szumu. Natomiast w przypadku wysokiej wartości "fract_dim", na wynikowym rastrze tworzą się skupiska najwyższych i najniższych wartości, a przejścia pomiędzy nimi mają płynny, wygładzony charakter. Powyższa funkcja umożliwia uzyskanie danych rastrowych wypełnionych wartościami zmiennoprzecinkowymi mieszczącymi się w zakresie od 0 do 1 oraz dowolnymi parametrami konfiguracji przestrzennej.
+
+```{r}
+#| warning: false
+
+library(RandomFields)
+library(NLMR)
+
+sim1 = nlm_fbm(100, 100, fract_dim = 0.3)
+sim2 = nlm_fbm(100, 100, fract_dim = 1.6)
+
+sim_stack1 = raster::stack(sim1, sim2)
+names(sim_stack1) = c("wysokie fract_dim", "niskie fract_dim")
+
+plot(sim_stack1)
+```
+
+Następnie, aby otrzymać zbiór rastrów uwzględniający także pełen przekrój kompozycji należy przeprowadzić proces reklasyfikacji. Procedura ta polega na podziale każdego dotychczas utworzonego rastra na kategorie pokrycia terenu w różnych proporcjach, na przykład 90:10, 70:30 oraz 50:50 w przypadku rastrów zawierających wyłącznie dwie kategorie pokrycia terenu. Wykonanie tego procesu ułatwia między innymi funkcja *util_binarize* z pakietu landscapetools [@NLMR2018]. W tej funkcji proporcje kategorii pokrycia terenu kontrolowane są za pomocą parametru "breaks". Przykładowo, ustawienie parametru "breaks" na poziomie *0.2* poskutkuje otrzymaniem rastra o kategoriach pokrycia terenu w proporcjach 20 do 80. Oznacza to, że jedna z kategorii będzie obejmowała swoim zasięgiem 20% komórek rastra, podczas gdy druga kategoria wypełni pozostałe 80% komórek.
+
+```{r}
+#| warning: false
+
+library(landscapetools)
+
+sim1_1 = landscapetools::util_binarize(sim1, breaks = 0.1)
+sim1_2 = landscapetools::util_binarize(sim1, breaks = 0.5)
+
+sim2_1 = landscapetools::util_binarize(sim2, breaks = 0.1)
+sim2_2 = landscapetools::util_binarize(sim2, breaks = 0.5)
+
+sim_stack2 = raster::stack(sim1, sim1_1, sim1_2,
+                           sim2, sim2_1, sim2_2)
+
+plot(sim_stack2)
+
+# library(rasterVis)
+# gplot(sim_stack2) + 
+#   geom_tile(aes(fill = value)) +
+#   facet_wrap(~ variable) +
+#   scale_fill_gradientn(colours = rev(terrain.colors(225))) +
+#   coord_equal()
+# 
+# # wizualizacja symulowanych rastrów
+# tm_shape(sim_stack2) +
+#   tm_raster(style = 'cont', breaks = c(0,2), palette = terrain.colors(255)) +
+#   tm_layout(asp = 1, legend.show = FALSE, panel.show = FALSE)
+```
+
+
+
+<!-- ```{r} -->
+<!-- #| label: fig-wykres2_gen -->
+<!-- #| echo: false -->
+<!-- #| fig-cap: "Wizualizacja " -->
+<!-- #| out-width: 400px -->
+<!-- #| out-height: 400px -->
+<!-- knitr::include_graphics("figures/wykres2_gen.png") -->
+<!-- ``` -->

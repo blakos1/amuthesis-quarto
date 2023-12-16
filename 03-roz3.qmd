@@ -1,47 +1,58 @@
-# ??? {#sec-materialy}
+# Materiały {#sec-materialy}
 
-<!-- Celem tego rozdziału jest przedstawienie użytych w pracy danych. -->
-<!-- Należy wyjaśnić jakie dane zostały użyte, jakiego są one rodzaju, dla jakiego okresu zostały pobrane/stworzone, co one zawierają, etc. -->
+W tym rozdziale zostanie omówiony cel przeprowadzenia pierwszej ankiety oraz istotne aspekty związane z jej formą. Następnie opisany zostanie sposób przygotowania danych wraz z przyjętą metodą doboru pytań do ankiety.
 
-<!-- W tym rozdziale warto dodać ryciny i tabele przedstawiające użyte dane. -->
+## Przygotowanie pierwszej ankiety {#sec-przygotowanie1}
 
-<!-- Zwróć uwagę, że poniższe bloki kodu mają parametr `#| echo: false`; oznacza to, że będą one niewidoczne w wynikowym pliku PDF. -->
-<!-- Każdy z bloków kodu musi mieć unikalną nazwę; w przypadku rycin powinna się ona rozpoczynać od prefiksu `fig-`. -->
-<!-- Dodanie podpisu pod rycinę odbywa się używając parametru `#| fig-cap:`. -->
-<!-- Następnie do tej ryciny można się odnieść używając operatora `[-@]`. -->
-<!-- Przykładowo, odniesienie się do pierwszej ryciny wymaga wpisania `[-@fig-rycina1]` (Rycina [-@fig-rycina1]). -->
+Najważniejszym założeniem przy tworzeniu zbioru rastrów do pierwszej ankiety było przygotowanie ich w sposób umożliwiający uzyskanie pełnej reprezentacji wszystkich możliwych wartości kompozycji, jak i przestrzennej konfiguracji. Zbiór rastrów został przygotowany w oparciu o wykorzystanie funkcji *nlm_fbm* z pakietu NLMR [@NLMR2018]. Funkcja ta pozwala na symulację rastrów przy użyciu ułamkowych ruchów Browna, będących uproszczeniem ruchów Browna [@nlm_fbm]. W tej funkcji poziom korelacji między kolejnymi krokami jest kontrolowany za pomocą parametru "frac_dim". W kontekście tego badania, parametr ten reguluje konfigurację przestrzenną. Oznacza to, że w przypadku, gdy "frac_dim" przyjmuje niską wartość, wartości w generowanym rastrze rozmieszczone są w sposób losowy, zbliżony do szumu. Natomiast w przypadku wysokiej wartości "frac_dim", na wynikowym rastrze tworzą się skupiska najwyższych i najniższych wartości, a przejścia pomiędzy nimi mają płynny, wygładzony charakter. ***tutaj dodać kawałek kodu pokazujący jak działa funkcja?*** Kolejnym krokiem w procesie tworzenia danych było dodanie zróżnicowania rastrów na podstawie ich przestrzennej kompozycji. Zostało to osiągnięte poprzez podział każdego z wynikowych rastrów na kategorie w oparciu o stałe przedziały wartości dla wszystkich rastrów. Proces 
 
-<!-- ```{r} -->
-<!-- #| label: fig-rycina1 -->
-<!-- #| echo: false -->
-<!-- #| fig-cap: "Moja pierwsza rycina" -->
-<!-- plot(1, 4) -->
-<!-- ``` -->
+<!--
+```{r}
+library(NLMR)
+library(raster)
 
-<!-- Podobnie wygląda odnoszenie się do plików graficznych.  -->
-<!-- Tutaj wewnątrz bloku kodu należy użyć funkcji `knitr::include_graphics()` (Rycina [-@fig-rycina2]). -->
-<!-- Dodatkowo możliwa jest zmiana rozmiary obrazka używając parametrów takich jak `#| out-width:` i `#| out-height:`. -->
+sim1 = nlm_fbm(ncol = 100, nrow = 100, fract_dim = 0.1)
+sim2 = nlm_fbm(ncol = 100, nrow = 100, fract_dim = 1.6)
 
-<!-- ```{r} -->
-<!-- #| label: fig-rycina2 -->
-<!-- #| echo: false -->
-<!-- #| fig-cap: "Moja druga rycina" -->
-<!-- #| out-width: "100%" -->
-<!-- #| out-height: 300px -->
-<!-- knitr::include_graphics("figures/rcookies.png") -->
-<!-- ``` -->
+plot(sim1)
+plot(sim2)
 
-<!-- Odnoszenie się do tabel odbywa się poprzez operator `[-@]` wraz z prefiksem `tbl-`. -->
-<!-- Natomiast tworzenie podpisu nad tabelą ma miejsce używając parametru `#| tbl-cap:`.  -->
-<!-- Dodatkowo możliwe jest użycie pakietu **kableExtra** [@R-kableExtra] do określenia szerokości kolumn (Tabela [-@tbl-tabela1]). -->
+```
+-->
 
-<!-- ```{r tabela1, echo=FALSE} -->
-<!-- #| label: tbl-tabela1 -->
-<!-- #| echo: false -->
-<!-- #| tbl-cap: "Moja pierwsza tabela" -->
-<!-- df = data.frame(a = 1:5, b = letters[1:5]) -->
-<!-- knitr::kable(df, booktabs = TRUE) |>  -->
-<!--   kableExtra::column_spec(1, width = "2cm") |>   -->
-<!--   kableExtra::column_spec(2, width = "4cm") -->
-<!-- ``` -->
+```{r}
+#| label: fig-wykres2_gen
+#| echo: false
+#| fig-cap: "Wizualizacja procesu symulacji rastrów do pierwszej ankiety albo placeholder zamiast pokazania jak działa funkcja"
+#| out-width: 400px
+#| out-height: 400px
+knitr::include_graphics("figures/wykres2_gen.png")
+```
+
+W następnym etapie przygotowania danych obliczone zostały wybrane miary opisujące struktury przestrzenne: entropia (ent) oraz względna informacja wzajemna (relmutinf). Miary te umożliwiły potwierdzenie uzyskania oczekiwanego rozkładu kompozycji i konfiguracji wewnątrz zbioru rastrów.
+
+Ostatecznie wygenerowane zostały zbiory rastrów składających się wyłącznie z dwóch lub trzech kategorii pokrycia terenu. Przykład jednego ze zbiorów rastrów przedstawia Rycina [-@fig-wykres1_2classes]. Rastry zawierające trzy kategorie zostały uwzględnione w badaniu w celu próby wskazania czy liczba kategorii na rastrach ma wpływ na odpowiedzi udzielane przez ankietowanych.
+
+Ostatnim krokiem przygotowania danych było wybranie par rastrów tworzących poszczególne pytania.
+W tym celu, pytania w ankietach podzielone zostały na dwie grupy, wewnątrz których znalazły się po trzy podgrupy pytań.
+W pierwszej kolejności respondenci zetknęli się z 24 pytaniami dotyczącymi rastrów uwzględniających wyłącznie dwie kategorie pokrycia terenu, a następnie z 24 pytaniami uwzględniającymi trzy kategorie pokrycia terenu.
+Pierwsza podgrupa pytań (6 par rastrów) składała się z par rastrów różniących się między sobą wyłącznie entropią.
+Podgrupa druga (6 par rastrów) zawierała wyłącznie rastry różniące się względną informacją wzajemną.
+Ostatnia podgrupa (12 par rastrów) składała się z pytań zróżnicowanych zarówno pod względem entropii, jak i względnej informacji wzajemnej. Taki sposób doboru pytań pozwolił na zredukowanie liczby odpowiedzi wymaganych od respondentów, jak i ograniczenie wpływu błędu selekcji, który powstałby w wyniku niewłaściwego doboru pytań.
+Respondenci celowo nie zostali poinformowani o występujących różnicach pomiędzy kolejnymi pytaniami, ponieważ mogłoby mieć to wpływ na udzielane przez nich odpowiedzi, co z kolei mogłoby wpłynąć na ostateczne wyniki badania.
+
+```{r}
+#| label: fig-wykres1_2classes
+#| echo: false
+#| fig-cap: "Przykład zbioru wygenerowanych rastrów (2 kategorie pokrycia terenu)"
+#| out-width: "100%"
+#| out-height: 500px
+knitr::include_graphics("figures/wykres1_2classes.png")
+```
+
+
+## Przygotowanie drugiej ankiety {#sec-przygotowanie2}
+
+
+## Ankieta w formie aplikacji shiny??? {#sec-app}
 

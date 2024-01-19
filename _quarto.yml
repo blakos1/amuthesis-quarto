@@ -2,8 +2,8 @@ project:
   type: book
   output-dir: docs
 
-title: "Porównanie metod (miar?) określania zmian struktury przestrzennej kategorii pokrycia terenu"
-titleeng: "TODO"
+title: "Porównanie metod określania zmian struktury przestrzennej w kontekście analiz zmian kategorii pokrycia terenu"
+titleeng: "Comparison of methods for determining changes in spatial patterns in the context of land cover change analyzes"
 degreetype: "Praca magisterska" #"Engineer's thesis"
 author: "Błażej Kościański"
 major: "Geoinformacja" #"Geoinformation"
@@ -21,7 +21,6 @@ book:
     - 03-roz3.qmd
     - 04-roz4.qmd
     - 05-roz5.qmd
-    - 06-roz6.qmd
 
 bibliography:
   - thesis.bib

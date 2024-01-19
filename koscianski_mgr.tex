@@ -22,9 +22,10 @@
 \usepackage{bookmark} % Adds indent in the first paragraph %
 
 \author{Błażej Kościański}
-\title{Porównanie metod (miar?) określania zmian struktury przestrzennej
-kategorii pokrycia terenu}
-\def\titleeng{TODO}
+\title{Porównanie metod określania zmian struktury przestrzennej w
+kontekście analiz zmian kategorii pokrycia terenu}
+\def\titleeng{Comparison of methods for determining changes in spatial
+patterns in the context of land cover change analyzes}
 \def\degreetitle{Praca magisterska}
 \def\major{Geoinformacja}
 \def\albumid{444861}
@@ -35,8 +36,8 @@ kategorii pokrycia terenu}
      %pdfsubject={The Subject},
      %pdfkeywords={Some Keywords},
      pdfauthor={Błażej Kościański},
-     pdftitle={Porównanie metod (miar?) określania zmian struktury
-przestrzennej kategorii pokrycia terenu},
+     pdftitle={Porównanie metod określania zmian struktury przestrzennej
+w kontekście analiz zmian kategorii pokrycia terenu},
      pdfproducer={quarto with LaTeX}
 }
 
@@ -58,23 +59,15 @@ przestrzennej kategorii pokrycia terenu},
 
 \textbf{Abstrakt}
 
-Streszczenie powinno przedstawiać skrótowo główny problem pracy i jego
-rozwiązanie. Możliwa struktura streszczenia to: (1) 1-3 zdania wstępu do
-problemu (czym się zajmujemy, dlaczego jest to ważne, jakie są
-problemy/luki do wypełnienia), (2) 1 zdanie opisujące cel pracy, (3) 1-3
-zdania przedstawiające użyte materiały (dane) i metody (techniki,
-narzędzia), (4) 1-3 zdania obrazujące główne wyniki pracy, (5) 1-2
-zdania podsumowujące; możliwe jest też określenie dalszych
-kroków/planów.
-
-Słowa kluczowe: (4-6 słów/zwrotów opisujących treść pracy, które nie
-wystąpiły w tytule)
+Słowa kluczowe: zmiany pokrycia terenu, struktura przestrzenna, miary
+odległości, miary niepodobieństwa, ekologia krajobrazu
 
 \textbf{Abstract}
 
 The abstract must be consistent with the above text.
 
-Keywords: (as stated before)
+Keywords: land cover changes, spatial pattern, distance measures,
+dissimilarity measures, landscape ecology
 
 \newpage
 
@@ -85,21 +78,20 @@ Keywords: (as stated before)
 \hypertarget{sec-wprowadzenie}{%
 \chapter{Wprowadzenie}\label{sec-wprowadzenie}}
 
-Informacje geograficzne stanowią wyniki selekcji i przetwarzania danych
-\textbf{dotyczących aspektów} otaczającej nas przestrzeni geograficznej.
-Pozwalają na bardziej zrozumiałe i efektywne analizowanie, modelowanie
-oraz interpretowanie złożonych zjawisk i procesów zachodzących w naszym
+Informacje geograficzne są wynikiem selekcji i przetwarzania danych
+związanych z otaczającą nas przestrzenią geograficzną. Pozwalają na
+bardziej zrozumiałe i efektywne analizowanie, modelowanie oraz
+interpretowanie złożonych zjawisk i procesów zachodzących w naszym
 otoczeniu. Informacje geograficzne i ich aspekty nie stanowią
 niepodważalnych faktów, lecz często powstają w wyniku działań jednostek,
 jak i wspólnych wysiłków grup ekspertów, którzy zajmują się wyborem,
 analizą i klasyfikacją danych geograficznych \autocite{WhatIsLandCover}.
 W procesie tworzenia informacji geograficznych istnieje zatem pewien
-stopień subiektywności, który może wpłynąć na ostateczny kształt
-(ostateczną postać?) tych informacji, ich interpretację, jak i na ich
-użyteczność w kontekście innych zastosowań. Przykładem informacji
-geograficznej, której ostateczna postać zależna jest od założeń
-przyjętych w trakcie tworzenia danych przestrzennych, jest pokrycie
-terenu.
+stopień subiektywności, który może wpłynąć na ostateczną postać tych
+informacji, ich interpretację, jak i na ich użyteczność w kontekście
+innych zastosowań. Przykładem informacji geograficznej, której
+ostateczna postać zależna jest od założeń przyjętych w trakcie tworzenia
+danych przestrzennych, jest pokrycie terenu.
 
 Przyjmuje się, że termin pokrycie terenu obejmuje zbiór wszelkich
 elementów obecnych na powierzchni Ziemi (\textbf{dodać ref}). W elementy
@@ -111,26 +103,30 @@ niezbędne w kontekście wielu zastosowań, takich jak planowanie
 przestrzenne (\textbf{dodać ref}), ochrona środowiska (\textbf{dodać
 ref}), czy analiza zmian klimatycznych (\textbf{dodać ref}). Ostateczna
 forma tych danych jest jednak w dużej mierze determinowana przez wybory
-i założenia dokonywane w procesie ich tworzenia (\textbf{ewentualnie
-dodać rycinę z przykładem mapy pokrycia terenu}). W tym kontekście,
+i założenia dokonywane w procesie ich tworzenia. W tym kontekście,
 analiza pokrycia terenu staje się istotnym polem badań, które skupia się
 na zarówno na technicznych aspektach zbierania danych, jak i na ich
 semantycznej interpretacji (\textbf{dodać ref}).
 
-\textbf{w tym akapicie gdzieś wspomnieć o rastrach} Dane oraz wynikowe
-mapy pokrycia terenu są rezultatem złożonego procesu przetwarzania i
-analizy danych przestrzennych najczęściej w postaci obrazów
-satelitarnych (\textbf{dodać ref}). Na początku tego procesu, satelity
-wyposażone w sensory rejestrują obrazy Ziemi z różnych zakresów
-widmowych. Uzyskane obrazy mogą być interpretowane manualnie przez grupy
-specjalistów. Pozwala to na uzyskanie map pokrycia terenu o wysokiej
-dokładności, kosztem długiego procesu ich tworzenia (\textbf{dodać
-ref}). Dużo mniej czasochłonną metodą jest przetwarzanie przy użyciu
-algorytmów. Umożliwiają one względnie szybką, półautomatyczną
-identyfikację i klasyfikację różnych typów powierzchni kosztem mniejszej
-dokładności mapy wynikowej (\textbf{dodać ref}). Ostatecznie, dane
-przekształcone w mapy pokrycia terenu mogą posłużyć do analiz zmian
-pokrycia terenu (\textbf{dodać ref}).
+Dane oraz wynikowe mapy pokrycia terenu są rezultatem złożonego procesu
+przetwarzania i analizy danych przestrzennych najczęściej w postaci
+obrazów satelitarnych \autocite{Jasiewicz_GeoPAT}. Na początku tego
+procesu, satelity wyposażone w sensory rejestrują obrazy Ziemi z różnych
+zakresów widmowych. Dane pochodzące z teledetekcji często mają postać
+danych rastrowych, gdzie informacje przestrzenne są zapisane w formie
+regularnej siatki komórek lub punktów \autocite{glazewski2006modele}. W
+modelu danych rastrowych każda z tych komórek lub punktów przechowuje
+jedną wartość, która stanowi reprezentację jakiejś charakterystyki
+danego fragmentu powierzchni Ziemi. Obrazy uzyskane w procesie
+teledetekcji mogą być interpretowane manualnie przez grupy specjalistów.
+Pozwala to na uzyskanie map pokrycia terenu o wysokiej dokładności,
+kosztem długiego procesu ich tworzenia (\textbf{dodać ref}). Dużo mniej
+czasochłonną metodą jest przetwarzanie przy użyciu algorytmów.
+Umożliwiają one względnie szybką, półautomatyczną identyfikację i
+klasyfikację różnych typów powierzchni kosztem mniejszej dokładności
+mapy wynikowej (\textbf{dodać ref}). Ostatecznie, dane przekształcone w
+mapy pokrycia terenu mogą posłużyć do analiz zmian pokrycia terenu
+(\textbf{dodać ref}).
 
 Celem analiz zmian pokrycia terenu jest przede wszystkim monitorowanie i
 pogłębienie aktualnej wiedzy na temat ewolucji otaczającego nas
@@ -174,84 +170,117 @@ określono, która z tych miar jest najbardziej zgodna zarówno z
 postrzeganiem przez człowieka, jak i wpływem zmian na procesy
 środowiskowe.
 
-wady i zalety obu podejść, np. że percepcja jest subiektywna i nie
-skaluje się
-
 Celem tej pracy było porównanie metod określania zmian struktury
 przestrzennej kategorii pokrycia terenu w kontekście ich korelacji z
-postrzeganiem zmian przestrzennych przez ludzi. W celu realizacji tego
-zadania przeprowadzone zostały ankiety, w których zadaniem respondentów
-było określenie stopnia podobieństwa między parami rastrów. Badania
-przeprowadzone zostały na rastrach składających się wyłącznie z dwóch
-lub trzech kategorii. Wyniki ankiety zestawione zostały z wartościami 46
+postrzeganiem zmian przestrzennych przez ludzi. Zbiór rastrów symulowany
+aby uzyskać pełną reprezentację wszystkich możliwych wartości
+kompozycji, jak i konfiguracji przestrzennej. Na podstawie tych danych
+przeprowadzona została ankieta, w której zadaniem respondentów było
+określenie stopnia podobieństwa między parami rastrów. Badanie
+przeprowadzone zostało na rastrach składających się wyłącznie z dwóch
+lub trzech kategorii. Wyniki ankiety zestawione zostały z wartościami 45
 miar niepodobieństwa. Na tej podstawie, do dalszej analizy wybrane
-zostało 8 miar niepodobieństwa charakteryzujących się największą
-zgodnością z ludzką percepcją zmian przestrzennych.
+zostały 4 miary niepodobieństwa charakteryzujące się największą
+zgodnością z ludzką percepcją zmian przestrzennych. W kolejnym etapie na
+podstawie zbioru danych o pokryciu terenu Corine Land Cover (CLC)
+stworzone zostały mapy niepodobieństwa pokrycia terenu dla obszaru
+Polski dla lat 1990 i 2018. Mapy te stworzone zostały w oparciu o metody
+wywodzące się z ekologii krajobrazu z wykorzystaniem miar
+niepodobieństwa wybranych na podstawie wyników ankiety. Następnie mapy
+te zostały ze sobą porównane i opisane, na podstawie czego
+scharakteryzowane zostały kluczowe różnice wynikające z zastosowania
+każdej z wykorzystanych miar.
 
 \bookmarksetup{startatroot}
 
 \hypertarget{sec-metody}{%
 \chapter{Metody}\label{sec-metody}}
 
-W tym rozdziale zostaną kolejno opisane wszystkie zagadnienia kluczowe
-do zrozumienia tematyki określania zróżnicowania struktur przestrzennych
-w kontekście zmian pokrycia terenu. W pierwszej kolejności wyjaśnione
-zostanie zagadnienie struktur przestrzennych. Następnie omówione zostaną
-wskaźniki umożliwiające określanie charakterystyk struktur
-przestrzennych, czyli metryki krajobrazowe oraz sygnatury przestrzenne.
-Omówione zostaną koncepcje kompozycji oraz konfiguracji przestrzennej, a
-także miary umożliwiające ich obliczenie. Opisana zostanie także idea
-reprezentacji rastrów w postaci macierzy i wektorów współwystępowania. W
-następnej kolejności zostaną przedstawione dwie metody analiz zmian
-pokrycia terenu. Pierwsza, opierająca się na analizie różnic na poziomie
-indywidualnych komórek w siatce rastra, oraz druga, oparta na analizie
-struktur przestrzennych występujących wewnątrz rastra. Wyjaśnione
-zostaną zagadnienia miar odległości i niepodobieństwa oraz ich
-wykorzystania w analizach przestrzennych. Przedstawiony zostanie także
-proces obliczenia niepodobieństwa między parą rastrów. W końcowej części
-rozdziału opisany zostanie sposób symulacji danych rastrowych o
-określonej kompozycji i konfiguracji przestrzennej.
+W tym rozdziale opisane są kolejno wszystkie zagadnienia kluczowe do
+zrozumienia tematyki określania zróżnicowania struktur przestrzennych w
+kontekście zmian pokrycia terenu. Pierwszym omawianym zagadnieniem są
+struktury przestrzenne, a także koncepcje kompozycji oraz konfiguracji
+przestrzennej. Następnie omawiane są wskaźniki umożliwiające określanie
+charakterystyk struktur przestrzennych, czyli metryki krajobrazowe oraz
+sygnatury przestrzenne. Opisana jest także idea reprezentacji rastrów w
+postaci macierzy i wektorów współwystępowania. W następnej kolejności
+przedstawione są dwie metody analiz zmian pokrycia terenu. Pierwsza
+opiera się na analizie różnic na poziomie indywidualnych komórek w
+siatce rastra, a druga opiera się na analizie struktur przestrzennych
+występujących wewnątrz rastra. Wyjaśnione są także zagadnienia miar
+odległości i niepodobieństwa oraz ich wykorzystania w analizach
+przestrzennych. Przedstawiany jest także proces obliczenia
+niepodobieństwa między parami rastrów. W końcowej części rozdziału
+opisany jest sposób symulacji danych rastrowych o określonej kompozycji
+i konfiguracji przestrzennej, mający na celu przybliżenie czytelnikowi
+możliwości wygenerowania własnych danych rastrowych w sposób zbliżony do
+wykorzystanego w tym badaniu.
 
 \hypertarget{struktury-przestrzenne}{%
 \section{Struktury przestrzenne}\label{struktury-przestrzenne}}
 
-Znaczna część dziedziny ekologii krajobrazu opiera się na paradygmacie
-płatów \autocite{mcgarigal2009}. Według tej idei krajobrazy składają się
-z jednostek (płatów), które charakteryzuje się jako wyodrębnione obszary
-o jednakowej kategorii pokrycia terenu
+\textcite{mcgarigal2009} określa, że znaczna część dziedziny ekologii
+krajobrazu opiera się na paradygmacie płatów. Według tej idei krajobrazy
+składają się z jednostek (płatów), które charakteryzuje się jako
+wyodrębnione obszary o jednakowej kategorii pokrycia terenu
 \autocite{forman1995land,solon2002}. Każdy krajobraz natomiast cechuje
-się pewną strukturą przestrzenną, której różne cechy mogą następnie być
-opisywane na przykład za pomocą metryk krajobrazowych lub sygnatur
-przestrzennych.
+się pewną strukturą przestrzenną, której najbardziej podstawowymi
+charakterystykami są kompozycja i konfiguracja przestrzenna
+\autocite{Gustafson1998}.
+
+Kompozycja rastra opisuje zróżnicowanie i liczbę płatów poszczególnych
+kategorii pokrycia terenu bez uwzględniania informacji o ich lokalizacji
+w przestrzeni \autocite{Gustafson1998,solon2002,kozak2014}. Konfiguracja
+(ułożenie) natomiast opisuje sąsiadowanie ze sobą poszczególnych płatów
+\autocite{Gustafson1998,solon2002,kozak2014}. Kompozycja, konfiguracja,
+jak i inne różne cechy mogą następnie być opisywane na przykład za
+pomocą metryk krajobrazowych lub sygnatur przestrzennych.
 
 \hypertarget{metryki-krajobrazowe}{%
 \section{Metryki krajobrazowe}\label{metryki-krajobrazowe}}
 
-Metryki krajobrazowe umożliwiają analizę struktury przestrzennej
-krajobrazu na podstawie danych o pokryciu terenu
-\autocite{Pukowiec_Kurda_Sobala_2016}. Można je podzielić na dwie grupy:
-wskaźniki kompozycji i konfiguracji
-\autocite{solon2002,Pukowiec_Kurda_Sobala_2016}. Celem pierwszej grupy
-metryk jest opis kompozycji (udziału) rastrów, czyli zróżnicowania i
-liczby płatów poszczególnych kategorii pokrycia terenu bez uwzględniania
-informacji o ich lokalizacji w przestrzeni
-\autocite{Gustafson1998,solon2002,kozak2014}. Konfiguracja (ułożenie)
-natomiast w sposób liczbowy opisuje sąsiadowanie ze sobą poszczególnych
-płatów \autocite{Gustafson1998,solon2002,kozak2014}. Szczególną zaletą
-takiego podejścia jest to, że metryki krajobrazowe mogą być obliczone
-dla różnorodnych jednostek przestrzennych, które mogą być zdefiniowane
-na podstawie wszelkich aspektów administracyjnych, geograficznych,
-biogeograficznych lub umownych \autocite{Pukowiec_Kurda_Sobala_2016}.
-Jednostki te mogą obejmować zarówno granice gmin, zlewni, ekoregionów
-czy nawet abstrakcyjne obszary na mapie, co z kolei umożliwia
-wszechstronne stosowanie tych metryk w badaniach związanych z analizą
-krajobrazu.
+Metryki krajobrazowe to algorytmy, które w sposób ilościowy
+charakteryzują właściwości przestrzenne płatów, grup płatów lub całych
+krajobrazów \autocite{McGarigal_fragstats}. Umożliwiają także analizę
+struktury przestrzennej krajobrazu na podstawie danych o pokryciu terenu
+\autocite{Pukowiec_Kurda_Sobala_2016}.
+
+Opracowano wiele różnych metryk, których celem jest opis różnych
+aspektów struktury przestrzennej rastrów \autocite{McGarigal_fragstats}.
+Można je podzielić na dwie podstawowe grupy: wskaźniki kompozycji
+(opisujące zróżnicowanie i liczbę płatów danego typu) oraz wskaźniki
+konfiguracji przestrzennej (opisujące sposób rozmieszczenia i
+sąsiadowania płatów) \autocite{solon2002,kozak2014}.
+
+Do przykładowych metryk krajobrazowych należą między innymi: procentowy
+udział poszczególnych typów pokrycia terenu (spatial share), liczba
+płatów (number of patches), średni rozmiar płatu (mean patch size),
+indeks średniego kształtu płatu (mean shape index -- MSI), średnia
+odległość do najbliższego płatu tej samej kategorii (mean nearest
+neighbor), indeks różnorodności Shannona (Shannon Diversity Index --
+SHDI), indeks średniego wymiaru fraktalnego (mean fractal dimension
+index) \autocite{landscapemetrics2019}.
+
+Szczególną zaletą metryk krajobrazowych jest to, że mogą one być
+obliczone dla różnorodnych jednostek przestrzennych, które mogą być
+zdefiniowane na podstawie wszelkich aspektów administracyjnych,
+geograficznych, biogeograficznych lub umownych
+\autocite{Pukowiec_Kurda_Sobala_2016}. Jednostki te mogą obejmować
+zarówno granice gmin, zlewni, ekoregionów czy nawet abstrakcyjne obszary
+na mapie, co z kolei umożliwia wszechstronne stosowanie tych metryk w
+badaniach związanych z analizą krajobrazu.
 
 \hypertarget{sygnatury-przestrzenne}{%
 \section{Sygnatury przestrzenne}\label{sygnatury-przestrzenne}}
 
 Często w celu lepszej reprezentacji analizowanych rastrów możemy
 wykorzystywać także bardziej skomplikowane sygnatury przestrzenne.
+Sygnatura przestrzenna to statystyczny opis pewnych struktur
+przestrzennych występujących wewnątrz rastra
+\autocite{Jasiewicz_GeoPAT,nowosad_motif}. Są one dwuwymiarową
+reprezentacją kompozycji i konfiguracji przestrzennej rastra, czyli jego
+najbardziej podstawowych charakterystyk.
+
 Przykładem sygnatury łączącej zarówno kompozycję, jak i konfigurację
 przestrzenną jest macierz współwystępowania. Jest to macierz o wymiarach
 k na k, gdzie k reprezentuje liczbę kategorii pokrycia terenu obecnych w
@@ -260,7 +289,7 @@ tą możemy skonstruować poprzez zliczanie kolejno wszystkich par
 sąsiadujących ze sobą komórek w rastrze. Wewnątrz tej macierzy, wartości
 ułożone na przekątnej odnoszą się do kompozycji rastra, natomiast
 pozostałe do jego konfiguracji. Przykład dwóch macierzy
-współwystępowania dla rastrów o zbliżonej kompozycji i różnej
+współwystępowania dla rastrów o zbliżonej kompozycji, ale różnej
 konfiguracji przestrzennej przedstawia Rycina \ref{fig-metody-coma}.
 
 \begin{figure}[t]
@@ -276,54 +305,53 @@ konfiguracji przestrzennej.}
 \end{figure}
 
 Na podstawie macierzy współwystępowania mogą zostać obliczone różne
-miary wywodzące się z dziedziny teorii informacji. Przykładem takiej
-miary jest entropia brzegowa \textbf{\emph{PRZYKŁADY, JAK JEST LICZONA,
-WZÓR}} która opisuje zróżnicowanie kompozycji rastra, czyli udziałów
-każdej z kategorii w rastrze.
-
-\[
+miary wywodzące się z dziedziny teorii informacji \autocite{nowosad_it}.
+Przykładem takiej miary jest entropia brzegowa, która opisuje
+zróżnicowanie kompozycji rastra, czyli udziałów każdej z kategorii w
+rastrze. Entropia brzegowa może być obliczona zgodnie ze wzorem: \[
 H(y) = -\sum_{j=1}^{K}p(y=c_{j})log_2p(y=c_j)
-\] \[
+\]
+
+Kolejną miarą jest względna informacja wzajemna. Reprezentuje ona
+stopień sąsiadowania ze sobą kategorii w rastrze, czyli jego
+konfigurację przestrzenną. Względną informację wzajemną można obliczyć
+ze wzoru: \[
+U = I(y,x)/H(y)
+\] gdzie \(I(y,x)\) oznacza informację wzajemną, liczoną ze wzoru: \[
+I(y,x) = H(y) - H(y|x)
+\] natomiast \(H(y|x)\) reprezentuje entropię warunkową, obliczaną
+zgodnie ze wzorem: \[
 H(y|x) = \sum_{i=1}^{K}\sum_{j=1}^{K} p(x=c_i, y=c_j) log_2 p(y=c_i | x=c_j)
 \]
 
-\[
-I(y,x) = H(y) - H(y|x)
-\] \[
-U = I(y,x)/H(y)
-\]
-
-Kolejną miarą jest względna informacja wzajemna \textbf{\emph{PRZYKŁADY,
-JAK JEST LICZONA, WZÓR}}. Reprezentuje ona stopień sąsiadowania ze sobą
-kategorii w rastrze, czyli jego konfigurację przestrzenną. W celu
-porównywania ze sobą sygnatur dwóch rastrów w postaci dwuwymiarowej
-macierzy należy je sprowadzić do postaci jednowymiarowego wektora, a
-następnie przeprowadzić jego normalizację, tak aby wszystkie wartości
-sumowały się do 1. Taka postać pozwala na obliczanie miar odległości lub
-podobieństwa, pozwalających na porównywanie histogramów wartości
-\autocite{Cha2007}. Miary te następnie pozwalają określić stopień
-odmienności dwóch rastrów. Podejście to może być także wykorzystane w
-innych analizach przestrzennych, jak wyszukiwanie obszarów o podobnej
-strukturze przestrzennej, wykrywanie ich zmian oraz grupowanie obszarów
-o podobnej strukturze przestrzennej
+W celu porównywania ze sobą sygnatur dwóch rastrów w postaci
+dwuwymiarowej macierzy należy je sprowadzić do postaci jednowymiarowego
+wektora (histogramu), a następnie przeprowadzić jego normalizację, tak
+aby wszystkie wartości sumowały się do 1. Taka postać pozwala na
+obliczanie miar odległości lub podobieństwa, pozwalających na
+porównywanie histogramów wartości \autocite{Cha2007}. Miary te następnie
+pozwalają określić stopień odmienności dwóch rastrów. Podejście to może
+być także wykorzystane w innych analizach przestrzennych, jak
+wyszukiwanie obszarów o podobnej strukturze przestrzennej, wykrywanie
+ich zmian oraz grupowanie obszarów o podobnej strukturze przestrzennej
 \autocite{Jasiewicz_GeoPAT,nowosad_motif}.
 
-\hypertarget{metody-analiz-ruxf3ux17cnic-pokrycia-terenu}{%
-\section{Metody analiz różnic pokrycia
-terenu}\label{metody-analiz-ruxf3ux17cnic-pokrycia-terenu}}
+\hypertarget{sec-pattern-based}{%
+\section{Metody analiz różnic pokrycia terenu}\label{sec-pattern-based}}
 
-Różnice w pokryciu terenu można analizować przy użyciu różnych metod.
-Wiele z nich koncentruje się na analizie różnic na poziomie
-indywidualnych komórek w siatce rastra. Najbardziej podstawowym
-przykładem takiego podejścia jest analiza ilościowa różnic w pokryciu
-terenu. Zaletą tego podejścia jest przede wszystkim łatwość w wykonaniu
-analizy. Wystarczy zliczyć wszystkie komórki należące do poszczególnych
-kategorii dla wybranych rastrów, a następnie porównać ze sobą te
-wartości, aby otrzymać wynik informujący nas o ilościowych różnicach
-między analizowanymi rastrami. Analiza ilościowa najczęściej
-wykorzystywana jest w celu wskazania ogólnych trendów zmian pokrycia
-terenu dla określonego obszaru badań jak na przykład zmniejszanie się
-obszarów leśnych lub wzrost terenów zurbanizowanych.
+Zmiany pokrycia terenu w czasie lub różnice w pokryciu terenu pomiędzy
+obrazami można analizować przy użyciu wielu metod. Wiele z nich
+koncentruje się na analizie różnic na poziomie indywidualnych komórek w
+siatce rastra. Najbardziej podstawowym przykładem takiego podejścia jest
+analiza ilościowa różnic w pokryciu terenu. Zaletą tego podejścia jest
+przede wszystkim łatwość w wykonaniu analizy. Wystarczy zliczyć
+wszystkie komórki należące do poszczególnych kategorii dla wybranych
+rastrów, a następnie porównać ze sobą te wartości, aby otrzymać wynik
+informujący nas o ilościowych różnicach między analizowanymi rastrami.
+Analiza ilościowa najczęściej wykorzystywana jest w celu wskazania
+ogólnych trendów zmian pokrycia terenu dla określonego obszaru badań jak
+na przykład zmniejszanie się obszarów leśnych lub wzrost terenów
+zurbanizowanych.
 
 Wszelkie metody analiz zmian pokrycia terenu opierające się na analizie
 poszczególnych komórek w siatce rastra są użyteczne na obszarach, gdzie
@@ -333,37 +361,32 @@ komórki przestaje być tak istotna, na przykład dla rastrów o wysokiej
 rozdzielczości lub znacznym zasięgu przestrzennym
 \autocite{Jasiewicz_GeoPAT}. W takiej sytuacji bardziej efektywne staje
 się zastosowanie metod opartych na analizie struktur przestrzennych
-\autocite{Netzel2015}.
+(ang. pattern-based change assessment) \autocite{Netzel2015}.
 
-Metody oparte na analizie struktur przestrzennych wywodzą się z
-dziedziny ekologii krajobrazu. Pozwalają one przede wszystkim na opis
-oraz obliczenie podobieństwa struktur przestrzennych. Głównym zamysłem
-tych metod jest przekształcenie danych z postaci dużych rastrów
-zbudowanych z wielu indywidualnych komórek zawierających pojedyncze
-informacje w sygnatury przestrzenne, a następnie porównanie ich za
-pomocą miar odległości lub niepodobieństwa. Sygnatura przestrzenna
-stanowi statystyczny opis pewnych struktur przestrzennych występujących
-wewnątrz rastra \autocite{Jasiewicz_GeoPAT,nowosad_motif}. Dokładnie w
-tym samym celu wykorzystywane są także metryki krajobrazowe. Mają one
-jednak istotną wadę w kontekście kompleksowych analiz przestrzennych.
-Jako że pojedyncza metryka krajobrazowa reprezentuje wyłącznie jedną,
-konkretną charakterystykę analizowanego obszaru, to nie jest w stanie
-zdefiniować całej charakterystyki przestrzennej danego rastra. W tym
-celu bardziej efektywne może być zastosowanie sygnatur przestrzennych.
-Są one dwuwymiarową reprezentacją kompozycji i konfiguracji
-przestrzennej rastra, czyli jego najbardziej podstawowych
-charakterystyk. Oznacza to też, że można je ze sobą porównywać przy
-użyciu szerokiej gamy istniejących miar odległości i niepodobieństwa.
-Umożliwia to także wykonywanie bardziej skomplikowanych analiz
-przestrzennych, jak wyszukiwanie, wykrywanie zmian, grupowanie i
-segmentacja \autocite{nowosad_motif}.
+Pozwalają one przede wszystkim na opis oraz obliczenie podobieństwa
+struktur przestrzennych. Głównym zamysłem tych metod jest
+przekształcenie danych z postaci dużych rastrów zbudowanych z wielu
+indywidualnych komórek zawierających pojedyncze informacje w metryki
+krajobrazowe oraz sygnatury przestrzenne, a następnie porównanie ich za
+pomocą miar odległości lub niepodobieństwa. Zastosowanie metryk
+krajobrazowych w kontekście kompleksowych analiz przestrzennych ma
+jednak istotną wadę. Jako że pojedyncza metryka krajobrazowa
+reprezentuje wyłącznie jedną, konkretną charakterystykę analizowanego
+obszaru, to nie jest w stanie zdefiniować całej charakterystyki
+struktury przestrzennej danego rastra. W tym celu korzystniejsze może
+okazać się zastosowanie sygnatur przestrzennych. Dzięki temu, że są
+dwuwymiarową reprezentacją struktury przestrzennej rastrów, można je ze
+sobą porównywać przy użyciu szerokiej gamy istniejących miar odległości
+i niepodobieństwa. Umożliwia to także wykonywanie bardziej
+skomplikowanych analiz przestrzennych, jak wyszukiwanie, wykrywanie
+zmian, grupowanie i segmentacja \autocite{nowosad_motif}.
 
 \hypertarget{miary-odlegux142oux15bci-i-niepodobieux144stwa}{%
 \section{Miary odległości i
 niepodobieństwa}\label{miary-odlegux142oux15bci-i-niepodobieux144stwa}}
 
-Odległość i rozbieżność (inaczej niepodobieństwo) stanowią pewien
-policzalny stopień zróżnicowania pary obiektów. Największą różnicą
+Odległość oraz rozbieżność (inaczej niepodobieństwo) stanowią pewien
+policzalny stopień różnorodności pary obiektów. Największą różnicą
 między nimi jest to, że odległości są symetryczne, podczas gdy
 rozbieżności są niesymetryczne. Oznacza to, że wyłącznie dla miar
 odległości otrzymujemy identyczny wynik przy porównywaniu par obiektów A
@@ -376,9 +399,7 @@ terminologii, wszystkie miary odległości, podobieństwa oraz te wywodzące
 się z dziedziny teorii informacji, które zostały wykorzystane w tej
 pracy, będą dalej zbiorowo nazywane miarami niepodobieństwa.
 
-Wybór odpowiedniej miary niepodobieństwa zależy między innymi od rodzaju
-pomiaru lub sposobu reprezentacji obiektów \autocite{Cha2007}. Na
-podstawie podobieństw syntaktycznych, wyróżnia się kilka grup rodzin
+Na podstawie podobieństw syntaktycznych, wyróżnia się kilka grup rodzin
 miar niepodobieństwa \autocite{Cha2007}: rodzina Minkowski (odległość
 euklidesowa, odległość Minkowskiego, odległość Manhattan), rodzina L1
 (Canberra, Sorensen, Kulczynski), rodzina Intersection (Intersection,
@@ -387,11 +408,13 @@ rodzina Squared-chord (Fidelity, Matusita), rodzina Squared L2 (Clark,
 Pearson X2, Neyman X2), rodzina Shannon's Entropy (Jensen-Shannon,
 Kullback-Leibler), a także miary będące połączeniem innych miar (Taneja,
 Kumar-Johnson) oraz miary wywodzące się z teorii informacji (informacja
-wzajemna, entropia Shannona).
+wzajemna, entropia Shannona). Wybór odpowiedniej miary niepodobieństwa
+zależy między innymi od rodzaju pomiaru lub sposobu reprezentacji
+obiektów \autocite{Cha2007}.
 
-\hypertarget{przykux142ad-obliczenia-niepodobieux144stwa-rastruxf3w}{%
-\section{Przykład obliczenia niepodobieństwa
-rastrów}\label{przykux142ad-obliczenia-niepodobieux144stwa-rastruxf3w}}
+\hypertarget{obliczenie-niepodobieux144stwa-rastruxf3w}{%
+\section{Obliczenie niepodobieństwa
+rastrów}\label{obliczenie-niepodobieux144stwa-rastruxf3w}}
 
 Pierwszym krokiem, jaki należy podjąć w celu obliczenia podobieństwa
 struktur przestrzennych danych rastrowych z wykorzystaniem metod
@@ -407,7 +430,7 @@ dodaniu do siebie wszystkich wartości tego wektora powinniśmy otrzymać
 wynik równy 1. Po wykonaniu powyższych czynności otrzymujemy
 reprezentację rastrów wejściowych, która umożliwia porównanie ich ze
 sobą przy użyciu miar niepodobieństwa między rozkładami
-prawdopodobieństwa, takich jak rozbieżnosć Jensena-Shannona. Proces
+prawdopodobieństwa, takich jak rozbieżność Jensena-Shannona. Proces
 obliczenia niepodobieństwa dwóch rastrów w postaci schematu przedstawia
 Rycina \ref{fig-schemat-porownanie}.
 
@@ -422,159 +445,72 @@ niepodobieństwa dwóch rastrów.}
 
 \end{figure}
 
-\hypertarget{symulowanie-rastruxf3w-o-okreux15blonej-kompozycji-i-konfiguracji-przestrzennej}{%
-\section{Symulowanie rastrów o określonej kompozycji i konfiguracji
-przestrzennej}\label{symulowanie-rastruxf3w-o-okreux15blonej-kompozycji-i-konfiguracji-przestrzennej}}
-
-Najważniejszym założeniem przy tworzeniu zbioru rastrów do pierwszej
-ankiety było przygotowanie ich w sposób umożliwiający uzyskanie pełnej
-reprezentacji wszystkich możliwych wartości kompozycji, jak i
-konfiguracji przestrzennej. Zbiór rastrów został przygotowany w języku
-programowania R \autocite{R2023}, w oparciu o wykorzystanie funkcji
-\emph{nlm\_fbm} z pakietu NLMR \autocite{NLMR2018}. Funkcja ta pozwala
-na symulację rastrów przy użyciu ułamkowych ruchów Browna, będących
-uproszczeniem ruchów Browna \autocite{nlm_fbm}. W tej funkcji poziom
-korelacji między kolejnymi krokami jest kontrolowany za pomocą parametru
-``fract\_dim''. W kontekście tego badania, parametr ten reguluje
-konfigurację przestrzenną. Oznacza to, że w przypadku, gdy
-``fract\_dim'' przyjmuje niską wartość, wartości w generowanym rastrze
-rozmieszczone są w sposób losowy, zbliżony do szumu. Natomiast w
-przypadku wysokiej wartości ``fract\_dim'', na wynikowym rastrze tworzą
-się skupiska najwyższych i najniższych wartości, a przejścia pomiędzy
-nimi mają płynny, wygładzony charakter. Powyższa funkcja umożliwia
-uzyskanie danych rastrowych wypełnionych wartościami
-zmiennoprzecinkowymi mieszczącymi się w zakresie od 0 do 1 oraz
-dowolnymi parametrami konfiguracji przestrzennej.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(RandomFields)}
-\FunctionTok{library}\NormalTok{(NLMR)}
-
-\NormalTok{sim1 }\OtherTok{=} \FunctionTok{nlm\_fbm}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{100}\NormalTok{, }\AttributeTok{fract\_dim =} \FloatTok{0.3}\NormalTok{)}
-\NormalTok{sim2 }\OtherTok{=} \FunctionTok{nlm\_fbm}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{100}\NormalTok{, }\AttributeTok{fract\_dim =} \FloatTok{1.6}\NormalTok{)}
-
-\NormalTok{sim\_stack1 }\OtherTok{=}\NormalTok{ raster}\SpecialCharTok{::}\FunctionTok{stack}\NormalTok{(sim1, sim2)}
-\FunctionTok{names}\NormalTok{(sim\_stack1) }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"wysokie fract\_dim"}\NormalTok{, }\StringTok{"niskie fract\_dim"}\NormalTok{)}
-
-\FunctionTok{plot}\NormalTok{(sim\_stack1)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[t]
-
-{\centering \includegraphics{02-roz2_files/figure-pdf/unnamed-chunk-3-1.pdf}
-
-}
-
-\end{figure}
-
-Następnie, aby otrzymać zbiór rastrów uwzględniający także pełen
-przekrój kompozycji należy przeprowadzić proces reklasyfikacji.
-Procedura ta polega na podziale każdego dotychczas utworzonego rastra na
-kategorie pokrycia terenu w różnych proporcjach, na przykład 90:10,
-70:30 oraz 50:50 w przypadku rastrów zawierających wyłącznie dwie
-kategorie pokrycia terenu. Wykonanie tego procesu ułatwia między innymi
-funkcja \emph{util\_binarize} z pakietu landscapetools
-\autocite{NLMR2018}. W tej funkcji proporcje kategorii pokrycia terenu
-kontrolowane są za pomocą parametru ``breaks''. Przykładowo, ustawienie
-parametru ``breaks'' na poziomie \emph{0.2} poskutkuje otrzymaniem
-rastra o kategoriach pokrycia terenu w proporcjach 20 do 80. Oznacza to,
-że jedna z kategorii będzie obejmowała swoim zasięgiem 20\% komórek
-rastra, podczas gdy druga kategoria wypełni pozostałe 80\% komórek.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(landscapetools)}
-
-\NormalTok{sim1\_1 }\OtherTok{=}\NormalTok{ landscapetools}\SpecialCharTok{::}\FunctionTok{util\_binarize}\NormalTok{(sim1, }\AttributeTok{breaks =} \FloatTok{0.1}\NormalTok{)}
-\NormalTok{sim1\_2 }\OtherTok{=}\NormalTok{ landscapetools}\SpecialCharTok{::}\FunctionTok{util\_binarize}\NormalTok{(sim1, }\AttributeTok{breaks =} \FloatTok{0.5}\NormalTok{)}
-
-\NormalTok{sim2\_1 }\OtherTok{=}\NormalTok{ landscapetools}\SpecialCharTok{::}\FunctionTok{util\_binarize}\NormalTok{(sim2, }\AttributeTok{breaks =} \FloatTok{0.1}\NormalTok{)}
-\NormalTok{sim2\_2 }\OtherTok{=}\NormalTok{ landscapetools}\SpecialCharTok{::}\FunctionTok{util\_binarize}\NormalTok{(sim2, }\AttributeTok{breaks =} \FloatTok{0.5}\NormalTok{)}
-
-\NormalTok{sim\_stack2 }\OtherTok{=}\NormalTok{ raster}\SpecialCharTok{::}\FunctionTok{stack}\NormalTok{(sim1, sim1\_1, sim1\_2,}
-\NormalTok{                           sim2, sim2\_1, sim2\_2)}
-
-\FunctionTok{plot}\NormalTok{(sim\_stack2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[t]
-
-{\centering \includegraphics{02-roz2_files/figure-pdf/unnamed-chunk-4-1.pdf}
-
-}
-
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# library(rasterVis)}
-\CommentTok{\# gplot(sim\_stack2) + }
-\CommentTok{\#   geom\_tile(aes(fill = value)) +}
-\CommentTok{\#   facet\_wrap(\textasciitilde{} variable) +}
-\CommentTok{\#   scale\_fill\_gradientn(colours = rev(terrain.colors(225))) +}
-\CommentTok{\#   coord\_equal()}
-\CommentTok{\# }
-\CommentTok{\# \# wizualizacja symulowanych rastrów}
-\CommentTok{\# tm\_shape(sim\_stack2) +}
-\CommentTok{\#   tm\_raster(style = \textquotesingle{}cont\textquotesingle{}, breaks = c(0,2), palette = terrain.colors(255)) +}
-\CommentTok{\#   tm\_layout(asp = 1, legend.show = FALSE, panel.show = FALSE)}
-\end{Highlighting}
-\end{Shaded}
-
 \bookmarksetup{startatroot}
 
 \hypertarget{sec-materialy}{%
 \chapter{Materiały}\label{sec-materialy}}
 
-W tym rozdziale zostanie omówiony cel przeprowadzenia pierwszej ankiety
-oraz istotne aspekty związane z jej formą. Następnie opisany zostanie
-sposób przygotowania danych wraz z przyjętą metodą doboru pytań do
-ankiety.
+W tym rozdziale zostaną omówione najistotniejsze aspekty związane z
+formą przeprowadzonej ankiety. W pierwszej kolejności przedstawiony
+zostanie proces symulacji rastrów, który został wykorzystany do
+stworzenia zbioru danych o określonych parametrach kompozycji i
+konfiguracji przestrzennej. Następnie opisany zostanie sposób doboru
+odpowiednich pytań do ankiety. W końcowej części rozdziału omówione
+zostaną dane przestrzenne o pokryciu terenu CORINE Land Cover, które
+zostały wykorzystane do porównania zastosowania wybranych miar
+niepodobieństwa w kontekście analiz zmian pokrycia terenu.
 
-\hypertarget{sec-przygotowanie1}{%
-\section{Przygotowanie pierwszej ankiety}\label{sec-przygotowanie1}}
+\hypertarget{symulowanie-rastruxf3w-o-okreux15blonej-kompozycji-i-konfiguracji-przestrzennej}{%
+\section{Symulowanie rastrów o określonej kompozycji i konfiguracji
+przestrzennej}\label{symulowanie-rastruxf3w-o-okreux15blonej-kompozycji-i-konfiguracji-przestrzennej}}
 
-Najważniejszym założeniem przy tworzeniu zbioru rastrów do pierwszej
-ankiety było przygotowanie ich w sposób umożliwiający uzyskanie pełnej
-reprezentacji wszystkich możliwych wartości kompozycji, jak i
-przestrzennej konfiguracji. Zbiór rastrów został przygotowany w oparciu
-o wykorzystanie funkcji \emph{nlm\_fbm} z pakietu NLMR
-\autocite{NLMR2018}. Funkcja ta pozwala na symulację rastrów przy użyciu
-ułamkowych ruchów Browna, będących uproszczeniem ruchów Browna
-\autocite{nlm_fbm}. W tej funkcji poziom korelacji między kolejnymi
-krokami jest kontrolowany za pomocą parametru ``frac\_dim''. W
-kontekście tego badania, parametr ten reguluje konfigurację
-przestrzenną. Oznacza to, że w przypadku, gdy ``frac\_dim'' przyjmuje
-niską wartość, wartości w generowanym rastrze rozmieszczone są w sposób
-losowy, zbliżony do szumu. Natomiast w przypadku wysokiej wartości
-``frac\_dim'', na wynikowym rastrze tworzą się skupiska najwyższych i
-najniższych wartości, a przejścia pomiędzy nimi mają płynny, wygładzony
-charakter. \textbf{\emph{tutaj dodać kawałek kodu pokazujący jak działa
-funkcja?}} Kolejnym krokiem w procesie tworzenia danych było dodanie
-zróżnicowania rastrów na podstawie ich przestrzennej kompozycji. Zostało
-to osiągnięte poprzez podział każdego z wynikowych rastrów na kategorie
-w oparciu o stałe przedziały wartości dla wszystkich rastrów. Proces
+Najważniejszym założeniem przy tworzeniu zbioru rastrów do ankiety było
+przygotowanie ich w sposób umożliwiający uzyskanie pełnej reprezentacji
+wszystkich możliwych wartości kompozycji, jak i konfiguracji
+przestrzennej. Zbiór rastrów został przygotowany w języku programowania
+R \autocite{R2023}, w oparciu o wykorzystanie funkcji \emph{nlm\_fbm} z
+pakietu NLMR \autocite{NLMR2018}. Powyższa funkcja umożliwia uzyskanie
+danych rastrowych wypełnionych wartościami zmiennoprzecinkowymi
+mieszczącymi się w zakresie od 0 do 1 oraz dowolnymi parametrami
+konfiguracji przestrzennej. Funkcja ta pozwala na symulację rastrów przy
+użyciu ułamkowych ruchów Browna, będących uproszczeniem ruchów Browna
+\autocite{nlm_fbm}. W tej funkcji poziom autokorelacji między kolejnymi
+symulacjami jest kontrolowany za pomocą parametru wymiaru fraktalnego
+(``fract\_dim''). W kontekście tego badania, parametr ten reguluje
+konfigurację przestrzenną. Oznacza to, że w przypadku, gdy
+``fract\_dim'' przyjmuje niską wartość, zbliżoną do 0, wartości w
+generowanym rastrze rozmieszczone są w sposób losowy, zbliżony do szumu.
+Natomiast w przypadku wysokiej wartości ``fract\_dim'', zbliżonej do 2,
+na wynikowym rastrze tworzą się skupiska najwyższych i najniższych
+wartości, a przejścia pomiędzy nimi mają płynny, wygładzony charakter.
+
+Następnie, aby otrzymać zbiór rastrów uwzględniający także pełen
+przekrój kompozycji należy przeprowadzić proces reklasyfikacji rastrów
+stworzonych w poprzednim kroku. Procedura ta polega na podziale każdego
+dotychczas utworzonego rastra na kategorie pokrycia terenu w różnych
+proporcjach, na przykład 90:10, 70:30 oraz 50:50 w przypadku rastrów
+zawierających wyłącznie dwie kategorie pokrycia terenu. Wykonanie tego
+procesu ułatwia między innymi funkcja \emph{util\_binarize} z pakietu
+landscapetools \autocite{NLMR2018}. W tej funkcji proporcje kategorii
+pokrycia terenu kontrolowane są za pomocą parametru ``breaks''.
+Przykładowo, ustawienie parametru ``breaks'' na poziomie \emph{0.2}
+poskutkuje otrzymaniem rastra o kategoriach pokrycia terenu w
+proporcjach 20 do 80. Oznacza to, że jedna z kategorii będzie pokrywała
+20\% komórek rastra, podczas gdy druga kategoria wypełni pozostałe 80\%
+komórek. Na Rycinie \ref{fig-diagram-symulowanie} przedstawiony został
+przykład przygotowania rastrów podzielonych na dwie kategorie pokrycia
+terenu w sposób opisany powyżej.
 
 \begin{figure}[t]
 
-{\centering \includegraphics[width=4.16667in,height=4.16667in]{figures/wykres2_gen.png}
+{\centering \includegraphics[width=1\textwidth,height=3.22917in]{figures/diagram_rastersim_showcase.pdf}
 
 }
 
-\caption{\label{fig-wykres2_gen}Wizualizacja procesu symulacji rastrów
-do pierwszej ankiety albo placeholder zamiast pokazania jak działa
-funkcja}
+\caption{\label{fig-diagram-symulowanie}Symulowanie rastrów o określonej
+kompozycji i konfiguracji przestrzennej}
 
 \end{figure}
-
-W następnym etapie przygotowania danych obliczone zostały wybrane miary
-opisujące struktury przestrzenne: entropia (ent) oraz względna
-informacja wzajemna (relmutinf). Miary te umożliwiły potwierdzenie
-uzyskania oczekiwanego rozkładu kompozycji i konfiguracji wewnątrz
-zbioru rastrów.
 
 Ostatecznie wygenerowane zostały zbiory rastrów składających się
 wyłącznie z dwóch lub trzech kategorii pokrycia terenu. Przykład jednego
@@ -583,28 +519,15 @@ zawierające trzy kategorie zostały uwzględnione w badaniu w celu próby
 wskazania czy liczba kategorii na rastrach ma wpływ na odpowiedzi
 udzielane przez ankietowanych.
 
-Ostatnim krokiem przygotowania danych było wybranie par rastrów
-tworzących poszczególne pytania. W tym celu, pytania w ankietach
-podzielone zostały na dwie grupy, wewnątrz których znalazły się po trzy
-podgrupy pytań. W pierwszej kolejności respondenci zetknęli się z 24
-pytaniami dotyczącymi rastrów uwzględniających wyłącznie dwie kategorie
-pokrycia terenu, a następnie z 24 pytaniami uwzględniającymi trzy
-kategorie pokrycia terenu. Pierwsza podgrupa pytań (6 par rastrów)
-składała się z par rastrów różniących się między sobą wyłącznie
-entropią. Podgrupa druga (6 par rastrów) zawierała wyłącznie rastry
-różniące się względną informacją wzajemną. Ostatnia podgrupa (12 par
-rastrów) składała się z pytań zróżnicowanych zarówno pod względem
-entropii, jak i względnej informacji wzajemnej. Taki sposób doboru pytań
-pozwolił na zredukowanie liczby odpowiedzi wymaganych od respondentów,
-jak i ograniczenie wpływu błędu selekcji, który powstałby w wyniku
-niewłaściwego doboru pytań. Respondenci celowo nie zostali poinformowani
-o występujących różnicach pomiędzy kolejnymi pytaniami, ponieważ mogłoby
-mieć to wpływ na udzielane przez nich odpowiedzi, co z kolei mogłoby
-wpłynąć na ostateczne wyniki badania.
+Po utworzeniu zbioru danych rastrowych bardzo istotne było
+potwierdzenie, że obejmuje on pełen zakres rozkładu kompozycji i
+konfiguracji. Na potwierdzenie tego założenia pozwoliło obliczenie
+wybranych miar opisujących struktury przestrzenne: entropii oraz
+względnej informacji wzajemnej.
 
 \begin{figure}[t]
 
-{\centering \includegraphics[width=1\textwidth,height=5.20833in]{figures/wykres1_2classes.png}
+{\centering \includegraphics[width=1\textwidth,height=5.72917in]{figures/wykres1_2classes.png}
 
 }
 
@@ -613,11 +536,69 @@ rastrów (2 kategorie pokrycia terenu)}
 
 \end{figure}
 
-\hypertarget{sec-przygotowanie2}{%
-\section{Przygotowanie drugiej ankiety}\label{sec-przygotowanie2}}
+\hypertarget{sec-przygotowanie1}{%
+\section{Przygotowanie ankiety}\label{sec-przygotowanie1}}
 
-\hypertarget{sec-app}{%
-\section{Ankieta w formie aplikacji shiny???}\label{sec-app}}
+Ostatnim krokiem przygotowania danych do ankiety było wybranie par
+rastrów tworzących poszczególne pytania tak aby uwzględniały one
+wszelkie możliwe różnice struktury przestrzennej rastrów. W tym celu,
+pytania w ankietach podzielone zostały na dwie grupy, wewnątrz których
+znalazły się po trzy podgrupy pytań.
+
+W pierwszej kolejności respondenci zetknęli się z 24 pytaniami
+dotyczącymi rastrów uwzględniających wyłącznie dwie kategorie pokrycia
+terenu, a następnie z 24 pytaniami uwzględniającymi trzy kategorie
+pokrycia terenu. Pierwsza podgrupa pytań (6 par rastrów) składała się z
+par rastrów różniących się między sobą wyłącznie entropią. Podgrupa
+druga (6 par rastrów) zawierała wyłącznie rastry różniące się względną
+informacją wzajemną. Ostatnia podgrupa (12 par rastrów) składała się z
+pytań zróżnicowanych zarówno pod względem entropii, jak i względnej
+informacji wzajemnej.
+
+Taki sposób doboru pytań pozwolił na zredukowanie liczby odpowiedzi
+wymaganych od respondentów, jak i ograniczenie wpływu błędu selekcji,
+który powstałby w wyniku niewłaściwego doboru pytań. Respondenci celowo
+nie zostali poinformowani o występujących różnicach pomiędzy kolejnymi
+pytaniami, ponieważ mogłoby mieć to wpływ na udzielane przez nich
+odpowiedzi, co z kolei mogłoby wpłynąć na ostateczne wyniki badania.
+
+\hypertarget{sec-CLC}{%
+\section{Dane CORINE Land Cover}\label{sec-CLC}}
+
+Jednym z etapów porównania miar niepodobieństwa była eksploracja wyników
+tych miar przy zastosowaniu w analizie zmian pokrycia terenu na
+podstawie danych CORINE Land Cover (CLC). Dane CLC reprezentują
+szczegółowe informacje o pokryciu terenu, klasyfikując obszary
+geograficzne według różnych kategorii, takich jak lasy, tereny rolnicze,
+obszary zurbanizowane czy zbiorniki wodne. Stanowią one istotny
+instrument w analizie i monitorowaniu zmian środowiska, a także służą
+jako narzędzie wspierające procesy decyzyjne na poziomie europejskim.
+
+Zbiory danych przestrzennych CORINE Land Cover stanowią integralną część
+programu CORINE (Coordination of Information on Environment),
+wprowadzonego przez Komisję Wspólnot Europejskich w 1985 roku. Program
+ten został stworzony w celu skoordynowania przedsięwzięć związanych z
+gromadzeniem i przetwarzaniem informacji na temat stanu środowiska
+geograficznego w krajach należących do Wspólnoty Europejskiej oraz
+standaryzację tych danych w celu ułatwienia wymiany informacji między
+państwami członkowskimi \autocite{Bielecka_Ciolkosz_2004}.
+
+Wyniki programu CORINE są udostępniane w formatach wektorowych ESRI i
+SQLite geodatabase oraz formacie rastrowym GeoTiff o rozdzielczości
+przestrzennej 100 metrów, co oznacza, że jedna komórka rastra obejmuje 1
+hektar powierzchni. Do celów tej pracy, wykorzystane zostały dane CLC
+dla lat 1990 i 2018 udostępnione do pobrania w formacie GeoTiff na
+witrynie Copernicus Land Monitoring Service
+(https://land.copernicus.eu/pan-european/corine-land-cover). Dane te
+wykorzystują układ współrzędnych ETRS-LAEA (EPSG:3035).
+
+Dane CLC są zorganizowane na trzech poziomach szczegółowości. Na
+najwyższym poziomie tej hierarchii wyodrębniono pięć głównych typów
+pokrycia terenu: tereny antropogeniczne, tereny rolne, lasy i ekosystemy
+seminaturalne, obszary podmokłe oraz obszary wodne. W celu uproszczenia
+analizy wyników, dane zostały poddane reklasyfikacji. W wyniku tego
+procesu zredukowano liczbę kategorii pokrycia terenu do wyłącznie dwóch:
+lasy i pozostałe obszary.
 
 \bookmarksetup{startatroot}
 
@@ -625,39 +606,35 @@ rastrów (2 kategorie pokrycia terenu)}
 \chapter{Wyniki}\label{sec-wyniki}}
 
 W tym rozdziale przeprowadzona zostanie analiza i podsumowanie wyników
-uzyskanych z ankiet. Wyniki zostaną zestawione z miarami niepodobieństwa
-uwzględnionymi w analizie.
+uzyskanych z ankiety. Wyniki zostaną zestawione z miarami
+niepodobieństwa uwzględnionymi w analizie.
 
-\hypertarget{sec-wyniki1}{%
-\section{Wyniki pierwszej ankiety}\label{sec-wyniki1}}
+W celu zidentyfikowania potencjalnych związków pomiędzy percepcją zmian
+w pokryciu terenu przez ludzi a miarami niepodobieństwa, które te zmiany
+kwantyfikują przeprowadzona została ankieta. Głównym celem ankiety było
+aby uzyskanie wstępnych informacji na temat tego w jaki sposób różnice w
+entropii oraz względnej informacji wzajemnej między analizowanymi
+rastrami wpływają na subiektywne postrzeganie zmian w pokryciu terenu
+przez ludzi.
 
-Pierwsza ankieta została przeprowadzona w celu uzyskania wstępnych
-informacji, mających na celu zrozumienie wpływu różnic w entropii oraz
-względnej informacji wzajemnej między parami analizowanych rastrów na
-wizualne postrzeganie zmian pokrycia terenu przez ludzi. Głównym celem
-badania było wykazanie potencjalnych związków między percepcją zmian w
-pokryciu terenu przez ludzi a miarami niepodobieństwa, które te zmiany
-kwantyfikują. Przeprowadzenie ankiety pozwoliło także na wyznaczenie
-dalszego kierunku badań, które miałyby zostać zrealizowane w kolejnej
-ankiecie Section~\ref{sec-wyniki2}.
-
-Badanie zostało realizowane w terminie od 21 do 24 listopada 2022 roku.
-Proces zbierania odpowiedzi respondentów przyjął formę ankiety online,
-co pozwoliło respondentom na wygodny udział w badaniu przy użyciu
-komputera lub urządzenia mobilnego. Ankieta stworzona została w formie
-aplikacji internetowej za pomocą języka programowania R, na podstawie
-pakietów \textbf{shiny} \autocite*{R-shiny} oraz \textbf{shinysurveys}
-\autocite*{R-shinysurveys} \textbf{\emph{NAPRAWIĆ BO NIE POKAZUJE SIĘ
-CYTOWANIE W BIBLIOGRAFII}}. Sama aplikacja umieszczona została na
-platformie shinyapps.io. Przeprowadzenie ankiety w formie online
-umożliwiło systematyczne gromadzenie oraz przechowywanie odpowiedzi w
-formie tabelarycznej, ułatwiając tym samym dalszą analizę i
-interpretację danych. Respondenci stanowili grupę 50 studentów drugiego
-roku studiów inżynierskich na kierunku Geoinformacja na Wydziale Nauk
-Geograficznych i Geologicznych Uniwersytetu im. Adama Mickiewicza. Wybór
-tej grupy respondentów oznacza, że byli oni już zaznajomieni z tematyką
-tworzenia i analiz map w formie rastrowej oraz pojęciem zmian pokrycia
-terenu.
+Badanie było realizowane w terminie od 21 do 24 listopada 2022 roku. Z
+uwagi na znaczną liczbę rastrów, które miałyby być przedstawione
+ankietowanym w trakcie badania, proces zbierania odpowiedzi respondentów
+przyjął formę ankiety online. Pozwoliło to respondentom na wygodny
+udział w badaniu przy użyciu komputera lub urządzenia mobilnego.
+Kwestionariusz stworzony został w formie aplikacji internetowej za
+pomocą języka programowania R, na podstawie pakietów \textbf{shiny}
+\autocite*{R-shiny} oraz \textbf{shinysurveys}
+\autocite*{R-shinysurveys}. Sama aplikacja umieszczona została na
+platformie \emph{shinyapps.io} (https://www.shinyapps.io/).
+Przeprowadzenie ankiety w formie online umożliwiło systematyczne
+gromadzenie oraz przechowywanie odpowiedzi w formie tabelarycznej,
+ułatwiając tym samym dalszą analizę i interpretację danych. Respondenci
+stanowili grupę 50 studentów drugiego roku studiów inżynierskich na
+kierunku Geoinformacja na Wydziale Nauk Geograficznych i Geologicznych
+Uniwersytetu im. Adama Mickiewicza. Wybór tej grupy respondentów
+oznacza, że byli oni już zaznajomieni z tematyką tworzenia i analiz map
+w formie rastrowej oraz pojęciem zmian pokrycia terenu.
 
 Każdy z ankietowanych otrzymał do wypełnienia jeden z dwóch wcześniej
 przygotowanych zbiorów pytań. Każdy ze zbiorów składał się z 48 pytań,
@@ -681,96 +658,321 @@ Przykład pytania przedstawionego respondentom ilustruje Rycina
 
 \begin{figure}[t]
 
-{\centering \includegraphics[width=1\textwidth,height=4.6875in]{figures/przyklad_pytania.png}
+{\centering \includegraphics[width=5.10417in,height=4.16667in]{figures/przyklad_pytania.png}
 
 }
 
-\caption{\label{fig-przyklad_pytania}Przykładowe pytanie z pierwszej
-ankiety}
+\caption{\label{fig-przyklad_pytania}Przykładowe pytanie z ankiety}
 
 \end{figure}
 
 Łącznie uzyskane zostało 2400 odpowiedzi na pytania z ankiety.
-Podsumowanie uzyskanych odpowiedzi przedstawione zostało w Tabeli 1.
+Podsumowanie uzyskanych odpowiedzi przedstawione zostało w Tabeli
+\ref{tbl-totals_df}. Według ankietowanych prawie 36\% par rastrów
+charakteryzowała się brakiem podobieństwa, 32,6\% uzyskanych odpowiedzi
+wskazywało na bardzo małe podobieństwo, 18,1\% na umiarkowane, 11,6\%
+bardzo duże, natomiast mniej niż 2\% wskazywało na pełne podobieństwo.
+Warto tutaj także zwrócić uwagę, że zestawienia wszystkich odpowiedzi w
+zależności od liczby kategorii widocznych na rastrach nie wskazują na
+znaczące różnice w liczbie odpowiedzi dla danej kategorii. Największą
+różnicę stanowi w tym przypadku kategoria ``Bardzo duże'', dla której
+liczba odpowiedzi dla rastrów z dwoma i trzema kategoriami pokrycia
+terenu różni się zaledwie o 2,7\%. Najmniejszą różnicą charakteryzuje
+się kategoria ``Pełne'', gdzie liczba odpowiedzi pomiędzy zestawami
+różni się o jedyne 0,9\%.
 
-Według ankietowanych prawie 36\% par rastrów charakteryzowała się
-brakiem podobieństwa, 32,6\% uzyskanych odpowiedzi wskazywało na bardzo
-małe podobieństwo, 18,1\% na umiarkowane, 11,6\% bardzo duże, natomiast
-mniej niż 2\% wskazywało na pełne podobieństwo. Warto tutaj także
-zwrócić uwagę, że zestawienia wszystkich odpowiedzi w zależności od
-liczby kategorii widocznych na rastrach nie wskazują na znaczące różnice
-w liczbie odpowiedzi dla danej kategorii. Największą różnicę stanowi w
-tym przypadku kategoria ``Bardzo duże'', dla której liczba odpowiedzi
-dla rastrów z dwoma i trzema kategoriami pokrycia terenu różni się
-zaledwie o 2,7\%. Najmniejszą różnicą charakteryzuje się kategoria
-``Pełne'', gdzie liczba odpowiedzi pomiędzy zestawami różni się o jedyne
-0,9\%.
+\hypertarget{tbl-totals_df}{}
+\begin{table}
+\caption{\label{tbl-totals_df}Podsumowanie odpowiedzi z ankiety }\tabularnewline
 
-Poziom zgodności każdego pytania został obliczony jako stosunek
-najczęściej udzielonej odpowiedzi względem całkowitej liczby odpowiedzi.
-Całkowity poziom zgodności ankietowanych został oszacowany na 55\%.
-Oznacza to, że 1321 z 2400 udzielonych odpowiedzi znajdowało się w
-grupie najczęstszej odpowiedzi dla danego pytania.
+\centering
+\begin{tabular}{>{\raggedright\arraybackslash}p{3cm}>{\raggedleft\arraybackslash}p{2.5cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{2.5cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{2.5cm}>{\raggedleft\arraybackslash}p{1.5cm}}
+\toprule
+\multicolumn{1}{c}{Typ odpowiedzi} & \multicolumn{2}{c}{Łącznie} & \multicolumn{2}{c}{Dwie kategorie} & \multicolumn{2}{c}{Trzy kategorie} \\
+\cmidrule(l{3pt}r{3pt}){1-1} \cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5} \cmidrule(l{3pt}r{3pt}){6-7}
+ & Liczba odpowiedzi & {}[\%] & Liczba odpowiedzi & {}[\%] & Liczba odpowiedzi & {}[\%]\\
+\midrule
+Brak & 862 & 35.9 & 420 & 35.0 & 442 & 36.8\\
+Bardzo małe & 783 & 32.6 & 398 & 33.2 & 385 & 32.1\\
+Umiarkowane & 434 & 18.1 & 211 & 17.6 & 223 & 18.6\\
+Bardzo duże & 278 & 11.6 & 155 & 12.9 & 123 & 10.2\\
+Pełne & 43 & 1.8 & 16 & 1.3 & 27 & 2.2\\
+\addlinespace
+Suma & 2400 & 100.0 & 1200 & 100.0 & 1200 & 100.0\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-Pytania różniące się zarówno entropią, jak i względną informacją
-wzajemną cechowały się najwyższym poziomem zgodności odpowiedzi
-wynoszącym 61\%, podczas gdy pytania różniące się wyłącznie entropią
-uzyskały wynik 53\%, a pytania różniące się wyłącznie względną
-informacją wzajemną uzyskały wynik 52\%. Najwyższy poziom zgodności
-odpowiedzi osób ankietowanych wyniósł 92\% i dotyczył pytania różniącego
-się zarówno entropią, jak i względną informacją wzajemną (dopisać jak
-bardzo różniły się ent i rmi). Najniższy poziom zgodności, czyli
-zaledwie 38\%, osiągnęło aż 8 pytań. Wyłącznie dwa z nich dotyczyły
-pytań zawierających trzy kategorie pokrycia terenu, podczas gdy
-pozostałe - dwóch. 75\% z tych pytań uwzględniało rastry różniące się
-pod względem względnej informacji przestrzennej (inna konfiguracja) przy
-zachowaniu tej samej entropii (identyczna kompozycja).
+Aby określić jakie odpowiedzi należały do grupy najczęstszych odpowiedzi
+dla poszczególnych pytań, obliczona została miara określana dalej
+Poziomem zgodności. Poziom zgodności każdego pytania został obliczony
+jako stosunek najczęściej udzielonej odpowiedzi względem całkowitej
+liczby odpowiedzi udzielonych na to pytanie. Poziomy zgodności
+ankietowanych w podziale na rodzaje pytań znajdują się w Tabeli
+\ref{tbl-qtype_agree_df1}. Całkowity poziom zgodności ankietowanych
+został oszacowany na 55\%. Oznacza to, że 1321 z 2400 udzielonych
+odpowiedzi znalazło się w grupie najczęściej udzielonych odpowiedzi na
+pytania. Pytania różniące się zarówno entropią, jak i względną
+informacją wzajemną cechowały się najwyższym poziomem zgodności
+odpowiedzi wynoszącym 61\%, podczas gdy pytania różniące się wyłącznie
+entropią uzyskały wynik 53\%, a pytania różniące się wyłącznie względną
+informacją wzajemną uzyskały wynik 52\%.
 
-W dalszym etapie analizy wyniki uzyskane z przeprowadzonej ankiety
+Najwyższy poziom zgodności odpowiedzi osób ankietowanych wyniósł 92\% i
+dotyczył pytania różniącego się zarówno entropią, jak i względną
+informacją wzajemną. Aż 24 z 26 osób wskazało na brak podobieństw między
+rastrami uwzględnionymi w tym pytaniu. Jest to interesujący wynik,
+ponieważ rastry w tym pytaniu wcale nie należały do par rastrów
+najbardziej zróżnicowanych pod względem entropii i względnej informacji
+wzajemnej. Pierwszy z rastrów charakteryzował się entropią na poziomie
+0,08 oraz względną informacją wzajemną wynoszącą 0,09. W przypadku
+drugiego rastra, wspomniane wartości wynosiły odpowiednio 0,47 i 0,48.
+Oznacza to, że w przypadku obu miar różnica między parami entropii oraz
+wynikami względnej informacji wzajemnej wyniosły 0,39.
+
+Najniższy poziom zgodności, czyli zaledwie 38\%, osiągnęło aż 8 pytań.
+Wyłącznie dwa z nich dotyczyły pytań zawierających trzy kategorie
+pokrycia terenu, podczas gdy pozostałe - dwóch. 75\% z tych pytań
+uwzględniało rastry różniące się pod względem względnej informacji
+wzajemnej (inna konfiguracja) przy zachowaniu tej samej entropii
+(identyczna kompozycja).
+
+\hypertarget{tbl-qtype_agree_df1}{}
+\begin{table}
+\caption{\label{tbl-qtype_agree_df1}Poziom zgodności ankietowanych w podziale na rodzaje pytań }\tabularnewline
+
+\centering
+\begin{tabular}{>{\raggedright\arraybackslash}p{6.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
+\toprule
+Rodzaj pytania & Liczba najczęstszych odpowiedzi & Liczba odpowiedzi & Poziom zgodności [\%]\\
+\midrule
+Różna entropia, różne RMI & 429 & 704 & 61\\
+Różna entropia, identyczne RMI & 425 & 796 & 53\\
+Identyczna entropia, identyczne RMI & 467 & 900 & 52\\
+Łącznie & 1321 & 2400 & 55\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+W kolejnym etapie analizy wyniki uzyskane z przeprowadzonej ankiety
 zostały zestawione z wynikami 45 różnych miar niepodobieństwa dla par
 rastrów uwzględnionych w ankiecie. Aby ocenić relacje między
 najczęstszymi odpowiedziami uczestników ankiety a miarami
 niepodobieństwa, przeprowadzono analizę korelacji Spearmana. W ten
-sposób uzyskano ostateczny ranking miar, który został przedstawiony w
-Tabeli 1.
+sposób uzyskano ranking miar, który został przedstawiony w Tabeli
+\ref{tbl-corr_df}.
 
-Na podstawie analizy korelacji można wywnioskować, że spośród 45
-uwzględnionych w badaniu metod obliczania podobieństwa między parami
-rastrów, jedynie 6 z nich wykazuje dodatnią korelację z wynikami
-uzyskanymi z ankiety. Spośród wszystkich metod, najwyższą wartość
-korelacji osiągnęła metoda Fidelity ze współczynnikiem korelacji równym
-0,34. Ponadto, miary ``harmonic mean'' i ``intersection'' również
-wykazały dość wysoki współczynnik korelacji. Jak wspomniano wyżej, nie
-wszystkie miary odległości charakteryzowały się dodatnim współczynnikiem
-korelacji. Miary ``canberra'', ``divergence'' i ``clark'' wykazały
-współczynniki korelacji poniżej -0,4, co wskazuje na ich umiarkowaną,
-ujemną zależność z wynikami ankiety. Oznacza to, że miary te wskazują na
-wysokie podobieństwo par rastrów, które ludzie określiliby jako zupełnie
-niepodobne i vice versa. Pytania dotyczące rastrów uwzględniających
-wyłącznie dwie kategorie pokrycia terenu z reguły charakteryzują się
-wyższym współczynnikiem korelacji z najczęstszymi odpowiedziami
-ankietowanych niż pytania z podziałem na trzy kategorie pokrycia terenu.
-Jedyny wyjątek stanowią w tej sytuacji wyłącznie miary, które osiągnęły
-najniższe wartości współczynnika korelacji. Dla rastrów z trzema
-kategoriami osiągnęły one jeszcze niższy współczynnik na poziomie nawet
--0,77. Ich wyniki wskazują na silne, ujemne związki między analizowanymi
-zmiennymi.
+\hypertarget{tbl-corr_df}{}
+\begin{table}
+\caption{\label{tbl-corr_df}Zestawienie korelacji miar niepodobieństwa z odpowiedziami ankietowanych }\tabularnewline
 
-Otrzymane wartości współczynników korelacji nie pozwalają na definitywne
-stwierdzenie na istnienie liniowych relacji pomiędzy metodami określania
-niepodobieństwa a opinią człowieka, przynajmniej na podstawie analizy
-symulowanych danych rastrowych. Dotychczasowe wyniki dają ogólny zarys
-relacji miar niepodobieństwa do ludzkiej percepcji, w związku z czym w
-kolejnym etapie sporządzona została ankieta w pełni opierająca się o
-rzeczywiste dane rastrowe.
+\centering
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.5cm}rrr}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{3}{c}{Korelacja Spearmana} \\
+\cmidrule(l{3pt}r{3pt}){2-4}
+Miara niepodobieństwa & Łącznie & Dwie kategorie & Trzy kategorie\\
+\midrule
+Divergence & -0.46 & -0.45 & -0.63\\
+Clark & -0.46 & -0.45 & -0.63\\
+Pearson & -0.44 & -0.34 & -0.48\\
+Canberra & -0.38 & -0.47 & -0.57\\
+Kumar-Johnson & -0.35 & -0.34 & -0.32\\
+\addlinespace
+Wavehedges & -0.33 & -0.46 & -0.52\\
+Inner product & -0.33 & -0.23 & -0.44\\
+Additive symmetric chi2 & -0.30 & -0.32 & -0.25\\
+Kullback-Leibler & -0.28 & -0.31 & -0.20\\
+Taneja & -0.28 & -0.30 & -0.23\\
+\addlinespace
+Jeffreys & -0.25 & -0.30 & -0.18\\
+Fidelity & 0.21 & 0.30 & 0.11\\
+Bhattacharyya & -0.21 & -0.30 & -0.11\\
+Hellinger & -0.21 & -0.30 & -0.11\\
+Matusita & -0.21 & -0.30 & -0.11\\
+\addlinespace
+Średnia & -0.21 & -0.30 & -0.11\\
+Jensen-Shannon & -0.19 & -0.28 & -0.10\\
+Różnica Jensena & -0.19 & -0.28 & -0.10\\
+Średnia harmoniczna & 0.16 & 0.26 & 0.07\\
+Squared chi\textasciicircum{}2 & -0.16 & -0.26 & -0.07\\
+\addlinespace
+Probabilistyczna symetryczna chi2 & -0.16 & -0.26 & -0.07\\
+Neyman & -0.14 & -0.18 & -0.05\\
+Cosine & -0.05 & 0.16 & -0.25\\
+Manhattan & -0.04 & -0.19 & 0.11\\
+Sorensen & -0.04 & -0.19 & 0.11\\
+\addlinespace
+Soergel & -0.04 & -0.19 & 0.11\\
+Odległość Kulczyńskiego & -0.04 & -0.19 & 0.11\\
+Lorentzian & -0.04 & -0.19 & 0.11\\
+Intersection & 0.04 & 0.19 & -0.11\\
+Non-Intersection & -0.04 & -0.19 & 0.11\\
+\addlinespace
+Czekanowski & -0.04 & -0.19 & 0.11\\
+Motyka & -0.04 & -0.19 & 0.11\\
+Podobieństwo Kulczyńskiego & 0.04 & 0.19 & -0.11\\
+Tanimoto & -0.04 & -0.19 & 0.11\\
+Ruzicka & 0.04 & 0.19 & -0.11\\
+\addlinespace
+Hassebrook & -0.04 & 0.14 & -0.20\\
+Jaccard & 0.04 & -0.14 & 0.20\\
+Dice & 0.04 & -0.14 & 0.20\\
+Gower & -0.02 & -0.19 & 0.11\\
+Średnia & -0.02 & -0.17 & 0.14\\
+\addlinespace
+Chebyshev & 0.01 & -0.14 & 0.16\\
+Odl. euklidesowa & 0.00 & -0.15 & 0.15\\
+Kwadrat odl. euklidesowej & 0.00 & -0.15 & 0.15\\
+K divergence & NA & -0.20 & NA\\
+Topsoe & NA & -0.28 & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\hypertarget{sec-wyniki2}{%
-\section{Wyniki drugiej ankiety}\label{sec-wyniki2}}
+Spośród wszystkich analizowanych metod obliczania podobieństwa między
+parami rastrów, najlepszy wynik korelacji Spearmana z odpowiedziami
+ankietowanych osiągnęły ex aequo metody Divergence oraz Clark ze
+współczynnikiem korelacji równym -0,46. Do pozostałych miar, które
+osiągnęły dosyć wysokie wyniki korelacji i stanowią o znaczącym związku
+miar z odpowiedziami należą: Pearson (-0,44), Canberra (-0,38),
+Kumar-Johnson (-0,35), Wave Hedges (-0,33), Inner Product (-0,33),
+Additive Symmetric \(\chi^2\) (-0,30), Kullback-Leibler (-0,28), Taneja
+(-0,28) oraz Jeffreys (-0,25). Wyniki korelacji aż 21 miar mieszczą się
+w zakresie od -0,05 do 0,05, co wskazuje na ich bardzo niewielki lub
+brak związku z odpowiedziami udzielanymi przez respondentów. Do miar
+niepodobieństwa, które uzyskały najniższe współczynniki korelacji
+Spearmana należą odległość euklidesowa oraz kwadrat odległości
+euklidesowej, dla których wyniosły one 0,00. Wynik ten świadczy o
+kompletnym braku związku między wynikami tych miar a odpowiedziami
+ankietowanych.
 
-\bookmarksetup{startatroot}
+Odpowiedzi ankietowanych z reguły charakteryzują się wyższym
+współczynnikiem korelacji z miarami niepodobieństwa obliczonymi dla
+pytań dotyczących rastrów uwzględniających wyłącznie dwie kategorie
+pokrycia terenu, niż uwzględniających trzy kategorie pokrycia terenu.
+Istotny wyjątek stanowią miary, które osiągnęły najlepsze wartości
+współczynnika korelacji Spearmana dla wszystkich odpowiedzi, takie jak
+metody Divergence oraz Clark, które także ex aequo osiągnęły najlepszy
+wynik korelacji z odpowiedziami na pytania z podziałem na trzy kategorie
+pokrycia terenu na poziomie -0,63. Najlepszy wynik korelacji Spearmana
+dla pytań uwzględniających rastry z dwoma kategoriami pokrycia terenu
+osiągnęła miara niepodobieństwa Canberra (-0,47), a następnie Wave
+Hedges (-0,46), Divergence (-0,45) i Clark (-0,45).
 
-\hypertarget{sec-porownanie}{%
-\chapter{Porównanie wyników}\label{sec-porownanie}}
+Do dalszej analizy wybrane zostały 4 miary niepodobieństwa: Divergence,
+Clark, Canberra oraz odległość euklidesowa. Trzy pierwsze zostały
+wybrane ze względu na to, że osiągnęły najlepsze wyniki w analizie
+korelacji Spearmana, natomiast odległość euklidesowa została wybrana w
+celu zestawienia z pozostałymi miarami.
+
+Analizując regresje liniowe miar Divergence, Clark oraz Canberra z
+najczęstszymi odpowiedziami udzielanymi przez ankietowanych
+(-Figure~\ref{fig-top4measures}) można zauważyć wyraźną liniową relację
+o podobnym nasileniu zarówno dla pytań uwzględniających dwie jak i trzy
+kategorie pokrycia terenu. Tej liniowej relacji nie da się jednak
+zauważyć w przypadku odległości euklidesowej. W przypadku pytań z
+rastrami uwzględniającymi dwie kategorie pokrycia terenu miara ta
+osiągnęła wynik korelacji Spearmana równy -0,15, podczas gdy dla pytań z
+rastrami uwzględniającymi trzy kategorie pokrycia terenu wynik ten
+wyniósł 0,15. Oznacza to, że przy wzięciu pod uwagę wszystkich pytań,
+jej wyniki zestawione z najczęstszymi odpowiedziami ankietowanych mają
+charakter zbliżony do szumu.
+
+Przy okazji omawiania wyników korelacji dla odległości euklidesowej
+warto wspomnieć, że zarówno odległość euklidesowa jak i kwadrat
+odległości euklidesowej osiągnęły dokładnie takie same wyniki korelacji
+Spearmana. Może to oznaczać, że podniesienie wyników odległości
+euklidesowej do kwadratu nie ma wpływu na ostateczny wynik analizy
+korelacji z wynikami ankiety.
+
+\begin{figure}[t]
+
+{\centering \includegraphics[width=4.6875in,height=4.16667in]{figures/fig-top4measures.png}
+
+}
+
+\caption{\label{fig-top4measures}Regresja liniowa 4 wybranych miar
+niepodobieństwa z odpowiedziami ankietowanych}
+
+\end{figure}
+
+Dalsza część porównania wybranych miar niepodobieństwa oparta będzie na
+analizie wyników tych miar przy zastosowaniu w analizie zmian pokrycia
+terenu na podstawie danych rzeczywistych. W tym celu zostały
+wykorzystane dane CORINE Land Cover dla obszaru Polski dla lat 1990 i
+2018, które zostały opisane w podrozdziale -Section~\ref{sec-CLC}. Dla
+uproszczenia analizy dane CLC zostały zreklasyfikowane tak aby
+uwzględniały wyłącznie dwie kategorie pokrycia terenu: lasy i pozostałe
+obszary.
+
+Do oceny zmian pokrycia terenu zastosowano metody oparte na analizie
+struktur przestrzennych, opisane dokładniej w podrozdziale
+-Section~\ref{sec-pattern-based}. Dane wejściowe zostały podzielone na
+regularną siatkę kwadratów o wymiarach 100 na 100 pikseli (10 na 10 km).
+Następnie, dla tych obszarów obliczone zostały zmiany ich struktur
+przestrzennych dla danych z 1990 i 2018 roku wykorzystując do tego
+cztery wybrane wcześniej miary niepodobieństwa: Divergence, Clark,
+Canberra oraz odległość euklidesowa.
+
+Ze względu na to że oryginalnie wyniki tych miar mieszczą się w różnych
+przedziałach wartości, zostały one przeskalowane do zakresu od 0 do 1.
+Dzięki temu można łatwiej ze sobą porównać wyniki tych miar. Należy
+jednak wziąć pod uwagę, że w takiej sytuacji wartość miar równa 0
+niekoniecznie będzie oznaczać całkowity brak zmian w strukturze
+przestrzennej, a po prostu najmniejszą zmianę z całego zbioru danych.
+Wartość 1 natomiast reprezentować będzie obszary o największej zmianie
+struktury przestrzennej.
+
+\begin{figure}[t]
+
+{\centering \includegraphics[width=5.83333in,height=4.16667in]{figures/zestawienie_miar1.png}
+
+}
+
+\caption{\label{fig-zestawienie_miar1}Zestawienie map niepodobieństwa
+obszarów leśnych dla obszaru Polski dla lat 1990-2018}
+
+\end{figure}
+
+\begin{figure}[t]
+
+{\centering \includegraphics[width=4.16667in,height=4.16667in]{figures/zestawienie_hist1.png}
+
+}
+
+\caption{\label{fig-zestawienie_hist1}Histogramy 4 wybranych miar
+niepodobieństwa}
+
+\end{figure}
+
+\hypertarget{tbl-measure_corr_df}{}
+\begin{table}
+\caption{\label{tbl-measure_corr_df}Zestawienie korelacji między wybranymi miarami niepodobieństwa }\tabularnewline
+
+\centering
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
+\toprule
+ & Canberra & Clark & Divergence & Euclidean\\
+\midrule
+Canberra & 1.00 & 0.99 & 0.83 & 0.54\\
+Clark & 0.99 & 1.00 & 0.84 & 0.48\\
+Divergence & 0.83 & 0.84 & 1.00 & 0.18\\
+Euclidean & 0.54 & 0.48 & 0.18 & 1.00\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+
+{\centering \includegraphics[width=4.16667in,height=4.16667in]{figures/measures_corrplot.png}
+
+}
+
+\caption{\label{fig-measures_corrplot}Regresja liniowa 4 wybranych miar
+niepodobieństwa z odpowiedziami ankietowanych}
+
+\end{figure}
 
 \bookmarksetup{startatroot}
 

@@ -1,41 +1,210 @@
 # Wyniki {#sec-wyniki}
 
-W tym rozdziale przeprowadzona zostanie analiza i podsumowanie wyników uzyskanych z ankiet. Wyniki zostaną zestawione z miarami niepodobieństwa uwzględnionymi w analizie.
+W tym rozdziale przeprowadzona zostanie analiza i podsumowanie wyników uzyskanych z ankiety. Wyniki zostaną zestawione z miarami niepodobieństwa uwzględnionymi w analizie.
 
 
 
-## Wyniki pierwszej ankiety {#sec-wyniki1}
+W celu zidentyfikowania potencjalnych związków pomiędzy percepcją zmian w pokryciu terenu przez ludzi a miarami niepodobieństwa, które te zmiany kwantyfikują przeprowadzona została ankieta. Głównym celem ankiety było aby uzyskanie wstępnych informacji na temat tego w jaki sposób różnice w entropii oraz względnej informacji wzajemnej między analizowanymi rastrami wpływają na subiektywne postrzeganie zmian w pokryciu terenu przez ludzi.
 
-Pierwsza ankieta została przeprowadzona w celu uzyskania wstępnych informacji, mających na celu zrozumienie wpływu różnic w entropii oraz względnej informacji wzajemnej między parami analizowanych rastrów na wizualne postrzeganie zmian pokrycia terenu przez ludzi. Głównym celem badania było wykazanie potencjalnych związków między percepcją zmian w pokryciu terenu przez ludzi a miarami niepodobieństwa, które te zmiany kwantyfikują. Przeprowadzenie ankiety pozwoliło także na wyznaczenie dalszego kierunku badań, które miałyby zostać zrealizowane w kolejnej ankiecie [@sec-wyniki2].
-
-Badanie zostało realizowane w terminie od 21 do 24 listopada 2022 roku. Proces zbierania odpowiedzi respondentów przyjął formę ankiety online, co pozwoliło respondentom na wygodny udział w badaniu przy użyciu komputera lub urządzenia mobilnego. Ankieta stworzona została w formie aplikacji internetowej za pomocą języka programowania R, na podstawie pakietów **shiny** [-@R-shiny] oraz **shinysurveys** [-@R-shinysurveys] ***NAPRAWIĆ BO NIE POKAZUJE SIĘ CYTOWANIE W BIBLIOGRAFII***. Sama aplikacja umieszczona została na platformie shinyapps.io. Przeprowadzenie ankiety w formie online umożliwiło systematyczne gromadzenie oraz przechowywanie odpowiedzi w formie tabelarycznej, ułatwiając tym samym dalszą analizę i interpretację danych. Respondenci stanowili grupę 50 studentów drugiego roku studiów inżynierskich na kierunku Geoinformacja na Wydziale Nauk Geograficznych i Geologicznych Uniwersytetu im. Adama Mickiewicza. Wybór tej grupy respondentów oznacza, że byli oni już zaznajomieni z tematyką tworzenia i analiz map w formie rastrowej oraz pojęciem zmian pokrycia terenu.
+Badanie było realizowane w terminie od 21 do 24 listopada 2022 roku. Z uwagi na znaczną liczbę rastrów, które miałyby być przedstawione ankietowanym w trakcie badania, proces zbierania odpowiedzi respondentów przyjął formę ankiety online. Pozwoliło to respondentom na wygodny udział w badaniu przy użyciu komputera lub urządzenia mobilnego. Kwestionariusz stworzony został w formie aplikacji internetowej za pomocą języka programowania R, na podstawie pakietów **shiny** [-@R-shiny] oraz **shinysurveys** [-@R-shinysurveys]. Sama aplikacja umieszczona została na platformie *shinyapps.io* (https://www.shinyapps.io/). Przeprowadzenie ankiety w formie online umożliwiło systematyczne gromadzenie oraz przechowywanie odpowiedzi w formie tabelarycznej, ułatwiając tym samym dalszą analizę i interpretację danych. Respondenci stanowili grupę 50 studentów drugiego roku studiów inżynierskich na kierunku Geoinformacja na Wydziale Nauk Geograficznych i Geologicznych Uniwersytetu im. Adama Mickiewicza. Wybór tej grupy respondentów oznacza, że byli oni już zaznajomieni z tematyką tworzenia i analiz map w formie rastrowej oraz pojęciem zmian pokrycia terenu.
 
 Każdy z ankietowanych otrzymał do wypełnienia jeden z dwóch wcześniej przygotowanych zbiorów pytań. Każdy ze zbiorów składał się z 48 pytań, przy czym część pytań między zbiorami się pokrywała. Oznacza to, że łącznie uzyskano odpowiedzi na 93 unikatowe pytania. W każdym z pytań zadaniem respondentów było określenie podobieństwa na podstawie dwóch załączonych rastrów. W ramach badania respondenci mieli możliwość wyrażania swoich odpowiedzi za pomocą pięciostopniowej skali Likerta [@likert_scale], która obejmowała poziomy od "Brak" przez "Bardzo małe", "Umiarkowane", "Bardzo duże" aż po "Pełne". Wykorzystanie skali Likerta o nieparzystej liczbie przedziałów, pozwoliło na zastosowanie przedziału środkowego, którego celem było reprezentowanie odpowiedzi neutralnych lub trudnych do określenia. Początkowo, zamiast skali Likerta planowano wykorzystać skalę liczbową, w zakresie mieszczącym się od 1 do 100, jednakże zrezygnowano z tego pomysłu, jako że znaczenie wartości na skali liczbowej może być interpretowane inaczej przez każdego respondenta oraz skala ta nie pozwala na uwzględnienie wspomnianej wcześniej odpowiedzi neutralnej. Przykład pytania przedstawionego respondentom ilustruje Rycina [-@fig-przyklad_pytania].
 
 ```{r}
 #| label: fig-przyklad_pytania
 #| echo: false
-#| fig-cap: "Przykładowe pytanie z pierwszej ankiety"
-#| out-width: "100%"
-#| out-height: 450px
+#| fig-cap: "Przykładowe pytanie z ankiety"
+#| out-width: 490px
+#| out-height: 400px
 knitr::include_graphics("figures/przyklad_pytania.png")
 ```
 
 
-Łącznie uzyskane zostało 2400 odpowiedzi na pytania z ankiety. Podsumowanie uzyskanych odpowiedzi przedstawione zostało w Tabeli 1. 
+Łącznie uzyskane zostało 2400 odpowiedzi na pytania z ankiety. Podsumowanie uzyskanych odpowiedzi przedstawione zostało w Tabeli [-@tbl-totals_df]. Według ankietowanych prawie 36% par rastrów charakteryzowała się brakiem podobieństwa, 32,6% uzyskanych odpowiedzi wskazywało na bardzo małe podobieństwo, 18,1% na umiarkowane, 11,6% bardzo duże, natomiast mniej niż 2% wskazywało na pełne podobieństwo. Warto tutaj także zwrócić uwagę, że zestawienia wszystkich odpowiedzi w zależności od liczby kategorii widocznych na rastrach nie wskazują na znaczące różnice w liczbie odpowiedzi dla danej kategorii. Największą różnicę stanowi w tym przypadku kategoria "Bardzo duże", dla której liczba odpowiedzi dla rastrów z dwoma i trzema kategoriami pokrycia terenu różni się zaledwie o 2,7%. Najmniejszą różnicą charakteryzuje się kategoria "Pełne", gdzie liczba odpowiedzi pomiędzy zestawami różni się o jedyne 0,9%.
 
-Według ankietowanych prawie 36% par rastrów charakteryzowała się brakiem podobieństwa, 32,6% uzyskanych odpowiedzi wskazywało na bardzo małe podobieństwo, 18,1% na umiarkowane, 11,6% bardzo duże, natomiast mniej niż 2% wskazywało na pełne podobieństwo. Warto tutaj także zwrócić uwagę, że zestawienia wszystkich odpowiedzi w zależności od liczby kategorii widocznych na rastrach nie wskazują na znaczące różnice w liczbie odpowiedzi dla danej kategorii. Największą różnicę stanowi w tym przypadku kategoria "Bardzo duże", dla której liczba odpowiedzi dla rastrów z dwoma i trzema kategoriami pokrycia terenu różni się zaledwie o 2,7%. Najmniejszą różnicą charakteryzuje się kategoria "Pełne", gdzie liczba odpowiedzi pomiędzy zestawami różni się o jedyne 0,9%.
+```{r}
+#| label: tbl-totals_df
+#| echo: false
+#| tbl-cap: "Podsumowanie odpowiedzi z ankiety"
 
-Poziom zgodności każdego pytania został obliczony jako stosunek najczęściej udzielonej odpowiedzi względem całkowitej liczby odpowiedzi. Całkowity poziom zgodności ankietowanych został oszacowany na 55%. Oznacza to, że 1321 z 2400 udzielonych odpowiedzi znajdowało się w grupie najczęstszej odpowiedzi dla danego pytania.
+library(knitr)
+library(kableExtra)
+df = read.csv("tables/tab-totals_df.csv")
 
-Pytania różniące się zarówno entropią, jak i względną informacją wzajemną cechowały się najwyższym poziomem zgodności odpowiedzi wynoszącym 61%, podczas gdy pytania różniące się wyłącznie entropią uzyskały wynik 53%, a pytania różniące się wyłącznie względną informacją wzajemną uzyskały wynik 52%. Najwyższy poziom zgodności odpowiedzi osób ankietowanych wyniósł 92% i dotyczył pytania różniącego się zarówno entropią, jak i względną informacją wzajemną (dopisać jak bardzo różniły się ent i rmi). Najniższy poziom zgodności, czyli zaledwie 38%, osiągnęło aż 8 pytań. Wyłącznie dwa z nich dotyczyły pytań zawierających trzy kategorie pokrycia terenu, podczas gdy pozostałe - dwóch. 75% z tych pytań uwzględniało rastry różniące się pod względem względnej informacji przestrzennej (inna konfiguracja) przy zachowaniu tej samej entropii (identyczna kompozycja).
+df2 = df |>
+  subset(select = -c(X))
 
-W dalszym etapie analizy wyniki uzyskane z przeprowadzonej ankiety zostały zestawione z wynikami 45 różnych miar niepodobieństwa dla par rastrów uwzględnionych w ankiecie. Aby ocenić relacje między najczęstszymi odpowiedziami uczestników ankiety a miarami niepodobieństwa, przeprowadzono analizę korelacji Spearmana. W ten sposób uzyskano ostateczny ranking miar, który został przedstawiony w Tabeli 1.
+# colnames(df2)[1] = c("Typ odpowiedzi")
 
-Na podstawie analizy korelacji można wywnioskować, że spośród 45 uwzględnionych w badaniu metod obliczania podobieństwa między parami rastrów, jedynie 6 z nich wykazuje dodatnią korelację z wynikami uzyskanymi z ankiety. Spośród wszystkich metod, najwyższą wartość korelacji osiągnęła metoda Fidelity ze współczynnikiem korelacji równym 0,34. Ponadto, miary "harmonic mean" i "intersection" również wykazały dość wysoki współczynnik korelacji. Jak wspomniano wyżej, nie wszystkie miary odległości charakteryzowały się dodatnim współczynnikiem korelacji. Miary "canberra", "divergence" i "clark" wykazały współczynniki korelacji poniżej -0,4, co wskazuje na ich umiarkowaną, ujemną zależność z wynikami ankiety. Oznacza to, że miary te wskazują na wysokie podobieństwo par rastrów, które ludzie określiliby jako zupełnie niepodobne i vice versa. Pytania dotyczące rastrów uwzględniających wyłącznie dwie kategorie pokrycia terenu z reguły charakteryzują się wyższym współczynnikiem korelacji z najczęstszymi odpowiedziami ankietowanych niż pytania z podziałem na trzy kategorie pokrycia terenu. Jedyny wyjątek stanowią w tej sytuacji wyłącznie miary, które osiągnęły najniższe wartości współczynnika korelacji. Dla rastrów z trzema kategoriami osiągnęły one jeszcze niższy współczynnik na poziomie nawet -0,77. Ich wyniki wskazują na silne, ujemne związki między analizowanymi zmiennymi.
+df2 <- df2[, c(1, 4, 7, 2, 5, 3, 6)]
 
-Otrzymane wartości współczynników korelacji nie pozwalają na definitywne stwierdzenie na istnienie liniowych relacji pomiędzy metodami określania niepodobieństwa a opinią człowieka, przynajmniej na podstawie analizy symulowanych danych rastrowych. Dotychczasowe wyniki dają ogólny zarys relacji miar niepodobieństwa do ludzkiej percepcji, w związku z czym w kolejnym etapie sporządzona została ankieta w pełni opierająca się o rzeczywiste dane rastrowe.
+knitr::kable(df2, booktabs = TRUE, escape = TRUE,
+             col.names = c("",
+                           "Liczba odpowiedzi",
+                           "[%]",
+                           "Liczba odpowiedzi",
+                           "[%]",
+                           "Liczba odpowiedzi",
+                           "[%]")) |>
+  kableExtra::column_spec(1, width = "3cm") |>
+  kableExtra::column_spec(c(3,5,7), width = "1.5cm") |>
+  kableExtra::column_spec(c(2,4,6), width = "2.5cm") |>
+  add_header_above(header = c("Typ odpowiedzi"=1, "Łącznie" = 2, "Dwie kategorie" = 2, "Trzy kategorie" = 2))
+```
+
+
+Aby określić jakie odpowiedzi należały do grupy najczęstszych odpowiedzi dla poszczególnych pytań, obliczona została miara określana dalej Poziomem zgodności. Poziom zgodności każdego pytania został obliczony jako stosunek najczęściej udzielonej odpowiedzi względem całkowitej liczby odpowiedzi udzielonych na to pytanie. Poziomy zgodności ankietowanych w podziale na rodzaje pytań znajdują się w Tabeli [-@tbl-qtype_agree_df1]. Całkowity poziom zgodności ankietowanych został oszacowany na 55%. Oznacza to, że 1321 z 2400 udzielonych odpowiedzi znalazło się w grupie najczęściej udzielonych odpowiedzi na pytania. Pytania różniące się zarówno entropią, jak i względną informacją wzajemną cechowały się najwyższym poziomem zgodności odpowiedzi wynoszącym 61%, podczas gdy pytania różniące się wyłącznie entropią uzyskały wynik 53%, a pytania różniące się wyłącznie względną informacją wzajemną uzyskały wynik 52%.
+
+Najwyższy poziom zgodności odpowiedzi osób ankietowanych wyniósł 92% i dotyczył pytania różniącego się zarówno entropią, jak i względną informacją wzajemną. Aż 24 z 26 osób wskazało na brak podobieństw między rastrami uwzględnionymi w tym pytaniu. Jest to interesujący wynik, ponieważ rastry w tym pytaniu wcale nie należały do par rastrów najbardziej zróżnicowanych pod względem entropii i względnej informacji wzajemnej. Pierwszy z rastrów charakteryzował się entropią na poziomie 0,08 oraz względną informacją wzajemną wynoszącą 0,09. W przypadku drugiego rastra, wspomniane wartości wynosiły odpowiednio 0,47 i 0,48. Oznacza to, że w przypadku obu miar różnica między parami entropii oraz wynikami względnej informacji wzajemnej wyniosły 0,39.
+
+Najniższy poziom zgodności, czyli zaledwie 38%, osiągnęło aż 8 pytań. Wyłącznie dwa z nich dotyczyły pytań zawierających trzy kategorie pokrycia terenu, podczas gdy pozostałe - dwóch. 75% z tych pytań uwzględniało rastry różniące się pod względem względnej informacji wzajemnej (inna konfiguracja) przy zachowaniu tej samej entropii (identyczna kompozycja).
+
+```{r}
+#| label: tbl-qtype_agree_df1
+#| echo: false
+#| tbl-cap: "Poziom zgodności ankietowanych w podziale na rodzaje pytań"
+
+df = read.csv("tables/tab-qtype_agree_df1.csv")
+
+df2 = df |>
+  subset(select = -c(X))
+
+df2$agree_perc = df2$agree_perc * 100
+
+df2$question_group[df2$question_group == 'diff col/ent diff row/rmi'] <- 'Różna entropia, różne RMI'
+df2$question_group[df2$question_group == 'diff col/ent same row/rmi'] <- 'Różna entropia, identyczne RMI'
+df2$question_group[df2$question_group == 'same col/ent diff row/rmi'] <- 'Identyczna entropia, identyczne RMI'
+
+
+knitr::kable(df2, booktabs = TRUE, escape = TRUE,
+              col.names = c("Rodzaj pytania",
+                            "Liczba najczęstszych odpowiedzi",
+                            "Liczba odpowiedzi",
+                            "Poziom zgodności [%]")) |>
+  kableExtra::column_spec(1, width = "6.5cm") |>
+  kableExtra::column_spec(2:4, width = "2.5cm") |>
+  kableExtra::column_spec(2:4, width = "2cm")
+```
+
+
+W kolejnym etapie analizy wyniki uzyskane z przeprowadzonej ankiety zostały zestawione z wynikami 45 różnych miar niepodobieństwa dla par rastrów uwzględnionych w ankiecie. Aby ocenić relacje między najczęstszymi odpowiedziami uczestników ankiety a miarami niepodobieństwa, przeprowadzono analizę korelacji Spearmana. W ten sposób uzyskano ranking miar, który został przedstawiony w Tabeli [-@tbl-corr_df].
+
+```{r}
+#| label: tbl-corr_df
+#| echo: false
+#| tbl-cap: "Zestawienie korelacji miar niepodobieństwa z odpowiedziami ankietowanych"
+
+df = read.csv("tables/tab-corr_df.csv")
+
+df2 = df |>
+  subset(select = -c(X, corr_rank, test, test2))
+
+df2$method = stringr::str_to_title(df2$method)
+
+df2$method[df2$method == 'Avg'] <- 'Średnia'
+df2$method[df2$method == 'Harmonic_mean'] <- 'Średnia harmoniczna'
+df2$method[df2$method == 'Kumar.johnson'] <- 'Kumar-Johnson'
+df2$method[df2$method == 'Inner_product'] <- 'Inner product'
+df2$method[df2$method == 'Additive_symm'] <- 'Additive symmetric chi2'
+df2$method[df2$method == 'Kullback.leibler'] <- 'Kullback-Leibler'
+df2$method[df2$method == 'Squared_chord'] <- 'Średnia'
+df2$method[df2$method == 'Jensen.shannon'] <- 'Jensen-Shannon'
+df2$method[df2$method == 'Jensen_difference'] <- 'Różnica Jensena'
+df2$method[df2$method == 'Squared_chi'] <- 'Squared chi^2'
+df2$method[df2$method == 'Prob_symm'] <- 'Probabilistyczna symetryczna chi2'
+df2$method[df2$method == 'Kulczynski_d'] <- 'Odległość Kulczyńskiego'
+df2$method[df2$method == 'Non.intersection'] <- 'Non-Intersection'
+df2$method[df2$method == 'Kulczynski_s'] <- 'Podobieństwo Kulczyńskiego'
+df2$method[df2$method == 'Squared_euclidean'] <- 'Kwadrat odl. euklidesowej'
+df2$method[df2$method == 'K_divergence'] <- 'K divergence'
+df2$method[df2$method == 'Euclidean'] <- 'Odl. euklidesowa'
+
+
+knitr::kable(df2, booktabs = TRUE, escape = TRUE,
+             col.names = c("Miara niepodobieństwa",
+                           "Łącznie",
+                           "Dwie kategorie",
+                           "Trzy kategorie"#,
+                           # "Wartość absolutna korelacji",
+                           # "średnia z kor2 i kor3",
+                           # "kor ogólna minus średnia"
+                           )) |>
+  kableExtra::column_spec(1, width = "4.5cm") |>
+  # kableExtra::column_spec(c(2,4), width = "2.5cm") |>
+  # kableExtra::column_spec(3, width = "2.75cm") |>
+  add_header_above(header = c(" "=1, "Korelacja Spearmana" = 3))
+```
 
 
 
-## Wyniki drugiej ankiety {#sec-wyniki2}
+Spośród wszystkich analizowanych metod obliczania podobieństwa między parami rastrów, najlepszy wynik korelacji Spearmana z odpowiedziami ankietowanych osiągnęły ex aequo metody Divergence oraz Clark ze współczynnikiem korelacji równym -0,46. Do pozostałych miar, które osiągnęły dosyć wysokie wyniki korelacji i stanowią o znaczącym związku miar z odpowiedziami należą: Pearson (-0,44), Canberra (-0,38), Kumar-Johnson (-0,35), Wave Hedges (-0,33), Inner Product (-0,33), Additive Symmetric $\chi^2$ (-0,30), Kullback-Leibler (-0,28), Taneja (-0,28) oraz Jeffreys (-0,25).  Wyniki korelacji aż 21 miar mieszczą się w zakresie od -0,05 do 0,05, co wskazuje na ich bardzo niewielki lub brak związku z odpowiedziami udzielanymi przez respondentów.
+Do miar niepodobieństwa, które uzyskały najniższe współczynniki korelacji Spearmana należą odległość euklidesowa oraz kwadrat odległości euklidesowej, dla których wyniosły one 0,00. Wynik ten świadczy o kompletnym braku związku między wynikami tych miar a odpowiedziami ankietowanych.
+
+Odpowiedzi ankietowanych z reguły charakteryzują się wyższym współczynnikiem korelacji z miarami niepodobieństwa obliczonymi dla pytań dotyczących rastrów uwzględniających wyłącznie dwie kategorie pokrycia terenu, niż uwzględniających trzy kategorie pokrycia terenu. Istotny wyjątek stanowią miary, które osiągnęły najlepsze wartości współczynnika korelacji Spearmana dla wszystkich odpowiedzi, takie jak metody Divergence oraz Clark, które także ex aequo osiągnęły najlepszy wynik korelacji z odpowiedziami na pytania z podziałem na trzy kategorie pokrycia terenu na poziomie -0,63. Najlepszy wynik korelacji Spearmana dla pytań uwzględniających rastry z dwoma kategoriami pokrycia terenu osiągnęła miara niepodobieństwa Canberra (-0,47), a następnie Wave Hedges (-0,46), Divergence (-0,45) i Clark (-0,45).
+
+
+
+Do dalszej analizy wybrane zostały 4 miary niepodobieństwa: Divergence, Clark, Canberra oraz odległość euklidesowa. Trzy pierwsze zostały wybrane ze względu na to, że osiągnęły najlepsze wyniki w analizie korelacji Spearmana, natomiast odległość euklidesowa została wybrana w celu zestawienia z pozostałymi miarami.
+
+Analizując regresje liniowe miar Divergence, Clark oraz Canberra z  najczęstszymi odpowiedziami udzielanymi przez ankietowanych (-@fig-top4measures) można zauważyć wyraźną liniową relację o podobnym nasileniu zarówno dla pytań uwzględniających dwie jak i trzy kategorie pokrycia terenu. Tej liniowej relacji nie da się jednak zauważyć w przypadku odległości euklidesowej. W przypadku pytań z rastrami uwzględniającymi dwie kategorie pokrycia terenu miara ta osiągnęła wynik korelacji Spearmana równy -0,15, podczas gdy dla pytań z rastrami uwzględniającymi trzy kategorie pokrycia terenu wynik ten wyniósł 0,15. Oznacza to, że przy wzięciu pod uwagę wszystkich pytań, jej wyniki zestawione z najczęstszymi odpowiedziami ankietowanych mają charakter zbliżony do szumu.
+
+Przy okazji omawiania wyników korelacji dla odległości euklidesowej warto wspomnieć, że zarówno odległość euklidesowa jak i kwadrat odległości euklidesowej osiągnęły dokładnie takie same wyniki korelacji Spearmana. Może to oznaczać, że podniesienie wyników odległości euklidesowej do kwadratu nie ma wpływu na ostateczny wynik analizy korelacji z wynikami ankiety.
+
+```{r}
+#| label: fig-top4measures
+#| echo: false
+#| fig-cap: "Regresja liniowa 4 wybranych miar niepodobieństwa z odpowiedziami ankietowanych"
+#| out-width: 450px
+#| out-height: 400px
+knitr::include_graphics("figures/fig-top4measures.png")
+```
+
+
+
+Dalsza część porównania wybranych miar niepodobieństwa oparta będzie na analizie wyników tych miar przy zastosowaniu w analizie zmian pokrycia terenu na podstawie danych rzeczywistych. W tym celu zostały wykorzystane dane CORINE Land Cover dla obszaru Polski dla lat 1990 i 2018, które zostały opisane w podrozdziale -@sec-CLC. Dla uproszczenia analizy dane CLC zostały zreklasyfikowane tak aby uwzględniały wyłącznie dwie kategorie pokrycia terenu: lasy i pozostałe obszary.
+
+Do oceny zmian pokrycia terenu zastosowano metody oparte na analizie struktur przestrzennych, opisane dokładniej w podrozdziale -@sec-pattern-based. Dane wejściowe zostały podzielone na regularną siatkę kwadratów o wymiarach 100 na 100 pikseli (10 na 10 km).  Następnie, dla tych obszarów obliczone zostały zmiany ich struktur przestrzennych dla danych z 1990 i 2018 roku wykorzystując do tego cztery wybrane wcześniej miary niepodobieństwa: Divergence, Clark, Canberra oraz odległość euklidesowa.
+
+Ze względu na to że oryginalnie wyniki tych miar mieszczą się w różnych przedziałach wartości, zostały one przeskalowane do zakresu od 0 do 1. Dzięki temu można łatwiej ze sobą porównać wyniki tych miar. Należy jednak wziąć pod uwagę, że w takiej sytuacji wartość miar równa 0 niekoniecznie będzie oznaczać całkowity brak zmian w strukturze przestrzennej, a po prostu najmniejszą zmianę z całego zbioru danych. Wartość 1 natomiast reprezentować będzie obszary o największej zmianie struktury przestrzennej.
+
+```{r}
+#| label: fig-zestawienie_miar1
+#| echo: false
+#| fig-cap: "Zestawienie map niepodobieństwa obszarów leśnych dla obszaru Polski dla lat 1990-2018"
+#| out-width: 560px
+#| out-height: 400px
+knitr::include_graphics("figures/zestawienie_miar1.png")
+```
+
+```{r}
+#| label: fig-zestawienie_hist1
+#| echo: false
+#| fig-cap: "Histogramy 4 wybranych miar niepodobieństwa"
+#| out-width: 400px
+#| out-height: 400px
+knitr::include_graphics("figures/zestawienie_hist1.png")
+```
+
+```{r}
+#| label: tbl-measure_corr_df
+#| echo: false
+#| tbl-cap: "Zestawienie korelacji między wybranymi miarami niepodobieństwa"
+
+df = read.csv("tables/measure_corr_df.csv")
+
+colnames(df)[1] = ""
+
+knitr::kable(df, booktabs = TRUE, escape = TRUE) |>
+  kableExtra::column_spec(1:3, width = "1.5cm") |>
+  kableExtra::column_spec(4:5, width = "2cm")
+```
+
+```{r}
+#| label: fig-measures_corrplot
+#| echo: false
+#| fig-cap: "Regresja liniowa 4 wybranych miar niepodobieństwa z odpowiedziami ankietowanych"
+#| out-width: 400px
+#| out-height: 400px
+knitr::include_graphics("figures/measures_corrplot.png")
+```
+

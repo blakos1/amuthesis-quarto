@@ -1,21 +1,23 @@
 # Materiały {#sec-materialy}
 
-W tym rozdziale zostaną omówione najistotniejsze aspekty związane z formą przeprowadzonej ankiety. W pierwszej kolejności przedstawiony zostanie proces symulacji rastrów, który został wykorzystany do stworzenia zbioru danych o określonych parametrach kompozycji i konfiguracji przestrzennej. Następnie opisany zostanie sposób doboru odpowiednich pytań do ankiety. W końcowej części rozdziału omówione zostaną dane przestrzenne o pokryciu terenu CORINE Land Cover, które zostały wykorzystane do porównania zastosowania wybranych miar niepodobieństwa w kontekście analiz zmian pokrycia terenu.
+W pierwszej kolejności w tym rozdziale są omawiane aspekty związane z formą przeprowadzonej ankiety. Przedstawiony jest proces symulacji, który został wykorzystany do stworzenia zbioru danych o określonych parametrach kompozycji i konfiguracji przestrzennej. Następnie opisany jest sposób doboru pytań do ankiety. W końcowej części rozdziału są omówione dane przestrzenne o pokryciu terenu CORINE Land Cover, które zostały wykorzystane do porównania stosowania wybranych miar niepodobieństwa w kontekście analiz zmian pokrycia terenu.
 
 
 
-## Symulowanie rastrów o określonej kompozycji i konfiguracji przestrzennej
+## Symulowanie rastrów o określonej kompozycji i konfiguracji przestrzennej {#sec-symulowanie}
 
 Najważniejszym założeniem przy tworzeniu zbioru rastrów do ankiety było przygotowanie ich w sposób umożliwiający uzyskanie pełnej reprezentacji wszystkich możliwych wartości kompozycji, jak i konfiguracji przestrzennej. Zbiór rastrów został przygotowany w języku programowania R [@R2023], w oparciu o wykorzystanie funkcji *nlm_fbm* z pakietu NLMR [@NLMR2018]. Powyższa funkcja umożliwia uzyskanie danych rastrowych wypełnionych wartościami zmiennoprzecinkowymi mieszczącymi się w zakresie od 0 do 1 oraz dowolnymi parametrami konfiguracji przestrzennej. Funkcja ta pozwala na symulację rastrów przy użyciu ułamkowych ruchów Browna, będących uproszczeniem ruchów Browna [@nlm_fbm]. W tej funkcji poziom autokorelacji między kolejnymi symulacjami jest kontrolowany za pomocą parametru wymiaru fraktalnego ("fract_dim"). W kontekście tego badania, parametr ten reguluje konfigurację przestrzenną. Oznacza to, że w przypadku, gdy "fract_dim" przyjmuje niską wartość, zbliżoną do 0, wartości w generowanym rastrze rozmieszczone są w sposób losowy, zbliżony do szumu. Natomiast w przypadku wysokiej wartości "fract_dim", zbliżonej do 2, na wynikowym rastrze tworzą się skupiska najwyższych i najniższych wartości, a przejścia pomiędzy nimi mają płynny, wygładzony charakter.
 
-Następnie, aby otrzymać zbiór rastrów uwzględniający także pełen przekrój kompozycji należy przeprowadzić proces reklasyfikacji rastrów stworzonych w poprzednim kroku. Procedura ta polega na podziale każdego dotychczas utworzonego rastra na kategorie pokrycia terenu w różnych proporcjach, na przykład 90:10, 70:30 oraz 50:50 w przypadku rastrów zawierających wyłącznie dwie kategorie pokrycia terenu. Wykonanie tego procesu ułatwia między innymi funkcja *util_binarize* z pakietu landscapetools [@NLMR2018]. W tej funkcji proporcje kategorii pokrycia terenu kontrolowane są za pomocą parametru "breaks". Przykładowo, ustawienie parametru "breaks" na poziomie *0.2* poskutkuje otrzymaniem rastra o kategoriach pokrycia terenu w proporcjach 20 do 80. Oznacza to, że jedna z kategorii będzie pokrywała 20% komórek rastra, podczas gdy druga kategoria wypełni pozostałe 80% komórek. Na Rycinie [-@fig-diagram-symulowanie] przedstawiony został przykład przygotowania rastrów podzielonych na dwie kategorie pokrycia terenu w sposób opisany powyżej.
+Następnie, aby otrzymać zbiór rastrów uwzględniający także pełen przekrój kompozycji należy przeprowadzić proces reklasyfikacji rastrów stworzonych w poprzednim kroku. Procedura ta polega na podziale każdego dotychczas utworzonego rastra na kategorie pokrycia terenu w różnych proporcjach, na przykład 90:10, 70:30 oraz 50:50 w przypadku rastrów zawierających wyłącznie dwie kategorie pokrycia terenu. Wykonanie tego procesu ułatwia funkcja *util_binarize* z pakietu landscapetools [@NLMR2018]. W tej funkcji proporcje kategorii pokrycia terenu kontrolowane są za pomocą parametru "breaks". Przykładowo, ustawienie parametru "breaks" na poziomie *0.2* poskutkuje otrzymaniem rastra o kategoriach pokrycia terenu w proporcjach 20 do 80. Oznacza to, że jedna z kategorii będzie pokrywała 20% komórek rastra, podczas gdy druga kategoria wypełni pozostałe 80% komórek. Na Rycinie [-@fig-diagram-symulowanie] przedstawiony został przykład przygotowania rastrów podzielonych na dwie kategorie pokrycia terenu w sposób opisany powyżej.
 
 ```{r}
 #| label: fig-diagram-symulowanie
 #| echo: false
 #| fig-cap: "Symulowanie rastrów o określonej kompozycji i konfiguracji przestrzennej"
-#| out-width: "100%"
-#| out-height: 310px
+#| out-width: 500px
+#| out-height: 260px
+
+#1659x867
 knitr::include_graphics("figures/diagram_rastersim_showcase.pdf")
 ```
 
@@ -27,7 +29,7 @@ Po utworzeniu zbioru danych rastrowych bardzo istotne było potwierdzenie, że o
 #| label: fig-wykres1_2classes
 #| echo: false
 #| fig-cap: "Przykład zbioru wygenerowanych rastrów (2 kategorie pokrycia terenu)"
-#| out-width: "100%"
+#| out-width: 550px
 #| out-height: 550px
 knitr::include_graphics("figures/wykres1_2classes.png")
 ```
@@ -36,7 +38,7 @@ knitr::include_graphics("figures/wykres1_2classes.png")
 
 ## Przygotowanie ankiety {#sec-przygotowanie1}
 
-Ostatnim krokiem przygotowania danych do ankiety było wybranie par rastrów tworzących poszczególne pytania tak aby uwzględniały one wszelkie możliwe różnice struktury przestrzennej rastrów. W tym celu, pytania w ankietach podzielone zostały na dwie grupy, wewnątrz których znalazły się po trzy podgrupy pytań.
+Ostatnim krokiem przygotowania danych do ankiety było wybranie par rastrów tworzących poszczególne pytania, tak aby uwzględniały one wszelkie możliwe różnice struktury przestrzennej rastrów. W tym celu, pytania w ankietach podzielone zostały na dwie grupy, wewnątrz których znalazły się po trzy podgrupy pytań.
 
 W pierwszej kolejności respondenci zetknęli się z 24 pytaniami dotyczącymi rastrów uwzględniających wyłącznie dwie kategorie pokrycia terenu, a następnie z 24 pytaniami uwzględniającymi trzy kategorie pokrycia terenu. Pierwsza podgrupa pytań (6 par rastrów) składała się z par rastrów różniących się między sobą wyłącznie entropią. Podgrupa druga (6 par rastrów) zawierała wyłącznie rastry różniące się względną informacją wzajemną. Ostatnia podgrupa (12 par rastrów) składała się z pytań zróżnicowanych zarówno pod względem entropii, jak i względnej informacji wzajemnej.
 
@@ -46,7 +48,7 @@ Taki sposób doboru pytań pozwolił na zredukowanie liczby odpowiedzi wymaganyc
 
 ## Dane CORINE Land Cover {#sec-CLC}
 
-Jednym z etapów porównania miar niepodobieństwa była eksploracja wyników tych miar przy zastosowaniu w analizie zmian pokrycia terenu na podstawie danych CORINE Land Cover (CLC). Dane CLC reprezentują szczegółowe informacje o pokryciu terenu, klasyfikując obszary geograficzne według różnych kategorii, takich jak lasy, tereny rolnicze, obszary zurbanizowane czy zbiorniki wodne. Stanowią one istotny instrument w analizie i monitorowaniu zmian środowiska, a także służą jako narzędzie wspierające procesy decyzyjne na poziomie europejskim.
+Jednym z etapów pracy było zastosowanie uzyskanych wcześniej wyników do analizy zmian pokrycia terenu na podstawie danych CORINE Land Cover (CLC). Dane CLC reprezentują szczegółowe informacje o pokryciu terenu, klasyfikując obszary według różnych kategorii, takich jak lasy, tereny rolnicze, obszary zurbanizowane czy zbiorniki wodne. Stanowią one istotny instrument w analizie i monitorowaniu zmian środowiska, a także służą jako narzędzie wspierające procesy decyzyjne na poziomie europejskim.
 
 Zbiory danych przestrzennych CORINE Land Cover stanowią integralną część programu CORINE (Coordination of Information on Environment), wprowadzonego przez Komisję Wspólnot Europejskich w 1985 roku. Program ten został stworzony w celu skoordynowania przedsięwzięć związanych z gromadzeniem i przetwarzaniem informacji na temat stanu środowiska geograficznego w krajach należących do Wspólnoty Europejskiej oraz standaryzację tych danych w celu ułatwienia wymiany informacji między państwami członkowskimi [@Bielecka_Ciolkosz_2004].
 

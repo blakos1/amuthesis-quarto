@@ -14,21 +14,30 @@ W tym rozdziale opisane są kolejno wszystkie zagadnienia kluczowe do zrozumieni
 
 ## Struktury przestrzenne
 
-@mcgarigal2009 określa, że znaczna część dziedziny ekologii krajobrazu opiera się na paradygmacie płatów. Według tej idei krajobrazy składają się z jednostek (płatów), które charakteryzuje się jako wyodrębnione obszary o jednakowej kategorii pokrycia terenu [@forman1995land; @solon2002]. Każdy krajobraz natomiast cechuje się pewną strukturą przestrzenną, której najbardziej podstawowymi charakterystykami są kompozycja i konfiguracja przestrzenna [@Gustafson1998].
+@mcgarigal2009 określa, że znaczna część dziedziny ekologii krajobrazu opiera się na paradygmacie płatów. Według tej idei, każdy krajobrazy zbudowane są z jednostek, nazywanych płatami. Płaty definiuje się jako wyodrębnione obszary, wyróżniające się od sąsiadujących elementów na podstawie różnych cech, takich jak wielkość, kształt, charakter granic, różnorodność czy kategoria pokrycia terenu [@forman1995land; @solon2002; @German_2004]. Każdy krajobraz, składający się z wielu płatów, natomiast cechuje się pewną strukturą przestrzenną, której najbardziej podstawowymi charakterystykami są kompozycja i konfiguracja przestrzenna [@Gustafson1998].
 
+***dodać słowne przykłady, w sensie dosłownie co ta osoba napisała w tej pracy na ten temat***
 Kompozycja rastra opisuje zróżnicowanie i liczbę płatów poszczególnych kategorii pokrycia terenu bez uwzględniania informacji o ich lokalizacji w przestrzeni [@Gustafson1998; @solon2002; @kozak2014]. Konfiguracja (ułożenie) natomiast opisuje sąsiadowanie ze sobą poszczególnych płatów [@Gustafson1998; @solon2002; @kozak2014]. Kompozycja, konfiguracja, jak i inne różne cechy mogą następnie być opisywane na przykład za pomocą metryk krajobrazowych lub sygnatur przestrzennych.
 
 
 
 ## Metryki krajobrazowe
 
-Metryki krajobrazowe to algorytmy, które w sposób ilościowy charakteryzują właściwości przestrzenne płatów, grup płatów lub całych krajobrazów [@McGarigal_fragstats]. Umożliwiają także analizę struktury przestrzennej krajobrazu na podstawie danych o pokryciu terenu [@Pukowiec_Kurda_Sobala_2016].
+<!-- Metryki krajobrazowe to ilościowe charakterystyki właściwości przestrzennych płatów, grup płatów o wspólnych właściwościach lub całych krajobrazów [@McGarigal_fragstats]. Umożliwiają także analizę struktury przestrzennej krajobrazu na podstawie danych o pokryciu terenu [@Pukowiec_Kurda_Sobala_2016]. -->
+<!-- Opracowano wiele różnych metryk na poziomie krajobrazu, których celem jest opis różnych aspektów struktury przestrzennej rastrów kategoryzowanych [@McGarigal_fragstats]. Można je podzielić na dwie podstawowe grupy: wskaźniki kompozycji (opisujące zróżnicowanie i liczbę płatów danego typu) oraz wskaźniki konfiguracji przestrzennej (opisujące sposób rozmieszczenia i sąsiadowania płatów) [@solon2002; @kozak2014]. -->
 
-Opracowano wiele różnych metryk, których celem jest opis różnych aspektów struktury przestrzennej rastrów [@McGarigal_fragstats]. Można je podzielić na dwie podstawowe grupy: wskaźniki kompozycji (opisujące zróżnicowanie i liczbę płatów danego typu) oraz wskaźniki konfiguracji przestrzennej (opisujące sposób rozmieszczenia i sąsiadowania płatów) [@solon2002; @kozak2014].
+Metryki krajobrazowe to ilościowe charakterystyki właściwości przestrzennych krajobrazów [@McGarigal_fragstats]. Pozwalają na skwantyfikowanie różnorodności, kształtu, rozmieszczenia i innych cech na różnych poziomach hierarchii przestrzennej. Umożliwiają one także analizę struktury przestrzennej krajobrazu na podstawie danych o pokryciu terenu [@Pukowiec_Kurda_Sobala_2016]. Wyróżnia się trzy główne typy metryk krajobrazowych, z których każdy koncentruje się na innym szczeblu organizacji przestrzennej krajobrazu: na poziomie płatów, klas lub całych krajobrazów [@McGarigal_fragstats].
 
-Do przykładowych metryk krajobrazowych należą między innymi: procentowy udział poszczególnych typów pokrycia terenu  (spatial share), liczba płatów (number of patches), średni rozmiar płatu (mean patch size), indeks średniego kształtu płatu  (mean shape index – MSI), średnia odległość do najbliższego płatu tej samej kategorii (mean nearest neighbor), indeks różnorodności Shannona (Shannon Diversity Index – SHDI), indeks średniego wymiaru fraktalnego (mean fractal dimension index) [@landscapemetrics2019].
+Metryki na poziomie płatów koncentrują się na indywidualnych obszarach krajobrazu, określanych jako płaty. Pozwalają na dokładniejsze zrozumienie charakterystyk poszczególnych obszarów w krajobrazie. Przykładem metryk na tym poziomie są powierzchnia płatu (ang. patch area) i długość granicy płatu (ang. patch perimeter).
 
-Szczególną zaletą metryk krajobrazowych jest to, że mogą one być obliczone dla różnorodnych jednostek przestrzennych, które mogą być zdefiniowane na podstawie wszelkich aspektów administracyjnych, geograficznych, biogeograficznych lub umownych [@Pukowiec_Kurda_Sobala_2016]. Jednostki te mogą obejmować zarówno granice gmin, zlewni, ekoregionów czy nawet abstrakcyjne obszary na mapie, co z kolei umożliwia wszechstronne stosowanie tych metryk w badaniach związanych z analizą krajobrazu.
+Metryki na poziomie klas opisują charakterystyki płatów o wspólnych właściwościach. Pozwalają zrozumieć rozmieszczenie, zróżnicowanie i relacje między obszarami o podobnych cechach. Do przykładowych metryk na tym poziomie należą: liczba płatów (ang. number of patches) oraz średnia odległość do najbliższego płatu tej samej klasy (ang. mean nearest neighbor).
+
+Metryki na poziomie krajobrazów skupiają się na aspektach przestrzennych i strukturalnych całego krajobrazu. Uwzględniają wszystkie płaty znajdujące się w obrębie analizowanego obszaru. Opracowano wiele różnych metryk na poziomie krajobrazu, których celem jest opis różnych aspektów struktury przestrzennej rastrów kategoryzowanych [@McGarigal_fragstats]. Można je podzielić na dwie podstawowe grupy: wskaźniki kompozycji, które opisują zróżnicowanie i liczbę płatów danego typu, oraz wskaźniki konfiguracji przestrzennej, które opisują sposób rozmieszczenia i sąsiadowania płatów [@solon2002; @kozak2014]. Do pierwszej grupy należą między innymi indeks różnorodności Shannona (ang. Shannon's diversity index) oraz liczba typów pokrycia terenu (ang. patch richness), natomiast do drugiej grupy przykładami są wskaźnik agregacji płatów (ang. aggregation index) i wskaźnik przestrzennej spójności płatów (ang. patch cohesion index).
+
+<!-- ***zamiast tego wymienić metryki użyte w tej pracy*** -->
+<!-- Do przykładowych metryk krajobrazowych należą między innymi: procentowy udział poszczególnych typów pokrycia terenu  (ang. spatial share), liczba płatów (ang. number of patches), średni rozmiar płatu (ang. mean patch size), indeks średniego kształtu płatu  (ang. mean shape index – MSI), średnia odległość do najbliższego płatu tej samej kategorii (ang. mean nearest neighbor), indeks różnorodności Shannona (ang. Shannon Diversity Index – SHDI), indeks średniego wymiaru fraktalnego (ang. mean fractal dimension index) [@landscapemetrics2019]. -->
+
+Szczególną zaletą metryk krajobrazowych jest to, że mogą one być obliczone dla różnorodnych jednostek przestrzennych, które mogą być zdefiniowane na podstawie aspektów administracyjnych, geograficznych, biogeograficznych lub umownych [@Pukowiec_Kurda_Sobala_2016]. Jednostki te mogą obejmować zarówno granice gmin, zlewni, ekoregionów czy nawet abstrakcyjne obszary na mapie, co z kolei umożliwia wszechstronne stosowanie tych metryk w badaniach związanych z analizą krajobrazu.
 
 
 
@@ -37,7 +46,7 @@ Szczególną zaletą metryk krajobrazowych jest to, że mogą one być obliczone
 Często w celu lepszej reprezentacji analizowanych rastrów możemy wykorzystywać także bardziej skomplikowane sygnatury przestrzenne. 
 Sygnatura przestrzenna to statystyczny opis pewnych struktur przestrzennych występujących wewnątrz rastra [@Jasiewicz_GeoPAT; @nowosad_motif]. Są one dwuwymiarową reprezentacją kompozycji i konfiguracji przestrzennej rastra, czyli jego najbardziej podstawowych charakterystyk.
 
-Przykładem sygnatury łączącej zarówno kompozycję, jak i konfigurację przestrzenną jest macierz współwystępowania. Jest to macierz o wymiarach k na k, gdzie k reprezentuje liczbę kategorii pokrycia terenu obecnych w analizowanym rastrze [@Haralick_1973; @Jasiewicz_GeoPAT]. Macierz tą możemy skonstruować poprzez zliczanie kolejno wszystkich par sąsiadujących ze sobą komórek w rastrze. Wewnątrz tej macierzy, wartości ułożone na przekątnej odnoszą się do kompozycji rastra, natomiast pozostałe do jego konfiguracji. Przykład dwóch macierzy współwystępowania dla rastrów o zbliżonej kompozycji, ale różnej konfiguracji przestrzennej przedstawia Rycina [-@fig-metody-coma].
+Przykładem sygnatury łączącej zarówno kompozycję, jak i konfigurację przestrzenną jest macierz współwystępowania (ang. co-occurrence matrix). Jest to macierz o wymiarach k na k, gdzie k reprezentuje liczbę kategorii pokrycia terenu obecnych w analizowanym rastrze [@Haralick_1973; @Jasiewicz_GeoPAT]. Macierz tę możemy skonstruować poprzez zliczanie kolejno wszystkich par sąsiadujących ze sobą komórek w rastrze. Wewnątrz tej macierzy informacje o kompozycji rastra otrzymujemy poprzez zliczenie wartości w kolumnach lub wierszach (proporcje każdej kategorii), natomiast relacja przekątnej do pozostałych wartości w macierzy informuje nas o konfiguracji przestrzennej. Przykład dwóch macierzy współwystępowania dla rastrów o zbliżonej kompozycji, ale różnej konfiguracji przestrzennej przedstawia Rycina [-@fig-metody-coma].
 
 ```{r}
 #| label: fig-metody-coma
@@ -48,31 +57,37 @@ Przykładem sygnatury łączącej zarówno kompozycję, jak i konfigurację prze
 knitr::include_graphics("figures/diagram_coma.png")
 ```
 
+W celu porównywania ze sobą sygnatur dwóch rastrów w postaci dwuwymiarowej macierzy należy je sprowadzić do postaci jednowymiarowych wektorów (histogramów), a następnie przeprowadzić ich normalizację, tak aby wszystkie wartości sumowały się do 1. Taka postać umożliwia obliczanie miar odległości lub podobieństwa, pozwalających na porównywanie histogramów wartości [@Cha2007]. Miary te następnie pozwalają określić stopień odmienności dwóch rastrów. Podejście to może być także wykorzystane w innych analizach przestrzennych, jak wyszukiwanie obszarów o podobnej strukturze przestrzennej, grupowanie tych obszarów oraz wykrywanie ich zmian [@Jasiewicz_GeoPAT; @nowosad_motif].
 
-Na podstawie macierzy współwystępowania mogą zostać obliczone różne miary wywodzące się z dziedziny teorii informacji [@nowosad_it]. Przykładem takiej miary jest entropia brzegowa, która opisuje zróżnicowanie kompozycji rastra, czyli udziałów każdej z kategorii w rastrze. Entropia brzegowa może być obliczona zgodnie ze wzorem:
-$$
-H(y) = -\sum_{j=1}^{K}p(y=c_{j})log_2p(y=c_j)
-$$
+
+
+## Miary wywodzące się z teorii informacji
+
+Metodologia, którą w pracy @nowosad_it zakłada, że podstawowymi jednostkami analizy dla miar wywodzących się z teorii informacji nie są poszczególne komórki rastra, lecz pary sąsiadujących komórek. Parą natomiast określa się dwuwartościową zmienną losową ($x$, $y$), dla której $x$ reprezentuje klasę analizowanej komórki, a $y$ jest klasą sąsiedniej komórki. Zmienna ($x$, $y$) przyjmuje wartości ($c_i$, $c_j$), które mieszczą się w zakresie od 1 do $K$, gdzie $K$ reprezentuje liczbę klas obecnych na rastrze. Na tej podstawie, macierz współwystępowania może być traktowana jako dwuwymiarowy histogram par komórek, w którym każdy przedział wskazuje liczbę par ($c_i$, $c_j$).
+
+W tej pracy wykorzystane zostały dwie miary z teorii informacji. Pierwszą jest entropia brzegowa (ang. marginal entropy). Opisuje ona zróżnicowanie kompozycji rastra, czyli udziałów każdej z kategorii w rastrze. Im wyższa wartość tej miary, tym bardziej zróżnicowane są poszczególne klasy. Entropia brzegowa może być obliczona zgodnie ze wzorem:
+
+$$H(y) = -\sum_{j=1}^{K}p(y=c_{j})log_2p(y=c_j)$$
+
+* $K$ - liczba kategorii pokrycia terenu
+
+* $p(y = c_j)$ - prawdopodobieństwo, że sąsiadująca komórka $y$ ma przypisaną klasę $c_j$
+
 <!-- informacja wzajemna = entropia brzegowa - conditional entropy -->
 <!-- względna informacja wzajemna = informacja wzajemna / entropia brzegowa -->
 <!-- więc -->
 <!-- względna informacja wzajemna = entropia brzegowa - conditional entropy / entropia brzegowa-->
 
-Kolejną miarą jest względna informacja wzajemna. Reprezentuje ona stopień sąsiadowania ze sobą kategorii w rastrze, czyli jego konfigurację przestrzenną. Względną informację wzajemną można obliczyć ze wzoru:
-$$
-U = I(y,x)/H(y)
-$$
+Drugą miarą, która została wykorzystana w tej pracy jest względna informacja wzajemna (ang. relative mutual information). Opisuje ona stopień sąsiadowania ze sobą kategorii w rastrze, czyli jego konfigurację przestrzenną. Względna informacja wzajemna przyjmuje wartości w zakresie od 0 do 1. Im niższa wartość tej miary, tym bardziej pofragmentowany jest cały krajobraz. Względną informację wzajemną można obliczyć ze wzoru:
+$$U = I(y,x)/H(y)$$
 gdzie $I(y,x)$ oznacza informację wzajemną, liczoną ze wzoru:
-$$
-I(y,x) = H(y) - H(y|x)
-$$
+$$I(y,x) = H(y) - H(y|x)$$
 natomiast $H(y|x)$ reprezentuje entropię warunkową, obliczaną zgodnie ze wzorem:
-$$
-H(y|x) = \sum_{i=1}^{K}\sum_{j=1}^{K} p(x=c_i, y=c_j) log_2 p(y=c_i | x=c_j)
-$$
+$$H(y|x) = \sum_{i=1}^{K}\sum_{j=1}^{K} p(x=c_i, y=c_j) log_2 p(y=c_i | x=c_j)$$
 
-W celu porównywania ze sobą sygnatur dwóch rastrów w postaci dwuwymiarowej macierzy należy je sprowadzić do postaci jednowymiarowego wektora (histogramu), a następnie przeprowadzić jego normalizację, tak aby wszystkie wartości sumowały się do 1. Taka postać pozwala na obliczanie miar odległości lub podobieństwa, pozwalających na porównywanie histogramów wartości [@Cha2007]. Miary te następnie pozwalają określić stopień odmienności dwóch rastrów. Podejście to może być także wykorzystane w innych analizach przestrzennych, jak wyszukiwanie obszarów o podobnej strukturze przestrzennej, wykrywanie ich zmian oraz grupowanie obszarów o podobnej strukturze przestrzennej [@Jasiewicz_GeoPAT; @nowosad_motif].
+* $p(x=c_i, y=c_j)$ - prawdopodobieństwo, że analizowana komórka $x$ jest klasy $c_i$ oraz sąsiadująca komórka $y$ jest klasy $c_j$
 
+* $p(y=c_i | x=c_j)$ - prawdopodobieństwo, że komórka $y$ jest klasy $c_i$ pod warunkiem, że analizowana komórka jest klasy $c_j$
 
 
 ## Metody analiz różnic pokrycia terenu {#sec-pattern-based}
@@ -81,7 +96,7 @@ Zmiany pokrycia terenu w czasie lub różnice w pokryciu terenu pomiędzy obraza
 
 Wszelkie metody analiz zmian pokrycia terenu opierające się na analizie poszczególnych komórek w siatce rastra są użyteczne na obszarach, gdzie zmiany między indywidualnymi komórkami dostarczają istotnych informacji. Ich przydatność jednak maleje, gdy informacja na poziomie pojedynczej komórki przestaje być tak istotna, na przykład dla rastrów o wysokiej rozdzielczości lub znacznym zasięgu przestrzennym [@Jasiewicz_GeoPAT]. W takiej sytuacji bardziej efektywne staje się zastosowanie metod opartych na analizie struktur przestrzennych (ang. pattern-based change assessment) [@Netzel2015].
 
-Pozwalają one przede wszystkim na opis oraz obliczenie podobieństwa struktur przestrzennych. Głównym zamysłem tych metod jest przekształcenie danych z postaci dużych rastrów zbudowanych z wielu indywidualnych komórek zawierających pojedyncze informacje w metryki krajobrazowe oraz sygnatury przestrzenne, a następnie porównanie ich za pomocą miar odległości lub niepodobieństwa. Zastosowanie metryk krajobrazowych w kontekście kompleksowych analiz przestrzennych ma jednak istotną wadę. Jako że pojedyncza metryka krajobrazowa reprezentuje wyłącznie jedną, konkretną charakterystykę analizowanego obszaru, to nie jest w stanie zdefiniować całej charakterystyki struktury przestrzennej danego rastra. W tym celu korzystniejsze może okazać się zastosowanie sygnatur przestrzennych. Dzięki temu, że są dwuwymiarową reprezentacją struktury przestrzennej rastrów, można je ze sobą porównywać przy użyciu szerokiej gamy istniejących miar odległości i niepodobieństwa. Umożliwia to także wykonywanie bardziej skomplikowanych analiz przestrzennych, jak wyszukiwanie, wykrywanie zmian, grupowanie i segmentacja [@nowosad_motif].
+Pozwalają one przede wszystkim na opis oraz obliczenie podobieństwa struktur przestrzennych. Głównym zamysłem tych metod jest przekształcenie danych z postaci dużych rastrów zbudowanych z wielu indywidualnych komórek zawierających pojedyncze informacje w metryki krajobrazowe oraz sygnatury przestrzenne, a następnie porównanie ich za pomocą miar odległości lub niepodobieństwa. Zastosowanie metryk krajobrazowych w kontekście kompleksowych analiz przestrzennych ma jednak istotną wadę. Jako że pojedyncza metryka krajobrazowa reprezentuje wyłącznie jedną, konkretną charakterystykę analizowanego obszaru, to nie jest w stanie opisać całej charakterystyki struktury przestrzennej danego rastra. W tym celu korzystniejsze może okazać się zastosowanie sygnatur przestrzennych. Dzięki temu, że są dwuwymiarową reprezentacją struktury przestrzennej rastrów, można je  porównywać ze sobą przy użyciu szerokiej gamy istniejących miar odległości i niepodobieństwa.
 
 
 
@@ -89,9 +104,9 @@ Pozwalają one przede wszystkim na opis oraz obliczenie podobieństwa struktur p
 
 Odległość oraz rozbieżność (inaczej niepodobieństwo) stanowią pewien policzalny stopień różnorodności pary obiektów. Największą różnicą między nimi jest to, że odległości są symetryczne, podczas gdy rozbieżności są niesymetryczne. Oznacza to, że wyłącznie dla miar odległości otrzymujemy identyczny wynik przy porównywaniu par obiektów A i B, jak i par B i A.
 
-Niepodobieństwo jest przeciwieństwem podobieństwa. Ponadto, miary podobieństwa można łatwo przekształcić w miary niepodobieństwa [@niesterowicz2016]. W związku z tym, w celu uproszczenia terminologii, wszystkie miary odległości, podobieństwa oraz te wywodzące się z dziedziny teorii informacji, które zostały wykorzystane w tej pracy, będą dalej zbiorowo nazywane miarami niepodobieństwa.
+Rozbieżność jest przeciwieństwem podobieństwa. Ponadto, miary podobieństwa można łatwo przekształcić w miary niepodobieństwa [@niesterowicz2016]. W związku z tym, w celu uproszczenia terminologii, wszystkie miary odległości, podobieństwa oraz te wywodzące się z dziedziny teorii informacji, które zostały wykorzystane w tej pracy, będą dalej zbiorowo nazywane miarami niepodobieństwa.
 
-Na podstawie podobieństw syntaktycznych, wyróżnia się kilka grup rodzin miar niepodobieństwa [@Cha2007]: rodzina Minkowski (odległość euklidesowa, odległość Minkowskiego, odległość Manhattan), rodzina L1 (Canberra, Sorensen, Kulczynski), rodzina Intersection (Intersection, Wave Hedges, Ruzicka), rodzina Inner Product (Jaccard, Harmonic mean), rodzina Squared-chord (Fidelity, Matusita), rodzina Squared L2 (Clark, Pearson X2, Neyman X2), rodzina Shannon’s Entropy (Jensen-Shannon, Kullback-Leibler), a także miary będące połączeniem innych miar (Taneja, Kumar-Johnson) oraz miary wywodzące się z teorii informacji (informacja wzajemna, entropia Shannona). Wybór odpowiedniej miary niepodobieństwa zależy między innymi od rodzaju pomiaru lub sposobu reprezentacji obiektów [@Cha2007].
+Na podstawie podobieństw syntaktycznych, wyróżnia się kilka grup rodzin miar niepodobieństwa [@Cha2007]: rodzina Minkowski (odległość euklidesowa, odległość Minkowskiego, odległość Manhattan), rodzina $L_1$ (Canberra, Sorensen, Kulczynski), rodzina Intersection (Intersection, Wave Hedges, Ruzicka), rodzina Inner Product (Jaccard, Harmonic mean), rodzina Squared-chord (Fidelity, Matusita), rodzina $\chi^2$ (Clark, Pearson $\chi^2$, Neyman $\chi^2$), rodzina Shannon’s Entropy (Jensen-Shannon, Kullback-Leibler), a także miary będące połączeniem innych miar (Taneja, Kumar-Johnson) oraz miary wywodzące się z teorii informacji (informacja wzajemna, entropia Shannona). Wybór odpowiedniej miary niepodobieństwa zależy między innymi od rodzaju pomiaru lub sposobu reprezentacji obiektów [@Cha2007].
 
 
 
@@ -104,8 +119,10 @@ Pierwszym krokiem, jaki należy podjąć w celu obliczenia podobieństwa struktu
 #| label: fig-schemat-porownanie
 #| echo: false
 #| fig-cap: "Schemat procesu obliczenia niepodobieństwa dwóch rastrów."
-#| out-width: 300px
-#| out-height: 600px
+#| out-width: 403px
+#| out-height: 800px
+
+#586x1162
 knitr::include_graphics("figures/diagram_raster_comparison.pdf")
 ```
 

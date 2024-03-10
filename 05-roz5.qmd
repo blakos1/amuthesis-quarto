@@ -1,14 +1,120 @@
-# Podsumowanie {#sec-podsumowanie}
+# Analiza zróżnicowania wybranych miar niepodobieństwa na podstawie danych CORINE Land Cover
 
-<!-- Podsumowanie pracy jest w pewnym sensie znacznie rozbudowanym abstraktem.  -->
-<!-- Należy wyliczyć i opisać osiągnięcia uzyskane w pracy dyplomowej. -->
-<!-- Tutaj jednak (w przeciwieństwie do np. rozdziału [-@sec-wprowadzenie]) należy przechodzić od szczegółu do ogółu - co zostało stworzone/określone, jak zostało to zrobione, jakie ma to konsekwencje, itd. -->
-
-<!-- Ten rozdział powinien też zawierać opis kwestii, których nie udało się rozwiązać w pracy dyplomowej (i dlaczego się nie udało) oraz pomysły na przyszłe ulepszenie uzyskanych wyników lub dalsze badania. -->
+W tym rozdziale skupiono się na próbie wyjaśnienia różnic między wynikami czterech wybranych miar niepodobieństwa: odległości euklidesowej, miary Jensena-Shannona, Wave Hedgesa oraz Tanejy, które zostały obliczone dla obszarów wydzielonych z danych rastrowych o pokryciu terenu CORINE Land Cover. W pierwszej sekcji omówione jest zastosowane podejście do porównania tych miar oraz wykorzystane w tym celu dane przestrzenne CORINE Land Cover. Następnie, w drugiej sekcji opisano relacje między poszczególnymi miarami niepodobieństwa. Przedstawiony jest także sposób wyboru obszarów, dla których miary niepodobieństwa wykazały największe zróżnicowanie a także opis tych obszarów. W ostatniej sekcji tego rozdziału opisana jest relacja czterech miar niepodobieństwa ze zmianami kompozycji i konfiguracji przestrzennej.
 
 
-<!-- Może to być wynikiem tego, że ludziom może łatwiej przychodzić określenie różnicy w rastrach, które zawierają mniejszą ilość informacji. -->
+## Porównanie wybranych miar niepodobieństwa w kontekście określania zmian kategorii pokrycia terenu
+
+Dalsza część porównania miar niepodobieństwa opierała się na analizie wyników wybranych miar przy zastosowaniu w analizie zmian pokrycia terenu na podstawie danych rzeczywistych. W tym celu zostały wykorzystane dane CORINE Land Cover dla obszaru Polski dla lat 1990 i 2018, które zostały opisane w Podrozdziale [-@sec-CLC]. Dla uproszczenia analizy, dane CLC zostały zreklasyfikowane tak aby uwzględniały wyłącznie dwie kategorie pokrycia terenu: lasy i pozostałe obszary.
+
+Do oceny zmian pokrycia terenu zastosowano metody oparte na analizie struktur przestrzennych, opisane dokładniej w Podrozdziale [-@sec-pattern-based]. Dane wejściowe zostały podzielone na regularną siatkę kwadratów o wymiarach 100 na 100 komórek rastra (10 na 10 km). W ten sposób, obszar badań podzielony został na 3337 mniejszych jednostek. Następnie, dla tych obszarów obliczone zostały zmiany ich struktur przestrzennych dla danych z 1990 i 2018 roku wykorzystując do tego cztery miary niepodobieństwa wybrane na podstawie różnych kryteriów: 
+
+* Odległość euklidesowa – najpopularniejsza miara niepodobieństwa, która nie jest zależna od liczby klas
+* Jensen-Shannon – miara niepodobieństwa, która również nie jest zależna od liczby klas a jest wykorzystywana w pracach dotyczących podobieństwa struktur przestrzennych ***(REF)***
+* Wave Hedges – miara niepodobieństwa, która jest zależna od liczby klas, ale która dała najwyższą wartość współczynnika determinacji dla średniej odpowiedzi dla dwóch klas oraz jedną z najwyższych dla trzech klas
+* Taneja – miara niepodobieństwa, która nie jest zależna od liczby klas, ale która dała relatywnie wysokie wartości współczynnika determinacji dla odchylenia standardowego odpowiedzi dla dwóch oraz trzech klas
+
+Ze względu na to że oryginalnie wyniki tych miar mieszczą się w różnych przedziałach wartości, zostały one przeskalowane do zakresu od 0 do 100. Dzięki temu można łatwiej ze sobą porównać wyniki tych miar. Należy jednak wziąć pod uwagę, że w takiej sytuacji wartość miar równa 0 niekoniecznie będzie oznaczać całkowity brak zmian w strukturze przestrzennej, a po prostu najmniejszą zmianę z całego zbioru danych. Wartość 100 natomiast reprezentować będzie obszary o największej zmianie struktury przestrzennej.
+
+```{r}
+#| label: fig-zestawienie_miar1
+#| echo: false
+#| fig-cap: "Zestawienie wyników czterech miar niepodobieństwa"
+#| out-width: 500px
+#| out-height: 333px
+
+#1800x1200
+knitr::include_graphics("figures/zestawienie_miar1.png")
+```
+
+Uwzględnione miary niepodobieństwa wykazują między sobą na tyle silne relacje, że na pierwszy rzut oka trudno zauważyć istotne różnice pomiędzy nimi na mapach (Rycina [-@fig-zestawienie_miar1]). Dlatego też, aby dokładniej zrozumieć różnice w wynikach tych miar, konieczna jest głębsza analiza danych uwzględniająca bezpośrednie porównanie ze sobą wyników miar dla obszarów o największych różnicach wartości.
 
 
-<!-- Przeanalizowane wyniki pierwszej ankiety wraz z opisem przyjętej metodyki projektu przedstawione zostały na posterze konferencyjnym pt. „Porównanie metod określania zmian struktury przestrzennej kategorii pokrycia terenu”, autorstwa Błażeja Kościańskiego oraz dra hab. Jakuba Nowosada. -->
-<!-- Poster został przedstawiony w trakcie sesji posterowej na konferencji Geoinformacja: Nauka - Praktyka - Edukacja (https://geoinformacja20uam.pl/), odbywającej się w dniach 1-3 grudnia 2022 roku na Wydziale Nauk Geograficznych i Geologicznych im. Adama Mickiewicza w Poznaniu. -->
+## Porówanie wyników miar niepodobieństwa
+
+W celu wskazania obszarów dla których miary niepodobieństwa dają najbardziej zróżnicowane wyniki, dla każdego obszaru obliczone zostało odchylenie standardowe czterech wybranych miar niepodobieństwa. Następnie wybrano obszary, dla których odchylenie standardowe miar znalazło się w 1% najwyższych wyników. Pozwoliło to na wskazanie 12 obszarów, dla których wyniki miar niepodobieństwa są najbardziej zróżnicowane z całego zbioru danych. Próg dla najwyższych 1% odchyleń standardowych wyniósł 31,03. Wyniki powyżej tego progu wskazują na bardzo duże zróżnicowanie wyników miar niepodobieństwa. Dodatkowo, wybrano cztery obszary dla których wartości miar Tanejy i Jensena-Shannona różniły się od siebie w znacznym stopniu.
+
+```{r}
+#| label: fig-relacje_miar1
+#| echo: false
+#| fig-cap: "Relacje między czterema wybranymi miarami niepodobieństwawa"
+#| out-width: 500px
+#| out-height: 750px
+
+# 2000x3000
+knitr::include_graphics("figures/relacje_miar1.png")
+```
+
+Na podstawie wykresów na Rycinie [-@fig-relacje_miar1] możemy zauważyć, że wszystkie cztery miary niepodobieństwa są ze sobą silnie skorelowane. W szczególności miary Jensena-Shannona oraz Tanejy charakteryzują się prawie pełną zgodnością. Wyjątek stanowią obszary oznaczone kolorem czerwonym, które reprezentują sytuacje o dużym zróżnicowaniu wyników miar niepodobieństwa. Obszary te widocznie odstają także w przypadku pozostałych relacji miar. Najsłabszą relację wykazują miara Wave Hedgesa z odległością euklidesową.
+
+```{r}
+#| label: fig-obszary_odst
+#| echo: false
+#| fig-cap: "Obszary dla których miary niepodobieństwa dają najbardziej zróżnicowane wyniki. Posortowane malejąco według odchylenia standardowego miar"
+#| out-width: 500px
+#| out-height: 666px
+
+# 3000x4000
+knitr::include_graphics("figures/obszary_odst.png")
+```
+
+
+```{r}
+#| label: tbl-obszary_odst_tabela
+#| echo: false
+#| tbl-cap: "Zestawienie wyników czterech miar niepodobieństwa obszarów odstających. Posortowane malejąco według odchylenia standardowego miar"
+
+df = read.csv("tables/obszary_odst_tabela.csv", row.names = 1)
+
+df = df[, 1:7]
+
+nazwykolumn = c("Numer obszaru", "Różnica entropii", "Różnica RMI", "odległość euklidesowa", "Jensen-Shannon", "Wave Hedges", "Taneja")
+
+knitr::kable(df, booktabs = TRUE, escape = TRUE, col.names = nazwykolumn) |>
+  kableExtra::column_spec(1:3, width = "1.5cm") |>
+  kableExtra::column_spec(4, width = "2.2cm") |>
+  kableExtra::column_spec(5, width = "1.8cm") |>
+  kableExtra::column_spec(6:7, width = "1.5cm") |>
+  kableExtra::footnote(general = "RMI - względna informacja wzajemna", general_title = "")
+  # kableExtra::column_spec(4:7, width = "2cm")
+```
+
+Obszary, dla których miary niepodobieństwa wykazały największe zróżnicowanie, zostały przedstawione na Rycinie [-@fig-obszary_odst]. Wśród tych obszarów można wyróżnić dwie główne grupy: pierwsza grupa obejmuje obszary, na których nastąpiły bardzo niewielkie zmiany, natomiast druga grupa to obszary, na których doszło do całkowitej lub prawie całkowitej zmiany kategorii pokrycia terenu. Każda z tych grup liczy po 8 obszarów.
+
+Warto zauważyć, że miara Wave Hedgesa dla punktów odstających wykazała wyłącznie bardzo wysokie wartości powyżej 89. Oznacza to, że w bardzo specyficznych sytuacjach ta miara wskazuje na podobny stopień zmian pokrycia terenu zarówno w przypadku obszarów o rzeczywiście bardzo dużych, jak i niewielkich zmianach.
+
+W przypadku każdego z wybranych obszarów, miara Tanejy wskazuje na większe zmiany pokrycia terenu w porównaniu do miary Jensena-Shannona. W przypadku tych dwóch miar występują sytuacje, gdzie niektórym obszarom, na których doszło do prawie całkowitej zmiany pokrycia terenu, przypisane są bardzo wysokie wartości powyżej 80, podczas gdy innym obszarom o podobnym stopniu zmian przypisane są wartości nawet poniżej 40. Analogiczna sytuacja występuje także w przypadku obszarów charakteryzujących się niewielkimi zmianami pokrycia terenu.
+
+
+## Miary niepodobieństwa a kompozycja i konfiguracja przestrzenna
+
+```{r}
+#| label: tbl-cztery_miary_ent_relmutinf
+#| echo: false
+#| tbl-cap: "Zestawienie korelacji Spearmana pomiędzy czterema wybranymi miarami niepodobieństwa a różnicą entropii i różnicą względnej informacji wzajemnej (RMI)"
+
+df = read.csv("tables/cztery_miary_ent_relmutinf.csv")
+
+knitr::kable(df, booktabs = TRUE, escape = TRUE, col.names = c("Miara niepodobieństwa", "Różnica entropii", "Różnica RMI"))
+```
+
+W celu oceny stopnia zależności wybranych miar niepodobieństwa od zmian w kompozycji i przestrzennej konfiguracji obszarów, przeprowadzono analizę ich korelacji Spearmana z dwiema miarami z teorii informacji: entropią oraz względną informacją wzajemną. Wyniki te umożliwiają oszacowanie wpływu zmian w kompozycji i konfiguracji przestrzennej obszarów na wyniki miar niepodobieństwa. Im wyższa wartość korelacji z różnicą entropii lub różnicą względnej informacji wzajemnej, tym teoretycznie większy wpływ mają zmiany kompozycji lub konfiguracji przestrzennej na wyniki danej miary.
+
+Analiza wyników korelacji przedstawionych w Tabeli [-@tbl-cztery_miary_ent_relmutinf] ukazuje, że wszystkie miary wykazują silną relację z różnicą entropii na zbliżonym poziomie, wynoszącym między 0,71 a 0,8. Miary wykazują natomiast umiarkowaną relację z różnicą względnej informacji wzajemnej, których zakres wartości mieści się w przedziale od 0,42 do 0,67. Najsilniejszy związek z obiema miarami z teorii informacji wykazuje miara Wave Hedgesa. Miary Tanejy i Jensena-Shannona uzyskały identyczne wyniki w przypadku obu miar, natomiast najsłabszą relację w obu przypadkach wykazuje odległość euklidesowa. Wyniki te oznaczają, że w przypadku tych czterech miar niepodobieństwa większy wpływ na ostateczny wynik mają zmiany udziałów kategorii w rastrze niż zmiany sąsiadowania ze sobą kategorii.
+
+```{r}
+#| label: fig-clc_ent_vs_relmutinf
+#| echo: false
+#| fig-cap: "Relacja różnicy entropii z różnicą względnej informacji wzajemnej (RMI) dla wydzielonych obszarów"
+#| out-width: 500px
+#| out-height: 350px
+
+# 2000x1400
+knitr::include_graphics("figures/clc_ent_vs_relmutinf.png")
+```
+
+Na podstawie Ryciny [-@fig-clc_ent_vs_relmutinf], która przedstawia rozkład wartości różnicy entropii i różnicy względnej informacji wzajemnej, można zauważyć, że dla znacznej części obszarów wartości obu tych miar znajdują się w przedziale od 0 do 0,1. Oznacza to, że zmiany kompozycji i przestrzennej konfiguracji na tych obszarach były stosunkowo niewielkie. Punkty na wykresie oznaczone kolorem czerwonym reprezentują 16 wcześniej wybranych obszarów charakteryzujących się wysokim odchyleniu standardowym miar niepodobieństwa. Wartości różnicy entropii obszarów dla których miary różnią się od siebie najbardziej mieszczą się w przedziale od 0,02 do 0,11. W przypadku różnic względnej informacji wzajemnej dla tych obszarów wartości są bardzo zróżnicowane i mieszczą się w przedziale od 0,008 do ponad 0,82, gdzie 9 z tych obszarów charakteryzuje się najwyższą różnicą spośród całego zbioru danych. Analizując rozmieszczenie tych 16 punktów można wywnioskować, że wyniki miar niepodobieństwa różnią się od siebie znacząco głównie w przypadku obszarów o niewielkiej różnicy entropii i dosyć dużej różnicy względnej informacji wzajemnej. To sugeruje, że istotny wpływ na zgodność wyników miar niepodobieństwa dla różnic między dwoma rastrami ma to, jak bardzo analizowane rastry różnią się od siebie pod względem sąsiadowania ze sobą poszczególnych kategorii.
+
+
+
+

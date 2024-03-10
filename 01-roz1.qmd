@@ -8,27 +8,27 @@ W procesie tworzenia informacji geograficznych istnieje zatem pewien stopień su
 Przykładem informacji geograficznej, której ostateczna postać zależna jest od założeń przyjętych w trakcie tworzenia danych przestrzennych, jest pokrycie terenu.
 
 <!-- akapit o tym czym jest pokrycie terenu -->
-Przyjmuje się, że termin pokrycie terenu obejmuje zbiór wszelkich elementów obecnych na powierzchni Ziemi (**dodać ref**).
-W elementy pokrycia terenu włączają się obiekty związane z działalnością człowieka, skutkami sił przyrody oraz wszelkie inne istniejące obiekty, które mogą znaleźć się w przestrzeni geograficznej (**dodać ref**).
-Tworzenie dokładnych i wiarygodnych danych dotyczących pokrycia terenu jest niezbędne w kontekście wielu zastosowań, takich jak planowanie przestrzenne (**dodać ref**), ochrona środowiska (**dodać ref**), czy analiza zmian klimatycznych (**dodać ref**).
+Przyjmuje się, że termin pokrycie terenu obejmuje zbiór wszelkich elementów obecnych na powierzchni Ziemi [@Fisher2005].
+W elementy pokrycia terenu włączają się obiekty związane z działalnością człowieka, skutkami sił przyrody oraz wszelkie inne istniejące obiekty, które mogą znaleźć się w przestrzeni geograficznej [@zwolinski2018].
+Tworzenie dokładnych i wiarygodnych danych dotyczących pokrycia terenu jest niezbędne w kontekście wielu zastosowań, takich jak planowanie przestrzenne [@bibby1999monitoring], ochrona środowiska [@natura2000_land_cover], czy analiza zmian klimatycznych [@dravskovic2020climate].
 Ostateczna forma tych danych jest jednak w dużej mierze determinowana przez wybory i założenia dokonywane w procesie ich tworzenia. 
 <!-- (**ewentualnie dodać rycinę z przykładem mapy pokrycia terenu**). -->
-W tym kontekście, analiza pokrycia terenu staje się istotnym polem badań, które skupia się na zarówno na technicznych aspektach zbierania danych, jak i na ich semantycznej interpretacji (**dodać ref**).
+W tym kontekście, analiza pokrycia terenu staje się istotnym polem badań, które skupia się na zarówno na technicznych aspektach zbierania danych, jak i na ich semantycznej interpretacji.
 
 <!-- akapit o tym jak robione są mapy pokrycia terenu -->
-Dane oraz wynikowe mapy pokrycia terenu są rezultatem złożonego procesu przetwarzania i analizy danych przestrzennych najczęściej w postaci obrazów satelitarnych [@Jasiewicz_GeoPAT].
+Dane oraz wynikowe mapy pokrycia terenu są rezultatem złożonego procesu przetwarzania i analizy informacji przestrzennych najczęściej w postaci obrazów satelitarnych [@ChangeDetectionTechniques; @Jasiewicz_GeoPAT].
 Na początku tego procesu, satelity wyposażone w sensory rejestrują obrazy Ziemi z różnych zakresów widmowych.
 Dane pochodzące z teledetekcji często mają postać danych rastrowych, gdzie informacje przestrzenne są zapisane w formie regularnej siatki komórek lub punktów [@glazewski2006modele].
 W modelu danych rastrowych każda z tych komórek lub punktów przechowuje jedną wartość, która stanowi reprezentację jakiejś charakterystyki danego fragmentu powierzchni Ziemi.
 Obrazy uzyskane w procesie teledetekcji mogą być interpretowane manualnie przez grupy specjalistów.
-Pozwala to na uzyskanie map pokrycia terenu o wysokiej dokładności, kosztem długiego procesu ich tworzenia (**dodać ref**).
+Pozwala to na uzyskanie map pokrycia terenu o wysokiej dokładności, kosztem długiego procesu ich tworzenia [@CUNNINGHAM2006217].
 Dużo mniej czasochłonną metodą jest przetwarzanie przy użyciu algorytmów.
-Umożliwiają one względnie szybką, półautomatyczną identyfikację i klasyfikację różnych typów powierzchni kosztem mniejszej dokładności mapy wynikowej (**dodać ref**).
-Ostatecznie, dane przekształcone w mapy pokrycia terenu mogą posłużyć do analiz zmian pokrycia terenu (**dodać ref**).
+Umożliwiają one względnie szybką, półautomatyczną identyfikację i klasyfikację różnych typów powierzchni kosztem mniejszej dokładności mapy wynikowej [@CUNNINGHAM2006217].
+Ostatecznie, dane przekształcone w mapy pokrycia terenu mogą posłużyć do analiz zmian pokrycia terenu [@Feranec2007; @Sleeter2013; @Mierzwiak_Całka_2019].
 
 <!-- akapit o tym że mapy pokrycia terenu można ze sobą porównywać a wyniki tego porównania mogą być wykorzystane w celu analizy zmian pokrycia terenu w czasie i przestrzeni -->
-Celem analiz zmian pokrycia terenu jest przede wszystkim monitorowanie i pogłębienie aktualnej wiedzy na temat ewolucji otaczającego nas krajobrazu (**dodać ref**).
-Jest to istotne w kontekście ochrony przyrody (**dodać ref**), planowania przestrzennego (**dodać ref**), oceny wpływu inwestycji (**dodać ref**) i infrastruktury na środowisko (**dodać ref**), a także w badaniach naukowych dotyczących zmian klimatycznych (**dodać ref**), bioróżnorodności (**dodać ref**) oraz innych procesów ekologicznych [@ChangeDetectionTechniques].
+Celem analiz zmian pokrycia terenu jest przede wszystkim monitorowanie i pogłębienie aktualnej wiedzy na temat ewolucji otaczającego nas krajobrazu [@ChangeDetectionTechniques].
+Jest to istotne w kontekście ochrony przyrody [@lulcc_natura2000], planowania przestrzennego [@urbanplanning], oceny wpływu inwestycji i infrastruktury na środowisko [@infrastructure_environment], a także w badaniach dotyczących zmian klimatycznych [@lulcc_climate_change], bioróżnorodności [@lulcc_biodiversity] oraz innych procesów ekologicznych [@ChangeDetectionTechniques].
 Dzięki analizie zmian pokrycia terenu można identyfikować obszary zagrożone degradacją, monitorować skutki urbanizacji, deforestacji czy erozji, co umożliwia podejmowanie odpowiednich działań w celu zrównoważonego zarządzania środowiskiem i zachowaniem jego integralności.
 
 <!-- akapit o tym jakie istnieją sposoby porównywania zmian pokrycia terenu -->
@@ -42,20 +42,21 @@ Głównym założeniem tych metod jest przekształcenie danych z postaci pojedyn
 Sygnatury przestrzenne stanowią statystyczny opis struktur przestrzennych kategorii pokrycia terenu na mniejszych, wydzielonych obszarach w obrębie całego zbioru danych.
 W celu porównania ze sobą dwóch sygnatur przestrzennych, wykorzystywane są miary niepodobieństwa.
 Umożliwiają one określenie w jakim stopniu dwa analizowane obszary się od siebie różnią pod względem kompozycji oraz konfiguracji przestrzennej.
-Opracowane zostało wiele różnych miar niepodobieństwa, takich jak odległość euklidesowa, odległość Canberra, metryka Wave Hedges, współczynnik podobieństwa Jaccarda, odległość Jensena-Shannona czy dywergencja Pearsona [@Cha2007].
+Opracowane zostało wiele różnych miar niepodobieństwa, takich jak odległość euklidesowa, odległość Canberra, metryka Wave Hedgesa, współczynnik podobieństwa Jaccarda, odległość Jensena-Shannona czy dywergencja Pearsona [@Cha2007].
 Współcześnie jednak nie określono, która z tych miar jest najbardziej zgodna zarówno z postrzeganiem przez człowieka, jak i wpływem zmian na procesy środowiskowe.
 
 <!-- wady i zalety obu podejść -->
 <!-- wady i zalety obu podejść, np. że percepcja jest subiektywna i nie skaluje się -->
 
 <!-- cel pracy -->
-Celem tej pracy było porównanie metod określania zmian struktury przestrzennej kategorii pokrycia terenu w kontekście ich korelacji z postrzeganiem zmian przestrzennych przez ludzi.
-Zbiór rastrów symulowany aby uzyskać pełną reprezentację wszystkich możliwych wartości kompozycji, jak i konfiguracji przestrzennej.
+Celem tej pracy było porównanie metod określania zmian struktury przestrzennej kategorii pokrycia terenu z postrzeganiem zmian przestrzennych przez ludzi.
+Pierwszym etapem pracy było stworzenie zbioru rastrów poprzez proces symulacji.
+Założeniem przy tworzeniu rastrów było uwzględnienie wszystkich możliwych wartości kompozycji oraz konfiguracji przestrzennej.
 Na podstawie tych danych przeprowadzona została ankieta, w której zadaniem respondentów było określenie stopnia podobieństwa między parami rastrów.
 Badanie przeprowadzone zostało na rastrach składających się wyłącznie z dwóch lub trzech kategorii.
 Wyniki ankiety zestawione zostały z wartościami 45 miar niepodobieństwa.
-Na tej podstawie, do dalszej analizy wybrane zostały 4 miary niepodobieństwa charakteryzujące się największą zgodnością z ludzką percepcją zmian przestrzennych.
-W kolejnym etapie na podstawie zbioru danych o pokryciu terenu Corine Land Cover (CLC) stworzone zostały mapy niepodobieństwa pokrycia terenu dla obszaru Polski dla lat 1990 i 2018.
-Mapy te stworzone zostały w oparciu o metody wywodzące się z ekologii krajobrazu z wykorzystaniem miar niepodobieństwa wybranych na podstawie wyników ankiety.
-Następnie mapy te zostały ze sobą porównane i opisane, na podstawie czego scharakteryzowane zostały kluczowe różnice wynikające z zastosowania każdej z wykorzystanych miar.
+Na tej podstawie, do dalszej analizy wybrane zostały cztery miary niepodobieństwa charakteryzujące się największą zgodnością z ludzką percepcją zmian przestrzennych oraz dwie najczęściej stosowane: odległość euklidesowa i dywergencja Jensena-Shannona.
+W kolejnym etapie na podstawie zbioru danych o pokryciu terenu Corine Land Cover (CLC) stworzone zostały mapy niepodobieństwa struktur przestrzennych pokrycia terenu dla obszaru Polski dla lat 1990 i 2018.
+Mapy te stworzone zostały w oparciu o miary niepodobieństwa wybrane na podstawie wyników ankiety.
+Następnie mapy te zostały ze sobą porównane i opisane, na podstawie czego scharakteryzowane zostały kluczowe różnice wynikające z zastosowania każdej z miar.
 

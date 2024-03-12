@@ -19,7 +19,7 @@ Ze względu na to że oryginalnie wyniki tych miar mieszczą się w różnych pr
 ```{r}
 #| label: fig-zestawienie_miar1
 #| echo: false
-#| fig-cap: "Zestawienie wyników czterech miar niepodobieństwa"
+#| fig-cap: "Mapy wyników czterech miar niepodobieństwa po przeskalowaniu dla wydzielonej siatki obszarów o wymiarach 10 na 10 km"
 #| out-width: 500px
 #| out-height: 333px
 
@@ -37,7 +37,7 @@ W celu wskazania obszarów dla których miary niepodobieństwa dają najbardziej
 ```{r}
 #| label: fig-relacje_miar1
 #| echo: false
-#| fig-cap: "Relacje między czterema wybranymi miarami niepodobieństwawa"
+#| fig-cap: "Wykresy relacji między odległością euklidesową, miarą Jensena-Shannona, miarą Wave Hedgesa oraz miarą Tanejy dla wydzielonych obszarów 10 na 10km"
 #| out-width: 500px
 #| out-height: 750px
 
@@ -52,10 +52,10 @@ Na podstawie wykresów na Rycinie [-@fig-relacje_miar1] możemy zauważyć, że 
 #| echo: false
 #| fig-cap: "Obszary dla których miary niepodobieństwa dają najbardziej zróżnicowane wyniki. Posortowane malejąco według odchylenia standardowego miar"
 #| out-width: 500px
-#| out-height: 666px
+#| out-height: 622px
 
-# 3000x4000
-knitr::include_graphics("figures/obszary_odst.png")
+# 2200x2740
+knitr::include_graphics("figures/obszary_odst_kopia.png")
 ```
 
 
@@ -79,11 +79,19 @@ knitr::kable(df, booktabs = TRUE, escape = TRUE, col.names = nazwykolumn) |>
   # kableExtra::column_spec(4:7, width = "2cm")
 ```
 
-Obszary, dla których miary niepodobieństwa wykazały największe zróżnicowanie, zostały przedstawione na Rycinie [-@fig-obszary_odst]. Wśród tych obszarów można wyróżnić dwie główne grupy: pierwsza grupa obejmuje obszary, na których nastąpiły bardzo niewielkie zmiany, natomiast druga grupa to obszary, na których doszło do całkowitej lub prawie całkowitej zmiany kategorii pokrycia terenu. Każda z tych grup liczy po 8 obszarów.
+Obszary, dla których miary niepodobieństwa wykazały największe zróżnicowanie, zostały przedstawione na Rycinie [-@fig-obszary_odst]. 
 
-Warto zauważyć, że miara Wave Hedgesa dla punktów odstających wykazała wyłącznie bardzo wysokie wartości powyżej 89. Oznacza to, że w bardzo specyficznych sytuacjach ta miara wskazuje na podobny stopień zmian pokrycia terenu zarówno w przypadku obszarów o rzeczywiście bardzo dużych, jak i niewielkich zmianach.
+Na wszystkich 16 obszarach zmiany można określić jako bardzo niewielkie. 
+Wśród tych obszarów można wyróżnić dwie główne grupy: pierwsza grupa obejmuje obszary oznaczone jako 1, 5, 6, 8, 9, 10, 11 i 12, na których nastąpiły bardzo niewielkie zmiany, natomiast druga grupa to obszary 2, 3, 4, 7, 13, 14, 15 oraz 16, na których doszło do zmiany liczby klas pokrycia terenu. Każda z tych grup liczy po 8 obszarów.
 
-W przypadku każdego z wybranych obszarów, miara Tanejy wskazuje na większe zmiany pokrycia terenu w porównaniu do miary Jensena-Shannona. W przypadku tych dwóch miar występują sytuacje, gdzie niektórym obszarom, na których doszło do prawie całkowitej zmiany pokrycia terenu, przypisane są bardzo wysokie wartości powyżej 80, podczas gdy innym obszarom o podobnym stopniu zmian przypisane są wartości nawet poniżej 40. Analogiczna sytuacja występuje także w przypadku obszarów charakteryzujących się niewielkimi zmianami pokrycia terenu.
+W przypadku drugiej grupy, rastry początkowe zawierają wyłącznie jedną kategorię pokrycia terenu, natomiast rastry przedstawiające stan po zmianach uwzględniają obie klasy. Na podstawie Tabeli [-@tbl-obszary_odst_tabela] można zauważyć, że tym obszarom miary Tanejy oraz Jensena-Shannona przypisały dużo wyższe wartości niż pozostałym. Miara Tanejy przypisała wszystkim tym obszarom wartości powyżej 98, natomiast miara Jensena-Shannona wartości powyżej 70. Wynika z tego, że miary te są wyjątkowo wrażliwe na zmianę liczby klas między porównywanymi rastrami.
+
+Wyniki odległości euklidesowej wykazują mniejszą zależność od zmian liczby klas uwzględnionych na rastrach w porównaniu do pozostałych miar. Jest to szczególnie widoczne w przypadku obszarów oznaczonych jako 2, 4 oraz 7 dla których pozostałe miary wskazują na bardzo duże zmiany (od 70 do 99), podczas gdy odległość euklidesowa na dosyć niewielkie (10, 16 i 24).
+
+Warto także zauważyć, że miara Wave Hedgesa dla obszarów odstających wykazała wyłącznie bardzo wysokie wartości powyżej 89. Oznacza to, że w bardzo specyficznych sytuacjach ta miara wskazuje na bardzo duże zmiany pokrycia terenu w przypadku obszarów, na których zmiany w rzeczywistości były dosyć niewielkie.
+
+W przypadku każdego z wybranych obszarów, miara Tanejy wskazuje na większe zmiany pokrycia terenu w porównaniu do miary Jensena-Shannona.
+
 
 
 ## Miary niepodobieństwa a kompozycja i konfiguracja przestrzenna

@@ -16,7 +16,7 @@ W tym rozdziale opisane są kolejno wszystkie zagadnienia kluczowe do zrozumieni
 
 @mcgarigal2009 określa, że znaczna część dziedziny ekologii krajobrazu opiera się na paradygmacie płatów. Według tej idei, każdy krajobrazy zbudowane są z jednostek, nazywanych płatami. Płaty definiuje się jako wyodrębnione obszary, wyróżniające się od sąsiadujących elementów na podstawie różnych cech, takich jak wielkość, kształt, charakter granic, różnorodność czy kategoria pokrycia terenu [@forman1995land; @solon2002; @German_2004]. Każdy krajobraz, składający się z wielu płatów, natomiast cechuje się pewną strukturą przestrzenną, której najbardziej podstawowymi charakterystykami są kompozycja i konfiguracja przestrzenna [@Gustafson1998].
 
-***dodać słowne przykłady, w sensie dosłownie co ta osoba napisała w tej pracy na ten temat***
+<!-- ***dodać słowne przykłady, w sensie dosłownie co ta osoba napisała w tej pracy na ten temat*** -->
 Kompozycja rastra opisuje zróżnicowanie i liczbę płatów poszczególnych kategorii pokrycia terenu bez uwzględniania informacji o ich lokalizacji w przestrzeni [@Gustafson1998; @solon2002; @kozak2014]. Konfiguracja (ułożenie) natomiast opisuje sąsiadowanie ze sobą poszczególnych płatów [@Gustafson1998; @solon2002; @kozak2014]. Kompozycja, konfiguracja, jak i inne różne cechy mogą następnie być opisywane na przykład za pomocą metryk krajobrazowych lub sygnatur przestrzennych.
 
 
@@ -51,7 +51,7 @@ Przykładem sygnatury łączącej zarówno kompozycję, jak i konfigurację prze
 ```{r}
 #| label: fig-metody-coma
 #| echo: false
-#| fig-cap: "Przykład dwóch macierzy współwystępowania dla rastrów o zbliżonej kompozycji i różnej konfiguracji przestrzennej."
+#| fig-cap: "Przykład dwóch macierzy współwystępowania dla rastrów o zbliżonej kompozycji i różnej konfiguracji przestrzennej"
 #| out-width: 350px
 #| out-height: 350px
 knitr::include_graphics("figures/diagram_coma.png")
@@ -106,7 +106,7 @@ Odległość oraz rozbieżność (inaczej niepodobieństwo) stanowią pewien pol
 
 Rozbieżność jest przeciwieństwem podobieństwa. Ponadto, miary podobieństwa można łatwo przekształcić w miary niepodobieństwa [@niesterowicz2016]. W związku z tym, w celu uproszczenia terminologii, wszystkie miary odległości, podobieństwa oraz te wywodzące się z dziedziny teorii informacji, które zostały wykorzystane w tej pracy, będą dalej zbiorowo nazywane miarami niepodobieństwa.
 
-Na podstawie podobieństw syntaktycznych, wyróżnia się kilka grup rodzin miar niepodobieństwa [@Cha2007]: rodzina Minkowski (odległość euklidesowa, odległość Minkowskiego, odległość Manhattan), rodzina $L_1$ (Canberra, Sorensen, Kulczynski), rodzina Intersection (Intersection, Wave Hedges, Ruzicka), rodzina Inner Product (Jaccard, Harmonic mean), rodzina Squared-chord (Fidelity, Matusita), rodzina $\chi^2$ (Clark, Pearson $\chi^2$, Neyman $\chi^2$), rodzina Shannon’s Entropy (Jensen-Shannon, Kullback-Leibler), a także miary będące połączeniem innych miar (Taneja, Kumar-Johnson) oraz miary wywodzące się z teorii informacji (informacja wzajemna, entropia Shannona). Wybór odpowiedniej miary niepodobieństwa zależy między innymi od rodzaju pomiaru lub sposobu reprezentacji obiektów [@Cha2007].
+Na podstawie podobieństw syntaktycznych, wyróżnia się kilka grup rodzin miar niepodobieństwa [@Cha2007]: rodzina Minkowski (odległość euklidesowa, odległość Minkowskiego, odległość Manhattan), rodzina $L_1$ (odległość Canberra, Sorensen, Kulczynski), rodzina Intersection (Intersection, Wave Hedges, Ruzicka), rodzina Inner Product (Jaccard, średnia harmoniczna), rodzina Squared-chord (Fidelity, Matusita), rodzina $\chi^2$ (Clark, Pearson $\chi^2$, Neyman $\chi^2$), rodzina Shannon’s Entropy (Jensen-Shannon, Kullback-Leibler), a także miary będące połączeniem innych miar (Taneja, Kumar-Johnson) oraz miary wywodzące się z teorii informacji (informacja wzajemna, entropia Shannona). Wybór odpowiedniej miary niepodobieństwa zależy między innymi od rodzaju pomiaru lub sposobu reprezentacji obiektów [@Cha2007].
 
 
 
@@ -118,9 +118,9 @@ Pierwszym krokiem, jaki należy podjąć w celu obliczenia podobieństwa struktu
 ```{r}
 #| label: fig-schemat-porownanie
 #| echo: false
-#| fig-cap: "Schemat procesu obliczenia niepodobieństwa dwóch rastrów."
-#| out-width: 403px
-#| out-height: 800px
+#| fig-cap: "Schemat procesu obliczenia niepodobieństwa dwóch rastrów"
+#| out-width: 350px
+#| out-height: 695px
 
 #586x1162
 knitr::include_graphics("figures/diagram_raster_comparison.pdf")

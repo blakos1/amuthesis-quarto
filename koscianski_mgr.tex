@@ -74,11 +74,11 @@ której zadaniem respondentów była ocena podobieństwa między parami
 rastrów. Zbiory danych rastrowych zostały przygotowane poprzez symulację
 parametrów kompozycji i konfiguracji przestrzennej. W analizie
 uwzględniono 20 miar niepodobieństwa oraz dwie miary z dziedziny teorii
-informacji: entropia brzegowa i względna informacja wzajemna. W efekcie
+informacji: entropię brzegową i względną informację wzajemną. W efekcie
 przeprowadzonych badań udało się opisać relacje między sposobem
 postrzegania przez ludzi różnic w pokryciu terenu a wynikami miar
 niepodobieństwa oraz wartościami miar opisujących kompozycję i
-konfigurację przestrzenną par rastrów.
+konfigurację przestrzenną rastrów.
 
 Słowa kluczowe: zmiany pokrycia terenu, struktura przestrzenna, miary
 odległości, miary niepodobieństwa, ekologia krajobrazu
@@ -106,7 +106,7 @@ relative mutual information. As a result of the study, it was possible
 to describe the relationships between people's perceptions of
 differences in land cover and the results of dissimilarity measures and
 the values of measures describing the spatial composition and
-configuration of raster pairs.
+configuration of raster images.
 
 Keywords: land cover changes, spatial pattern, distance measures,
 dissimilarity measures, landscape ecology
@@ -277,12 +277,10 @@ składający się z wielu płatów, natomiast cechuje się pewną strukturą
 przestrzenną, której najbardziej podstawowymi charakterystykami są
 kompozycja i konfiguracja przestrzenna \autocite{Gustafson1998}.
 
-\textbf{\emph{dodać słowne przykłady, w sensie dosłownie co ta osoba
-napisała w tej pracy na ten temat}} Kompozycja rastra opisuje
-zróżnicowanie i liczbę płatów poszczególnych kategorii pokrycia terenu
-bez uwzględniania informacji o ich lokalizacji w przestrzeni
-\autocite{Gustafson1998,solon2002,kozak2014}. Konfiguracja (ułożenie)
-natomiast opisuje sąsiadowanie ze sobą poszczególnych płatów
+Kompozycja rastra opisuje zróżnicowanie i liczbę płatów poszczególnych
+kategorii pokrycia terenu bez uwzględniania informacji o ich lokalizacji
+w przestrzeni \autocite{Gustafson1998,solon2002,kozak2014}. Konfiguracja
+(ułożenie) natomiast opisuje sąsiadowanie ze sobą poszczególnych płatów
 \autocite{Gustafson1998,solon2002,kozak2014}. Kompozycja, konfiguracja,
 jak i inne różne cechy mogą następnie być opisywane na przykład za
 pomocą metryk krajobrazowych lub sygnatur przestrzennych.
@@ -370,7 +368,7 @@ Rycina \ref{fig-metody-coma}.
 
 \caption{\label{fig-metody-coma}Przykład dwóch macierzy
 współwystępowania dla rastrów o zbliżonej kompozycji i różnej
-konfiguracji przestrzennej.}
+konfiguracji przestrzennej}
 
 \end{figure}
 
@@ -504,12 +502,12 @@ pracy, będą dalej zbiorowo nazywane miarami niepodobieństwa.
 Na podstawie podobieństw syntaktycznych, wyróżnia się kilka grup rodzin
 miar niepodobieństwa \autocite{Cha2007}: rodzina Minkowski (odległość
 euklidesowa, odległość Minkowskiego, odległość Manhattan), rodzina
-\(L_1\) (Canberra, Sorensen, Kulczynski), rodzina Intersection
+\(L_1\) (odległość Canberra, Sorensen, Kulczynski), rodzina Intersection
 (Intersection, Wave Hedges, Ruzicka), rodzina Inner Product (Jaccard,
-Harmonic mean), rodzina Squared-chord (Fidelity, Matusita), rodzina
-\(\chi^2\) (Clark, Pearson \(\chi^2\), Neyman \(\chi^2\)), rodzina
-Shannon's Entropy (Jensen-Shannon, Kullback-Leibler), a także miary
-będące połączeniem innych miar (Taneja, Kumar-Johnson) oraz miary
+średnia harmoniczna), rodzina Squared-chord (Fidelity, Matusita),
+rodzina \(\chi^2\) (Clark, Pearson \(\chi^2\), Neyman \(\chi^2\)),
+rodzina Shannon's Entropy (Jensen-Shannon, Kullback-Leibler), a także
+miary będące połączeniem innych miar (Taneja, Kumar-Johnson) oraz miary
 wywodzące się z teorii informacji (informacja wzajemna, entropia
 Shannona). Wybór odpowiedniej miary niepodobieństwa zależy między innymi
 od rodzaju pomiaru lub sposobu reprezentacji obiektów
@@ -539,12 +537,12 @@ Rycina \ref{fig-schemat-porownanie}.
 
 \begin{figure}[t]
 
-{\centering \includegraphics[width=4.19792in,height=8.33333in]{figures/diagram_raster_comparison.pdf}
+{\centering \includegraphics[width=3.64583in,height=7.23958in]{figures/diagram_raster_comparison.pdf}
 
 }
 
 \caption{\label{fig-schemat-porownanie}Schemat procesu obliczenia
-niepodobieństwa dwóch rastrów.}
+niepodobieństwa dwóch rastrów}
 
 \end{figure}
 
@@ -856,22 +854,33 @@ Identyczna entropia, identyczna RMI & 467 & 900 & 52\\
 
 Najwyższy poziom zgodności odpowiedzi osób ankietowanych wyniósł 92\% i
 dotyczył pytania różniącego się zarówno entropią, jak i względną
-informacją wzajemną. Aż 24 z 26 osób wskazało na brak podobieństw między
-rastrami uwzględnionymi w tym pytaniu. Jest to interesujący wynik,
-ponieważ rastry w tym pytaniu wcale nie należały do par rastrów
-najbardziej zróżnicowanych pod względem entropii i względnej informacji
-wzajemnej. Pierwszy z rastrów charakteryzował się entropią na poziomie
-0,08 oraz względną informacją wzajemną wynoszącą 0,09. W przypadku
-drugiego rastra, wspomniane wartości wynosiły odpowiednio 0,47 i 0,48.
-Oznacza to, że w przypadku obu miar różnica między parami entropii oraz
-wynikami względnej informacji wzajemnej wyniosły 0,39.
+informacją wzajemną. Rastry, których dotyczyło to pytanie przedstawia
+Rycina \ref{fig-pyt_zgodnosc2_kopia}.A. Aż 24 z 26 osób wskazało na brak
+podobieństw między rastrami uwzględnionymi w tym pytaniu. Jest to
+interesujący wynik, ponieważ rastry w tym pytaniu wcale nie należały do
+par rastrów najbardziej zróżnicowanych pod względem entropii i względnej
+informacji wzajemnej. Pierwszy z rastrów charakteryzował się entropią na
+poziomie 0,08 oraz względną informacją wzajemną wynoszącą 0,09. W
+przypadku drugiego rastra, wspomniane wartości wynosiły odpowiednio 0,47
+i 0,48. Oznacza to, że w przypadku obu miar różnica między parami
+entropii oraz wynikami względnej informacji wzajemnej wyniosły 0,39.
 
-\textbf{\emph{RYCINA RYCINA RYCINA RYCINA RYCINA RYCINA RYCINA RYCINA }}
+\begin{figure}[t]
 
-Najniższy poziom zgodności, czyli zaledwie 38\%, osiągnęło aż 8 pytań.
-Wyłącznie dwa z nich dotyczyły pytań zawierających trzy kategorie
-pokrycia terenu. 75\% z tych pytań uwzględniało rastry różniące się pod
-względem względnej informacji wzajemnej (różna konfiguracja) przy
+{\centering \includegraphics[width=5.20833in,height=5in]{figures/pyt_zgodnosc2_kopia.png}
+
+}
+
+\caption{\label{fig-pyt_zgodnosc2_kopia}Pytania o najwyższym (A) oraz
+najniższym (B-I) poziomie zgodności odpowiedzi}
+
+\end{figure}
+
+Najniższy poziom zgodności, czyli zaledwie 38\%, osiągnęło aż 8 pytań
+(Rycina \ref{fig-pyt_zgodnosc2_kopia}, pary B-I). Wyłącznie dwa z nich
+dotyczyły pytań zawierających trzy kategorie pokrycia terenu (pary
+rastrów H oraz I). 75\% z tych pytań uwzględniało rastry różniące się
+pod względem względnej informacji wzajemnej (różna konfiguracja) przy
 zachowaniu tej samej entropii (identyczna kompozycja).
 
 \hypertarget{miary-niepodobieux144stwa}{%
@@ -883,8 +892,7 @@ niepodobieństwo każdej pary rastrów uwzględnionych w ankiecie.
 Uwzględnione zostały wyłącznie miary, których wyniki dla zbiorów rastrów
 nie wykazały bardzo silnego podobieństwa z wynikami innych miar. Decyzja
 ta pozwoliła skoncentrować się na bardziej zróżnicowanym zestawie miar
-niepodobieństwa, \textbf{\emph{natomiast podobne teoretycznie miary mają
-swoich przedstawicieli wśród uwzględnionych miar.}}
+niepodobieństwa.
 
 W analizie uwzględniono miary: Addytywne \(\chi^2\), odległość Canberra,
 Czebyszewa, Clarka, Hellingera, iloczyn skalarny, Jaccarda,
@@ -1086,6 +1094,14 @@ wyniosła powyżej 0,1. Najniższe wyniki w tej grupie osiągnęły miary
 Ruzicki i odległość Manhattan (\textless0,01) oraz Czebyszewa i
 odległość euklidesowa (0,01).
 
+Rycina \ref{fig-avg_vs_measures} przedstawia relacje między średnią
+odpowiedzią a miarami niepodobieństwa dla dwóch i trzech klas.
+Analizując wykresy można zauważyć, że w przypadku części miar zakres
+wartości w którym mieszczą się ich wyniki zależny jest od liczby klas
+obecnych na rastrach. Do tej grupy należą miary Wave Hedgesa, Canberra
+oraz Clarka, natomiast zakres wartości pozostałych miar nie jest zależny
+od liczby klas.
+
 \begin{figure}[t]
 
 {\centering \includegraphics[width=5.72917in,height=7.72917in]{figures/avg_vs_measures.png}
@@ -1098,14 +1114,6 @@ według wartości współczynnika determinacji dla dwóch klas}
 
 \end{figure}
 
-Rycina \ref{fig-avg_vs_measures} przedstawia relacje między średnią
-odpowiedzią a miarami niepodobieństwa dla dwóch i trzech klas.
-Analizując wykresy można zauważyć, że w przypadku części miar zakres
-wartości w którym mieszczą się ich wyniki zależny jest od liczby klas
-obecnych na rastrach. Do tej grupy należą miary Wave Hedgesa, Canberra
-oraz Clarka, natomiast zakres wartości pozostałych miar nie jest zależny
-od liczby klas.
-
 Dla miar Kumara-Johnsona, Pearsona, Neymana oraz Addytywnego \(\chi^2\)
 widoczne są także pojedyncze punkty znacznie przewyższające wszystkie
 pozostałe uzyskaną wartością niepodobieństwa. Wyniki tak znacznie
@@ -1116,22 +1124,22 @@ trzema klasami. Pary rastrów związane z odstającymi wynikami
 współczynnika determinacji przedstawia Rycina
 \ref{fig-pyt_odstajace_kopia}.
 
-\textbf{\emph{Dla każdej ze wspomnianych wcześniej miar, dwa najbardziej
-odstające wyniki odpowiadają pytaniom, które należały do podgrupy pytań
-o identycznej kompozycji i różnej konfiguracji przestrzennej. Rastry
+Dla czterech wcześniej wspomnianych miar, dwa najbardziej odstające
+wyniki odpowiadają pytaniom, które należały do podgrupy pytań o
+identycznej kompozycji i różnej konfiguracji przestrzennej. Rastry
 uwzględnione w tych pytaniach zostały oznaczone na Rycinie
 \ref{fig-pyt_odstajace_kopia} jako ``Pytanie A'' oraz ``Pytanie B''.
 Różnica we względnej informacji wzajemnej dla tych par rastrów wynosi
 0,58 i 0,63. Oznacza to, że rastry różnią się pod względem konfiguracji
-w dużym stopniu.}}
+w dużym stopniu.
 
-\textbf{\emph{Jeden z odstających wyników, oznaczony na Rycinie
+Jeden z odstających wyników, oznaczony na Rycinie
 \ref{fig-pyt_odstajace_kopia} jako ``Pytanie C'', dotyczy pytania z
 podgrupy o różnej kompozycji i konfiguracji. Dla tej pary rastrów
 różnica entropii wynosi 1,42, natomiast różnica względnej informacji
 wzajemnej wynosi 0,22. Oznacza to, że rastry są bardzo mocno
 zróżnicowane pod względem kompozycji, natomiast w małym stopniu różnią
-się konfiguracją przestrzenną.}}
+się konfiguracją przestrzenną.
 
 \begin{figure}[t]
 
@@ -1197,7 +1205,7 @@ one do siebie bardziej podobne, co potwierdza Rycina
 
 \begin{figure}[t]
 
-{\centering \includegraphics[width=5.20833in,height=3.125in]{figures/answer_mean_vs_ent_diff.png}
+{\centering \includegraphics[width=4.6875in,height=2.8125in]{figures/answer_mean_vs_ent_diff.png}
 
 }
 
@@ -1219,7 +1227,7 @@ celu jej potwierdzenia.
 
 \begin{figure}[t]
 
-{\centering \includegraphics[width=5.20833in,height=3.125in]{figures/answer_mean_vs_relmutinf_diff.png}
+{\centering \includegraphics[width=4.6875in,height=2.8125in]{figures/answer_mean_vs_relmutinf_diff.png}
 
 }
 
@@ -1320,8 +1328,9 @@ struktury przestrzennej.
 
 }
 
-\caption{\label{fig-zestawienie_miar1}Zestawienie wyników czterech miar
-niepodobieństwa}
+\caption{\label{fig-zestawienie_miar1}Mapy wyników czterech miar
+niepodobieństwa po przeskalowaniu dla wydzielonej siatki obszarów o
+wymiarach 10 na 10 km}
 
 \end{figure}
 
@@ -1354,8 +1363,9 @@ Jensena-Shannona różniły się od siebie w znacznym stopniu.
 
 }
 
-\caption{\label{fig-relacje_miar1}Relacje między czterema wybranymi
-miarami niepodobieństwawa}
+\caption{\label{fig-relacje_miar1}Wykresy relacji między odległością
+euklidesową, miarą Jensena-Shannona, miarą Wave Hedgesa oraz miarą
+Tanejy dla wydzielonych obszarów 10 na 10km}
 
 \end{figure}
 
@@ -1370,7 +1380,7 @@ miara Wave Hedgesa z odległością euklidesową.
 
 \begin{figure}[t]
 
-{\centering \includegraphics[width=5.20833in,height=6.9375in]{figures/obszary_odst.png}
+{\centering \includegraphics[width=5.20833in,height=6.47917in]{figures/obszary_odst_kopia.png}
 
 }
 
@@ -1416,26 +1426,39 @@ Numer obszaru & Różnica entropii & Różnica RMI & odległość euklidesowa & 
 
 Obszary, dla których miary niepodobieństwa wykazały największe
 zróżnicowanie, zostały przedstawione na Rycinie \ref{fig-obszary_odst}.
-Wśród tych obszarów można wyróżnić dwie główne grupy: pierwsza grupa
-obejmuje obszary, na których nastąpiły bardzo niewielkie zmiany,
-natomiast druga grupa to obszary, na których doszło do całkowitej lub
-prawie całkowitej zmiany kategorii pokrycia terenu. Każda z tych grup
-liczy po 8 obszarów.
 
-Warto zauważyć, że miara Wave Hedgesa dla punktów odstających wykazała
-wyłącznie bardzo wysokie wartości powyżej 89. Oznacza to, że w bardzo
-specyficznych sytuacjach ta miara wskazuje na podobny stopień zmian
-pokrycia terenu zarówno w przypadku obszarów o rzeczywiście bardzo
-dużych, jak i niewielkich zmianach.
+Na wszystkich 16 obszarach zmiany można określić jako bardzo niewielkie.
+Wśród tych obszarów można wyróżnić dwie główne grupy: pierwsza grupa
+obejmuje obszary oznaczone jako 1, 5, 6, 8, 9, 10, 11 i 12, na których
+nastąpiły bardzo niewielkie zmiany, natomiast druga grupa to obszary 2,
+3, 4, 7, 13, 14, 15 oraz 16, na których doszło do zmiany liczby klas
+pokrycia terenu. Każda z tych grup liczy po 8 obszarów.
+
+W przypadku drugiej grupy, rastry początkowe zawierają wyłącznie jedną
+kategorię pokrycia terenu, natomiast rastry przedstawiające stan po
+zmianach uwzględniają obie klasy. Na podstawie Tabeli
+\ref{tbl-obszary_odst_tabela} można zauważyć, że tym obszarom miary
+Tanejy oraz Jensena-Shannona przypisały dużo wyższe wartości niż
+pozostałym. Miara Tanejy przypisała wszystkim tym obszarom wartości
+powyżej 98, natomiast miara Jensena-Shannona wartości powyżej 70. Wynika
+z tego, że miary te są wyjątkowo wrażliwe na zmianę liczby klas między
+porównywanymi rastrami.
+
+Wyniki odległości euklidesowej wykazują mniejszą zależność od zmian
+liczby klas uwzględnionych na rastrach w porównaniu do pozostałych miar.
+Jest to szczególnie widoczne w przypadku obszarów oznaczonych jako 2, 4
+oraz 7 dla których pozostałe miary wskazują na bardzo duże zmiany (od 70
+do 99), podczas gdy odległość euklidesowa na dosyć niewielkie (10, 16 i
+24).
+
+Warto także zauważyć, że miara Wave Hedgesa dla obszarów odstających
+wykazała wyłącznie bardzo wysokie wartości powyżej 89. Oznacza to, że w
+bardzo specyficznych sytuacjach ta miara wskazuje na bardzo duże zmiany
+pokrycia terenu w przypadku obszarów, na których zmiany w rzeczywistości
+były dosyć niewielkie.
 
 W przypadku każdego z wybranych obszarów, miara Tanejy wskazuje na
-większe zmiany pokrycia terenu w porównaniu do miary Jensena-Shannona. W
-przypadku tych dwóch miar występują sytuacje, gdzie niektórym obszarom,
-na których doszło do prawie całkowitej zmiany pokrycia terenu,
-przypisane są bardzo wysokie wartości powyżej 80, podczas gdy innym
-obszarom o podobnym stopniu zmian przypisane są wartości nawet poniżej
-40. Analogiczna sytuacja występuje także w przypadku obszarów
-charakteryzujących się niewielkimi zmianami pokrycia terenu.
+większe zmiany pokrycia terenu w porównaniu do miary Jensena-Shannona.
 
 \hypertarget{miary-niepodobieux144stwa-a-kompozycja-i-konfiguracja-przestrzenna}{%
 \section{Miary niepodobieństwa a kompozycja i konfiguracja

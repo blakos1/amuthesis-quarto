@@ -94,18 +94,27 @@ knitr::kable(df2, booktabs = TRUE, escape = TRUE,
   footnote(general = c("RMI - względna informacja wzajemna"), general_title = "")
 ```
 
-Najwyższy poziom zgodności odpowiedzi osób ankietowanych wyniósł 92% i dotyczył pytania różniącego się zarówno entropią, jak i względną informacją wzajemną. Aż 24 z 26 osób wskazało na brak podobieństw między rastrami uwzględnionymi w tym pytaniu. Jest to interesujący wynik, ponieważ rastry w tym pytaniu wcale nie należały do par rastrów najbardziej zróżnicowanych pod względem entropii i względnej informacji wzajemnej. Pierwszy z rastrów charakteryzował się entropią na poziomie 0,08 oraz względną informacją wzajemną wynoszącą 0,09. W przypadku drugiego rastra, wspomniane wartości wynosiły odpowiednio 0,47 i 0,48. Oznacza to, że w przypadku obu miar różnica między parami entropii oraz wynikami względnej informacji wzajemnej wyniosły 0,39.
+Najwyższy poziom zgodności odpowiedzi osób ankietowanych wyniósł 92% i dotyczył pytania różniącego się zarówno entropią, jak i względną informacją wzajemną. Rastry, których dotyczyło to pytanie przedstawia Rycina [-@fig-pyt_zgodnosc2_kopia].A. Aż 24 z 26 osób wskazało na brak podobieństw między rastrami uwzględnionymi w tym pytaniu. Jest to interesujący wynik, ponieważ rastry w tym pytaniu wcale nie należały do par rastrów najbardziej zróżnicowanych pod względem entropii i względnej informacji wzajemnej. Pierwszy z rastrów charakteryzował się entropią na poziomie 0,08 oraz względną informacją wzajemną wynoszącą 0,09. W przypadku drugiego rastra, wspomniane wartości wynosiły odpowiednio 0,47 i 0,48. Oznacza to, że w przypadku obu miar różnica między parami entropii oraz wynikami względnej informacji wzajemnej wyniosły 0,39.
 
-***RYCINA RYCINA RYCINA RYCINA RYCINA RYCINA RYCINA RYCINA ***
+```{r}
+#| label: fig-pyt_zgodnosc2_kopia
+#| echo: false
+#| fig-cap: "Pytania o najwyższym (A) oraz najniższym (B-I) poziomie zgodności odpowiedzi"
+#| out-width: 500px
+#| out-height: 480px
 
-Najniższy poziom zgodności, czyli zaledwie 38%, osiągnęło aż 8 pytań. Wyłącznie dwa z nich dotyczyły pytań zawierających trzy kategorie pokrycia terenu. 75% z tych pytań uwzględniało rastry różniące się pod względem względnej informacji wzajemnej (różna konfiguracja) przy zachowaniu tej samej entropii (identyczna kompozycja).
+#1250x1200
+knitr::include_graphics("figures/pyt_zgodnosc2_kopia.png")
+```
+
+Najniższy poziom zgodności, czyli zaledwie 38%, osiągnęło aż 8 pytań (Rycina [-@fig-pyt_zgodnosc2_kopia], pary B-I). Wyłącznie dwa z nich dotyczyły pytań zawierających trzy kategorie pokrycia terenu (pary rastrów H oraz I). 75% z tych pytań uwzględniało rastry różniące się pod względem względnej informacji wzajemnej (różna konfiguracja) przy zachowaniu tej samej entropii (identyczna kompozycja).
 
 
 
 
 ## Miary niepodobieństwa
 
-Do analizy relacji między miarami niepodobieństwa a wynikami ankiety wybrano 20 miar niepodobieństwa, za pomocą których zostało obliczone niepodobieństwo każdej pary rastrów uwzględnionych w ankiecie. Uwzględnione zostały wyłącznie miary, których wyniki dla zbiorów rastrów nie wykazały bardzo silnego podobieństwa z wynikami innych miar. Decyzja ta pozwoliła skoncentrować się na bardziej zróżnicowanym zestawie miar niepodobieństwa, ***natomiast podobne teoretycznie miary mają swoich przedstawicieli wśród uwzględnionych miar.***
+Do analizy relacji między miarami niepodobieństwa a wynikami ankiety wybrano 20 miar niepodobieństwa, za pomocą których zostało obliczone niepodobieństwo każdej pary rastrów uwzględnionych w ankiecie. Uwzględnione zostały wyłącznie miary, których wyniki dla zbiorów rastrów nie wykazały bardzo silnego podobieństwa z wynikami innych miar. Decyzja ta pozwoliła skoncentrować się na bardziej zróżnicowanym zestawie miar niepodobieństwa.
 
 W analizie uwzględniono miary: Addytywne $\chi^2$, odległość Canberra, Czebyszewa, Clarka, Hellingera, iloczyn skalarny, Jaccarda, Jensena-Shannona, Kullbacka-Leiblera, Kumara-Hassebrooka, Kumara-Johnsona, odległość Manhattan, Neymana, odległość euklidesową, Pearsona, podobieństwo cosinusowe (Cosinus), Ruzicki, Tanejy, średnią harmoniczną oraz Wave Hedgesa.
 
@@ -249,7 +258,7 @@ W przypadku średniej odpowiedzi dla rastrów uwzględniających trzy kategorie 
 
 Należy także zauważyć, że w przypadku odpowiedzi na pytania dotyczące rastrów z trzema klasami, spora liczba miar charakteryzuje się bardzo słabą relacją ze średnią odpowiedzią przy jednoczesnej bardzo niskiej istotności statystycznej. Współczynnik determinacji aż 11 miar wyniósł poniżej 0,05. Jednocześnie dla każdej miary z tej grupy wartość $p$ wyniosła powyżej 0,1. Najniższe wyniki w tej grupie osiągnęły miary Ruzicki i odległość Manhattan (<0,01) oraz Czebyszewa i odległość euklidesowa (0,01).
 
-
+Rycina [-@fig-avg_vs_measures] przedstawia relacje między średnią odpowiedzią a miarami niepodobieństwa dla dwóch i trzech klas. Analizując wykresy można zauważyć, że w przypadku części miar zakres wartości w którym mieszczą się ich wyniki zależny jest od liczby klas obecnych na rastrach. Do tej grupy należą miary Wave Hedgesa, Canberra oraz Clarka, natomiast zakres wartości pozostałych miar nie jest zależny od liczby klas.
 
 ```{r}
 #| label: fig-avg_vs_measures
@@ -263,13 +272,11 @@ knitr::include_graphics("figures/avg_vs_measures.png")
 ```
 
 
-Rycina [-@fig-avg_vs_measures] przedstawia relacje między średnią odpowiedzią a miarami niepodobieństwa dla dwóch i trzech klas. Analizując wykresy można zauważyć, że w przypadku części miar zakres wartości w którym mieszczą się ich wyniki zależny jest od liczby klas obecnych na rastrach. Do tej grupy należą miary Wave Hedgesa, Canberra oraz Clarka, natomiast zakres wartości pozostałych miar nie jest zależny od liczby klas.
-
 Dla miar Kumara-Johnsona, Pearsona, Neymana oraz Addytywnego $\chi^2$ widoczne są także pojedyncze punkty znacznie przewyższające wszystkie pozostałe uzyskaną wartością niepodobieństwa. Wyniki tak znacznie odstające mają duży wpływ na ostateczny wynik współczynnika determinacji tych miar. Dla wszystkich czterech miar odstające punkty odpowiadają grupie tych samych trzech pytań dotyczących wyłącznie par rastrów z trzema klasami. Pary rastrów związane z odstającymi wynikami współczynnika determinacji przedstawia Rycina [-@fig-pyt_odstajace_kopia].
 
-***Dla każdej ze wspomnianych wcześniej miar, dwa najbardziej odstające wyniki odpowiadają pytaniom, które należały do podgrupy pytań o identycznej kompozycji i różnej konfiguracji przestrzennej. Rastry uwzględnione w tych pytaniach zostały oznaczone na Rycinie [-@fig-pyt_odstajace_kopia] jako "Pytanie A" oraz "Pytanie B". Różnica we względnej informacji wzajemnej dla tych par rastrów wynosi 0,58 i 0,63. Oznacza to, że rastry różnią się pod względem konfiguracji w dużym stopniu.***
+Dla czterech wcześniej wspomnianych miar, dwa najbardziej odstające wyniki odpowiadają pytaniom, które należały do podgrupy pytań o identycznej kompozycji i różnej konfiguracji przestrzennej. Rastry uwzględnione w tych pytaniach zostały oznaczone na Rycinie [-@fig-pyt_odstajace_kopia] jako "Pytanie A" oraz "Pytanie B". Różnica we względnej informacji wzajemnej dla tych par rastrów wynosi 0,58 i 0,63. Oznacza to, że rastry różnią się pod względem konfiguracji w dużym stopniu.
 
-***Jeden z odstających wyników, oznaczony na Rycinie [-@fig-pyt_odstajace_kopia] jako "Pytanie C", dotyczy pytania z podgrupy o różnej kompozycji i konfiguracji. Dla tej pary rastrów różnica entropii wynosi 1,42, natomiast różnica względnej informacji wzajemnej wynosi 0,22. Oznacza to, że rastry są bardzo mocno zróżnicowane pod względem kompozycji, natomiast w małym stopniu różnią się konfiguracją przestrzenną.***
+Jeden z odstających wyników, oznaczony na Rycinie [-@fig-pyt_odstajace_kopia] jako "Pytanie C", dotyczy pytania z podgrupy o różnej kompozycji i konfiguracji. Dla tej pary rastrów różnica entropii wynosi 1,42, natomiast różnica względnej informacji wzajemnej wynosi 0,22. Oznacza to, że rastry są bardzo mocno zróżnicowane pod względem kompozycji, natomiast w małym stopniu różnią się konfiguracją przestrzenną.
 
 ```{r}
 #| label: fig-pyt_odstajace_kopia
@@ -345,8 +352,10 @@ W przypadku dwóch klas, średnia odpowiedź jest negatywnie skorelowana zarówn
 #| label: fig-answer_mean_vs_ent_diff
 #| echo: false
 #| fig-cap: "Relacja między średnią odpowiedzią a różnicą entropii dla dwóch i trzech klas"
-#| out-width: 500px
-#| out-height: 300px
+#| out-width: 450px
+#| out-height: 270px
+
+#1500x900
 knitr::include_graphics("figures/answer_mean_vs_ent_diff.png")
 ```
 
@@ -358,8 +367,8 @@ W przypadku rastrów z trzema klasami, analiza korelacji Spearmana nie wykazała
 #| label: fig-answer_mean_vs_relmutinf_diff
 #| echo: false
 #| fig-cap: "Relacja między średnią odpowiedzią a różnicą względnej informacji wzajemnej dla dwóch i trzech klas"
-#| out-width: 500px
-#| out-height: 300px
+#| out-width: 450px
+#| out-height: 270px
 knitr::include_graphics("figures/answer_mean_vs_relmutinf_diff.png")
 ```
 

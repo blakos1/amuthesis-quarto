@@ -1,0 +1,5 @@
+"","Canberra","Clark","Divergence","Euclidean"
+"Canberra",1,0.99,0.83,0.54
+"Clark",0.99,1,0.84,0.48
+"Divergence",0.83,0.84,1,0.18
+"Euclidean",0.54,0.48,0.18,1

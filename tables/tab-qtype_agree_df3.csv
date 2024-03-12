@@ -1,0 +1,10 @@
+"","question_group","classes","sum_mode_n","sum_total_answers","agree_perc"
+"1","diff col/ent diff row/rmi","2",225,352,0.64
+"2","diff col/ent diff row/rmi","3",204,352,0.58
+"3","diff col/ent diff row/rmi","Łącznie",429,704,0.61
+"4","diff col/ent same row/rmi","2",221,398,0.56
+"5","diff col/ent same row/rmi","3",204,398,0.51
+"6","diff col/ent same row/rmi","Łącznie",425,796,0.53
+"7","same col/ent diff row/rmi","2",226,450,0.5
+"8","same col/ent diff row/rmi","3",241,450,0.54
+"9","same col/ent diff row/rmi","Łącznie",467,900,0.52

@@ -1,0 +1,5 @@
+"","answer_mean","answer_median","answer_mode","answer_sd"
+"answer_mean",1,0.93,0.89,0.32
+"answer_median",0.93,1,0.91,0.17
+"answer_mode",0.89,0.91,1,0.11
+"answer_sd",0.32,0.17,0.11,1

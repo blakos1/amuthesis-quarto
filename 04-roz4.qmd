@@ -1,17 +1,19 @@
 # Wyniki ankiety {#sec-wyniki}
 
 
-Niniejszy rozdział przedstawia kompleksowe podsumowanie oraz analizę wyników przeprowadzonej ankiety. W pierwszej kolejności omówione są ogólne informacje dotyczące samej ankiety, takie jak termin jej przeprowadzenia, profil respondentów oraz sposób realizacji badania. Przedstawione jest podsumowanie wyników ankiety, obejmujące między innymi liczbę udzielonych odpowiedzi poszczególnych typów oraz wskazanie poziomów zgodności podgrup pytań. Kolejnym opisanym aspektem są miary niepodobieństwa wykorzystane w badaniu oraz analiza relacji między tymi miarami a różnymi sposobami podsumowania odpowiedzi. Dalsza analiza koncentruje się na badaniu związku między średnią odpowiedzią a miarami niepodobieństwa, w podziale na grupy pytań uwzględniające dwie oraz trzy kategorie pokrycia terenu. Końcowa część rozdziału skupia się na analizie relacji między odpowiedziami a różnicami między miarami z teorii informacji.
+Niniejszy rozdział przedstawia podsumowanie oraz analizę wyników przeprowadzonej ankiety. W pierwszej kolejności omówione są ogólne informacje dotyczące samej ankiety, takie jak termin jej przeprowadzenia, sposób realizacji badania oraz profil respondentów. Przedstawione jest podsumowanie wyników ankiety, obejmujące między innymi liczbę udzielonych odpowiedzi poszczególnych typów oraz wskazanie poziomów zgodności podgrup pytań. Następnie opisana jest analiza relacji między miarami niepodobieństwa a różnymi sposobami podsumowania odpowiedzi. Dalsza analiza koncentruje się na badaniu związku między średnią odpowiedzią a miarami niepodobieństwa, w podziale na grupy pytań uwzględniające dwie oraz trzy kategorie pokrycia terenu. Końcowa część rozdziału skupia się na analizie relacji między odpowiedziami a różnicami wartości miar z teorii informacji.
 
 
 
 ## Podsumowanie ankiety
 
-W celu zidentyfikowania potencjalnych związków pomiędzy percepcją zmian w pokryciu terenu przez ludzi a miarami niepodobieństwa, które te zmiany kwantyfikują przeprowadzona została ankieta. Głównym celem ankiety było uzyskanie wstępnych informacji na temat tego w jaki sposób różnice w entropii oraz względnej informacji wzajemnej między analizowanymi rastrami wpływają na subiektywne postrzeganie zmian w pokryciu terenu przez ludzi.
+W celu zidentyfikowania potencjalnych związków pomiędzy percepcją zmian w pokryciu terenu przez ludzi a miarami niepodobieństwa, które te zmiany kwantyfikują, przeprowadzona została ankieta. Głównym celem ankiety było uzyskanie wstępnych informacji na temat tego w jaki sposób różnice w entropii oraz względnej informacji wzajemnej między analizowanymi rastrami wpływają na subiektywne postrzeganie zmian w pokryciu terenu przez ludzi.
 
-Badanie było realizowane w terminie od 21 do 24 listopada 2022 roku. Z uwagi na znaczną liczbę rastrów, które miałyby być przedstawione ankietowanym w trakcie badania, proces zbierania odpowiedzi respondentów przyjął formę ankiety internetowej. Pozwoliło to respondentom na wygodny udział w badaniu przy użyciu komputera lub urządzenia mobilnego. Kwestionariusz stworzony został w formie aplikacji internetowej za pomocą języka programowania R, na podstawie pakietów shiny [-@R-shiny] oraz shinysurveys [-@R-shinysurveys]. Sama aplikacja umieszczona została na platformie *shinyapps.io* (https://www.shinyapps.io/). Przeprowadzenie ankiety w tej formie umożliwiło systematyczne gromadzenie oraz przechowywanie odpowiedzi w formie tabelarycznej, ułatwiając tym samym dalszą analizę i interpretację danych. Respondenci stanowili grupę 50 studentów drugiego i trzeciego roku studiów inżynierskich na kierunku Geoinformacja na Wydziale Nauk Geograficznych i Geologicznych Uniwersytetu im. Adama Mickiewicza. Wybór tej grupy respondentów oznacza, że byli oni już zaznajomieni z tematyką tworzenia i analiz map w formie rastrowej oraz pojęciem zmian pokrycia terenu.
+Z uwagi na znaczną liczbę rastrów, które miałyby być przedstawione ankietowanym w trakcie badania, proces zbierania odpowiedzi respondentów przyjął formę ankiety internetowej. Pozwoliło to respondentom na wygodny udział w badaniu przy użyciu komputera lub urządzenia mobilnego. Kwestionariusz stworzony został w formie aplikacji internetowej za pomocą języka programowania R, na podstawie pakietów shiny [-@R-shiny] oraz shinysurveys [-@R-shinysurveys]. Sama aplikacja umieszczona została na platformie *shinyapps.io* (https://www.shinyapps.io/). Przeprowadzenie ankiety w tej formie umożliwiło systematyczne gromadzenie oraz przechowywanie odpowiedzi w formie tabelarycznej, ułatwiając tym samym dalszą analizę i interpretację danych.
 
-Każdy z ankietowanych otrzymał do wypełnienia jeden z dwóch wcześniej przygotowanych zbiorów pytań. Każdy ze zbiorów składał się z 48 pytań, przy czym część pytań między zbiorami się pokrywała. Oznacza to, że łącznie uzyskano odpowiedzi na 93 unikatowe pytania. W każdym z pytań zadaniem respondentów było określenie podobieństwa na podstawie dwóch załączonych rastrów. W ramach badania respondenci mieli możliwość wyrażania swoich odpowiedzi za pomocą pięciostopniowej skali Likerta [@likert_scale], która obejmowała poziomy podobieństwa od "Brak" przez "Bardzo małe", "Umiarkowane", "Bardzo duże" aż po "Pełne". Wykorzystanie skali Likerta o nieparzystej liczbie przedziałów, pozwoliło na zastosowanie przedziału środkowego, którego celem było reprezentowanie odpowiedzi neutralnych lub trudnych do określenia. Początkowo, zamiast skali Likerta planowano wykorzystać skalę liczbową, w zakresie mieszczącym się od 1 do 100, jednakże zrezygnowano z tego pomysłu, jako że znaczenie wartości na skali liczbowej może być interpretowane inaczej przez każdego respondenta oraz skala ta nie pozwala na uwzględnienie wspomnianej wcześniej odpowiedzi neutralnej. Przykład pytania przedstawionego respondentom ilustruje Rycina [-@fig-przyklad_pytania].
+Badanie było realizowane w terminie od 21 do 24 listopada 2022 roku. Respondenci stanowili grupę 50 studentów drugiego i trzeciego roku studiów inżynierskich na kierunku Geoinformacja na Wydziale Nauk Geograficznych i Geologicznych Uniwersytetu im. Adama Mickiewicza. Wybór tej grupy respondentów oznacza, że byli oni już zaznajomieni z tematyką tworzenia i analiz map w formie rastrowej oraz pojęciem zmian pokrycia terenu.
+
+Każdy z ankietowanych otrzymał do wypełnienia jeden z dwóch wcześniej przygotowanych zbiorów pytań. Każdy ze zbiorów składał się z 48 pytań, przy czym część pytań między zbiorami się pokrywała. Oznacza to, że łącznie uzyskano odpowiedzi na 93 unikatowe pytania. W każdym z pytań zadaniem respondentów było określenie podobieństwa na podstawie dwóch załączonych rastrów. W ramach badania respondenci mieli możliwość wyrażania swoich odpowiedzi za pomocą pięciostopniowej skali Likerta [@likert_scale], która obejmowała poziomy podobieństwa od "Brak" przez "Bardzo małe", "Umiarkowane", "Bardzo duże" aż po "Pełne". Wykorzystanie skali Likerta o nieparzystej liczbie przedziałów, pozwoliło na zastosowanie przedziału środkowego, którego celem było reprezentowanie odpowiedzi neutralnych lub trudnych do określenia. Początkowo, zamiast skali Likerta planowano wykorzystać skalę liczbową, w zakresie mieszczącym się od 1 do 100, jednakże zrezygnowano z tego pomysłu, jako że znaczenie wartości na skali liczbowej może być interpretowane inaczej przez każdego respondenta oraz skala ta nie pozwala na jednoznaczne uwzględnienie wspomnianej wcześniej odpowiedzi neutralnej. Przykład pytania przedstawionego respondentom ilustruje Rycina [-@fig-przyklad_pytania].
 
 ```{r}
 #| label: fig-przyklad_pytania
@@ -59,7 +61,7 @@ knitr::kable(df2, booktabs = TRUE, escape = TRUE,
 
 
 
-## Poziom zgodności ankietowanych
+## Poziom zgodności odpowiedzi ankietowanych
 
 Aby określić jakie odpowiedzi należały do grupy najczęstszych odpowiedzi dla poszczególnych pytań, obliczona została miara określana dalej "poziomem zgodności". Poziom zgodności każdego pytania został obliczony jako stosunek najczęściej udzielonej odpowiedzi względem całkowitej liczby odpowiedzi udzielonych na to pytanie.
 
@@ -107,7 +109,7 @@ Najwyższy poziom zgodności odpowiedzi osób ankietowanych wyniósł 92% i doty
 knitr::include_graphics("figures/pyt_zgodnosc2_kopia.png")
 ```
 
-Najniższy poziom zgodności, czyli zaledwie 38%, osiągnęło aż 8 pytań (Rycina [-@fig-pyt_zgodnosc2_kopia], pary B-I). Wyłącznie dwa z nich dotyczyły pytań zawierających trzy kategorie pokrycia terenu (pary rastrów H oraz I). 75% z tych pytań uwzględniało rastry różniące się pod względem względnej informacji wzajemnej (różna konfiguracja) przy zachowaniu tej samej entropii (identyczna kompozycja).
+Najniższy poziom zgodności, czyli zaledwie 38%, osiągnęło aż 8 pytań (Rycina [-@fig-pyt_zgodnosc2_kopia], pary B-I). Wyłącznie dwa z nich dotyczyły pytań zawierających trzy kategorie pokrycia terenu (pary rastrów H oraz I). 75% z tych pytań uwzględniało rastry różniące się pod względem względnej informacji wzajemnej (różna konfiguracja) przy zachowaniu tej samej entropii (identyczna kompozycja) (pary B, C oraz E-H).
 
 
 
@@ -136,7 +138,7 @@ W analizie uwzględniono miary: Addytywne $\chi^2$, odległość Canberra, Czeby
 
 Analizę relacji między odpowiedziami a miarami niepodobieństwa rozpoczęto od obliczenia korelacji między różnymi sposobami podsumowania odpowiedzi a miarami niepodobieństwa. W tym celu, oryginalna skala odpowiedzi z ankiety, która obejmowała wartości od "Brak" do "Pełne", została przekształcona na skalę liczbową. W tym procesie odpowiedzi "Brak" została przypisana wartość 5, a każdej kolejnej odpowiedzi została przyporządkowana niższa cyfra, aż do "Pełne", której przypisano wartość 1.
 
-Pod uwagę wzięto cztery sposoby podsumowania odpowiedzi: średnią z odpowiedzi, medianę odpowiedzi, najczęstszą odpowiedź (modę) oraz odchylenie standardowe (SD). Następnie współczynnik korelacji Spearmana, którego zakres wartości mieści się między -1 a 1 został przeliczony na współczynnik determinacji $R^2$, którego wartości oscylują w zakresie od 0 do 1. Relacja wyników danej miary z odpowiedziami ankietowanych jest tym silniejsza, im bliższa 1 jest wartość współczynnika determinacji.
+Pod uwagę wzięto cztery sposoby podsumowania odpowiedzi: średnią z odpowiedzi, medianę odpowiedzi, najczęstszą odpowiedź (modę) oraz odchylenie standardowe (SD). Następnie wartości współczynnika korelacji Spearmana podniesiono do kwadratu, co poskutkowało przesunięciem ich zakresu z pierwotnie wynoszącego od -1 do 1, na nowy zakres od 0 do 1. Relacja wyników danej miary z odpowiedziami ankietowanych jest tym silniejsza, im bliższa 1 jest uzyskana wartość współczynnika $Rho^2$.
 
 ```{r}
 #| label: tbl-mc2_cors
@@ -186,26 +188,26 @@ Zarówno w przypadku rastrów z dwoma (Tabela [-@tbl-mc2_cors]) i trzema klasami
 ```{r}
 #| label: fig-rsq_vs_metody_agregacji_odp
 #| echo: false
-#| fig-cap: "Rozkład wartości współczynnika determinacji pomiędzy odpowiedziami a miarami niepodobieństwa dla dwóch i trzech klas"
+#| fig-cap: "Rozkład wartości współczynnika $Rho^2$ pomiędzy odpowiedziami a miarami niepodobieństwa dla dwóch i trzech klas"
 #| out-width: 500px
 #| out-height: 500px
 knitr::include_graphics("figures/rsq_vs_metody_agregacji_odp.png")
 ```
 
 
-Rycina [-@fig-rsq_vs_metody_agregacji_odp] pokazuje relacje między sposobami podsumowania odpowiedzi a miarami niepodobieństwa dla dwóch i trzech klas. Każda kropka na wykresie reprezentuje wartość współczynnika determinacji pojedynczej miary. Na podstawie wykresu można zauważyć, że każdy ze sposobów podsumowania odpowiedzi charakteryzuje się dużym rozrzutem wartości współczynnika determinacji.
+Rycina [-@fig-rsq_vs_metody_agregacji_odp] pokazuje relacje między sposobami podsumowania odpowiedzi a miarami niepodobieństwa dla dwóch i trzech klas. Każda kropka na wykresie reprezentuje wartość współczynnika $Rho^2$ pojedynczej miary. Na podstawie wykresu można zauważyć, że każdy ze sposobów podsumowania odpowiedzi charakteryzuje się dużym rozrzutem wartości współczynnika.
 
-Najlepszym sposobem agregacji odpowiedzi dla rastrów uwzględniających dwie klasy jest obliczenie średniej. Metoda ta charakteryzuje się zarówno jedną z najwyższych zgodności z miarami niepodobieństwa (miara Wave Hedgesa - $R^2$ = 0,36), jak i mediana tej formy podsumowania odpowiedzi jest najwyższa. W przypadku rastrów uwzględniających trzy klasy, prawie wszystkie metody podsumowania odpowiedzi dają zbliżone wyniki. Wyjątek stanowi tutaj odchylenie standardowe, które charakteryzuje się niskimi wartościami współczynnika determinacji dla wszystkich miar. W przypadku pozostałych sposobów agregacji najwyższą zgodność z miarami niepodobieństwa ma średnia odpowiedzi (miara Clarka - $R^2$ = 0,45), natomiast mediana współczynników determinacji jest najwyższa dla metody grupowania odpowiedzi za pomocą mediany.
+Najlepszym sposobem agregacji odpowiedzi dla rastrów uwzględniających dwie klasy jest obliczenie średniej. Metoda ta charakteryzuje się zarówno jedną z najwyższych zgodności z miarami niepodobieństwa (miara Wave Hedgesa = 0,36), jak i mediana tej formy podsumowania odpowiedzi jest najwyższa. W przypadku rastrów uwzględniających trzy klasy, prawie wszystkie metody podsumowania odpowiedzi dają zbliżone wyniki. Wyjątek stanowi tutaj odchylenie standardowe, które charakteryzuje się niskimi wartościami współczynnika $Rho^2$ dla wszystkich miar. W przypadku pozostałych sposobów agregacji najwyższą zgodność z miarami niepodobieństwa ma średnia odpowiedzi (miara Clarka = 0,45), natomiast mediana współczynników jest najwyższa dla metody grupowania odpowiedzi za pomocą mediany.
 
-<!-- najwyższą wartość współczynnika determinacji dla trzech klas osiągnęła miara Clark w przypadku podsumowania odpowiedzi za pomocą średniej ($R^2$ = 0,45). -->
+<!-- najwyższą wartość współczynnika dla trzech klas osiągnęła miara Clark w przypadku podsumowania odpowiedzi za pomocą średniej ($R^2$ = 0,45). -->
 
-Interesującą relację z miarami niepodobieństwa ukazuje odchylenie standardowe odpowiedzi. W przypadku rastrów uwzględniających dwie klasy niektóre miary niepodobieństwa, takie jak odległość euklidesowa i miara Ruzicka, przedstawiają dosyć wysoką zgodność z tą formą agregacji, natomiast zgodność miar z odchyleniem standardowym odpowiedzi dla rastrów z trzema klasami jest bardzo niska.
+Interesującą relację z miarami niepodobieństwa ukazuje odchylenie standardowe odpowiedzi. W przypadku rastrów uwzględniających dwie klasy niektóre miary niepodobieństwa, takie jak odległość euklidesowa i miara Ruzicka, przedstawiają dosyć wysoką zgodność z tą formą agregacji, natomiast zgodność miar z odchyleniem standardowym odpowiedzi dla rastrów z trzema klasami jest bardzo niska. To oznacza, że zróżnicowanie odpowiedzi respondentów w większości przypadków jest bardziej zgodne z wynikami miar niepodobieństwa w przypadku rastrów uwzględniających dwie klasy, niż trzy.
 
 
 ```{r}
 #| label: tbl-corr_table_fixed
 #| echo: false
-#| tbl-cap: "Zestawienie współczynników determinacji miar niepodobieństwa ze średnią odpowiedzi dla dwóch i trzech klas wraz z oznaczeniami istotności statystycznej tych relacji"
+#| tbl-cap: "Zestawienie współczynników $Rho^2$ miar niepodobieństwa ze średnią odpowiedzi dla dwóch i trzech klas wraz z oznaczeniami istotności statystycznej tych relacji"
 
 df = read.csv("tables/tbl-corr_table_fixed.csv")
 
@@ -237,51 +239,51 @@ df2[df2 == "inner_product"] <- "Iloczyn skalarny"
 
 #podobieństwo cosinusowe
 
-knitr::kable(df2, booktabs = TRUE, escape = FALSE,
+knitr::kable(df2, booktabs = TRUE, escape = FALSE, linesep = "",
               col.names = c("Miara niepodobieństwa",
-                            "$R^2$ dla dwóch klas",
-                            "$R^2$ dla trzech klas")) |>
+                            "$Rho^2$ dla dwóch klas",
+                            "$Rho^2$ dla trzech klas")) |>
   kableExtra::footnote(general = c("Przedziały istotności statystycznej:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1"), general_title = "")
 ```
 
 
-Współczynniki determinacji dla relacji 20 miar niepodobieństwa ze średnią odpowiedzi dla dwóch i trzech klas przedstawia Tabela [-@tbl-corr_table_fixed]. Średnia odpowiedzi ankietowanych z reguły charakteryzuje się silniejszą relacją z miarami niepodobieństwa obliczonymi dla pytań dotyczących rastrów uwzględniających wyłącznie dwie kategorie pokrycia terenu, niż uwzględniających trzy kategorie pokrycia terenu. Wyjątek stanowią miary Clarka oraz Canberra, które także osiągnęły najwyższe wyniki współczynnika $R^2$ dla trzech klas.
+Współczynniki $Rho^2$ dla relacji 20 miar niepodobieństwa ze średnią odpowiedzi dla dwóch i trzech klas przedstawia Tabela [-@tbl-corr_table_fixed]. Średnia odpowiedzi ankietowanych z reguły charakteryzuje się silniejszą relacją z miarami niepodobieństwa obliczonymi dla pytań dotyczących rastrów uwzględniających wyłącznie dwie kategorie pokrycia terenu, niż uwzględniających trzy kategorie pokrycia terenu. Wyjątek stanowią miary Clarka oraz Canberra, które także osiągnęły najwyższe wyniki współczynnika dla trzech klas.
 
-Spośród wszystkich analizowanych metod obliczania niepodobieństwa między parami rastrów, najsilniejsze relacje z odpowiedziami ankietowanych wykazują trzy metody: Wave Hedgesa, Canberra oraz Clarka. Dla tych miar wartości współczynnika determinacji przekroczyły poziom 0,3 w przypadku obu grup pytań.
+Spośród wszystkich analizowanych metod obliczania niepodobieństwa między parami rastrów, najsilniejsze relacje z odpowiedziami ankietowanych wykazują trzy metody: Wave Hedgesa, Canberra oraz Clarka. Dla tych miar wartości współczynnika przekroczyły poziom 0,3 w przypadku obu grup pytań.
 
-Najwyższą wartość współczynnika determinacji w przypadku zbioru rastrów z dwoma klasami osiągnęła miara Wave Hedgesa, z $R^2$ na poziomie 0,36. Do pozostałych miar, które osiągnęły dosyć wysokie wyniki współczynnika determinacji należą miary Canberra (0,34) oraz Clarka (0,3). Wyniki trzech wymienionych powyżej miar należą też do najbardziej istotnych statystycznie, dla których wartość $p$ wyniosła poniżej 0.001.
+Najwyższą wartość współczynnika w przypadku zbioru rastrów z dwoma klasami osiągnęła miara Wave Hedgesa, z $Rho^2$ na poziomie 0,36. Do pozostałych miar, które osiągnęły dosyć wysokie wyniki współczynnika należą miary Canberra (0,34) oraz Clarka (0,3). Wyniki trzech wymienionych powyżej miar należą też do najbardziej istotnych statystycznie, dla których wartość $p$ wyniosła poniżej 0.001.
 
-Cztery miary osiągnęły wartość współczynnika $R^2$ dla dwóch klas poniżej 0,1: podobieństwo cosinusowe (0,08), Hassebrooka (0,08), Jaccarda (0,08) oraz iloczyn skalarny (0,04). Wyniki te w połączeniu z niską istotnością statystyczną tych relacji na poziomie powyżej 0,05, czy nawet tak jak w przypadku iloczynu skalarnego powyżej 0,1, wskazują na bardzo niewielki lub brak związku tych miar niepodobieństwa ze średnią odpowiedzi udzielanych przez respondentów.
+Cztery miary osiągnęły wartość współczynnika $Rho^2$ dla dwóch klas poniżej 0,1: podobieństwo cosinusowe (0,08), Hassebrooka (0,08), Jaccarda (0,08) oraz iloczyn skalarny (0,04). Wyniki te w połączeniu z niską istotnością statystyczną tych relacji na poziomie powyżej 0,05, czy nawet tak jak w przypadku iloczynu skalarnego powyżej 0,1, wskazują na bardzo niewielki lub brak związku tych miar niepodobieństwa ze średnią odpowiedzi udzielanych przez respondentów.
 
 
-W przypadku średniej odpowiedzi dla rastrów uwzględniających trzy kategorie pokrycia terenu najwyższą wartość współczynnika determinacji na poziomie 0,45 osiągnęła miara Clarka. Jest to jednocześnie najlepszy wynik spośród wszystkich miar dla obu zbiorów rastrów. Dobre wyniki uzyskały ponownie miary Canberra oraz Wave Hedgesa, dla których wartości współczynnika determinacji wyniosły kolejno 0,38 i 0,31. Wyjątkowo silną relację wykazuje tutaj także miara Pearsona (0,33).
+W przypadku średniej odpowiedzi dla rastrów uwzględniających trzy kategorie pokrycia terenu najwyższą wartość współczynnika $Rho^2$ na poziomie 0,45 osiągnęła miara Clarka. Jest to jednocześnie najlepszy wynik spośród wszystkich miar dla obu zbiorów rastrów. Dobre wyniki uzyskały ponownie miary Canberra oraz Wave Hedgesa, dla których wartości współczynnika wyniosły kolejno 0,38 i 0,31. Wyjątkowo silną relację wykazuje tutaj także miara Pearsona (0,33).
 
-Należy także zauważyć, że w przypadku odpowiedzi na pytania dotyczące rastrów z trzema klasami, spora liczba miar charakteryzuje się bardzo słabą relacją ze średnią odpowiedzią przy jednoczesnej bardzo niskiej istotności statystycznej. Współczynnik determinacji aż 11 miar wyniósł poniżej 0,05. Jednocześnie dla każdej miary z tej grupy wartość $p$ wyniosła powyżej 0,1. Najniższe wyniki w tej grupie osiągnęły miary Ruzicki i odległość Manhattan (<0,01) oraz Czebyszewa i odległość euklidesowa (0,01).
+Należy także zauważyć, że w przypadku odpowiedzi na pytania dotyczące rastrów z trzema klasami, spora liczba miar charakteryzuje się bardzo słabą relacją ze średnią odpowiedzią przy jednoczesnej bardzo niskiej istotności statystycznej. Współczynnik $Rho^2$ aż 11 miar wyniósł poniżej 0,05. Jednocześnie dla każdej miary z tej grupy wartość $p$ wyniosła powyżej 0,1. Najniższe wyniki w tej grupie osiągnęły miary Ruzicki i odległość Manhattan (<0,01) oraz Czebyszewa i odległość euklidesowa (0,01).
 
 Rycina [-@fig-avg_vs_measures] przedstawia relacje między średnią odpowiedzią a miarami niepodobieństwa dla dwóch i trzech klas. Analizując wykresy można zauważyć, że w przypadku części miar zakres wartości w którym mieszczą się ich wyniki zależny jest od liczby klas obecnych na rastrach. Do tej grupy należą miary Wave Hedgesa, Canberra oraz Clarka, natomiast zakres wartości pozostałych miar nie jest zależny od liczby klas.
 
 ```{r}
 #| label: fig-avg_vs_measures
 #| echo: false
-#| fig-cap: "Relacje między średnią odpowiedzią a miarami niepodobieństwa dla dwóch i trzech klas. Miary uporządkowane według wartości współczynnika determinacji dla dwóch klas"
+#| fig-cap: 'Relacje między średnią odpowiedzią a miarami niepodobieństwa dla dwóch i trzech klas. Miary uporządkowane według wartości współczynnika $Rho^2$ dla dwóch klas. Wartości 1-5 na osi X odpowiadają kolejno odpowiedziom "Pełne", "Bardzo duże", "Umiarkowane", "Bardzo małe" oraz "Brak"'
 #| out-width: 550px
 #| out-height: 742px
 
 # 2000x2700px
-knitr::include_graphics("figures/avg_vs_measures.png")
+knitr::include_graphics("figures/diagram_miary.pdf")
 ```
 
 
-Dla miar Kumara-Johnsona, Pearsona, Neymana oraz Addytywnego $\chi^2$ widoczne są także pojedyncze punkty znacznie przewyższające wszystkie pozostałe uzyskaną wartością niepodobieństwa. Wyniki tak znacznie odstające mają duży wpływ na ostateczny wynik współczynnika determinacji tych miar. Dla wszystkich czterech miar odstające punkty odpowiadają grupie tych samych trzech pytań dotyczących wyłącznie par rastrów z trzema klasami. Pary rastrów związane z odstającymi wynikami współczynnika determinacji przedstawia Rycina [-@fig-pyt_odstajace_kopia].
+Dla miar Kumara-Johnsona, Pearsona, Neymana oraz Addytywnego $\chi^2$ widoczne są także pojedyncze punkty znacznie przewyższające wszystkie pozostałe uzyskaną wartością niepodobieństwa. Wyniki tak znacznie odstające mają duży wpływ na ostateczny wynik współczynnika $Rho^2$ tych miar. Dla wszystkich czterech miar odstające punkty odpowiadają grupie tych samych trzech pytań dotyczących wyłącznie par rastrów z trzema klasami. Pary rastrów związane z odstającymi wynikami współczynnika przedstawia Rycina [-@fig-pyt_odstajace_kopia].
 
-Dla czterech wcześniej wspomnianych miar, dwa najbardziej odstające wyniki odpowiadają pytaniom, które należały do podgrupy pytań o identycznej kompozycji i różnej konfiguracji przestrzennej. Rastry uwzględnione w tych pytaniach zostały oznaczone na Rycinie [-@fig-pyt_odstajace_kopia] jako "Pytanie A" oraz "Pytanie B". Różnica we względnej informacji wzajemnej dla tych par rastrów wynosi 0,58 i 0,63. Oznacza to, że rastry różnią się pod względem konfiguracji w dużym stopniu.
+Dla czterech wcześniej wspomnianych miar, dwa najbardziej odstające wyniki odpowiadają pytaniom, które należały do podgrupy pytań o identycznej kompozycji i różnej konfiguracji przestrzennej. Rastry uwzględnione w tych pytaniach zostały oznaczone na Rycinie [-@fig-pyt_odstajace_kopia] jako "Pytanie A" oraz "Pytanie B". Różnica we względnej informacji wzajemnej dla tych par rastrów wynosi 0,58 i 0,63. Oznacza to, że rastry różnią się pod względem konfiguracji w dużym stopniu. W odniesieniu do pierwszej pary, 62% udzielonych przez respondentów odpowiedzi wskazywało na brak podobieństwa, natomiast dla drugiej pary rastrów 50% odpowiedzi wskazywało na bardzo niskie podobieństwo.
 
-Jeden z odstających wyników, oznaczony na Rycinie [-@fig-pyt_odstajace_kopia] jako "Pytanie C", dotyczy pytania z podgrupy o różnej kompozycji i konfiguracji. Dla tej pary rastrów różnica entropii wynosi 1,42, natomiast różnica względnej informacji wzajemnej wynosi 0,22. Oznacza to, że rastry są bardzo mocno zróżnicowane pod względem kompozycji, natomiast w małym stopniu różnią się konfiguracją przestrzenną.
+Jeden z odstających wyników, oznaczony na Rycinie [-@fig-pyt_odstajace_kopia] jako "Pytanie C", dotyczy pytania z podgrupy o różnej kompozycji i konfiguracji. Dla tej pary rastrów różnica entropii wynosi 1,42, natomiast różnica względnej informacji wzajemnej wynosi 0,22. Oznacza to, że rastry są bardzo mocno zróżnicowane pod względem kompozycji, natomiast w małym stopniu różnią się konfiguracją przestrzenną. W tym przypadku 75% odpowiedzi ankietowanych wskazywało na brak podobieństwa.
 
 ```{r}
 #| label: fig-pyt_odstajace_kopia
 #| echo: false
-#| fig-cap: "Pytania związane z odstającymi wynikami współczynnika determinacji w relacji ze średnią odpowiedzi"
+#| fig-cap: "Pytania związane z odstającymi wynikami współczynnika $Rho^2$ w relacji ze średnią odpowiedzi"
 #| out-width: 490px
 #| out-height: 292px
 
@@ -293,7 +295,7 @@ knitr::include_graphics("figures/pyt_odstajace_kopia.png")
 
 ## Odpowiedzi a różnice między miarami z teorii informacji
 
-Niniejszy podrozdział koncentruje się na badaniu relacji pomiędzy odpowiedziami ankietowanych a różnicami wartości miar z teorii informacji. Analiza korelacji przeprowadzona została na podstawie przygotowanych do ankiety dwóch zbiorów rastrów z dwoma i trzema klasami oraz dwoma miarami z teorii informacji: entropii oraz względnej informacji wzajemnej. Te same miary zostały wcześniej wykorzystane w trakcie przygotowania rastrów do ankiety, w celu potwierdzenia uzyskania pełnego zakresu kompozycji i konfiguracji przestrzennej (Podrozdział [-@sec-symulowanie]). Wyniki korelacji Spearmana sposobów agregacji odpowiedzi z różnicami entropii i względnej informacji wzajemnej w podziale na zbiory rastrów z dwoma i trzema klasami przedstawia Tabela [-@tbl-mc2_signif_table].
+Niniejszy podrozdział koncentruje się na badaniu relacji pomiędzy odpowiedziami ankietowanych a różnicami wartości miar z teorii informacji. Analiza korelacji przeprowadzona została na podstawie przygotowanych do ankiety dwóch zbiorów rastrów z dwoma i trzema klasami oraz dwoma miarami z teorii informacji: entropii oraz względnej informacji wzajemnej. Te same miary zostały wcześniej wykorzystane w trakcie przygotowania rastrów do ankiety w celu potwierdzenia uzyskania pełnego zakresu kompozycji i konfiguracji przestrzennej (Podrozdział [-@sec-symulowanie]). Wyniki korelacji Spearmana sposobów agregacji odpowiedzi z różnicami entropii i względnej informacji wzajemnej w podziale na zbiory rastrów z dwoma i trzema klasami przedstawia Tabela [-@tbl-mc2_signif_table].
 
 ```{r}
 #| label: tbl-mc2_signif_table
@@ -329,7 +331,7 @@ df5$measure[df5$measure == "answer_sd"] <- "SD odp."
 df5$measure[df5$measure == "ent_diff"] <- "Różnica entropii"
 df5$measure[df5$measure == "relmutinf_diff"] <- "Różnica RMI"
 
-knitr::kable(df5, booktabs = TRUE, escape = TRUE,
+knitr::kable(df5, booktabs = TRUE, escape = TRUE, linesep = "",
              col.names = c("Nazwa miary",
                            "Różnica entropii",
                            "Różnica RMI",
@@ -351,7 +353,7 @@ W przypadku dwóch klas, średnia odpowiedź jest negatywnie skorelowana zarówn
 ```{r}
 #| label: fig-answer_mean_vs_ent_diff
 #| echo: false
-#| fig-cap: "Relacja między średnią odpowiedzią a różnicą entropii dla dwóch i trzech klas"
+#| fig-cap: 'Relacja między średnią odpowiedzią a różnicą entropii dla dwóch i trzech klas. Wartości 1-5 na osi X odpowiadają kolejno odpowiedziom "Pełne", "Bardzo duże", "Umiarkowane", "Bardzo małe" oraz "Brak"'
 #| out-width: 450px
 #| out-height: 270px
 
@@ -366,7 +368,7 @@ W przypadku rastrów z trzema klasami, analiza korelacji Spearmana nie wykazała
 ```{r}
 #| label: fig-answer_mean_vs_relmutinf_diff
 #| echo: false
-#| fig-cap: "Relacja między średnią odpowiedzią a różnicą względnej informacji wzajemnej dla dwóch i trzech klas"
+#| fig-cap: 'Relacja między średnią odpowiedzią a różnicą względnej informacji wzajemnej dla dwóch i trzech klas. Wartości 1-5 na osi X odpowiadają kolejno odpowiedziom "Pełne", "Bardzo duże", "Umiarkowane", "Bardzo małe" oraz "Brak"'
 #| out-width: 450px
 #| out-height: 270px
 knitr::include_graphics("figures/answer_mean_vs_relmutinf_diff.png")
@@ -375,7 +377,7 @@ knitr::include_graphics("figures/answer_mean_vs_relmutinf_diff.png")
 
 Odchylenie standardowe odpowiedzi dla dwóch klas jest wyraźnie negatywnie skorelowane z różnicą entropii. Im większa była różnica w entropii między parą rastrów, tym mniejsze było zróżnicowanie odpowiedzi. Oznacza to, że respondenci są tym bardziej ze sobą zgodni, im bardziej rastry różnią się od siebie pod względem entropii. Natomiast wynik wskaźnika korelacji odchylenia standardowego ze względną informacją wzajemną nie jest istotny statystycznie.
 
-Odchylenie standardowe odpowiedzi dla trzech klas nie wykazuje istotnej statystycznie relacji z różnicami między miarami z teorii informacji.
+Odchylenie standardowe odpowiedzi dla trzech klas nie wykazuje istotnej statystycznie relacji z różnicami między miarami z teorii informacji. To sugeruje, że zmienność kompozycji i konfiguracji na rastrach z większą liczbą kategorii nie mają bezpośredniego wpływu na zróżnicowanie odpowiedzi ankietowanych.
 
 
 

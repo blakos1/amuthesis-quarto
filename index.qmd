@@ -11,11 +11,12 @@ Istnieje szereg technik służących do analizy różnic w danych rastrowych, w 
 W tych metodach, stopień zróżnicowania dwóch obszarów może być oszacowany za pomocą miar odległości, podobieństwa, niepodobieństwa i innych wskaźników.
 Współcześnie jednak nie określono, która z tych miar najlepiej odzwierciedla ludzkie postrzeganie różnic w pokryciu terenu.
 <!-- (2) 1 zdanie opisujące cel pracy, -->
-Celem tej pracy było porównanie metod określania zmian struktury przestrzennej kategorii pokrycia terenu z postrzeganiem zmian przestrzennych przez ludzi.
+Celem tej pracy było porównanie zgodności miar umożliwiających określenie niepodobieństwa struktury przestrzennej z postrzeganiem zmian kategorii pokrycia terenu przez ludzi.
 <!-- (3) 1-3 zdania przedstawiające użyte materiały (dane) i metody (techniki, narzędzia), -->
 W tym celu przeprowadzona została ankieta w której zadaniem respondentów była ocena podobieństwa między parami rastrów.
 Zbiory danych rastrowych zostały przygotowane poprzez symulację parametrów kompozycji i konfiguracji przestrzennej.
 W analizie uwzględniono 20 miar niepodobieństwa oraz dwie miary z dziedziny teorii informacji: entropię brzegową i względną informację wzajemną.
+Przeprowadzono także analizę różnic między wynikami czterech wybranych miar niepodobieństwa zastosowanych do analizy zmian pokrycia terenu na podstawie danych CORINE Land Cover.
 <!-- (4) 1-3 zdania obrazujące główne wyniki pracy, -->
 W efekcie przeprowadzonych badań udało się opisać relacje między sposobem postrzegania przez ludzi różnic w pokryciu terenu a wynikami miar niepodobieństwa oraz wartościami miar opisujących kompozycję i konfigurację przestrzenną rastrów.
 <!-- (5) 1-2 zdania podsumowujące; możliwe jest też określenie dalszych kroków/planów. -->
@@ -26,7 +27,16 @@ Słowa kluczowe: zmiany pokrycia terenu, struktura przestrzenna, miary odległo�
 
 **Abstract**
 
-The analysis of changes in land cover over different time periods or between different image datasets is an important issue in geospatial research. There are a number of techniques for analysing differences in raster data, including pattern-based change assessment methods. In these methods, the difference between two areas can be estimated using measures of distance, similarity, dissimilarity and other indicators. However, at present, it has not been determined which of these measures best reflects human perception of differences in land cover. The aim of this work was to compare methods for determining changes in the spatial structure of land cover categories with human perceptions of spatial change. For this purpose, a survey was conducted in which respondents were asked to assess the similarity between pairs of rasters. The raster datasets were prepared by simulating composition and spatial configuration parameters. The analysis included 20 measures of dissimilarity and two information theory measures: marginal entropy and relative mutual information. As a result of the study, it was possible to describe the relationships between people's perceptions of differences in land cover and the results of dissimilarity measures and the values of measures describing the spatial composition and configuration of raster images.
+The analysis of changes in land cover over different time periods or between different image datasets is an important issue in geospatial research.
+There are a number of techniques for analysing differences in raster data, including pattern-based change assessment methods.
+In these methods, the difference between two areas can be estimated using measures of distance, similarity, dissimilarity and other indicators.
+However, at present, it has not been determined which of these measures best reflects human perception of differences in land cover.
+The aim of this work was to compare the agreement of measures that allow the determination of spatial structure dissimilarity with people's perceptions of changes in land cover categories.
+For this purpose, a survey was conducted in which respondents were asked to assess the similarity between pairs of rasters.
+The raster datasets were prepared by simulating composition and spatial configuration parameters.
+The analysis included 20 measures of dissimilarity and two information theory measures: marginal entropy and relative mutual information.
+An analysis of differences between the results of four selected dissimilarity measures used to analyze land cover changes based on CORINE Land Cover data was also conducted.
+As a result of the study, it was possible to describe the relationships between people's perceptions of differences in land cover and the results of dissimilarity measures and the values of measures describing the spatial composition and configuration of raster images.
 
 Keywords: land cover changes, spatial pattern, distance measures, dissimilarity measures, landscape ecology
 

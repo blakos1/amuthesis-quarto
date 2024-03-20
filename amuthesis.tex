@@ -10,8 +10,10 @@
 % Version: 6 September 2016
 
 \documentclass{amuthesis}
-% \usepackage[polish]{babel}
 \usepackage{polski}
+\usepackage[polish]{babel}
+\addto\captionspolish{\renewcommand{\figurename}{Rycina}}
+\addto\captionspolish{\renewcommand{\tablename}{Tabela}}
 \renewcommand{\figurename}{Rycina} % Redefine default figure caption %
 \renewcommand{\tablename}{Tabela} % Redefine default table caption %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -20,7 +22,7 @@
 \usepackage{booktabs,tabularx} % Allows kableExtra to work %
 \usepackage{indentfirst} % Adds indent in the first paragraph %
 \usepackage{bookmark} % Adds indent in the first paragraph %
-
+\usepackage{float}
 \author{$author$}
 \title{$title$}
 \def\titleeng{$titleeng$}

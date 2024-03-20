@@ -22,7 +22,7 @@ Dane pochodzące z teledetekcji często mają postać danych rastrowych, gdzie i
 W modelu danych rastrowych każda z tych komórek lub punktów przechowuje jedną wartość, która stanowi reprezentację jakiejś charakterystyki danego fragmentu powierzchni Ziemi.
 Obrazy uzyskane w procesie teledetekcji mogą być interpretowane manualnie przez grupy specjalistów.
 Pozwala to na uzyskanie map pokrycia terenu o wysokiej dokładności, kosztem długiego procesu ich tworzenia [@CUNNINGHAM2006217].
-Dużo mniej czasochłonną metodą jest przetwarzanie przy użyciu algorytmów.
+Dużo mniej czasochłonną metodą jest przetwarzanie danych teledetekcyjnych przy użyciu algorytmów.
 Umożliwiają one względnie szybką, półautomatyczną identyfikację i klasyfikację różnych typów powierzchni kosztem mniejszej dokładności mapy wynikowej [@CUNNINGHAM2006217].
 Ostatecznie, dane przekształcone w mapy pokrycia terenu mogą posłużyć do analiz zmian pokrycia terenu [@Feranec2007; @Sleeter2013; @Mierzwiak_Całka_2019].
 
@@ -34,29 +34,31 @@ Dzięki analizie zmian pokrycia terenu można identyfikować obszary zagrożone 
 <!-- akapit o tym jakie istnieją sposoby porównywania zmian pokrycia terenu -->
 W badaniach nad zmianami pokrycia terenu wykorzystuje się różnorodne metody analityczne.
 Niemniej jednak, wiele z tych technik koncentruje się na analizie zmian na poziomie indywidualnych komórek w siatce rastra [@ChangeDetectionTechniques].
-Choć podejście to może dostarczać użytecznych informacji dotyczących trendów zmian pokrycia terenu na niewielkich obszarach, charakteryzuje się ono istotnymi ograniczeniami w kontekście interpretacji wyników.
+Choć podejście to może dostarczać użytecznych informacji dotyczących trendów zmian pokrycia terenu, charakteryzuje się ono istotnymi ograniczeniami w kontekście interpretacji wyników.
 Szczególnie w przypadku badań obejmujących rozległe terytoria, takie jak kraje czy nawet kontynenty, bardziej efektywne staje się zastosowanie metod opartych na analizie struktur przestrzennych [@Netzel2015].
-Głównym założeniem tych metod jest przekształcenie danych z postaci pojedynczych wartości komórek rastra w sygnatury przestrzenne, a następnie porównanie ich ze sobą za pomocą miar odległości i niepodobieństwa.
+Głównym założeniem tych metod jest przekształcenie danych z postaci pojedynczych wartości komórek rastra w sygnatury przestrzenne, a następnie porównanie ich ze sobą za pomocą miar odległości i niepodobieństwa [@nowosad_motif].
 
 <!-- akapit o tym że są też miary odległości i czym one są -->
-Sygnatury przestrzenne stanowią statystyczny opis struktur przestrzennych kategorii pokrycia terenu na mniejszych, wydzielonych obszarach w obrębie całego zbioru danych.
+Sygnatury przestrzenne stanowią statystyczny opis struktur przestrzennych kategorii pokrycia terenu na mniejszych, wydzielonych obszarach w obrębie całego zbioru danych [@Jasiewicz_GeoPAT].
 W celu porównania ze sobą dwóch sygnatur przestrzennych, wykorzystywane są miary niepodobieństwa.
 Umożliwiają one określenie w jakim stopniu dwa analizowane obszary się od siebie różnią pod względem kompozycji oraz konfiguracji przestrzennej.
-Opracowane zostało wiele różnych miar niepodobieństwa, takich jak odległość euklidesowa, odległość Canberra, metryka Wave Hedgesa, współczynnik podobieństwa Jaccarda, odległość Jensena-Shannona czy dywergencja Pearsona [@Cha2007].
+Opracowane zostało wiele różnych miar niepodobieństwa, takich jak odległość euklidesowa, odległość Canberra, metryka Wave Hedgesa, współczynnik podobieństwa Jaccarda, dywergencja Jensena-Shannona czy dywergencja Pearsona [@Cha2007].
 Współcześnie jednak nie określono, która z tych miar jest najbardziej zgodna zarówno z postrzeganiem przez człowieka, jak i wpływem zmian na procesy środowiskowe.
 
 <!-- wady i zalety obu podejść -->
 <!-- wady i zalety obu podejść, np. że percepcja jest subiektywna i nie skaluje się -->
 
 <!-- cel pracy -->
-Celem tej pracy było porównanie metod określania zmian struktury przestrzennej kategorii pokrycia terenu z postrzeganiem zmian przestrzennych przez ludzi.
+Celem tej pracy było porównanie zgodności miar umożliwiających określenie niepodobieństwa struktury przestrzennej z postrzeganiem zmian kategorii pokrycia terenu przez ludzi.
 Pierwszym etapem pracy było stworzenie zbioru rastrów poprzez proces symulacji.
-Założeniem przy tworzeniu rastrów było uwzględnienie wszystkich możliwych wartości kompozycji oraz konfiguracji przestrzennej.
-Na podstawie tych danych przeprowadzona została ankieta, w której zadaniem respondentów było określenie stopnia podobieństwa między parami rastrów.
-Badanie przeprowadzone zostało na rastrach składających się wyłącznie z dwóch lub trzech kategorii.
-Wyniki ankiety zestawione zostały z wartościami 45 miar niepodobieństwa.
-Na tej podstawie, do dalszej analizy wybrane zostały cztery miary niepodobieństwa charakteryzujące się największą zgodnością z ludzką percepcją zmian przestrzennych oraz dwie najczęściej stosowane: odległość euklidesowa i dywergencja Jensena-Shannona.
-W kolejnym etapie na podstawie zbioru danych o pokryciu terenu Corine Land Cover (CLC) stworzone zostały mapy niepodobieństwa struktur przestrzennych pokrycia terenu dla obszaru Polski dla lat 1990 i 2018.
-Mapy te stworzone zostały w oparciu o miary niepodobieństwa wybrane na podstawie wyników ankiety.
-Następnie mapy te zostały ze sobą porównane i opisane, na podstawie czego scharakteryzowane zostały kluczowe różnice wynikające z zastosowania każdej z miar.
+Założeniem przy tworzeniu rastrów było uwzględnienie szerokiego spektrum wartości kompozycji oraz konfiguracji przestrzennej.
+Na podstawie tych danych przeprowadzono ankietę, w której zadaniem respondentów było określenie stopnia podobieństwa między parami rastrów.
+Badanie przeprowadzono na rastrach składających się wyłącznie z dwóch lub trzech kategorii.
+Na podstawie wyników ankiety określono sposób agregacji odpowiedzi, będący najbardziej wiarygodną reprezentacją postrzegania zmian przestrzennych przez ludzi.
+W oparciu o najlepszy sposób agregacji odpowiedzi, wyniki ankiety zestawiono z wartościami 20 miar niepodobieństwa oraz dwóch miar z teorii informacji: entropii i względnej informacji wzajemnej.
+Kolejnym etapem badania było wskazanie różnic w wynikach wybranych miar niepodobieństwa na podstawie rzeczywistych danych o pokryciu terenu.
+W tym celu z danych o pokryciu terenu CORINE Land Cover (CLC) dla lat 1990 i 2018 wydzielono regularną siatkę obszarów o wymiarach 10 na 10 km.
+Dla tych obszarów obliczono wartości niepodobieństwa dwóch miar charakteryzujących się największą zgodnością z ludzką percepcją zmian przestrzennych oraz dwóch najczęściej stosowanych: odległości euklidesowej i dywergencji Jensena-Shannona.
+Następnie wyselekcjonowano i opisano obszary, dla których miary wykazywały się największym zróżnicowaniem, co pozwoliło na scharakteryzowanie kluczowych różnic wynikających z zastosowania każdej z miar.
+
 

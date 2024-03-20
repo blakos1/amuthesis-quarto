@@ -6,12 +6,62 @@
 
 <!-- Ten rozdział powinien też zawierać opis kwestii, których nie udało się rozwiązać w pracy dyplomowej (i dlaczego się nie udało) oraz pomysły na przyszłe ulepszenie uzyskanych wyników lub dalsze badania. -->
 
-Część miar jest zależna od liczby kategorii. Miary wavehedges, canberra i clark są zależne, podczas gdy pozostałe nie są. W związku z tym, przy wykorzystaniu tych miar do analiz pokrycia terenu należy zastanowić się nad ewentualnym zastosowaniem normalizacji wyników. W tym celu można zastosować na przykład normalizację min-max. Przykład wpływu tej procedury na korelacje z wynikami przedstawia rycina XYZ.
+Zasadniczym celem niniejszej pracy było porównanie miar umożliwiających określenie niepodobieństwa struktury przestrzennej w kontekście określania zmian kategorii pokrycia terenu przez ludzi.
+Do realizacji tego celu stworzono dwa zbiory danych rastrowych uwzględniających dwie i trzy kategorie pokrycia terenu.
+Oba zbiory przygotowano za pomocą symulacji, co pozwoliło na uzyskanie pełnej reprezentacji wszystkich możliwych wartości kompozycji i konfiguracji przestrzennej.
+Rastry wykorzystano do przeprowadzenia internetowej ankiety na grupie 50 studentów Wydziału Nauk Geograficznych i Geologicznych Uniwersytetu im. Adama Mickiewicza w Poznaniu.
+W tej ankiecie, zadaniem respondentów było określenie stopnia podobieństwa między parami rastrów w skali która obejmowała poziomy od "Brak" przez "Bardzo małe", "Umiarkowane", "Bardzo duże" aż po "Pełne".
+Łącznie uzyskano 2400 odpowiedzi na 93 pytania.
+Poziom zgodności ankietowanych, czyli stosunek najczęściej udzielonych odpowiedzi względem całkowitej liczby pytań wyniósł 55%.
+Respondenci najczęściej udzielali zgodnych odpowiedzi w kwestii oceny podobieństwa w przypadku par rastrów różniących się od siebie pod względem kompozycji jak i konfiguracji przestrzennej - poziom zgodności dla tej grupy pytań wyniósł 61%.
+Najniższy wynik, na poziomie 52%, uzyskała grupa par rastrów różniących się wyłącznie względną informacją wzajemną.
+
+W kolejnym etapie analizy dla wszystkich par rastrów uwzględnionych w ankiecie zostały obliczone wartości 20 miar niepodobieństwa.
+Pierwszym krokiem był wybór metody agregacji odpowiedzi, która wykazywała największą zgodność z tymi miarami.
+Wzięto pod uwagę cztery sposoby grupowania odpowiedzi: średnią, medianę, modę i odchylenie standardowe.
+Analiza relacji między tymi metodami a miarami niepodobieństwa pozwoliła stwierdzić, że dla zbioru rastrów uwzględniających dwie klasy najlepszym sposobem agregacji odpowiedzi jest obliczenie średniej.
+W przypadku zbioru rastrów z trzema klasami wszystkie metody uzyskały podobne wyniki.
+Szczególnie interesującą relację z miarami niepodobieństwa ukazuje odchylenie standardowe odpowiedzi - część miar wykazała silną relację z tą metodą agregacji w przypadku zbioru rastrów uwzględniających dwie klasy, podczas gdy dla zbioru z trzema klasami relacje te były bardzo słabe.
+
+Na podstawie relacji 20 miar niepodobieństwa ze średnią odpowiedzi wykazano, że ten sposób grupowania z reguły cechuje się silniejszą relacją z miarami niepodobieństwa obliczonymi dla pytań dotyczących rastrów uwzględniających wyłącznie dwie kategorie pokrycia terenu, niż uwzględniających trzy kategorie pokrycia terenu. 
+Dla obu zbiorów rastrów najlepsze wyniki uzyskały trzy miary: miara Wave Hedgesa, odległość Canberra oraz miara Clarka.
+Jest to godne uwagi, ponieważ są to jedyne miary, których zakres wartości jest zauważalnie zależny od liczby klas obecnych na analizowanych rastrach.
+W związku z tym, przy wykorzystaniu tych miar do analiz pokrycia terenu należy zastanowić się nad ewentualnym zastosowaniem normalizacji wyników.
+Warto również rozważyć ograniczenie ich stosowania do przypadków, w których liczba klas pozostaje stała, aby uzyskać bardziej spójne i porównywalne wyniki analizy.
+
+
+Dla wszystkich par rastrów, dodatkowo obliczono różnicę entropii oraz różnicę względnej informacji wzajemnej, które dostarczają informacji o zróżnicowaniu tych rastrów pod względem kompozycji i przestrzennej konfiguracji.
+W przypadku rastrów składających się z dwóch klas, średnia odpowiedź jest negatywnie skorelowana zarówno z różnicą entropii, jak i różnicą względnej informacji wzajemnej.
+Wynika z tego, że im mniejsza różnica między właściwościami informacyjnymi pary rastrów, tym są one przez respondentów postrzegane jako bardziej podobne.
+Ponadto, odchylenie standardowe odpowiedzi dla rastrów uwzględniających dwie klasy wykazuje wyraźną ujemną korelację z różnicą entropii, co oznacza, że im większa różnica między rastrami pod względem entropii tym większa zgodność odpowiedzi ankietowanych.
+W przypadku rastrów z trzema klasami, analiza korelacji Spearmana nie wykazała istotnej zależności między średnią odpowiedzią a różnicą entropii oraz różnicą względnej informacji wzajemnej. Wskazano jednak potencjalne występowanie nieliniowej relacji między średnią odpowiedzią a entropią, co sugeruje konieczność przeprowadzenia dalszych badań w celu jej potwierdzenia.
+
+<!-- * W dalszej części pracy skupiono się na próbie wyjaśnienia różnic między wynikami czterech wybranych miar niepodobieństwa: odległości euklidesowej, miary Jensena-Shannona, Wave Hedgesa oraz Tanejy przy zastosowaniu w analizie zmian pokrycia terenu na podstawie danych rzeczywistych. -->
+<!-- * W tym celu wykorzystano dane rastrowe o pokryciu terenu CORINE Land Cover (CLC) dla obszaru Polski dla lat 1990 i 2018, które zostały zreklasyfikowane, aby obejmowały wyłącznie dwie kategorie pokrycia terenu: lasy i pozostałe obszary. -->
+<!-- * Obszar badań podzielono został na 3337 mniejszych jednostek o wymiarach 10 na 10 km, dla których to obliczono wartości czterech miar niepodobieństwa oraz różnicę entropii i różnicę względnej informacji wzajemnej. -->
+<!-- * następnie, na podstawie odchylenia standardowego wybranych miar niepodobieństwa wskazano 16 obszarów, dla których miary uzyskały najbardziej zróżnicowane wyniki. -->
+<!-- * wszystkie cztery miary charakteryzują się dosyć silną relacją, a w szczególności miary Jensena-Shannona oraz Tanejy, które charakteryzują się prawie pełną zgodnością. -->
+<!-- * na podstawie obszarów o największym zróżnicowaniu wyników miar niepodobieństwa udało się określić, że miary Tanejy oraz Jensena-Shannona wskazują na duże zmiany w strukturze przestrzennej w przypadku obszarów na których doszło do zmiany liczby kategorii pokrycia terenu, natomiast odległość euklidesowa wykazuje w tym przypadku mniejszą zależność. -->
+<!-- * miara Wave Hedgesa dla tych obszarów wykazała wyłącznie wysokie wartości. Oznacza to, że w bardzo specyficznych sytuacjach ta miara wskazuje na bardzo duże zmiany pokrycia terenu w przypadku obszarów, na których zmiany w rzeczywistości były dosyć niewielkie. -->
+<!-- * na podstawie relacji wybranych miar niepodobieństwa z różnicami miar z teorii informacji wskazano, że wyniki miar niepodobieństwa różnią się od siebie znacząco głównie w przypadku obszarów o niewielkiej różnicy entropii i dosyć dużej różnicy względnej informacji wzajemnej. To sugeruje, że istotny wpływ na zgodność wyników miar niepodobieństwa dla różnic między dwoma rastrami ma to, jak bardzo analizowane rastry różnią się od siebie pod względem sąsiadowania ze sobą poszczególnych kategorii. -->
+
+
+W dalszej części pracy skupiono się na próbie wyjaśnienia różnic między wynikami czterech wybranych miar niepodobieństwa: odległości euklidesowej, miary Jensena-Shannona, Wave Hedgesa oraz Tanejy przy zastosowaniu w analizie zmian pokrycia terenu na podstawie danych rzeczywistych.
+Do tego celu wykorzystano dane rastrowe o pokryciu terenu CORINE Land Cover (CLC) dla obszaru Polski dla lat 1990 i 2018, które zostały zreklasyfikowane, aby obejmowały wyłącznie dwie kategorie pokrycia terenu: lasy i pozostałe obszary.
+Obszar badań podzielono na mniejsze jednostki, dla których obliczono wartości czterech miar niepodobieństwa oraz różnicę entropii i różnicę względnej informacji wzajemnej.
+Następnie, na podstawie odchylenia standardowego wybranych miar niepodobieństwa wskazano obszary, dla których te miary uzyskały najbardziej zróżnicowane wyniki.
+Wszystkie cztery miary charakteryzują się dosyć silną relacją, a w szczególności miary Jensena-Shannona oraz Tanejy, które wykazują prawie pełną zgodność.
+Analiza obszarów o największym zróżnicowaniu wyników miar niepodobieństwa pozwoliła określić, że miary Tanejy oraz Jensena-Shannona wskazują na duże zmiany w strukturze przestrzennej w przypadku obszarów, na których doszło do zmiany liczby kategorii pokrycia terenu, natomiast odległość euklidesowa wykazuje w tym przypadku mniejszą zależność.
+Miara Wave Hedgesa dla tych obszarów wykazała wyłącznie wysokie wartości. Oznacza to, że w specyficznych sytuacjach ta miara wskazuje na bardzo duże zmiany pokrycia terenu, nawet gdy w rzeczywistości były one dosyć niewielkie.
+Na podstawie relacji wybranych miar niepodobieństwa z różnicami miar z teorii informacji wskazano, że wyniki miar niepodobieństwa różnią się od siebie znacząco głównie w przypadku obszarów o niewielkiej różnicy entropii i dosyć dużej różnicy względnej informacji wzajemnej. To sugeruje, że istotny wpływ na zgodność wyników miar niepodobieństwa dla różnic między dwoma rastrami ma to, jak bardzo analizowane rastry różnią się od siebie pod względem sąsiadowania ze sobą poszczególnych kategorii.
 
 
 
-<!-- Może to być wynikiem tego, że ludziom może łatwiej przychodzić określenie różnicy w rastrach, które zawierają mniejszą ilość informacji. -->
 
+W świetle przeprowadzonych badań, zalecane jest wykorzystanie miar niepodobieństwa takich jak odległość Canberra, miara Wave Hedgesa, czy miara Clarka do analiz zmian pokrycia terenu obszarów o stałej liczbie kategorii.
+Rekomendacja ta wynika z obserwowanej silnej relacji między wartościami tych miar a postrzeganiem różnic w strukturze przestrzennej przez ludzi. Dodatkowo, w przypadku analizy obszarów o różnej liczbie klas istnieje możliwość skalowania wartości miar, co mogłoby ujednolicić ich przedziały wartości. Alternatywnie zaleca się wykorzystanie miar Kullbacka-Leiblera oraz Tanejy, które mimo tego, że charakteryzują się słabszą relacją z oceną zmian przez ludzi, to ich zakresy wartości są w mniej zależne od liczby kategorii obecnych na rastrach.
 
-<!-- Przeanalizowane wyniki pierwszej ankiety wraz z opisem przyjętej metodyki projektu przedstawione zostały na posterze konferencyjnym pt. „Porównanie metod określania zmian struktury przestrzennej kategorii pokrycia terenu”, autorstwa Błażeja Kościańskiego oraz dra hab. Jakuba Nowosada. -->
-<!-- Poster został przedstawiony w trakcie sesji posterowej na konferencji Geoinformacja: Nauka - Praktyka - Edukacja (https://geoinformacja20uam.pl/), odbywającej się w dniach 1-3 grudnia 2022 roku na Wydziale Nauk Geograficznych i Geologicznych im. Adama Mickiewicza w Poznaniu. -->
+<!-- Warto zaznaczyć, że przyszłe badania mogłyby skupić się na dalszym rozwinięciu problemu przedstawionego w tej pracy poprzez przeprowadzenie ankiet opartych na danych rzeczywistych lub uwzględnienie rastrów z większą liczbą klas. Takie podejście pozwoliłoby na bardziej kompleksową ocenę wpływu tych czynników na percepcję zmian kategorii pokrycia terenu przez ludzi. -->
+
+W tej pracy ustalono, że istnieją miary niepodobieństwa, które wykazują istotne różnice w strukturze przestrzennej przy porównywaniu rastrów o różnej liczbie klas. Jednakże w ankiecie nie uwzględniono pytań, w których zadaniem respondentów byłoby określenie podobieństwa między takimi parami rastrów. W związku z tym, w kolejnych pracach zaleca się przeprowadzenie analizy wpływu zmiany liczby klas obecnych na rastrach na ocenę zmian pokrycia terenu przez ludzi. Wykazano także, że przedziały wartości niektórych miar też są zależne od liczby klas obecnych na badanych rastrach. Warto rozważyć w kolejnych badaniach analizę zakresów wartości przy porównywaniu par rastrów o zróżnicowanej liczbie klas.
+

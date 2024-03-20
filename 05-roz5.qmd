@@ -5,16 +5,16 @@ W tym rozdziale skupiono się na próbie wyjaśnienia różnic między wynikami 
 
 ## Porównanie wybranych miar niepodobieństwa w kontekście określania zmian kategorii pokrycia terenu
 
-Dalsza część porównania miar niepodobieństwa opierała się na analizie wyników wybranych miar przy zastosowaniu w analizie zmian pokrycia terenu na podstawie danych rzeczywistych. W tym celu zostały wykorzystane dane CORINE Land Cover dla obszaru Polski dla lat 1990 i 2018, które zostały opisane w Podrozdziale [-@sec-CLC]. Dla uproszczenia analizy, dane CLC zostały zreklasyfikowane tak aby uwzględniały wyłącznie dwie kategorie pokrycia terenu: lasy i pozostałe obszary.
+Dalsza część porównania miar niepodobieństwa opierała się na zestawieniu wyników wybranych miar przy zastosowaniu w analizie zmian pokrycia terenu na podstawie danych rzeczywistych. W tym celu wykorzystano dane CORINE Land Cover dla obszaru Polski dla lat 1990 i 2018, które opisano w Podrozdziale [-@sec-CLC]. Dla uproszczenia analizy, dane CLC zostały zreklasyfikowane tak aby uwzględniały wyłącznie dwie kategorie pokrycia terenu: lasy i pozostałe obszary.
 
-Do oceny zmian pokrycia terenu zastosowano metody oparte na analizie struktur przestrzennych, opisane dokładniej w Podrozdziale [-@sec-pattern-based]. Dane wejściowe zostały podzielone na regularną siatkę kwadratów o wymiarach 100 na 100 komórek rastra (10 na 10 km). W ten sposób, obszar badań podzielony został na 3337 mniejszych jednostek. Następnie, dla tych obszarów obliczone zostały zmiany ich struktur przestrzennych dla danych z 1990 i 2018 roku wykorzystując do tego cztery miary niepodobieństwa wybrane na podstawie różnych kryteriów: 
+Do oceny zmian pokrycia terenu zastosowano metody oparte na analizie struktur przestrzennych, opisane dokładniej w Podrozdziale [-@sec-pattern-based]. Dane wejściowe podzielono na regularną siatkę kwadratów o wymiarach 100 na 100 komórek rastra (10 na 10 km). W ten sposób, obszar badań został podzielony na 3337 mniejszych jednostek. Następnie, dla tych obszarów obliczono zmiany ich struktur przestrzennych dla danych z 1990 i 2018 roku wykorzystując do tego cztery miary niepodobieństwa wybrane na podstawie różnych kryteriów: 
 
 * Odległość euklidesowa – najpopularniejsza miara niepodobieństwa, która nie jest zależna od liczby klas
-* Jensen-Shannon – miara niepodobieństwa, która również nie jest zależna od liczby klas a jest wykorzystywana w pracach dotyczących podobieństwa struktur przestrzennych ***(REF)***
-* Wave Hedges – miara niepodobieństwa, która jest zależna od liczby klas, ale która dała najwyższą wartość współczynnika determinacji dla średniej odpowiedzi dla dwóch klas oraz jedną z najwyższych dla trzech klas
-* Taneja – miara niepodobieństwa, która nie jest zależna od liczby klas, ale która dała relatywnie wysokie wartości współczynnika determinacji dla odchylenia standardowego odpowiedzi dla dwóch oraz trzech klas
+* Jensen-Shannon – miara niepodobieństwa, która również nie jest zależna od liczby klas a jest wykorzystywana w pracach dotyczących podobieństwa struktur przestrzennych [@Jasiewicz_gigacells; @niesterowicz2016; @niesterowicz_regionalization; @Briseno2024]
+* Wave Hedges – miara niepodobieństwa, która jest zależna od liczby klas, ale która dała najwyższą wartość współczynnika $Rho^2$ dla średniej odpowiedzi dla dwóch klas oraz jedną z najwyższych dla trzech klas
+* Taneja – miara niepodobieństwa, która nie jest zależna od liczby klas, ale która dała relatywnie wysokie wartości współczynnika $Rho^2$ dla odchylenia standardowego odpowiedzi dla dwóch oraz trzech klas
 
-Ze względu na to że oryginalnie wyniki tych miar mieszczą się w różnych przedziałach wartości, zostały one przeskalowane do zakresu od 0 do 100. Dzięki temu można łatwiej ze sobą porównać wyniki tych miar. Należy jednak wziąć pod uwagę, że w takiej sytuacji wartość miar równa 0 niekoniecznie będzie oznaczać całkowity brak zmian w strukturze przestrzennej, a po prostu najmniejszą zmianę z całego zbioru danych. Wartość 100 natomiast reprezentować będzie obszary o największej zmianie struktury przestrzennej.
+Ze względu na to że oryginalnie wyniki tych miar mieszczą się w różnych przedziałach wartości, zostały one przeskalowane do zakresu od 0 do 100. Dzięki temu można łatwiej porównać wyniki tych miar. Należy jednak wziąć pod uwagę, że w takiej sytuacji wartość miar równa 0 niekoniecznie będzie oznaczać całkowity brak zmian w strukturze przestrzennej, a po prostu najmniejszą zmianę z całego zbioru danych. Wartość 100 natomiast reprezentować będzie obszary o największej zmianie struktury przestrzennej.
 
 ```{r}
 #| label: fig-zestawienie_miar1
@@ -27,62 +27,17 @@ Ze względu na to że oryginalnie wyniki tych miar mieszczą się w różnych pr
 knitr::include_graphics("figures/zestawienie_miar1.png")
 ```
 
-Uwzględnione miary niepodobieństwa wykazują między sobą na tyle silne relacje, że na pierwszy rzut oka trudno zauważyć istotne różnice pomiędzy nimi na mapach (Rycina [-@fig-zestawienie_miar1]). Dlatego też, aby dokładniej zrozumieć różnice w wynikach tych miar, konieczna jest głębsza analiza danych uwzględniająca bezpośrednie porównanie ze sobą wyników miar dla obszarów o największych różnicach wartości.
+Uwzględnione miary niepodobieństwa wykazują między sobą na tyle silne relacje, że na pierwszy rzut oka trudno zauważyć istotne różnice pomiędzy nimi na mapach (Rycina [-@fig-zestawienie_miar1]). Dlatego też, aby dokładniej zrozumieć różnice w wynikach tych miar, konieczna jest analiza danych uwzględniająca bezpośrednie porównanie ze sobą wyników miar dla obszarów o największych różnicach wartości.
 
 
 ## Porówanie wyników miar niepodobieństwa
 
-W celu wskazania obszarów dla których miary niepodobieństwa dają najbardziej zróżnicowane wyniki, dla każdego obszaru obliczone zostało odchylenie standardowe czterech wybranych miar niepodobieństwa. Następnie wybrano obszary, dla których odchylenie standardowe miar znalazło się w 1% najwyższych wyników. Pozwoliło to na wskazanie 12 obszarów, dla których wyniki miar niepodobieństwa są najbardziej zróżnicowane z całego zbioru danych. Próg dla najwyższych 1% odchyleń standardowych wyniósł 31,03. Wyniki powyżej tego progu wskazują na bardzo duże zróżnicowanie wyników miar niepodobieństwa. Dodatkowo, wybrano cztery obszary dla których wartości miar Tanejy i Jensena-Shannona różniły się od siebie w znacznym stopniu.
-
-```{r}
-#| label: fig-relacje_miar1
-#| echo: false
-#| fig-cap: "Wykresy relacji między odległością euklidesową, miarą Jensena-Shannona, miarą Wave Hedgesa oraz miarą Tanejy dla wydzielonych obszarów 10 na 10km"
-#| out-width: 500px
-#| out-height: 750px
-
-# 2000x3000
-knitr::include_graphics("figures/relacje_miar1.png")
-```
+W celu wskazania obszarów dla których miary niepodobieństwa dają najbardziej zróżnicowane wyniki, dla każdego obszaru obliczono odchylenie standardowe czterech wybranych miar niepodobieństwa. Następnie wybrano obszary, dla których odchylenie standardowe miar znalazło się w 1% najwyższych wyników. Pozwoliło to na wskazanie 12 obszarów, dla których wyniki miar niepodobieństwa są najbardziej zróżnicowane z całego zbioru danych. Próg dla najwyższych 1% odchyleń standardowych wyniósł 31,03. Wyniki powyżej tego progu wskazują na bardzo duże zróżnicowanie wyników miar niepodobieństwa. Dodatkowo, wybrano cztery obszary dla których wartości miar Tanejy i Jensena-Shannona różniły się od siebie w znacznym stopniu.
 
 Na podstawie wykresów na Rycinie [-@fig-relacje_miar1] możemy zauważyć, że wszystkie cztery miary niepodobieństwa są ze sobą silnie skorelowane. W szczególności miary Jensena-Shannona oraz Tanejy charakteryzują się prawie pełną zgodnością. Wyjątek stanowią obszary oznaczone kolorem czerwonym, które reprezentują sytuacje o dużym zróżnicowaniu wyników miar niepodobieństwa. Obszary te widocznie odstają także w przypadku pozostałych relacji miar. Najsłabszą relację wykazują miara Wave Hedgesa z odległością euklidesową.
 
-```{r}
-#| label: fig-obszary_odst
-#| echo: false
-#| fig-cap: "Obszary dla których miary niepodobieństwa dają najbardziej zróżnicowane wyniki. Posortowane malejąco według odchylenia standardowego miar"
-#| out-width: 500px
-#| out-height: 622px
-
-# 2200x2740
-knitr::include_graphics("figures/obszary_odst_kopia.png")
-```
-
-
-```{r}
-#| label: tbl-obszary_odst_tabela
-#| echo: false
-#| tbl-cap: "Zestawienie wyników czterech miar niepodobieństwa obszarów odstających. Posortowane malejąco według odchylenia standardowego miar"
-
-df = read.csv("tables/obszary_odst_tabela.csv", row.names = 1)
-
-df = df[, 1:7]
-
-nazwykolumn = c("Numer obszaru", "Różnica entropii", "Różnica RMI", "odległość euklidesowa", "Jensen-Shannon", "Wave Hedges", "Taneja")
-
-knitr::kable(df, booktabs = TRUE, escape = TRUE, col.names = nazwykolumn) |>
-  kableExtra::column_spec(1:3, width = "1.5cm") |>
-  kableExtra::column_spec(4, width = "2.2cm") |>
-  kableExtra::column_spec(5, width = "1.8cm") |>
-  kableExtra::column_spec(6:7, width = "1.5cm") |>
-  kableExtra::footnote(general = "RMI - względna informacja wzajemna", general_title = "")
-  # kableExtra::column_spec(4:7, width = "2cm")
-```
-
-Obszary, dla których miary niepodobieństwa wykazały największe zróżnicowanie, zostały przedstawione na Rycinie [-@fig-obszary_odst]. 
-
-Na wszystkich 16 obszarach zmiany można określić jako bardzo niewielkie. 
-Wśród tych obszarów można wyróżnić dwie główne grupy: pierwsza grupa obejmuje obszary oznaczone jako 1, 5, 6, 8, 9, 10, 11 i 12, na których nastąpiły bardzo niewielkie zmiany, natomiast druga grupa to obszary 2, 3, 4, 7, 13, 14, 15 oraz 16, na których doszło do zmiany liczby klas pokrycia terenu. Każda z tych grup liczy po 8 obszarów.
+Obszary, dla których miary niepodobieństwa wykazały największe zróżnicowanie, zostały przedstawione na Rycinie [-@fig-obszary_odst].
+Wśród tych obszarów można wyróżnić dwie główne grupy: pierwsza grupa obejmuje obszary oznaczone jako 1, 5, 6, 8, 9, 10, 11 i 12, na których nastąpiły bardzo niewielkie zmiany, natomiast druga grupa to obszary 2, 3, 4, 7, 13, 14, 15 oraz 16, na których doszło do zmiany liczby klas pokrycia terenu. Każda z tych grup liczy po osiem obszarów.
 
 W przypadku drugiej grupy, rastry początkowe zawierają wyłącznie jedną kategorię pokrycia terenu, natomiast rastry przedstawiające stan po zmianach uwzględniają obie klasy. Na podstawie Tabeli [-@tbl-obszary_odst_tabela] można zauważyć, że tym obszarom miary Tanejy oraz Jensena-Shannona przypisały dużo wyższe wartości niż pozostałym. Miara Tanejy przypisała wszystkim tym obszarom wartości powyżej 98, natomiast miara Jensena-Shannona wartości powyżej 70. Wynika z tego, że miary te są wyjątkowo wrażliwe na zmianę liczby klas między porównywanymi rastrami.
 
@@ -92,6 +47,56 @@ Warto także zauważyć, że miara Wave Hedgesa dla obszarów odstających wykaz
 
 W przypadku każdego z wybranych obszarów, miara Tanejy wskazuje na większe zmiany pokrycia terenu w porównaniu do miary Jensena-Shannona.
 
+```{r}
+#| label: fig-relacje_miar1
+#| echo: false
+#| fig-cap: "Wykresy relacji między odległością euklidesową, miarą Jensena-Shannona, miarą Wave Hedgesa oraz miarą Tanejy dla wydzielonych obszarów 10 na 10km"
+#| out-width: 500px
+#| out-height: 750px
+#| fig-pos: "H"
+
+# 2000x3000
+knitr::include_graphics("figures/relacje_miar1.png")
+```
+
+```{r}
+#| label: fig-obszary_odst
+#| echo: false
+#| fig-cap: "Obszary dla których miary niepodobieństwa dają najbardziej zróżnicowane wyniki. Posortowane malejąco według odchylenia standardowego miar. Kolor biały reprezentuje komórki znajdujące się poza obszarem badań nieuwzględnione podczas poniższej analizy"
+#| out-width: 500px
+#| out-height: 404px
+
+# 2200x2740
+# out-width: 500px
+# out-height: 622px
+
+# 1500x3100
+# 2500x2020
+
+knitr::include_graphics("figures/obszary_odst_kopia3.png")
+```
+
+```{r}
+#| label: tbl-obszary_odst_tabela
+#| echo: false
+#| tbl-cap: "Zestawienie wyników czterech miar niepodobieństwa obszarów odstających. Posortowane malejąco według odchylenia standardowego miar"
+#| fig-pos: "H"
+
+df = read.csv("tables/obszary_odst_tabela.csv", row.names = 1)
+
+df = df[, 1:7]
+
+nazwykolumn = c("Numer obszaru", "Różnica entropii", "Różnica RMI", "odległość euklidesowa", "Jensen-Shannon", "Wave Hedges", "Taneja")
+
+knitr::kable(df, booktabs = TRUE, escape = TRUE, col.names = nazwykolumn, linesep = "") |>
+  kableExtra::kable_styling(font_size = 10) |>
+  kableExtra::column_spec(1:3, width = "1.5cm") |>
+  kableExtra::column_spec(4, width = "2.2cm") |>
+  kableExtra::column_spec(5, width = "1.8cm") |>
+  kableExtra::column_spec(6:7, width = "1.5cm") |>
+  kableExtra::footnote(general = "RMI - względna informacja wzajemna", general_title = "")
+  # kableExtra::column_spec(4:7, width = "2cm")
+```
 
 
 ## Miary niepodobieństwa a kompozycja i konfiguracja przestrzenna
@@ -113,7 +118,7 @@ Analiza wyników korelacji przedstawionych w Tabeli [-@tbl-cztery_miary_ent_relm
 ```{r}
 #| label: fig-clc_ent_vs_relmutinf
 #| echo: false
-#| fig-cap: "Relacja różnicy entropii z różnicą względnej informacji wzajemnej (RMI) dla wydzielonych obszarów"
+#| fig-cap: "Relacja różnicy entropii z różnicą względnej informacji wzajemnej (RMI)"
 #| out-width: 500px
 #| out-height: 350px
 
